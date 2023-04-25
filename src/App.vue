@@ -1,5 +1,6 @@
 <template>
 
+
   <div>
     <PageHeader/>
     <div class="container">
@@ -25,14 +26,15 @@ import PageFooter from './components/common/PageFooter.vue';
 import PageSidebar from './views/student/Eclass/PageSidebar.vue';
 
 
+
 export default {
   name: 'App',
   components: {
     // HelloWorld
     PageHeader,
+
     PageFooter,
     PageSidebar
-
   }
 }
 </script>

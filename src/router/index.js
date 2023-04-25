@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import routesAdmin from './indexAdmin.js'
+import routesProf from './indexProf.js'
+import routesStudent from './indexStudent.js'
+
+
 import PageHome from '@/views/student/Eclass/PageHome.vue'
 import BoardList from '@/views/student/Eclass/BoardList.vue'
 import BoardDetail from '@/views/student/Eclass/BoardDetail.vue'
@@ -44,6 +49,7 @@ const routes = [
     name: 'BoardWrite',
     component: BoardWrite
   },
+
   {
     path: '/source/write',
     name: 'SourceWrite',
@@ -92,9 +98,13 @@ const routes = [
 
 ]
 
+const allRoutes = [...routes, ...routesAdmin, ...routesProf, ...routesStudent]
+
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: allRoutes
 })
+
+
 
 export default router
