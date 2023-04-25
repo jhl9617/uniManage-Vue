@@ -1,8 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PageHome from '@/views/home/PageHome.vue'
-import BoardList from '@/views/board/BoardList.vue'
-import BoardDetail from '@/views/board/BoardDetail.vue'
-import BoardWrite from '@/views/board/BoardWrite.vue'
+
+import PageHome from '@/views/student/Eclass/PageHome.vue'
+import BoardList from '@/views/student/Eclass/BoardList.vue'
+import BoardDetail from '@/views/student/Eclass/BoardDetail.vue'
+import BoardWrite from '@/views/student/Eclass/BoardWrite.vue'
+import SourceWrite from "@/views/student/Eclass/SourceWrite.vue";
+import SourceList from "@/views/student/Eclass/SourceList.vue";
+import SourceDetail from "@/views/student/Eclass/SourceDetail.vue";
+import NoticeList from "@/views/student/Eclass/NoticeList.vue";
+import NoticeDetail from "@/views/student/Eclass/NoticeDetail.vue";
+import HomeworkList from "@/views/student/Eclass/HomeworkList.vue";
+import HomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
+import HomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
+import LectureInfo from "@/views/student/Eclass/LectureInfo.vue";
 
 const routes = [
   {
@@ -16,7 +26,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/home/PageAbout.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/PageAbout.vue')
+
   },
   {
     path: '/board/list',
@@ -33,6 +44,52 @@ const routes = [
     name: 'BoardWrite',
     component: BoardWrite
   },
+  {
+    path: '/source/write',
+    name: 'SourceWrite',
+    component: SourceWrite
+  },
+  {
+    path: '/source/list',
+    name: 'SourceList',
+    component: SourceList
+  },
+  {
+    path: '/source/detail',
+    name: 'SourceDetail',
+    component: SourceDetail
+  },
+  {
+    path: '/notice/list',
+    name: 'NoticeList',
+    component: NoticeList
+  },
+  {
+    path: '/notice/detail',
+    name: 'NoticeDetail',
+    component: NoticeDetail
+  },
+  {
+    path: '/homework/list',
+    name: 'HomeworkList',
+    component: HomeworkList
+  },
+  {
+    path: '/homework/detail',
+    name: 'HomeworkDetail',
+    component: HomeworkDetail
+  },
+  {
+    path: '/homework/write',
+    name: 'HomeworkWrite',
+    component: HomeworkWrite
+  },
+  {
+    path: '/lectureinfo',
+    name: 'LectureInfo',
+    component: LectureInfo
+  },
+
 ]
 
 const router = createRouter({

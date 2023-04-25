@@ -1,28 +1,42 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/images/logo.png">
-  <HelloWorld msg="Vue : samplevue and Boot : binevue 연동"/> -->
 
-  <PageHeader/> <!--헤더 컴포넌트-->
+  <div>
+    <PageHeader/>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <PageSidebar/>
+        </div>
+        <div class="col-md-8">
+          <router-view/>
+        </div>
+      </div>
+    </div>
+    <PageFooter/>
+  </div>
 
-  <router-view/> <!--페이지 이동이 표시될 영역을 의미함-->
-
-  <PageFooter/> <!--푸터 컴포넌트-->
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import PageHeader from './components/common/PageHeader.vue';
+
+import PageHeader from './views/student/Eclass/PageHeader.vue';
 import PageFooter from './components/common/PageFooter.vue';
+import PageSidebar from './views/student/Eclass/PageSidebar.vue';
+
 
 export default {
   name: 'App',
   components: {
     // HelloWorld
     PageHeader,
-    PageFooter
+    PageFooter,
+    PageSidebar
+
   }
 }
 </script>
+
 
 <style>
 #app {
@@ -32,6 +46,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
