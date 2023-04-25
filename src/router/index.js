@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import PageHome from '@/views/student/Eclass/PageHome.vue'
 import BoardList from '@/views/student/Eclass/BoardList.vue'
 import BoardDetail from '@/views/student/Eclass/BoardDetail.vue'
@@ -12,6 +13,7 @@ import HomeworkList from "@/views/student/Eclass/HomeworkList.vue";
 import HomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
 import HomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
 import LectureInfo from "@/views/student/Eclass/LectureInfo.vue";
+
 const routes = [
   {
     path: '/',
@@ -25,6 +27,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/PageAbout.vue')
+
   },
   {
     path: '/board/list',
@@ -86,6 +89,7 @@ const routes = [
     name: 'LectureInfo',
     component: LectureInfo
   },
+
 ]
 
 const router = createRouter({

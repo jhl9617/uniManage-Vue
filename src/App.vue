@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <PageHeader/>
     <div class="container">
@@ -13,13 +14,16 @@
     </div>
     <PageFooter/>
   </div>
+
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+
 import PageHeader from './views/student/Eclass/PageHeader.vue';
 import PageFooter from './components/common/PageFooter.vue';
 import PageSidebar from './views/student/Eclass/PageSidebar.vue';
+
 
 export default {
   name: 'App',
@@ -28,6 +32,7 @@ export default {
     PageHeader,
     PageFooter,
     PageSidebar
+
   }
 }
 </script>
@@ -35,6 +40,7 @@ export default {
 
 <style>
 #app {
+
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
