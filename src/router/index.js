@@ -3,6 +3,9 @@ import PageHome from '@/views/home/PageHome.vue'
 import BoardList from '@/views/board/BoardList.vue'
 import BoardDetail from '@/views/board/BoardDetail.vue'
 import BoardWrite from '@/views/board/BoardWrite.vue'
+import routesAdmin from './indexAdmin.js'
+import routesProf from './indexProf.js'
+import routesStudent from './indexStudent.js'
 
 const routes = [
   {
@@ -33,11 +36,16 @@ const routes = [
     name: 'BoardWrite',
     component: BoardWrite
   },
+
 ]
+
+const allRoutes = [...routes, ...routesAdmin, ...routesProf, ...routesStudent]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: allRoutes
 })
+
+
 
 export default router
