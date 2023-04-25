@@ -1,18 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <PageHeader/>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <PageSidebar/>
+        </div>
+        <div class="col-md-8">
+          <router-view/>
+        </div>
+      </div>
+    </div>
+    <PageFooter/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import PageHeader from './views/student/Eclass/PageHeader.vue';
+import PageFooter from './components/common/PageFooter.vue';
+import PageSidebar from './views/student/Eclass/PageSidebar.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld
+    PageHeader,
+    PageFooter,
+    PageSidebar
   }
 }
 </script>
+
 
 <style>
 #app {
@@ -21,6 +40,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
