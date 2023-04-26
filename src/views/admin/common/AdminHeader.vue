@@ -19,7 +19,6 @@
                 <li><router-link to="/admin/notice/List"> 교직원용1 </router-link></li> |
                 <li><router-link to="/admin/notice/view"> 교직원용2 </router-link></li> |
                 <li><router-link to="/board/list"> 교직원용3 </router-link></li> |
-
             </ul>
 
             <div class="col-md-3 text-end">
