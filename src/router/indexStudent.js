@@ -148,7 +148,24 @@ const routesStudent = [
         path: '/student/surveycourse',
         name: 'SurveyCourse',
         component: SurveyCourse
-    }
+    },
+    {
+        path: '/student/checkscholarship',
+        name: 'CheckScholarship',
+        component: CheckScholarship
+    },
+
+    {
+        path: '/student/checkcredit',
+        name: 'CheckCredit',
+        component: CheckCredit
+    },
+    {
+        path: '/student/checkgrade',
+        name: 'CheckGrade',
+        component: CheckGrade
+    },
+
 ]
 
 export default routesStudent
