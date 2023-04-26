@@ -2,15 +2,17 @@
     <div class="board-list">
         공지사항
         <div class="common-buttons">
-            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
+            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">학생 등록</button>
         </div>
         <table class="w3-table-all">
             <thead>
             <tr>
-                <th>No</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>등록일시</th>
+                <th>학과</th>
+                <th>학번</th>
+                <th>학생이름</th>
+                <th>생일</th>
+                <th>핸드폰 번호</th>
+
             </tr>
             </thead>
             <tbody>
@@ -19,6 +21,8 @@
                 <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
                 <td>{{ row.author }}</td>
                 <td>{{ row.created_at }}</td>
+                <td>{{ row.author }}</td>
+
             </tr>
             </tbody>
         </table>
@@ -40,6 +44,7 @@
       <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
         </div>
+
         <div>
             <select v-model="search_key">
                 <option value="">- 선택 -</option>
@@ -47,7 +52,7 @@
                 <option value="title">제목</option>
                 <option value="contents">내용</option>
             </select>
-            &nbsp;
+
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
             &nbsp;
             <button @click="fnPage()">검색</button>
@@ -123,15 +128,15 @@ export default {
             })
         },
         fnView(idx) {
-            this.requestBody.idx = idx
+            this.requestBody.idx = idx  //학번으로 수정 필요
             this.$router.push({
-                path: '/admin/notice/view',
+                path: '',
                 query: this.requestBody
             })
         },
         fnWrite() {
             this.$router.push({
-                path: '/admin/notice/write'
+                path: '/admin/mange/addstudent'
             })
         },
         fnPage(n) {

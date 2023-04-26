@@ -1,4 +1,3 @@
-
 import EclassLectureMain from "@/views/student/Eclass/LectureMain.vue";
 import EclassBoardList from '@/views/student/Eclass/BoardList.vue'
 import EclassBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
