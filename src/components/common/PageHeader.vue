@@ -22,6 +22,7 @@
                 <li><router-link to="/admin/notice/list"> 교직원 </router-link></li> |
                 <li><router-link to="/student/status"> 학생 </router-link></li> |
                 <li><router-link to="/student"> 수강 </router-link></li> |
+
                 <li><router-link to="/prof/main"> 교수 </router-link></li> |
 
             </ul>

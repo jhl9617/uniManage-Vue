@@ -1,11 +1,4 @@
 <template>
-    <PageHeader/>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <PageSidebar/>
-            </div>
-            <div class="col-md-8">
     <h6>장학수혜내역조회</h6>
     <table class="table table-bordered" align="center" width="505">
         <tr align="left">
@@ -29,22 +22,13 @@
         </tr>
 
     </table>
-            </div>
-        </div>
-        <PageFooter/>
-    </div>
 
 </template>
 
 <script>
-import {defineComponent} from "vue";
-import PageSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
-import PageFooter from "@/components/common/PageFooter.vue";
-import PageHeader from "@/views/student/studentInfoSystem/PageHeader.vue";
-
-export default defineComponent({
-    components: {PageHeader, PageFooter, PageSidebar}
-})
+export default {
+    name: "StudentCheckScholarship"
+}
 </script>
 
 <style scoped>

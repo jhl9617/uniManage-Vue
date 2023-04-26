@@ -1,5 +1,5 @@
 <template>
-    <h6>등록금 납입증명서</h6>
+    <h6>등록금 고지서출력</h6>
     <div align="right">
         <button type="button">출력</button>
     </div>
