@@ -1,7 +1,5 @@
 <template>
-
-
-  <div>
+ <div>
     <PageHeader/>
     <div class="container">
       <div class="row">

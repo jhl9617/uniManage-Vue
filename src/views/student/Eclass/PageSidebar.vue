@@ -9,31 +9,31 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
           <router-link to="/lectureinfo" class="nav-link link-body-emphasis" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+
           강의정보
             </router-link>
       </li>
       <li>
-          <router-link to="/homework/list" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+          <router-link to="/homework/list" class="nav-link link-body-emphasis ">
+
           과제제출
           </router-link>
       </li>
       <li>
         <router-link to="/notice/list" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+
           공지사항
         </router-link>
       </li>
       <li>
         <router-link to="/source/list" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+
           강의자료실
         </router-link>
       </li>
       <li>
         <router-link to="/board/list" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+
           자유게시판
         </router-link>
       </li>
