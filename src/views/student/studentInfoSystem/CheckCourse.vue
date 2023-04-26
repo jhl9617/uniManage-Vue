@@ -21,6 +21,7 @@
             </td>
         </tr>
     </table>
+    <button>조회</button>
     <br><br>
     <div align="left">
         -붉은색으로 표시된 과목은 폐강된 과목입니다. 다른 과목으로 변경하세요.<br>

@@ -15,6 +15,7 @@
                         <li><router-link to="/student/status" class="link-body-emphasis d-inline-flex text-decoration-none rounded">학적변동내역</router-link></li>
                         <li><router-link to="/student/takeoff" class="link-body-emphasis d-inline-flex text-decoration-none rounded">휴학신청</router-link></li>
                         <li><router-link to="/student/return" class="link-body-emphasis d-inline-flex text-decoration-none rounded">복학신청</router-link></li>
+                        <li><router-link to="/student/checkscholarship" class="link-body-emphasis d-inline-flex text-decoration-none rounded">장학수혜내역조회</router-link></li>
                     </ul>
                 </div>
             </li>

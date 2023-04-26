@@ -20,6 +20,9 @@ import CheckCourse from "@/views/student/studentInfoSystem/CheckCourse.vue";
 import PayReceipt from "@/views/student/studentInfoSystem/PayReceipt.vue";
 import PrintReceipt from "@/views/student/studentInfoSystem/PrintReceipt.vue";
 import SurveyCourse from "@/views/student/studentInfoSystem/SurveyCourse.vue";
+import CheckCredit from "@/views/student/studentInfoSystem/CheckCredit.vue";
+import CheckGrade from "@/views/student/studentInfoSystem/CheckGrade.vue";
+import CheckScholarship from "@/views/student/studentInfoSystem/CheckScholarship.vue";
 
 
 const routesStudent = [
@@ -138,10 +141,30 @@ const routesStudent = [
         component: PrintReceipt
     },
     {
+        path: '/student/printreceipt',
+        name: 'PrintReceipt',
+        component: PrintReceipt
+    },
+    {
+        path: '/student/checkcredit',
+        name: 'CheckCredit',
+        component: CheckCredit
+    },
+    {
+        path: '/student/checkgrade',
+        name: 'CheckGrade',
+        component: CheckGrade
+    },
+    {
         path: '/student/surveycourse',
         name: 'SurveyCourse',
         component: SurveyCourse
-    }
+    },
+    {
+        path: '/student/checkscholarship',
+        name: 'CheckScholarship',
+        component: CheckScholarship
+    },
 ]
 
 export default routesStudent

@@ -41,6 +41,7 @@
             </td>
         </tr>
     </table>
+    <button>조회</button>
     <br><br>
     <table class="table table-bordered" align="center" width="505">
         <tr>
