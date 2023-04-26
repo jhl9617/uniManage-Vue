@@ -1,6 +1,6 @@
 
 import EclassLectureMain from "@/views/student/Eclass/LectureMain.vue";
-import EclassBoardList from '@/views/student/Eclass/BoardList.vue'
+import Eclass\ from '@/views/student/Eclass/BoardList.vue'
 import EclassBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
 import EclassBoardWrite from '@/views/student/Eclass/BoardWrite.vue'
 import EclassSourceList from "@/views/student/Eclass/SourceList.vue";
@@ -14,24 +14,32 @@ import EclassLectureInfo from "@/views/student/Eclass/LectureInfo.vue";
 import EclassMain from "@/views/student/Eclass/EclassMain.vue";
 
 import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
-import ApplyTakeOff from "@/views/student/studentInfoSystem/ApplyTakeOff.vue";
-import ApplyReturn from "@/views/student/studentInfoSystem/ApplyReturn.vue";
-import TimelineByDepart from "@/views/student/studentInfoSystem/TimelineByDepart.vue";
+import StudentApplyTakeOff from "@/views/student/studentInfoSystem/StudentApplyTakeOff.vue";
+import StudentApplyReturn from "@/views/student/studentInfoSystem/StudentApplyReturn.vue";
+import StudentTimelineByDepart from "@/views/student/studentInfoSystem/StudentTimelineByDepart.vue";
 import StudentTimetable from "@/views/student/studentInfoSystem/StudentTimetable.vue";
-import CheckCourse from "@/views/student/studentInfoSystem/CheckCourse.vue";
-import PayReceipt from "@/views/student/studentInfoSystem/PayReceipt.vue";
-import PrintReceipt from "@/views/student/studentInfoSystem/PrintReceipt.vue";
-import SurveyCourse from "@/views/student/studentInfoSystem/SurveyCourse.vue";
+import StudentCheckCourse from "@/views/student/studentInfoSystem/StudentCheckCourse.vue";
+import StudentPayReceipt from "@/views/student/studentInfoSystem/StudentPayReceipt.vue";
+import StudentPrintReceipt from "@/views/student/studentInfoSystem/StudentPrintReceipt.vue";
+import StudentSurveyCourse from "@/views/student/studentInfoSystem/StudentSurveyCourse.vue";
+import StudentCheckCredit from "@/views/student/studentInfoSystem/StudentCheckCredit.vue";
+import StudentCheckGrade from "@/views/student/studentInfoSystem/StudentCheckGrade.vue";
+import StudentCheckScholarship from "@/views/student/studentInfoSystem/StudentCheckScholarship.vue";
+import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
+import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
 
-import StudentMain from "@/views/student/StudentMain.vue";
-
-import CheckCredit from "@/views/student/studentInfoSystem/CheckCredit.vue";
-import CheckGrade from "@/views/student/studentInfoSystem/CheckGrade.vue";
-import CheckScholarship from "@/views/student/studentInfoSystem/CheckScholarship.vue";
 
 const routesStudent = [
 
     {
+        path: '/about',
+        name: 'About',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/PageAbout.vue')
+
+
         path: '/student',
         name: 'StudentMain',
         component: StudentMain
@@ -40,6 +48,7 @@ const routesStudent = [
         path: '/eclass',
         name: 'EclassMain',
         component: EclassMain
+
     },
     {
         path: '/eclass/1',
@@ -110,19 +119,19 @@ const routesStudent = [
     },
     {
         path: '/student/takeoff',
-        name: 'ApplyTakeOff',
-        component: ApplyTakeOff
+        name: 'StudentApplyTakeOff',
+        component: StudentApplyTakeOff
 
     },
     {
         path: '/student/return',
-        name: 'ApplyReturn',
-        component: ApplyReturn
+        name: 'StudentApplyReturn',
+        component: StudentApplyReturn
     },
     {
         path: '/student/timelinebydepart',
-        name: 'TimelineByDepart',
-        component: TimelineByDepart
+        name: 'StudentTimelineByDepart',
+        component: StudentTimelineByDepart
     },
     {
         path: '/student/studenttimetable',
@@ -131,23 +140,24 @@ const routesStudent = [
     },
     {
         path: '/student/checkcourse',
-        name: 'CheckCourse',
-        component: CheckCourse
+        name: 'StudentCheckCourse',
+        component: StudentCheckCourse
     },
     {
         path: '/student/payreceipt',
-        name: 'PayReceipt',
-        component: PayReceipt
+        name: 'StudentPayReceipt',
+        component: StudentPayReceipt
     },
     {
         path: '/student/printreceipt',
-        name: 'PrintReceipt',
-        component: PrintReceipt
+        name: 'StudentPrintReceipt',
+        component: StudentPrintReceipt
     },
     {
-        path: '/student/surveycourse',
-        name: 'SurveyCourse',
-        component: SurveyCourse
+        path: '/student/printreceipt',
+        name: 'StudentPrintReceipt',
+        component: StudentPrintReceipt
+
     },
     {
         path: '/student/checkscholarship',
@@ -157,13 +167,33 @@ const routesStudent = [
 
     {
         path: '/student/checkcredit',
-        name: 'CheckCredit',
-        component: CheckCredit
+        name: 'StudentCheckCredit',
+        component: StudentCheckCredit
     },
     {
         path: '/student/checkgrade',
-        name: 'CheckGrade',
-        component: CheckGrade
+        name: 'StudentCheckGrade',
+        component: StudentCheckGrade
+    },
+    {
+        path: '/student/surveycourse',
+        name: 'StudentSurveyCourse',
+        component: StudentSurveyCourse
+    },
+    {
+        path: '/student/checkscholarship',
+        name: 'StudentCheckScholarship',
+        component: StudentCheckScholarship
+    },
+    {
+        path: '/student/courselist',
+        name: 'StudentCourseList',
+        component: StudentCourseList
+    },
+    {
+        path: '/student/studentinfomain',
+        name: 'StudentInfoMain',
+        component: StudentInfoMain
     },
 
 ]

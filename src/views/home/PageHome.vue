@@ -1,20 +1,8 @@
 <!-- PageHome.vue -->
 <template>
-    <div class="home">
-      <img alt="Vue logo" src="../../assets/images/logo.png">
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
-    </div>
+    <router-link to="/student/studentinfomain">학생정보시스템</router-link>
   </template>
   
   <script>
 
-  // @ is an alias to /src
-  import HelloWorld from '@/components/HelloWorld.vue'
-  
-  export default {
-    name: 'PageHome',
-    components: {
-      HelloWorld
-    }
-  }
   </script>
