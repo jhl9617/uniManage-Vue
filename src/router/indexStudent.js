@@ -1,6 +1,6 @@
 
 import EclassLectureMain from "@/views/student/Eclass/LectureMain.vue";
-import Eclass\ from '@/views/student/Eclass/BoardList.vue'
+import EclassBoardList from '@/views/student/Eclass/BoardList.vue'
 import EclassBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
 import EclassBoardWrite from '@/views/student/Eclass/BoardWrite.vue'
 import EclassSourceList from "@/views/student/Eclass/SourceList.vue";
@@ -14,19 +14,20 @@ import EclassLectureInfo from "@/views/student/Eclass/LectureInfo.vue";
 import EclassMain from "@/views/student/Eclass/EclassMain.vue";
 
 import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
-import StudentApplyTakeOff from "@/views/student/studentInfoSystem/StudentApplyTakeOff.vue";
+import StudentApplyTakeOff from "@/views/student/studentInfoSystem/ApplyTakeOff.vue";
 import StudentApplyReturn from "@/views/student/studentInfoSystem/StudentApplyReturn.vue";
-import StudentTimelineByDepart from "@/views/student/studentInfoSystem/StudentTimelineByDepart.vue";
+import StudentTimelineByDepart from "@/views/student/studentInfoSystem/TimelineByDepart.vue";
 import StudentTimetable from "@/views/student/studentInfoSystem/StudentTimetable.vue";
-import StudentCheckCourse from "@/views/student/studentInfoSystem/StudentCheckCourse.vue";
-import StudentPayReceipt from "@/views/student/studentInfoSystem/StudentPayReceipt.vue";
-import StudentPrintReceipt from "@/views/student/studentInfoSystem/StudentPrintReceipt.vue";
-import StudentSurveyCourse from "@/views/student/studentInfoSystem/StudentSurveyCourse.vue";
-import StudentCheckCredit from "@/views/student/studentInfoSystem/StudentCheckCredit.vue";
+import StudentCheckCourse from "@/views/student/studentInfoSystem/CheckCourse.vue";
+import StudentPayReceipt from "@/views/student/studentInfoSystem/PayReceipt.vue";
+import StudentPrintReceipt from "@/views/student/studentInfoSystem/PrintReceipt.vue";
+import StudentSurveyCourse from "@/views/student/studentInfoSystem/SurveyCourse.vue";
+import StudentCheckCredit from "@/views/student/studentInfoSystem/CheckCredit.vue";
 import StudentCheckGrade from "@/views/student/studentInfoSystem/StudentCheckGrade.vue";
 import StudentCheckScholarship from "@/views/student/studentInfoSystem/StudentCheckScholarship.vue";
 import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
+import StudentMain from "@/views/student/StudentMain.vue";
 
 
 const routesStudent = [
@@ -38,7 +39,8 @@ const routesStudent = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/PageAbout.vue')
-
+    },
+    {
 
         path: '/student',
         name: 'StudentMain',
@@ -159,12 +161,6 @@ const routesStudent = [
         component: StudentPrintReceipt
 
     },
-    {
-        path: '/student/checkscholarship',
-        name: 'CheckScholarship',
-        component: CheckScholarship
-    },
-
     {
         path: '/student/checkcredit',
         name: 'StudentCheckCredit',
