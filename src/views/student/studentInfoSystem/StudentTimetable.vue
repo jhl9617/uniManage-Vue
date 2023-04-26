@@ -21,6 +21,7 @@
         </td>
     </tr>
     </table>
+    <button>조회</button>
     <br><br>
     <table width=400 height="600" style="color: #121212">
         <tr>

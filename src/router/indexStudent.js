@@ -1,3 +1,4 @@
+
 import EclassLectureMain from "@/views/student/Eclass/LectureMain.vue";
 import EclassBoardList from '@/views/student/Eclass/BoardList.vue'
 import EclassBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
@@ -11,6 +12,7 @@ import EclassHomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
 import EclassHomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
 import EclassLectureInfo from "@/views/student/Eclass/LectureInfo.vue";
 import EclassMain from "@/views/student/Eclass/EclassMain.vue";
+
 import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
 import ApplyTakeOff from "@/views/student/studentInfoSystem/ApplyTakeOff.vue";
 import ApplyReturn from "@/views/student/studentInfoSystem/ApplyReturn.vue";
@@ -20,7 +22,13 @@ import CheckCourse from "@/views/student/studentInfoSystem/CheckCourse.vue";
 import PayReceipt from "@/views/student/studentInfoSystem/PayReceipt.vue";
 import PrintReceipt from "@/views/student/studentInfoSystem/PrintReceipt.vue";
 import SurveyCourse from "@/views/student/studentInfoSystem/SurveyCourse.vue";
+
 import StudentMain from "@/views/student/StudentMain.vue";
+
+import CheckCredit from "@/views/student/studentInfoSystem/CheckCredit.vue";
+import CheckGrade from "@/views/student/studentInfoSystem/CheckGrade.vue";
+import CheckScholarship from "@/views/student/studentInfoSystem/CheckScholarship.vue";
+
 const routesStudent = [
 
     {
@@ -104,6 +112,7 @@ const routesStudent = [
         path: '/student/takeoff',
         name: 'ApplyTakeOff',
         component: ApplyTakeOff
+
     },
     {
         path: '/student/return',
