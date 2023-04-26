@@ -1,16 +1,16 @@
-import NoticeList from '@/views/admin/notice/NoticeList.vue'
-import NoticeDetailView from '@/views/admin/notice/NoticeDetailView.vue'
+import AdminNoticeList from '@/views/admin/notice/NoticeList.vue'
+import AdminNoticeDetailView from '@/views/admin/notice/NoticeDetailView.vue'
 
 const routesAdmin = [
   {
-    path: '/admin/notice/List',
-    name: 'NoticeList',
-    component: NoticeList
+    path: '/admin/notice/list',
+    name: 'AdminNoticeList',
+    component: AdminNoticeList
   },
   {
     path: '/admin/notice/view',
-    name: 'NoticeDetailView',
-    component: NoticeDetailView
+    name: 'AdminNoticeDetailView',
+    component: AdminNoticeDetailView
   },
 ]
 

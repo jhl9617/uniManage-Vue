@@ -1,10 +1,14 @@
 <template>
     <div>
         <PageHeader/>
+
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <PageSidebar/>
+                <div class="col-md-3">
+                    <AdminSidebar v-if="$route.name.startsWith('Admin')"/>
+                    <StudenetSidebar v-if="$route.name.startsWith('Student')"/>
+                    <ProfessorSidebar v-if="$route.name.startsWith('Prof')"/>
+                    <EclassSidebar v-if="$route.name.startsWith('Eclass')"/>
                 </div>
                 <div class="col-md-8">
                     <router-view/>
@@ -18,18 +22,23 @@
 <script>
 import PageHeader from './components/common/PageHeader.vue';
 import PageFooter from './components/common/PageFooter.vue';
-import PageSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
+import StudenetSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
+import EclassSidebar from "@/views/student/Eclass/PageSidebar.vue";
+import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
+import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
 
 export default {
     name: 'App',
     components: {
+        AdminSidebar,
         PageHeader,
         PageFooter,
-        PageSidebar
+        StudenetSidebar,
+        ProfessorSidebar,
+        EclassSidebar
     }
 }
 </script>
-
 
 <style>
 #app {

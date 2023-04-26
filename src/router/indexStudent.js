@@ -24,7 +24,6 @@ import CheckCredit from "@/views/student/studentInfoSystem/CheckCredit.vue";
 import CheckGrade from "@/views/student/studentInfoSystem/CheckGrade.vue";
 import CheckScholarship from "@/views/student/studentInfoSystem/CheckScholarship.vue";
 
-
 const routesStudent = [
     {
         path: '/',

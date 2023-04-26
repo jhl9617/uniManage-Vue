@@ -1,12 +1,10 @@
 <template>
     <div class="board-detail">
-        <!--
-                <div class="common-buttons">
-                    <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-                </div>
-        -->
+        <!-- <div class="common-buttons">
+          <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
+          <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+          <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
+        </div> -->
         <div class="board-contents">
             <h3>{{ title }}</h3>
             <div>
@@ -30,7 +28,7 @@
 export default {
     data() { //변수생성
         return {
-            requestBody: this.$route.query, //route 가 가지고 있는 쿼리를 requestBody 에 담는다.
+            requestBody: this.$route.query,
             idx: this.$route.query.idx,
 
             title: '',
@@ -39,19 +37,19 @@ export default {
             created_at: ''
         }
     },
-    mounted() {
+    mounted() { // document.ready, window.onload와 같은 형태
         this.fnGetView()
     },
     methods: {
         fnGetView() {
             this.$axios.get(this.$serverUrl + '/board/' + this.idx, {
                 params: this.requestBody
-            }).then((res) => {  //성공 -> res에 정보를 저장함
+            }).then((res) => { //success
                 this.title = res.data.title
                 this.author = res.data.author
                 this.contents = res.data.contents
                 this.created_at = res.data.created_at
-            }).catch((err) => { //실패 -> err에 정보를 저장함
+            }).catch((err) => { // error
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                 }
@@ -84,8 +82,7 @@ export default {
     }
 }
 </script>
-<!--
 <style scoped>
 
 
-</style>-->
+</style>
