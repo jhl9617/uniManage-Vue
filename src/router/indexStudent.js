@@ -1,16 +1,18 @@
-import PageHome from "@/views/student/Eclass/PageHome.vue";
-import BoardList from '@/views/student/Eclass/BoardList.vue'
-import BoardDetail from '@/views/student/Eclass/BoardDetail.vue'
-import BoardWrite from '@/views/student/Eclass/BoardWrite.vue'
-import SourceWrite from "@/views/student/Eclass/SourceWrite.vue";
-import SourceList from "@/views/student/Eclass/SourceList.vue";
-import SourceDetail from "@/views/student/Eclass/SourceDetail.vue";
-import NoticeList from "@/views/student/Eclass/NoticeList.vue";
-import NoticeDetail from "@/views/student/Eclass/NoticeDetail.vue";
-import HomeworkList from "@/views/student/Eclass/HomeworkList.vue";
-import HomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
-import HomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
-import LectureInfo from "@/views/student/Eclass/LectureInfo.vue";
+
+import EclassLectureMain from "@/views/student/Eclass/LectureMain.vue";
+import EclassBoardList from '@/views/student/Eclass/BoardList.vue'
+import EclassBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
+import EclassBoardWrite from '@/views/student/Eclass/BoardWrite.vue'
+import EclassSourceList from "@/views/student/Eclass/SourceList.vue";
+import EclassSourceDetail from "@/views/student/Eclass/SourceDetail.vue";
+import EclassNoticeList from "@/views/student/Eclass/NoticeList.vue";
+import EclassNoticeDetail from "@/views/student/Eclass/NoticeDetail.vue";
+import EclassHomeworkList from "@/views/student/Eclass/HomeworkList.vue";
+import EclassHomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
+import EclassHomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
+import EclassLectureInfo from "@/views/student/Eclass/LectureInfo.vue";
+import EclassMain from "@/views/student/Eclass/EclassMain.vue";
+
 import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
 import ApplyTakeOff from "@/views/student/studentInfoSystem/ApplyTakeOff.vue";
 import ApplyReturn from "@/views/student/studentInfoSystem/ApplyReturn.vue";
@@ -20,86 +22,88 @@ import CheckCourse from "@/views/student/studentInfoSystem/CheckCourse.vue";
 import PayReceipt from "@/views/student/studentInfoSystem/PayReceipt.vue";
 import PrintReceipt from "@/views/student/studentInfoSystem/PrintReceipt.vue";
 import SurveyCourse from "@/views/student/studentInfoSystem/SurveyCourse.vue";
+
+import StudentMain from "@/views/student/StudentMain.vue";
+
 import CheckCredit from "@/views/student/studentInfoSystem/CheckCredit.vue";
 import CheckGrade from "@/views/student/studentInfoSystem/CheckGrade.vue";
 import CheckScholarship from "@/views/student/studentInfoSystem/CheckScholarship.vue";
 
 const routesStudent = [
-    {
-        path: '/',
-        name: 'PageHome',
-        component: PageHome
-    },
-    {
-        path: '/about',
-        name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/PageAbout.vue')
 
+    {
+        path: '/student',
+        name: 'StudentMain',
+        component: StudentMain
     },
     {
-        path: '/board/list',
-        name: 'BoardList',
-        component: BoardList
+        path: '/eclass',
+        name: 'EclassMain',
+        component: EclassMain
     },
     {
-        path: '/board/detail',
-        name: 'BoardDetail',
-        component: BoardDetail
-    },
-    {
-        path: '/board/write',
-        name: 'BoardWrite',
-        component: BoardWrite
+        path: '/eclass/1',
+        name: 'EclassLectureMain',
+        component: EclassLectureMain
     },
 
     {
-        path: '/source/write',
-        name: 'SourceWrite',
-        component: SourceWrite
+        path: '/eclass/board/list',
+        name: 'EclassBoardList',
+        component: EclassBoardList
     },
     {
-        path: '/source/list',
-        name: 'SourceList',
-        component: SourceList
+        path: '/eclass/board/detail',
+        name: 'EclassBoardDetail',
+        component: EclassBoardDetail
     },
     {
-        path: '/source/detail',
-        name: 'SourceDetail',
-        component: SourceDetail
+        path: '/eclass/board/write',
+        name: 'EclassBoardWrite',
+        component: EclassBoardWrite
     },
     {
-        path: '/notice/list',
-        name: 'NoticeList',
-        component: NoticeList
+        path: '/eclass/source/list',
+        name: 'EclassSourceList',
+        component: EclassSourceList
     },
     {
-        path: '/notice/detail',
-        name: 'NoticeDetail',
-        component: NoticeDetail
+        path: '/eclass/source/detail',
+        name: 'EclassSourceDetail',
+        component: EclassSourceDetail
     },
     {
-        path: '/homework/list',
-        name: 'HomeworkList',
-        component: HomeworkList
+        path: '/eclass/notice/list',
+        name: 'EclassNoticeList',
+        component: EclassNoticeList
     },
     {
-        path: '/homework/detail',
-        name: 'HomeworkDetail',
-        component: HomeworkDetail
+        path: '/eclass/notice/detail',
+        name: 'EclassNoticeDetail',
+        component: EclassNoticeDetail
     },
     {
-        path: '/homework/write',
-        name: 'HomeworkWrite',
-        component: HomeworkWrite
+        path: '/eclass/homework/list',
+        name: 'EclassHomeworkList',
+        component: EclassHomeworkList
     },
     {
-        path: '/lectureinfo',
-        name: 'LectureInfo',
-        component: LectureInfo
-    },{
+        path: '/eclass/homework/detail',
+        name: 'EclassHomeworkDetail',
+        component: EclassHomeworkDetail
+    },
+    {
+        path: '/eclass/homework/write',
+        name: 'EclassHomeworkWrite',
+        component: EclassHomeworkWrite
+    },
+    {
+        path: '/eclass/lectureinfo',
+        name: 'EclassLectureInfo',
+        component: EclassLectureInfo
+
+    },
+    {
         path: '/student/status',
         name: 'StudentStatus',
         component: StudentStatus
@@ -108,6 +112,7 @@ const routesStudent = [
         path: '/student/takeoff',
         name: 'ApplyTakeOff',
         component: ApplyTakeOff
+
     },
     {
         path: '/student/return',
@@ -140,30 +145,10 @@ const routesStudent = [
         component: PrintReceipt
     },
     {
-        path: '/student/printreceipt',
-        name: 'PrintReceipt',
-        component: PrintReceipt
-    },
-    {
-        path: '/student/checkcredit',
-        name: 'CheckCredit',
-        component: CheckCredit
-    },
-    {
-        path: '/student/checkgrade',
-        name: 'CheckGrade',
-        component: CheckGrade
-    },
-    {
         path: '/student/surveycourse',
         name: 'SurveyCourse',
         component: SurveyCourse
-    },
-    {
-        path: '/student/checkscholarship',
-        name: 'CheckScholarship',
-        component: CheckScholarship
-    },
+    }
 ]
 
 export default routesStudent
