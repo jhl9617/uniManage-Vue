@@ -1,19 +1,14 @@
 <template>
-    <div>
-        <PageHeader/>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <PageSidebar/>
-                </div>
-                <div class="col-md-8">
-                    <router-view/>
-                </div>
-            </div>
+ <div>
+    <PageHeader/>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <PageSidebar/>
+
         </div>
         <PageFooter/>
     </div>
-
 </template>
 
 <script>
