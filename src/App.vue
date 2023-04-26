@@ -10,6 +10,7 @@
                     <router-view/>
                 </div>
             </div>
+
         </div>
         <PageFooter/>
     </div>
@@ -30,12 +31,13 @@ export default {
     PageFooter,
       PageSidebar
   }
+
 }
 </script>
 
+
 <style>
 #app {
-
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
