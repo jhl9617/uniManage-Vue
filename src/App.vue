@@ -5,15 +5,10 @@
       <div class="row">
         <div class="col-md-4">
           <PageSidebar/>
-        </div>
-        <div class="col-md-8">
-          <router-view/>
-        </div>
-      </div>
-    </div>
-    <PageFooter/>
-  </div>
 
+        </div>
+        <PageFooter/>
+    </div>
 </template>
 
 <script>
@@ -24,16 +19,15 @@ import PageFooter from './components/common/PageFooter.vue';
 import PageSidebar from './views/student/Eclass/PageSidebar.vue';
 
 
-
 export default {
-  name: 'App',
-  components: {
-    // HelloWorld
-    PageHeader,
+    name: 'App',
+    components: {
+        // HelloWorld
+        PageHeader,
 
-    PageFooter,
-    PageSidebar
-  }
+        PageFooter,
+        PageSidebar
+    }
 }
 </script>
 
@@ -41,10 +35,10 @@ export default {
 <style>
 #app {
 
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
 }
 </style>
