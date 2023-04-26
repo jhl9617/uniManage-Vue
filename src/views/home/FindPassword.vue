@@ -20,7 +20,7 @@
                 <label for="floatingInput">이메일</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit">ID찾기</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">비밀번호 찾기</button>
 
         </form>
     </main>

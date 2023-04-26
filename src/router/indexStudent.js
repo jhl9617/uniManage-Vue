@@ -1,3 +1,4 @@
+import TotalHomeworkList from "@/views/student/Eclass/TotalHomeworkList.vue";
 import EclassLectureMain from "@/views/student/Eclass/LectureMain.vue";
 import EclassBoardList from '@/views/student/Eclass/BoardList.vue'
 import EclassBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
@@ -10,7 +11,7 @@ import EclassHomeworkList from "@/views/student/Eclass/HomeworkList.vue";
 import EclassHomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
 import EclassHomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
 import EclassLectureInfo from "@/views/student/Eclass/LectureInfo.vue";
-import EclassMain from "@/views/student/Eclass/EclassMain.vue";
+import EcMain from "@/views/student/Eclass/EclassMain.vue";
 
 import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
 import StudentApplyTakeOff from "@/views/student/studentInfoSystem/ApplyTakeOff.vue";
@@ -26,7 +27,7 @@ import StudentCheckGrade from "@/views/student/studentInfoSystem/StudentCheckGra
 import StudentCheckScholarship from "@/views/student/studentInfoSystem/StudentCheckScholarship.vue";
 import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
-import StudentMain from "@/views/student/StudentMain.vue";
+import StMain from "@/views/student/StudentMain.vue";
 
 
 const routesStudent = [
@@ -42,13 +43,13 @@ const routesStudent = [
     {
 
         path: '/student',
-        name: 'StudentMain',
-        component: StudentMain
+        name: 'StMain',
+        component: StMain
     },
     {
         path: '/eclass',
-        name: 'EclassMain',
-        component: EclassMain
+        name: 'EcMain',
+        component: EcMain
 
     },
     {
@@ -96,6 +97,11 @@ const routesStudent = [
         path: '/eclass/homework/list',
         name: 'EclassHomeworkList',
         component: EclassHomeworkList
+    },
+    {
+        path: '/eclass/totalhomework/list',
+        name: 'TotalHomeworkList',
+        component: TotalHomeworkList
     },
     {
         path: '/eclass/homework/detail',

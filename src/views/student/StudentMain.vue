@@ -11,7 +11,7 @@
             <ul class="nav nav-pills">
                 <li class="nav-item"><a aria-current="page" class="nav-link" href="#">학교홈페이지</a></li>
                 <li class="nav-item">
-                    <router-link class="nav-link active" to="#">학생정보시스템</router-link>
+                    <router-link class="nav-link active" to="/student/studentinfomain">학생정보시스템</router-link>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#">OFFICE 365</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">도서관</a></li>

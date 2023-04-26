@@ -1,9 +1,8 @@
 <template>
     <div class="board-list">
         강의자료실
-        <div class="common-buttons">
-            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
-        </div>
+        <br><br>
+
         <table class="w3-table-all">
             <thead>
             <tr>
