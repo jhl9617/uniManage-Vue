@@ -3,9 +3,18 @@
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
         <ul class="list-unstyled ps-0">
             <li class="mb-1">
-                <router-link to="/personinfo" class="nav-link link-body-emphasis">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target="#info-collapse" aria-expanded="true">
                     개인정보
-                </router-link>
+                </button>
+                <div class="collapse" id="info-collapse" style="">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li>
+                            <router-link to="/prof/info" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                                개인정보 조회
+                            </router-link>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target="#create-collapse" aria-expanded="true">
@@ -14,7 +23,7 @@
                 <div class="collapse" id="create-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li>
-                            <router-link to="/createlecture" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                            <router-link to="/prof/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
                                 신규강좌 개설
                             </router-link>
                         </li>

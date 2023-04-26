@@ -1,12 +1,11 @@
 <template>
     <div>
         <PageHeader/>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     <AdminSidebar v-if="$route.name.startsWith('Admin')"/>
-                    <StudenetSidebar v-if="$route.name.startsWith('Student')"/>
+                    <StudentSidebar v-if="$route.name.startsWith('Student')"/>
                     <ProfessorSidebar v-if="$route.name.startsWith('Prof')"/>
                     <EclassSidebar v-if="$route.name.startsWith('Eclass')"/>
                 </div>
@@ -22,7 +21,7 @@
 <script>
 import PageHeader from './components/common/PageHeader.vue';
 import PageFooter from './components/common/PageFooter.vue';
-import StudenetSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
+import StudentSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
 import EclassSidebar from "@/views/student/Eclass/PageSidebar.vue";
 import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
 import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
@@ -33,7 +32,7 @@ export default {
         AdminSidebar,
         PageHeader,
         PageFooter,
-        StudenetSidebar,
+        StudentSidebar,
         ProfessorSidebar,
         EclassSidebar
     }
