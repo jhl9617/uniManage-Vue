@@ -1,40 +1,41 @@
 <!-- PersonInfo.vue -->
 <template>
-    <div class="d-flex justify-content-center">
-        <div>
-            개인정보
-            <div>
-                <img src="" alt="">
-                소속 :
-                구분 :
-            </div>
-            <button value="비밀번호변경"/>
-        </div>
-        <div>
-            교수 공지사항
-            <table>
-                <tr>
-                    <th>제목</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div>
-            <table>
-                <tr>
-                    <th></th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                </tr>
-            </table>
-        </div>
-        <div>
-            학사일정
-        </div>
+    <div>
+        <h1>개인정보 조회</h1>
+        <table>
+            <tr>
+                <th>소속</th>
+                <td> ~ </td>
+            </tr>
+            <tr>
+                <th>이름</th>
+            </tr>
+            <tr>
+                <th>학적상태</th>
+            </tr>
+        </table>
+        <br>
+        <h1>개인정보 수정</h1>
+        <table>
+            <tr>
+                <th>영문명</th>
+            </tr>
+            <tr>
+                <th>우편번호</th>
+            </tr>
+            <tr>
+                <th>주소</th>
+            </tr>
+            <tr>
+                <th>휴대전화</th>
+            </tr>
+            <tr>
+                <th>E-Mail</th>
+            </tr>
+        </table>
+
+        <button value="개인정보 수정하기"/>
+        <button value="홈페이지로 돌아가기"/>
     </div>
 </template>
 <script>
