@@ -20,6 +20,8 @@ import ProfessorLectureNoticeWrite from "@/views/professor/notice/ProfessorLectu
 import ProfessorLectureNoticeUpdate from "@/views/professor/notice/ProfessorLectureNoticeUpdate.vue"
 import ProfessorReferenceList from "@/views/professor/reference/ProfessorReferenceList.vue"
 import ProfessorReferenceDetail from "@/views/professor/reference/ProfessorReferenceDetail.vue"
+import ProfessorReferenceUpdate from "@/views/professor/reference/ProfessorReferenceUpdate.vue"
+import ProfessorReferenceWrite from "@/views/professor/reference/ProfessorReferenceWrite.vue"
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -138,6 +140,18 @@ const routesProf = [
         path: '/prof/lecture/reference/detail',
         name: 'ProfessorReferenceDetail',
         component: ProfessorReferenceDetail
+    },
+    {
+        //강의자료실 수정
+        path: '/prof/lecture/reference/update',
+        name: 'ProfessorReferenceUpdate',
+        component: ProfessorReferenceUpdate
+    },
+    {
+        //강의자료실 작성
+        path: '/prof/lecture/reference/write',
+        name: 'ProfessorReferenceWrite',
+        component: ProfessorReferenceWrite
     }
 ]
 
