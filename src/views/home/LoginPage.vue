@@ -14,7 +14,7 @@
                 <label for="floatingPassword">비밀번호</label>
             </div>
             <router-link to="/findid" class="font-weight-bold">ID 찾기</router-link> &nbsp;
-            <router-link to="/findpassword" class="font-weight-bold">비밀번호 찾기</router-link>
+            <router-link to="/findpassword" class="font-weight-bold">비밀번호 찾기</router-link> &nbsp;
             <button class="w-100 btn btn-lg btn-primary" type="submit">로 그 인</button>
 
         </form>

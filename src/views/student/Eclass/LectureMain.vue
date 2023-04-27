@@ -1,7 +1,6 @@
 <template>
 
-    <div class="col-md-8">
-        <div class="container">
+            <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
                     <fieldset>
@@ -122,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="/">
                 <svg class="bi me-2" height="32" width="40">
@@ -22,7 +22,7 @@
         </header>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
                 <div class="col">
@@ -43,7 +43,7 @@
                     <div class="col-md-8">
                         수강신청
                         <br><br>
-                        <div class="container">
+                        <div class="container-fluid">
                             <table align="center" class="w3-table-all table-bordered" width="505">
                                 <tr align="left">
                                     <th>검색구분</th>
@@ -99,7 +99,7 @@
                             ">
                             챗봇
                             <br><br>
-                            <div class="container">
+                            <div class="container-fluid">
 
                             </div>
                         </div>

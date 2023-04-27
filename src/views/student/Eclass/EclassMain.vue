@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
             <router-link to="/eclass">
@@ -8,7 +8,7 @@
 
         </header>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             </ul>
@@ -19,7 +19,7 @@
             </div>
         </header>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
                 <div class="col">
@@ -54,7 +54,7 @@
             <div class="col-md-8">
                 내 강의실
                 <br><br>
-                <div class="container">
+                <div class="container-fluid">
                     <table class="w3-table-all">
                         <tr>
                             <td>번호</td>
