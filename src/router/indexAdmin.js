@@ -7,6 +7,8 @@ import ManageScholarship from "@/views/admin/manage/ManageScholarship.vue";
 import AddScholarship from "@/views/admin/manage/AddScholarship.vue";
 import ModifyScholarship from "@/views/admin/manage/ModifyScholarship.vue";
 import ManageProfessor from "@/views/admin/manage/ManageProfessor.vue";
+import AdminAddStudent from '@/views/admin/manage/AddStudent.vue'
+import Adminmodifystudent from '@/views/admin/manage/ModifyStudent.vue'
 
 const routesAdmin = [
   {
@@ -18,11 +20,6 @@ const routesAdmin = [
     path: '/admin/notice/view',
     name: 'AdminNoticeDetailView',
     component: AdminNoticeDetailView
-  },
-  {
-    path: '/admin/notice/write',
-    name: 'AdminNoticewrite',
-    component: AdminNoticewrite
   },
   {
     path: '/admin/notice/write',
@@ -58,6 +55,16 @@ const routesAdmin = [
     path: '/admin/manage/professor',
     name: 'ManageProfessor',
     component: ManageProfessor
+  },
+  {
+    path: '/admin/mange/addstudent',
+    name: 'AdminAddStudent',
+    component: AdminAddStudent
+  },
+  {
+    path: '/admin/mange/modifystudent',
+    name: 'Adminmodifystudent',
+    component: Adminmodifystudent
   },
 ]
 
