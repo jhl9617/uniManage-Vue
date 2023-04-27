@@ -4,7 +4,6 @@ import ProfessorCreateNewLecture from '@/views/professor/newLecture/ProfessorCre
 import LectureRoom from '@/views/professor/newLecture/LectureRoom.vue'
 import ProfessorNewLectureDetails from "@/views/professor/newLecture/ProfessorNewLectureDetails.vue"
 import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLecture.vue"
-import ProfessorStudentCheck from "@/views/professor/lecture/ProfessorStudentCheck.vue"
 import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue"
 import ProfessorCloseLecture from "@/views/professor/lecture/ProfessorCloseLecture.vue"
 import ProfesscorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue"
@@ -16,6 +15,12 @@ import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue"
 import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue"
 import ProfessorLectureNotice from "@/views/professor/notice/ProfessorLectureNotice.vue"
 import ProfessorLectureNoticeDetail from "@/views/professor/notice/ProfessorLectureNoticeDetail.vue"
+import ProfessorLectureNoticeWrite from "@/views/professor/notice/ProfessorLectureNoticeWrite.vue"
+import ProfessorLectureNoticeUpdate from "@/views/professor/notice/ProfessorLectureNoticeUpdate.vue"
+import ProfessorReferenceList from "@/views/professor/reference/ProfessorReferenceList.vue"
+import ProfessorReferenceDetail from "@/views/professor/reference/ProfessorReferenceDetail.vue"
+import ProfessorReferenceUpdate from "@/views/professor/reference/ProfessorReferenceUpdate.vue"
+import ProfessorReferenceWrite from "@/views/professor/reference/ProfessorReferenceWrite.vue"
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -47,11 +52,6 @@ const routesProf = [
         path: '/prof/lecture/list',
         name: 'ProfessorCheckLecture',
         component: ProfessorCheckLecture
-    },
-    {
-        path: '/prof/student/check',
-        name: 'ProfessorStudentCheck',
-        component: ProfessorStudentCheck
     },
     {   //강의_과제
         path: '/prof/student/homework',
@@ -110,6 +110,42 @@ const routesProf = [
         path: '/prof/lecture/notice/deatil',
         name: 'ProfessorLectureNoticeDetail',
         component: ProfessorLectureNoticeDetail
+    },
+    {
+        //강의공지 작성하기
+        path: '/prof/lecture/notice/write',
+        name: 'ProfessorLectureNoticeWrite',
+        component: ProfessorLectureNoticeWrite
+    },
+    {
+        //강의공지 수정하기
+        path: '/prof/lecture/notice/update',
+        name: 'ProfessorLectureNoticeUpdate',
+        component: ProfessorLectureNoticeUpdate
+    },
+    {
+        //강의자료실 리스트
+        path: '/prof/lecture/reference/list',
+        name: 'ProfessorReferenceList',
+        component: ProfessorReferenceList
+    },
+    {
+        //강의자료실 상세보기
+        path: '/prof/lecture/reference/detail',
+        name: 'ProfessorReferenceDetail',
+        component: ProfessorReferenceDetail
+    },
+    {
+        //강의자료실 수정
+        path: '/prof/lecture/reference/update',
+        name: 'ProfessorReferenceUpdate',
+        component: ProfessorReferenceUpdate
+    },
+    {
+        //강의자료실 작성
+        path: '/prof/lecture/reference/write',
+        name: 'ProfessorReferenceWrite',
+        component: ProfessorReferenceWrite
     }
 ]
 

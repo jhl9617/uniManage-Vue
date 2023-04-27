@@ -30,7 +30,6 @@
                 <div class="collapse" id="lecture-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><router-link to="/prof/lecture/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의정보 확인</router-link></li>
-                        <li><router-link to="/prof/student/check" class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의 출결관리</router-link></li>
                         <li><router-link to="/prof/student/homework" class="link-body-emphasis d-inline-flex text-decoration-none rounded">새로운 과제생성</router-link></li>
                         <li><router-link to="/prof/lecture/closed" class="link-body-emphasis d-inline-flex text-decoration-none rounded">휴강</router-link></li>
                     </ul>
