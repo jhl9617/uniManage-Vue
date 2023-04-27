@@ -1,5 +1,4 @@
 <template>
-    <div>
 
                 <div class="col-md-8">
                     <div class="container">
@@ -136,17 +135,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
 
 
 </template>
 
 <script>
-
 export default {
-    components: {
-
-    }
+    name: "StudentInfoMain"
 }
 </script>
 

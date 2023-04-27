@@ -33,12 +33,12 @@
                 </router-link>
             </li>
             <li class="mb-1">
-                <router-link to="/personinfo" class="nav-link link-body-emphasis">
+                <router-link to="/admin/manage/professor" class="nav-link link-body-emphasis">
                     교수 관리
                 </router-link>
             </li>
             <li class="mb-1">
-                <router-link to="/personinfo" class="nav-link link-body-emphasis">
+                <router-link to="/admin/manage/scholarship" class="nav-link link-body-emphasis">
                     장학금 관리
                 </router-link>
             </li>
