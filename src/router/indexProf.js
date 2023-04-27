@@ -4,7 +4,6 @@ import ProfessorCreateNewLecture from '@/views/professor/newLecture/ProfessorCre
 import LectureRoom from '@/views/professor/newLecture/LectureRoom.vue'
 import ProfessorNewLectureDetails from "@/views/professor/newLecture/ProfessorNewLectureDetails.vue"
 import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLecture.vue"
-import ProfessorStudentCheck from "@/views/professor/lecture/ProfessorStudentCheck.vue"
 import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue"
 import ProfessorCloseLecture from "@/views/professor/lecture/ProfessorCloseLecture.vue"
 import ProfesscorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue"
@@ -53,11 +52,6 @@ const routesProf = [
         path: '/prof/lecture/list',
         name: 'ProfessorCheckLecture',
         component: ProfessorCheckLecture
-    },
-    {
-        path: '/prof/student/check',
-        name: 'ProfessorStudentCheck',
-        component: ProfessorStudentCheck
     },
     {   //강의_과제
         path: '/prof/student/homework',
