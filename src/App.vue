@@ -9,6 +9,7 @@
                     <StudentSidebar v-if="$route.name.startsWith('Student')"/>
                     <ProfessorSidebar v-if="$route.name.startsWith('Prof')"/>
                     <EclassSidebar v-if="$route.name.startsWith('Eclass')"/>
+
                 </div>
                 <div class="col-md-8">
                     <router-view/>
