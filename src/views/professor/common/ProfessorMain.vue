@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex justify-content-center">
-        <div>
+    <div class="d-flex justify-content-around col-md-12">
+        <div class="border" style="width: 400px">
             개인정보 <br>
             <div class="d-flex justify-content-start">
                 <div>
@@ -14,17 +14,18 @@
             <br>
             <button value="비밀번호변경"/>
         </div>
-        <div>
+        <div class="border" style="width: 400px">
             교수 공지사항 <br>
-            <table class="table">
+            <table class="table table-bordered">
                 <tr>
                     <th>제목</th>
                 </tr>
             </table>
         </div>
     </div>
-    <div class="d-flex justify-content-center">
-        <div>
+    <br><br><br>
+    <div class="d-flex justify-content-around col-md-12">
+        <div class="border" style="width: 400px">
             <table class="table table-bordered">
                 <tr>
                     <th></th>
@@ -36,7 +37,7 @@
                 </tr>
             </table>
         </div>
-        <div>
+        <div class="border" style="width: 400px">
             학사일정
         </div>
     </div>

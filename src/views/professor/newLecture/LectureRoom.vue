@@ -66,6 +66,14 @@
                     <td>공학관</td>
                     <td>102호</td>
                     <td>월요일</td>
+                    <td>09:00 ~ 11:00</td>
+                    <td>40명</td>
+                    <td><input type="button" value="선택"></td>
+                </tr>
+                <tr>
+                    <td>공학관</td>
+                    <td>102호</td>
+                    <td>월요일</td>
                     <td>10:00 ~ 11:00</td>
                     <td>40명</td>
                     <td><input type="button" value="선택"></td>
@@ -74,23 +82,15 @@
                     <td>공학관</td>
                     <td>102호</td>
                     <td>월요일</td>
+                    <td>10:00 ~ 12:00</td>
+                    <td>40명</td>
+                    <td><input type="button" value="선택"></td>
+                </tr>
+                <tr>
+                    <td>공학관</td>
+                    <td>102호</td>
+                    <td>월요일</td>
                     <td>11:00 ~ 12:00</td>
-                    <td>40명</td>
-                    <td><input type="button" value="선택"></td>
-                </tr>
-                <tr>
-                    <td>공학관</td>
-                    <td>102호</td>
-                    <td>월요일</td>
-                    <td>12:00 ~ 13:00</td>
-                    <td>40명</td>
-                    <td><input type="button" value="선택"></td>
-                </tr>
-                <tr>
-                    <td>공학관</td>
-                    <td>102호</td>
-                    <td>월요일</td>
-                    <td>14:00 ~ 15:00</td>
                     <td>40명</td>
                     <td><input type="button" value="선택"></td>
                 </tr>

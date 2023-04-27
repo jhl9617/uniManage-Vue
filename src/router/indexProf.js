@@ -13,9 +13,8 @@ import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/Prof
 import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue";
 import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue";
 import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue";
-
-
-
+import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue";
+import ProfessorLectureNotice from "@/views/professor/notice/ProfessorLectureNotice.vue"
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -39,59 +38,71 @@ const routesProf = [
         component: LectureRoom
     },
     {   //개설강좌_신규강의 신청내역
-        path: '/prof/createlist',
+        path: '/prof/create/list',
         name: 'ProfessorNewLectureDetails',
         component: ProfessorNewLectureDetails
     },
     {   //강의_강의정보 확인
-        path: '/prof/lecturelist',
+        path: '/prof/lecture/list',
         name: 'ProfessorCheckLecture',
         component: ProfessorCheckLecture
     },
     {
-        path: '/prof/Studentcheck',
+        path: '/prof/student/check',
         name: 'ProfessorStudentCheck',
         component: ProfessorStudentCheck
     },
     {   //강의_과제
-        path: '/prof/homework',
+        path: '/prof/student/homework',
         name: 'ProfessorCreateNewHomework',
         component: ProfessorCreateNewHomework
     },
     {   //강의_휴강
-        path: '/prof/lectureclosed',
+        path: '/prof/lecture/closed',
         name: 'ProfessorCloseLecture',
         component: ProfessorCloseLecture
     },
     {   //학생관리_학생 출석관리
-        path: '/studentattendance',
+        path: '/prof/student/attendance',
         name: 'ProfesscorStudentAttendance',
         component: ProfesscorStudentAttendance
     },
     {   //학생관리_과제 제출현황
-        path: '/homeworklist',
+        path: '/prof/student/homework/list',
         name: 'ProfesscorHomeworkCheck',
         component: ProfesscorHomeworkCheck
     },
     {   //강의평가_강의 평가내역
-        path: '/lecturerating',
+        path: '/prof/lecture/rating',
         name : 'ProfessorLectureEvaluation',
         component: ProfessorLectureEvaluation
     },
     {   //공지사항_전체공지
-        path: '/notice/list',
+        path: '/prof/notice/list',
         name: 'ProfessorUniversityNotice',
         component: ProfessorUniversityNotice
     },
     {   //공지사항_학과공지
-        path: '/dnotice/list',
+        path: '/prof/dnotice/list',
         name: 'ProfessorDepartmentNotice',
         component: ProfessorDepartmentNotice
     },
     {   //급여_급여명세서
-        path: '/salary',
+        path: '/prof/salary',
         name: 'ProfesscorPayslip',
         component: ProfesscorPayslip
+    },
+    {
+        //강의정보 확인
+        path: '/prof/lecture/deatil',
+        name: 'ProfessorLectureDetail',
+        component: ProfessorLectureDetail
+    },
+    {
+        //강의공지 리스트
+        path: '/prof/lecture/notice/list',
+        name: 'ProfessorLectureNotice',
+        component: ProfessorLectureNotice
     }
 ]
 
