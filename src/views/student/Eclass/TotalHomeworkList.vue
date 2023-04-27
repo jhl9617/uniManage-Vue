@@ -1,26 +1,83 @@
 <template>
-    <div class="board-list">
-        공지사항
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
-        <table class="w3-table-all">
-            <thead>
-            <tr>
-                <th>No</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>등록일시</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="(row, idx) in list" :key="idx">
-                <td>{{ row.idx }}</td>
-                <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
-                <td>{{ row.author }}</td>
-                <td>{{ row.created_at }}</td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+            <router-link to="/eclass">
+                <img alt="logo" src="../../../assets/images/collegeimage.jpg" width="1300" height="300">
+            </router-link>
+
+        </header>
+    </div>
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            </ul>
+
+            <div class="col-md-6 text-end">
+                OOO 학생 &nbsp;
+                <button class="btn btn-outline-primary me-2" type="button">LogOut</button>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img alt="Admin" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                             width="150">
+                        <div class="mt-3">
+                            <h4>OOO 학생</h4>
+                            <p class="text-secondary mb-1"> OO 학과</p>
+                            <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
+                                <router-link to="/Eclass" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                                    <span class="fs-4">내 강의실</span>
+                                </router-link>
+                                <hr>
+                                <ul class="nav nav-pills flex-column mb-auto">
+
+                                    <li>
+                                        <router-link to="/eclass/totalhomework/list" class="nav-link link-body-emphasis ">
+
+                                            과제등록 현황
+                                        </router-link>
+                                    </li>
+
+                                </ul>
+                                <hr>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                과제등록현황
+                <br><br>
+                <div class="board-list">
+
+                    <div class="common-buttons">
+
+                    </div>
+                    <table class="w3-table-all">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>과제제목</th>
+                            <th>마감일</th>
+                            <th>제출상태</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(row, idx) in list" :key="idx">
+                            <td>{{ row.idx }}</td>
+                            <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
+                            <td>{{ row.author }}</td>
+                            <td>{{ row.created_at }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
       <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
       <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
@@ -37,24 +94,28 @@
          @click="fnPage(`${paging.end_page+1}`)" class="next w3-button w3-border">&gt;</a>
       <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <select v-model="search_key">
-                <option value="">- 선택 -</option>
-                <option value="author">작성자</option>
-                <option value="title">제목</option>
-                <option value="contents">내용</option>
-            </select>
-            &nbsp;
-            <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-            &nbsp;
-            <button @click="fnPage()">검색</button>
-        </div>
+        <PageFooter/>
     </div>
 </template>
 
 <script>
+// import HelloWorld from './components/HelloWorld.vue'
+
+// import PageHeader from "@/views/student/Eclass/PageHeader.vue";
+import PageFooter from "@/components/common/PageFooter.vue";
+
+
 export default {
+    components: {
+        // HelloWorld
+        PageFooter,
+
+    },
+
     data() { //변수생성
         return {
             requestBody: {}, //리스트 페이지 데이터전송
@@ -140,34 +201,7 @@ export default {
             this.fnGetList()
         }
     }
-    // fnGetList() {
-
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]
-    // }
-    // }
 }
 </script>
+<style scoped>
+</style>

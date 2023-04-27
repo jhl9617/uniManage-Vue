@@ -16,7 +16,7 @@
         </div>
         <div>
             교수 공지사항 <br>
-            <table>
+            <table class="table">
                 <tr>
                     <th>제목</th>
                 </tr>
@@ -25,7 +25,7 @@
     </div>
     <div class="d-flex justify-content-center">
         <div>
-            <table>
+            <table class="table table-bordered">
                 <tr>
                     <th></th>
                     <th>월</th>

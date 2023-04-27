@@ -1,11 +1,13 @@
 <template>
     <div>
-        신규강의 개설하기
         <form action="">
-            <table>
+            <table class="table table-bordered" style="width: 800px">
+                <tr>
+                    <th colspan="4">신규강의 개설하기</th>
+                </tr>
                 <tr>
                     <th>강의명</th>
-                    <td colspan="3"><input type="text"></td>
+                    <td colspan="3"><input type="text" class="form-control"></td>
                 </tr>
                 <tr>
                     <th>학점</th>
@@ -19,22 +21,22 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>강의실 1</th>
-                    <td><input type="text"></td>
-                    <th>강의시간 1</th>
-                    <td><input type="text"></td>
+                    <th style="width: 15%;">강의실 1</th>
+                    <td style="width: 35%"><input type="text" class="form-control"></td>
+                    <th style="width: 15%;">강의시간 1</th>
+                    <td style="width: 35%"><input type="text" class="form-control"></td>
                 </tr>
                 <tr>
                     <th>강의실 2</th>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="form-control"></td>
                     <th>강의시간 2</th>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="form-control"></td>
                 </tr>
                 <tr>
                     <th>강의실 3</th>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="form-control"></td>
                     <th>강의시간 3</th>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="form-control"></td>
                 </tr>
                 <tr>
                     <th colspan="4">
