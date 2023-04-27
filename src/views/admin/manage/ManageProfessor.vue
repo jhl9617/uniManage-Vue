@@ -14,7 +14,9 @@
             </tr>
             <tr>
                 <td>5</td>
+                <router-link to="/admin/manage/detailprofessor">
                 <td>교수명</td>
+                </router-link>
                 <td>교번</td>
                 <td>학과</td>
                 <td>

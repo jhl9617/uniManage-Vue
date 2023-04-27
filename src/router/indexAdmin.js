@@ -18,7 +18,9 @@ import AdminManageClass from "@/views/admin/manage/ManageClass.vue";
 import AdminAddStudent from '@/views/admin/manage/AddStudent.vue'
 import AdminModifyStudent from '@/views/admin/manage/ModifyStudent.vue'
 import AdminDetailStudent from "@/views/admin/manage/DetailStudent.vue";
+import AdminDetailGrade from "@/views/admin/manage/DetailGrade.vue";
 import AdminDetailScholarship from "@/views/admin/manage/DetailScholarship.vue";
+import AdminDetailProfessor from "@/views/admin/manage/DetailProfessor.vue";
 
 const routesAdmin = [
   {
@@ -117,9 +119,19 @@ const routesAdmin = [
     component: AdminDetailStudent
   },
   {
+    path: '/admin/manage/detailgrade',
+    name: 'AdminDetailGrade',
+    component: AdminDetailGrade
+  },
+  {
     path: '/admin/manage/detailscholarship',
     name: 'AdminDetailScholarship',
     component: AdminDetailScholarship
+  },
+  {
+    path: '/admin/manage/detailprofessor',
+    name: 'AdminDetailProfessor',
+    component: AdminDetailProfessor
   },
 ]
 

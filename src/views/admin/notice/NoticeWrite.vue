@@ -1,23 +1,49 @@
 <template>
-    <div class="board-detail">
-        <!--
-                <div class="common-buttons">
-                    <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
-                    <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-                </div>
-        -->
-        <div class="board-contents">
-            <input type="text" v-model="title" class="w3-input w3-border" placeholder="제목을 입력해주세요.">
-            <input type="text" v-model="author" class="w3-input w3-border" placeholder="작성자를 입력해주세요." v-if="idx === undefined">
-        </div>
-        <div class="board-contents">
-      <textarea id="" cols="30" rows="10" v-model="contents" class="w3-input w3-border" style="resize: none;">
-      </textarea>
-        </div>
-        <div class="common-buttons">
-            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
-            <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-        </div>
+    <h6>공지사항 발송</h6>
+    <table class="table table-bordered" align="center">
+        <tr style="border: solid 1px ;">
+            <th style="border: solid 1px ;">제목</th>
+            <td style="border: 1px solid;">
+                <input type="text" name="text" size="20" style="width:100%;">
+            </td>
+        </tr>
+        <tr style="border: solid 1px ;">
+            <th style="border: solid 1px ;">내용</th>
+            <td style="border: 1px solid;">
+                <textarea name="content" rows="10" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr style="border: solid 1px ;">
+            <th style="border: solid 1px ;">보낼사람</th>
+            <td style="border: 1px solid;">
+                <input type="radio" name="chk_info">전체 &nbsp;
+                <input type="radio" name="chk_info">이메일 &nbsp;
+                <input type="radio" name="chk_info">SMS &nbsp;
+            </td>
+        </tr>
+        <tr style="border: solid 1px ;">
+            <th style="border: solid 1px ;">소속</th>
+            <td style="border: 1px solid;">
+                <input type="radio" name="chk_info">전체 &nbsp;
+                <select>
+                    <option value="">- 선택 -</option>
+                    <option value="">인문계</option>
+                    <option value="">이공계</option>
+                </select>
+            </td>
+        </tr>
+        <tr style="border: solid 1px ;">
+            <th style="border: solid 1px ;">전송수단</th>
+            <td style="border: 1px solid;">
+                <input type="radio" name="chk_info">전체 &nbsp;
+                <input type="radio" name="chk_info">이메일 &nbsp;
+                <input type="radio" name="chk_info">SMS &nbsp;
+            </td>
+        </tr>
+    </table>
+    <div>
+            <button type="button">전송</button>&nbsp;&nbsp;
+            <button type="button">전송취소</button>
     </div>
 </template>
 
