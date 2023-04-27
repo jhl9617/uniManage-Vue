@@ -13,7 +13,7 @@
                 </router-link>
             </li>
             <li class="mb-1">
-                <router-link to="/admin/mange/student" class="nav-link link-body-emphasis">
+                <router-link to="/admin/manage/student" class="nav-link link-body-emphasis">
                     학생 관리
                 </router-link>
             </li>

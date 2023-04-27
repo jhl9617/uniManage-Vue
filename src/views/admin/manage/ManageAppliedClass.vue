@@ -1,7 +1,6 @@
 <template>
   강의 신청 관리
     <br><br>
-
     <div class="container">
         <table class="w3-table-all">
             <tr>

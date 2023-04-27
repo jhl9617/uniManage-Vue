@@ -16,7 +16,9 @@ import AdminModifyClassroom from "@/views/admin/manage/ModifyClassroom.vue";
 import AdminManageAppliedClass from "@/views/admin/manage/ManageAppliedClass.vue";
 import AdminManageClass from "@/views/admin/manage/ManageClass.vue";
 import AdminAddStudent from '@/views/admin/manage/AddStudent.vue'
-import Adminmodifystudent from '@/views/admin/manage/ModifyStudent.vue'
+import AdminModifyStudent from '@/views/admin/manage/ModifyStudent.vue'
+import AdminDetailStudent from "@/views/admin/manage/DetailStudent.vue";
+import AdminDetailScholarship from "@/views/admin/manage/DetailScholarship.vue";
 
 const routesAdmin = [
   {
@@ -35,7 +37,7 @@ const routesAdmin = [
     component: AdminNoticewrite
   },
   {
-    path: '/admin/mange/student',
+    path: '/admin/manage/student',
     name: 'AdminManageStudent',
     component: AdminManageStudent
   },
@@ -100,14 +102,24 @@ const routesAdmin = [
     component: AdminManageClass
   },
   {
-    path: '/admin/mange/addstudent',
+    path: '/admin/manage/addstudent',
     name: 'AdminAddStudent',
     component: AdminAddStudent
   },
   {
-    path: '/admin/mange/modifystudent',
-    name: 'Adminmodifystudent',
-    component: Adminmodifystudent
+    path: '/admin/manage/modifystudent',
+    name: 'AdminModifyStudent',
+    component: AdminModifyStudent
+  },
+  {
+    path: '/admin/manage/detailstudent',
+    name: 'AdminDetailStudent',
+    component: AdminDetailStudent
+  },
+  {
+    path: '/admin/manage/detailscholarship',
+    name: 'AdminDetailScholarship',
+    component: AdminDetailScholarship
   },
 ]
 
