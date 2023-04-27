@@ -15,7 +15,6 @@ import AdminAddClassroom from "@/views/admin/manage/AddClassroom.vue";
 import AdminModifyClassroom from "@/views/admin/manage/ModifyClassroom.vue";
 import AdminManageAppliedClass from "@/views/admin/manage/ManageAppliedClass.vue";
 import AdminManageClass from "@/views/admin/manage/ManageClass.vue";
-import ManageProfessor from "@/views/admin/manage/ManageProfessor.vue";
 import AdminAddStudent from '@/views/admin/manage/AddStudent.vue'
 import Adminmodifystudent from '@/views/admin/manage/ModifyStudent.vue'
 
@@ -100,6 +99,7 @@ const routesAdmin = [
     name: 'AdminManageClass',
     component: AdminManageClass
   },
+  {
     path: '/admin/mange/addstudent',
     name: 'AdminAddStudent',
     component: AdminAddStudent
