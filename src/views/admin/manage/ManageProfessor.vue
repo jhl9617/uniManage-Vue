@@ -247,5 +247,3 @@ export default {
 <style scoped>
 
 </style>
-<script setup>
-</script>
