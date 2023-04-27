@@ -2,13 +2,14 @@
     <div>
         <PageHeader/>
         <EclassHeader v-if="$route.name && $route.name.startsWith('Eclass')"/>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <AdminSidebar v-if="$route.name && $route.name.startsWith('Admin')"/>
                     <StudentSidebar v-if="$route.name && $route.name.startsWith('Student')"/>
                     <ProfessorSidebar v-if="$route.name && $route.name.startsWith('Prof')"/>
                     <EclassSidebar v-if="$route.name && $route.name.startsWith('Eclass')"/>
+
                 </div>
                 <div class="col-md-8">
                     <router-view/>

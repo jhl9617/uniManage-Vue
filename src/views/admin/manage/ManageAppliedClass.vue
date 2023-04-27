@@ -1,93 +1,80 @@
 <template>
-    교수관리
+  강의 신청 관리
     <br><br>
 
     <div class="container">
         <table class="w3-table-all">
             <tr>
                 <td>번호</td>
-                <td>교수명</td>
-                <td>교번</td>
+                <td>강의명</td>
+                <td>담당교수</td>
                 <td>학과</td>
-                <td>삭제</td>
-                <td>수정</td>
+                <td></td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>교수명</td>
-                <td>교번</td>
+                <td>강의명</td>
+                <td>담당교수</td>
                 <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifyprofessor">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>4</td>
-                <td>교수명</td>
-                <td>교번</td>
+                <td>강의명</td>
+                <td>담당교수</td>
                 <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifyprofessor">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>3</td>
-                <td>교수명</td>
-                <td>교번</td>
+                <td>강의명</td>
+                <td>담당교수</td>
                 <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifyprofessor">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>2</td>
-                <td>교수명</td>
-                <td>교번</td>
+                <td>강의명</td>
+                <td>담당교수</td>
                 <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifyprofessor">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>1</td>
-                <td>교수명</td>
-                <td>교번</td>
+                <td>강의명</td>
+                <td>담당교수</td>
                 <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifyprofessor">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
         </table>
         <br>
         <div align="right">
-            <router-link to="/admin/manage/addprofessor">
-                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">추가</button>
-            </router-link>
+                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">허용</button>
         </div>
         <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
       <span class="pg">
