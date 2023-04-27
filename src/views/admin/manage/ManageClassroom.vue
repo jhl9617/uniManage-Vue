@@ -1,115 +1,93 @@
 <template>
-        장학금관리
+        강의실관리
         <br><br>
 
         <div class="container">
             <table class="w3-table-all">
                 <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
+                    <td>건물명</td>
+                    <td>층</td>
+                    <td>강의실 호수</td>
+                    <td>수용인원수</td>
                     <td>삭제</td>
                     <td>수정</td>
                 </tr>
                 <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
-                    <td>
-                            <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyscholarship">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>201</td>
+                    <td>30</td>
                     <td>
                         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
                     </td>
                     <td>
-                        <router-link to="/admin/manage/modifyscholarship">
+                        <router-link to="/admin/manage/modifyclassroom">
                             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
                         </router-link>
                     </td>
                 </tr>
                 <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>301</td>
+                    <td>30</td>
                     <td>
                         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
                     </td>
                     <td>
-                        <router-link to="/admin/manage/modifyscholarship">
+                        <router-link to="/admin/manage/modifyclassroom">
                             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
                         </router-link>
                     </td>
                 </tr>
                 <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>202</td>
+                    <td>30</td>
                     <td>
                         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
                     </td>
                     <td>
-                        <router-link to="/admin/manage/modifyscholarship">
+                        <router-link to="/admin/manage/modifyclassroom">
                             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
                         </router-link>
                     </td>
                 </tr>
                 <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>104</td>
+                    <td>25</td>
                     <td>
                         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
                     </td>
                     <td>
-                        <router-link to="/admin/manage/modifyscholarship">
+                        <router-link to="/admin/manage/modifyclassroom">
                             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
                         </router-link>
                     </td>
                 </tr>
                 <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>205</td>
+                    <td>30</td>
                     <td>
                         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
                     </td>
                     <td>
-                        <router-link to="/admin/manage/modifyscholarship">
+                        <router-link to="/admin/manage/modifyclassroom">
                             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
                         </router-link>
                     </td>
                 </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>장학금명</td>
-                    <td>장학금액</td>
-                    <td>
-                        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyscholarship">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-                </tr>
-
-            </table>
+                     </table>
             <br>
             <div align="right">
-            <router-link to="/admin/manage/addscholarship">
-                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">추가</button>
-            </router-link>
+                <router-link to="/admin/manage/addclassroom">
+                    <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">추가</button>
+                </router-link>
             </div>
             <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
       <span class="pg">
