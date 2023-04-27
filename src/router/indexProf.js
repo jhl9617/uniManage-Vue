@@ -13,9 +13,7 @@ import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/Prof
 import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue";
 import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue";
 import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue";
-
-
-
+import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue";
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -92,6 +90,12 @@ const routesProf = [
         path: '/prof/salary',
         name: 'ProfesscorPayslip',
         component: ProfesscorPayslip
+    },
+    {
+        //강의정보 확인
+        path: '/prof/lecture/deatil',
+        name: 'ProfessorLectureDetail',
+        component: ProfessorLectureDetail
     }
 ]
 
