@@ -9,12 +9,12 @@ module.exports = defineConfig({
   // target : 백엔드 port가 들어감
   // changeOrigin 
   // -> true로 해야 cros 문제 해결할 수 있음
-  devServer: {
-    proxy: {
-      '/': {
-        target: "http://localhost:9090",
-        changeOrigin: true,
-      }
-    }
-  }
+  // devServer: {
+  //   proxy: {
+  //     '/': {
+  //       target: "http://localhost:9090",
+  //       changeOrigin: true,
+  //     }
+  //   }
+  // }
 })
