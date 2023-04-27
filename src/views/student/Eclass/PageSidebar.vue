@@ -1,8 +1,8 @@
 <!-- PageSidebar.vue -->
 <template>
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-    <router-link to="/Eclass/1" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 250px;">
+    <router-link to="/Eclass/1" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+
       <span class="fs-4">과목명</span>
     </router-link>
     <hr>
@@ -39,7 +39,7 @@
       </li>
     </ul>
     <hr>
-    
+
   </div>
   </template>
   

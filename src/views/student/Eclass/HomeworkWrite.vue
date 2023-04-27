@@ -8,19 +8,21 @@
             과제제목
         </div>
         <div class="board-contents">
-        <textarea id="" cols="30" rows="10" v-model="contents" class="w3-input w3-border" placeholder="과제내용" style="resize: none;">
+        <textarea id="" class="w3-input w3-border" cols="30" placeholder="과제내용" rows="10" style="resize: none;">
+        과제내용
         </textarea>
-
-            <textarea id="" cols="30" rows="10" v-model="contents" class="w3-input w3-border" placeholder="작성할 내용을 입력하세요" style="resize: none;">
+        <textarea id="" class="w3-input w3-border" cols="30" placeholder="작성할 내용을 입력하세요" rows="10"
+                      style="resize: none;">
+        작성할 내용을 입력하세요
         </textarea>
         </div>
         <div class="board-contents">
-            <input type="file"  class="w3-input w3-border">
+            <input class="w3-input w3-border" type="file">
 
         </div>
         <div class="common-buttons">
-            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
-            <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
+            <button class="w3-button w3-round w3-blue-gray" type="button" v-on:click="fnSave">저장</button>&nbsp;
+            <button class="w3-button w3-round w3-gray" type="button" v-on:click="fnList">목록</button>
         </div>
 
     </div>
