@@ -14,9 +14,6 @@ import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUnivers
 import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue";
 import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue";
 
-
-
-
 const routesProf = [
     {   //교수_기본(메인)
         path: '/prof/main',
