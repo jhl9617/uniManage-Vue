@@ -17,6 +17,7 @@ import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDe
 import ProfessorLectureNotice from "@/views/professor/notice/ProfessorLectureNotice.vue"
 import ProfessorLectureNoticeDetail from "@/views/professor/notice/ProfessorLectureNoticeDetail.vue"
 import ProfessorLectureNoticeWrite from "@/views/professor/notice/ProfessorLectureNoticeWrite.vue"
+import ProfessorLectureNoticeUpdate from "@/views/professor/notice/ProfessorLectureNoticeUpdate.vue"
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -117,6 +118,12 @@ const routesProf = [
         path: '/prof/lecture/notice/write',
         name: 'ProfessorLectureNoticeWrite',
         component: ProfessorLectureNoticeWrite
+    },
+    {
+        //강의공지 수정하기
+        path: '/prof/lecture/notice/update',
+        name: 'ProfessorLectureNoticeUpdate',
+        component: ProfessorLectureNoticeUpdate
     }
 ]
 

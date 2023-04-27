@@ -25,9 +25,14 @@
                 </td>
             </tr>
         </table>
+        <router-link to="/prof/lecture/notice/update">
+            <input type="button" value="수정하기">
+        </router-link>
+        &nbsp; &nbsp;
         <input type="button" value="목록으로 돌아가기"> &nbsp; &nbsp;
         <input type="button" value="강의로 돌아가기">
     </div>
 </template>
-<script></script>
+<script>
+</script>
 <style></style>
