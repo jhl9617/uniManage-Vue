@@ -31,18 +31,13 @@
                             <p class="text-secondary mb-1"> OO 학과</p>
                             <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
                                 <router-link to="/Eclass" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                                    <span class="fs-4">Eclass Main</span>
+                                    <span class="fs-4">내 강의실</span>
                                 </router-link>
                                 <hr>
                                 <ul class="nav nav-pills flex-column mb-auto">
-                                    <li class="nav-item">
-                                        <router-link to="/Eclass" class="nav-link link-body-emphasis" aria-current="page">
 
-                                            내 강의실
-                                        </router-link>
-                                    </li>
                                     <li>
-                                        <router-link to="/Eclass/1" class="nav-link link-body-emphasis ">
+                                        <router-link to="/eclass/totalhomework/list" class="nav-link link-body-emphasis ">
 
                                             과제등록 현황
                                         </router-link>

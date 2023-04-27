@@ -1,7 +1,8 @@
 <template>
     <div>
         <PageHeader/>
-        <div class="container-fluid">
+        <EclassHeader v-if="$route.name.startsWith('Eclass')"/>
+        <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     <AdminSidebar v-if="$route.name.startsWith('Admin')"/>
@@ -25,12 +26,14 @@ import StudentSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
 import EclassSidebar from "@/views/student/Eclass/PageSidebar.vue";
 import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
 import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
+import EclassHeader from "@/views/student/Eclass/PageHeader.vue"
 
 export default {
     name: 'App',
     components: {
         AdminSidebar,
         PageHeader,
+        EclassHeader,
         PageFooter,
         StudentSidebar,
         ProfessorSidebar,
