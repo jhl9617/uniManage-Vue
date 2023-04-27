@@ -1,5 +1,5 @@
 <template>
-  교수 추가
+  교수 정보 수정
     <div style="border:2px solid black; padding:100px;">
         <div class="col-md-8">
             <div class="container">
