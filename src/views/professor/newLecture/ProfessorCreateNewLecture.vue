@@ -1,10 +1,8 @@
 <template>
-    <div>
+    <div class="container">
         <form action="">
-            <table class="table table-bordered" style="width: 800px">
-                <tr>
-                    <th colspan="4">신규강의 개설하기</th>
-                </tr>
+            <h4>신규강의 개설하기</h4> <br>
+            <table class="table" style="width: 800px">
                 <tr>
                     <th>강의명</th>
                     <td colspan="3"><input type="text" class="form-control"></td>
@@ -40,17 +38,19 @@
                 </tr>
                 <tr>
                     <th colspan="4">
-                        <input type="button" value="강의실 조회">
+                        <router-link to="/prof/create/room" target="_blank">
+                            <input type="button" value="강의실 조회">
+                        </router-link>
                     </th>
                 </tr>
                 <tr>
                     <th>강의계획서</th>
-                    <td>
+                    <td colspan="3">
                         <input type="file">
                     </td>
                 </tr>
             </table>
-            <input type="submit" value="신규강의 생성하기">
+            <input type="submit" value="신규강의 생성하기"> &nbsp; &nbsp;
             <input type="button" value="홈페이지로 돌아가기">
         </form>
     </div>
@@ -58,4 +58,7 @@
 <script>
 </script>
 <style>
+table tr {
+    vertical-align: middle
+}
 </style>
