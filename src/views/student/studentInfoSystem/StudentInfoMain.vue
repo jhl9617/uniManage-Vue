@@ -1,11 +1,5 @@
 <template>
-    <div>
-        <PageHeader/>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <PageSidebar/>
-                </div>
+
                 <div class="col-md-8">
                     <div class="container">
                         <div class="row">
@@ -141,23 +135,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <PageFooter/>
-    </div>
+
 
 </template>
 
 <script>
-import PageHeader from '@/components/common/PageHeader.vue';
-import PageFooter from '@/components/common/PageFooter.vue';
-import PageSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
 export default {
-    components: {
-        PageHeader,
-        PageFooter,
-        PageSidebar
-    }
+    name: "StudentInfoMain"
+
 }
 </script>
 
