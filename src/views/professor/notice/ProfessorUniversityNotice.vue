@@ -17,7 +17,7 @@
               <tbody>
               <tr>
                   <td class="text-center">1</td>
-                  <td class="text-center"><a href="javascript;" @click="fnPage(1)">첫번째 공지사항</a></td>
+                  <td class="text-center"><a href="javascript:" @click="fnPage(1)">첫번째 공지사항</a></td>
                   <td class="text-center">관리자</td>
                   <td class="text-center">2023.04.24</td>
                   <td ></td>
@@ -25,7 +25,7 @@
               </tr>
               <tr>
                   <td class="text-center">2</td>
-                  <td class="text-center"><a href="javascript;" @click="fnPage(2)">두번째 공지사항</a></td>
+                  <td class="text-center"><a href="javascript:" @click="fnPage(2)">두번째 공지사항</a></td>
                   <td class="text-center">관리자</td>
                   <td class="text-center">2023.04.24</td>
                   <td></td>
@@ -33,7 +33,7 @@
               </tr>
               <tr>
                   <td class="text-center">3</td>
-                  <td class="text-center"><a href="javascript;" @click="fnPage(3)">세번째 공지사항</a></td>
+                  <td class="text-center"><a href="javascript:" @click="fnPage(3)">세번째 공지사항</a></td>
                   <td class="text-center">관리자</td>
                   <td class="text-center">2023.04.25</td>
                   <td></td>
