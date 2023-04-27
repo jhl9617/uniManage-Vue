@@ -8,11 +8,7 @@
                 </button>
                 <div class="collapse" id="info-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <router-link to="/prof/info" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                개인정보 조회
-                            </router-link>
-                        </li>
+                        <li><router-link to="/prof/info" class="link-body-emphasis d-inline-flex text-decoration-none rounded">개인정보 조회</router-link></li>
                     </ul>
                 </div>
             </li>
@@ -22,16 +18,8 @@
                 </button>
                 <div class="collapse" id="create-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <router-link to="/prof/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                신규강좌 개설
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/createlist" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                신규강의 신청내역
-                            </router-link>
-                        </li>
+                        <li><router-link to="/prof/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded">신규강좌 개설</router-link></li>
+                        <li><router-link to="/prof/create/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">신규강의 신청내역</router-link></li>
                     </ul>
                 </div>
             </li>
@@ -41,21 +29,10 @@
                 </button>
                 <div class="collapse" id="lecture-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <router-link to="/lecturelist" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                강의정보 확인하기
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/homework" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                과제
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/lectureclosed" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                휴강
-                            </router-link>
-                        </li>
+                        <li><router-link to="/prof/lecture/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의정보 확인</router-link></li>
+                        <li><router-link to="/prof/student/check" class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의 출결관리</router-link></li>
+                        <li><router-link to="/prof/student/homework" class="link-body-emphasis d-inline-flex text-decoration-none rounded">새로운 과제생성</router-link></li>
+                        <li><router-link to="/prof/lecture/closed" class="link-body-emphasis d-inline-flex text-decoration-none rounded">휴강</router-link></li>
                     </ul>
                 </div>
             </li>
@@ -65,16 +42,8 @@
                 </button>
                 <div class="collapse" id="student-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <router-link to="/studentattendance" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                학생 출석관리
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/homeworklist" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                과제 제출현황
-                            </router-link>
-                        </li>
+                        <li><router-link to="/prof/student/attendance" class="link-body-emphasis d-inline-flex text-decoration-none rounded">학생 출석관리</router-link></li>
+                        <li><router-link to="/prof/student/homework/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">과제 제출현황</router-link></li>
                     </ul>
                 </div>
             </li>
@@ -84,11 +53,7 @@
                 </button>
                 <div class="collapse" id="rating-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <router-link to="/lecturerating" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                강의 평가내역
-                            </router-link>
-                        </li>
+                        <li><router-link to="/prof/lecture/rating" class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의 평가내역</router-link></li>
                     </ul>
                 </div>
             </li>
@@ -98,16 +63,8 @@
                 </button>
                 <div class="collapse" id="notice-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <router-link to="/notice/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                전체 공지
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/dnotice/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                학과 공지
-                            </router-link>
-                        </li>
+                        <li><router-link to="/prof/notice/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">전체 공지</router-link></li>
+                        <li><router-link to="/prof/dnotice/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과 공지</router-link></li>
                     </ul>
                 </div>
             </li>
@@ -117,11 +74,7 @@
                 </button>
                 <div class="collapse" id="salary-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <router-link to="/salary" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                급여명세서
-                            </router-link>
-                        </li>
+                        <li><router-link to="/prof/salary" class="link-body-emphasis d-inline-flex text-decoration-none rounded">급여명세서</router-link></li>
                     </ul>
                 </div>
             </li>

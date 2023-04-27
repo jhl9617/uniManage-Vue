@@ -1,5 +1,6 @@
 <template>
-               <div class="container-fluid">
+                <div class="col-md-8">
+                    <div class="container">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="d-flex flex-column align-items-center text-center">
@@ -23,9 +24,7 @@
                                         </td>
                                         <tr>
                                             <td>
-                                                <router-link to="/resetpassword" class="font-weight-bold"><button class="btn btn-primary">비밀번호변경</button>
-                                                </router-link>
-
+                                                <button class="btn btn-primary">비밀번호변경</button>
                                             </td>
                                         </tr>
                                     </table>
@@ -134,18 +133,15 @@
                             </div>
                         </div>
                     </div>
-
+                </div>
 
 
 
 </template>
 
 <script>
-
 export default {
-    components: {
-
-    }
+    name: "StudentInfoMain"
 }
 </script>
 

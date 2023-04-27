@@ -1,5 +1,4 @@
 <template>
-    <div class="col-md-8">
         장학금관리
         <br><br>
 
@@ -143,7 +142,6 @@
                 <button @click="fnPage()">검색</button>
             </div>
         </div>
-    </div>
 </template>
 
 <script>

@@ -1,96 +1,97 @@
 <template>
-    <div class="board-list">
-        학생 관리
+  강의 신청 관리
+    <br><br>
+    <div class="container">
         <table class="w3-table-all">
-            <thead>
             <tr>
-                <th>번호</th>
-                <th>학생명</th>
-                <th>학번</th>
-                <th>학과</th>
-                <th>삭제</th>
-                <th>수정</th>
+                <td>번호</td>
+                <td>강의명</td>
+                <td>담당교수</td>
+                <td>학과</td>
+                <td></td>
             </tr>
-            </thead>
-            <tbody>
             <tr>
                 <td>5</td>
-                <router-link to="/admin/manage/detailstudent">
-                    <td>학생5</td>
-                </router-link>
-                <td>20210505</td>
-                <td>전자공학과</td>
+                <td>강의명</td>
+                <td>담당교수</td>
+                <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifystudent">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>4</td>
-                <td>학생4</td>
-                <td>20210505</td>
-                <td>컴퓨터공학과</td>
+                <td>강의명</td>
+                <td>담당교수</td>
+                <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifystudent">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>3</td>
-                <td>학생3</td>
-                <td>20210505</td>
-                <td>경영학과</td>
+                <td>강의명</td>
+                <td>담당교수</td>
+                <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifystudent">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>2</td>
-                <td>학생2</td>
-                <td>20210505</td>
-                <td>영문학과</td>
+                <td>강의명</td>
+                <td>담당교수</td>
+                <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifystudent">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
             <tr>
                 <td>1</td>
-                <td>학생1</td>
-                <td>20210505</td>
-                <td>통계학과</td>
+                <td>강의명</td>
+                <td>담당교수</td>
+                <td>학과</td>
                 <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                    <form method="" action="">
+                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
+                    </form>
                 </td>
-                <td>
-                    <router-link to="/admin/manage/modifystudent">
-                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                    </router-link>
-                </td>
+
             </tr>
-            </tbody>
         </table>
+        <br>
         <div align="right">
-        <router-link to="/admin/manage/addstudent">
-            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">학생 추가</button>
-        </router-link>
+                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">허용</button>
+        </div>
+        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+      <span class="pg">
+      <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
+      <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
+         class="prev w3-button w3-border">&lt;</a>
+      <template v-for=" (n,index) in paginavigation()">
+          <template v-if="paging.page==n">
+              <strong class="w3-button w3-border w3-green" :key="index">{{ n }}</strong>
+          </template>
+          <template v-else>
+              <a class="w3-button w3-border" href="javascript:;" @click="fnPage(`${n}`)" :key="index">{{ n }}</a>
+          </template>
+      </template>
+      <a href="javascript:;" v-if="paging.total_page_cnt > paging.end_page"
+         @click="fnPage(`${paging.end_page+1}`)" class="next w3-button w3-border">&gt;</a>
+      <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
+      </span>
         </div>
         <div>
             <select v-model="search_key">
@@ -99,7 +100,7 @@
                 <option value="title">제목</option>
                 <option value="contents">내용</option>
             </select>
-
+            &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
             &nbsp;
             <button @click="fnPage()">검색</button>
@@ -175,15 +176,15 @@ export default {
             })
         },
         fnView(idx) {
-            this.requestBody.idx = idx  //학번으로 수정 필요
+            this.requestBody.idx = idx
             this.$router.push({
-                path: '',
+                path: './detail',
                 query: this.requestBody
             })
         },
         fnWrite() {
             this.$router.push({
-                path: '/admin/mange/addstudent'
+                path: './write'
             })
         },
         fnPage(n) {
@@ -194,34 +195,9 @@ export default {
             this.fnGetList()
         }
     }
-    // fnGetList() {
-
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]
-    // }
-    // }
 }
 </script>
+
+<style scoped>
+
+</style>

@@ -1,126 +1,97 @@
 <template>
-    <div class="col-md-8">
-        교수관리
-        <br><br>
+    교수관리
+    <br><br>
 
-        <div class="container">
-            <table class="w3-table-all">
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>삭제</td>
-                    <td>수정</td>
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>
-                        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyprofessor">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>
-                        <button type="button" clasㄴs="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyprofessor">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>
-                        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyprofessor">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>
-                        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyprofessor">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>
-                        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyprofessor">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>
-                        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyprofessor">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>번호</td>
-                    <td>교수명</td>
-                    <td>교번</td>
-                    <td>학과</td>
-                    <td>
-                        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                    </td>
-                    <td>
-                        <router-link to="/admin/manage/modifyprofessor">
-                            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
-                        </router-link>
-                    </td>
-                </tr>
-
-            </table>
-            <br>
-            <div align="right">
-                <router-link to="/admin/manage/addprofessor">
-                    <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">추가</button>
+    <div class="container">
+        <table class="w3-table-all">
+            <tr>
+                <td>번호</td>
+                <td>교수명</td>
+                <td>교번</td>
+                <td>학과</td>
+                <td>삭제</td>
+                <td>수정</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <router-link to="/admin/manage/detailprofessor">
+                <td>교수명</td>
                 </router-link>
-            </div>
-            <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+                <td>교번</td>
+                <td>학과</td>
+                <td>
+                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                </td>
+                <td>
+                    <router-link to="/admin/manage/modifyprofessor">
+                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
+                    </router-link>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>교수명</td>
+                <td>교번</td>
+                <td>학과</td>
+                <td>
+                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                </td>
+                <td>
+                    <router-link to="/admin/manage/modifyprofessor">
+                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
+                    </router-link>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>교수명</td>
+                <td>교번</td>
+                <td>학과</td>
+                <td>
+                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                </td>
+                <td>
+                    <router-link to="/admin/manage/modifyprofessor">
+                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
+                    </router-link>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>교수명</td>
+                <td>교번</td>
+                <td>학과</td>
+                <td>
+                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                </td>
+                <td>
+                    <router-link to="/admin/manage/modifyprofessor">
+                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
+                    </router-link>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>교수명</td>
+                <td>교번</td>
+                <td>학과</td>
+                <td>
+                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+                </td>
+                <td>
+                    <router-link to="/admin/manage/modifyprofessor">
+                        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">수정</button>
+                    </router-link>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div align="right">
+            <router-link to="/admin/manage/addprofessor">
+                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">추가</button>
+            </router-link>
+        </div>
+        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
       <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
       <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
@@ -137,19 +108,18 @@
          @click="fnPage(`${paging.end_page+1}`)" class="next w3-button w3-border">&gt;</a>
       <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
-            </div>
-            <div>
-                <select v-model="search_key">
-                    <option value="">- 선택 -</option>
-                    <option value="author">작성자</option>
-                    <option value="title">제목</option>
-                    <option value="contents">내용</option>
-                </select>
-                &nbsp;
-                <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-                &nbsp;
-                <button @click="fnPage()">검색</button>
-            </div>
+        </div>
+        <div>
+            <select v-model="search_key">
+                <option value="">- 선택 -</option>
+                <option value="author">작성자</option>
+                <option value="title">제목</option>
+                <option value="contents">내용</option>
+            </select>
+            &nbsp;
+            <input type="text" v-model="search_value" @keyup.enter="fnPage()">
+            &nbsp;
+            <button @click="fnPage()">검색</button>
         </div>
     </div>
 </template>
@@ -247,5 +217,3 @@ export default {
 <style scoped>
 
 </style>
-<script setup>
-</script>

@@ -1,5 +1,4 @@
 <template>
-    <div class="col-md-8">
         강의실관리
         <br><br>
 
@@ -121,7 +120,6 @@
                 <button @click="fnPage()">검색</button>
             </div>
         </div>
-    </div>
 </template>
 
 <script>

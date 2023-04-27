@@ -1,5 +1,5 @@
 <template>
-  교수 정보 수정
+    학생 정보 수정
     <div style="border:2px solid black; padding:100px;">
         <div class="col-md-8">
             <div class="container">
@@ -29,7 +29,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>ID</td>
+                                    <td>학번(ID)</td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -83,10 +83,10 @@
 
 <script>
 export default {
-    name: "ModifyProfessor"
+    name: "ModifyStudent"
 }
 </script>
-
 <style scoped>
+
 
 </style>
