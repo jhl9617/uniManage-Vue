@@ -27,11 +27,6 @@ const routesAdmin = [
     component: AdminNoticewrite
   },
   {
-    path: '/admin/notice/write',
-    name: 'AdminNoticewrite',
-    component: AdminNoticewrite
-  },
-  {
     path: '/admin/mange/student',
     name: 'AdminManageStudent',
     component: AdminManageStudent

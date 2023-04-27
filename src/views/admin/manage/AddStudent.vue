@@ -1,7 +1,7 @@
 <template>
     <form>
         <div class="form-group">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="exampleFormControlInput1">이름</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="학생 이름">
             </div>
@@ -10,6 +10,7 @@
             </div>
 
         </div>
+        <br><br>
         <div class="form-group">
             <label for="exampleFormControlInput1">이메일</label>
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -25,6 +26,7 @@
                 <option>영어영문학과</option>
             </select>
         </div>
+
         <div class="form-group">
             <label for="exampleFormControlInput1">생년월일(6자리)</label>
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="생년월일(6자리)">
@@ -41,22 +43,7 @@
             <label for="exampleFormControlInput1">우편번호</label>
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="우편번호">
         </div>
-
-        <button></button>
-
     </form>
-
 </template>
-
 <script>
-
-import {defineComponent} from "vue";
-import StudentSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
-import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
-import EclassSidebar from "@/views/student/Eclass/PageSidebar.vue";
-import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
-
-export default defineComponent({
-    components: {ProfessorSidebar, EclassSidebar, AdminSidebar, StudentSidebar}
-})
 </script>
