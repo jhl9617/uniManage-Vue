@@ -1,4 +1,5 @@
 <template>
+    학생 추가
     <form>
         <div class="form-group">
             <div class="col-md-4">

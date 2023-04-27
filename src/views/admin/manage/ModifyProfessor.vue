@@ -29,7 +29,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>학번(ID)</td>
+                                    <td>ID</td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -83,7 +83,7 @@
 
 <script>
 export default {
-    name: "AddProfessor"
+    name: "ModifyProfessor"
 }
 </script>
 
