@@ -1,18 +1,5 @@
 <template>
-    학생 정보 상세
-    <br>
-    <div align="left">
-        <router-link to="/admin/manage/detailstudent">
-            <button type="button">기본정보</button>&nbsp;&nbsp;
-        </router-link>
-        <router-link to="/admin/manage/detailgrade">
-            <button type="button">성적</button>&nbsp;&nbsp;
-        </router-link>
-        <router-link to="/admin/manage/detailscholarship">
-            <button type="button">장학</button>
-        </router-link>
-    </div>
-    <br>
+    교수 정보 상세
     <div style="border:2px solid black; padding:100px;">
         <div class="col-md-8">
             <div class="container">
@@ -37,7 +24,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>학번(ID)</td>
+                                    <td>ID</td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -73,6 +60,10 @@
                     </div>
                 </div>
                 <br>
+
+            </div>
+            <div align="center">
+                <button type="button">목록</button>
             </div>
         </div>
     </div>
@@ -80,7 +71,7 @@
 
 <script>
 export default {
-    name: "DetailStudent"
+    name: "DetailProfessor"
 }
 </script>
 
