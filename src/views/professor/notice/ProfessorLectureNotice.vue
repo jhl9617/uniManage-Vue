@@ -19,7 +19,6 @@
                     <router-link to="/prof/lecture/notice/deatil">3번 공지
                     </router-link>
                 </td>
-
                 <td>홍길동</td>
                 <td>2023-04-25</td>
                 <td>◎</td>
@@ -43,7 +42,9 @@
             </tr>
             </tbody>
         </table>
-        <input type="button" value="새로운 공지 작성하기"> &nbsp; &nbsp;
+        <router-link to="/prof/lecture/notice/write">
+            <input type="button" value="새로운 공지 작성하기">
+        </router-link> &nbsp; &nbsp;
         <input type="button" value="이전 페이지로 돌아가기">
     </div>
 </template>
