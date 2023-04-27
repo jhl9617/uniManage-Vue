@@ -43,7 +43,10 @@
                 </table>
             </div>
             <div>
-                강의자료실 <input type="button" value="전체보기">
+                강의자료실
+                <router-link to="/prof/lecture/reference/list">
+                    <input type="button" value="전체보기">
+                </router-link>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
