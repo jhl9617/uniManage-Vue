@@ -1,7 +1,7 @@
 <template>
     <div>
         <PageHeader/>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
                     <AdminSidebar v-if="$route.name.startsWith('Admin')"/>

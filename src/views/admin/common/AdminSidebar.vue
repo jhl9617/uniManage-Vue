@@ -23,12 +23,12 @@
                 </router-link>
             </li>
             <li class="mb-1">
-                <router-link to="/personinfo" class="nav-link link-body-emphasis">
+                <router-link to="/admin/manage/appliedclass" class="nav-link link-body-emphasis">
                     강의 신청 관리
                 </router-link>
             </li>
             <li class="mb-1">
-                <router-link to="/personinfo" class="nav-link link-body-emphasis">
+                <router-link to="/admin/manage/classroom" class="nav-link link-body-emphasis">
                     강의실 관리
                 </router-link>
             </li>

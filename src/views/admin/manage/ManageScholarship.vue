@@ -106,6 +106,7 @@
                 </tr>
 
             </table>
+            <br>
             <div align="right">
             <router-link to="/admin/manage/addscholarship">
                 <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">추가</button>
