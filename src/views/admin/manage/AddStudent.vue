@@ -6,7 +6,14 @@
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="학생 이름">
             </div>
             <div class="col-md-8">
-
+                <form method="post" enctype="multipart/form-data">
+                    <div class="button">
+                        <label for="chooseFile">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        </label>
+                    </div>
+                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                </form>
             </div>
 
         </div>

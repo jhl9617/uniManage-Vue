@@ -10,6 +10,7 @@ module.exports = defineConfig({
   // changeOrigin 
   // -> true로 해야 cros 문제 해결할 수 있음
 
+
   /*devServer: {
     proxy: {
       '/': {
