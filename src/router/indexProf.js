@@ -2,19 +2,20 @@ import ProfessorMain from '@/views/professor/common/ProfessorMain.vue'
 import ProfessorInfo from '@/views/professor/PersonInfo.vue'
 import ProfessorCreateNewLecture from '@/views/professor/newLecture/ProfessorCreateNewLecture.vue'
 import LectureRoom from '@/views/professor/newLecture/LectureRoom.vue'
-import ProfessorNewLectureDetails from "@/views/professor/newLecture/ProfessorNewLectureDetails.vue";
-import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLecture.vue";
-import ProfessorStudentCheck from "@/views/professor/lecture/ProfessorStudentCheck.vue";
-import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue";
-import ProfessorCloseLecture from "@/views/professor/lecture/ProfessorCloseLecture.vue";
-import ProfesscorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue";
-import ProfesscorHomeworkCheck from "@/views/professor/student/ProfesscorHomeworkCheck.vue";
-import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluation.vue";
-import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue";
-import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue";
-import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue";
-import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue";
+import ProfessorNewLectureDetails from "@/views/professor/newLecture/ProfessorNewLectureDetails.vue"
+import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLecture.vue"
+import ProfessorStudentCheck from "@/views/professor/lecture/ProfessorStudentCheck.vue"
+import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue"
+import ProfessorCloseLecture from "@/views/professor/lecture/ProfessorCloseLecture.vue"
+import ProfesscorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue"
+import ProfesscorHomeworkCheck from "@/views/professor/student/ProfesscorHomeworkCheck.vue"
+import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluation.vue"
+import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue"
+import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue"
+import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue"
+import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue"
 import ProfessorLectureNotice from "@/views/professor/notice/ProfessorLectureNotice.vue"
+import ProfessorLectureNoticeDetail from "@/views/professor/notice/ProfessorLectureNoticeDetail.vue"
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -103,6 +104,12 @@ const routesProf = [
         path: '/prof/lecture/notice/list',
         name: 'ProfessorLectureNotice',
         component: ProfessorLectureNotice
+    },
+    {
+        //강의공지 상세보기
+        path: '/prof/lecture/notice/deatil',
+        name: 'ProfessorLectureNoticeDetail',
+        component: ProfessorLectureNoticeDetail
     }
 ]
 
