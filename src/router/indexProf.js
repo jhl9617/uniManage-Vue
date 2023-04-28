@@ -26,6 +26,8 @@ import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorU
 import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue"
 import ProfessorStudentAtDetail from "@/views/professor/student/ProfessorStudentAtDetail.vue"
 import ProfessorCloseLectureWrite from "@/views/professor/lecture/ProfessorCloseLectureWrite.vue"
+import ProfessorHomeworkList from "@/views/professor/student/ProfessorHomeworkList.vue"
+import ProfessorHomeworkDetail from "@/views/professor/student/ProfessorHomeworkDetail.vue"
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -59,7 +61,7 @@ const routesProf = [
         component: ProfessorCheckLecture
     },
     {   //강의_과제
-        path: '/prof/student/homework',
+        path: '/prof/student/homework/write',
         name: 'ProfessorCreateNewHomework',
         component: ProfessorCreateNewHomework
     },
@@ -74,7 +76,7 @@ const routesProf = [
         component: ProfessorStudentAttendance
     },
     {   //학생관리_과제 제출현황
-        path: '/prof/student/homework/list',
+        path: '/prof/student/homework/check',
         name: 'ProfessorHomeworkCheck',
         component: ProfessorHomeworkCheck
     },
@@ -177,6 +179,16 @@ const routesProf = [
         name: 'ProfessorStudentAtDetail',
         component: ProfessorStudentAtDetail
     },
+    {   //학생관리_과제 제출현황
+        path: '/prof/student/homework/list',
+        name: 'ProfessorHomeworkList',
+        component: ProfessorHomeworkList
+    },
+    {   //학생관리_과제 제출상세
+        path: '/prof/student/homework/detail',
+        name: 'ProfessorHomeworkDetail',
+        component: ProfessorHomeworkDetail
+    }
 ]
 
 export default routesProf
