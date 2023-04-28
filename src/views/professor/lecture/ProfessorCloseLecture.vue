@@ -40,7 +40,9 @@
                 </tbody>
             </table>
             <div>
-                <input type="button" value="휴강신청">
+                <router-link to="/prof/lecture/closed/write">
+                    <input type="button" value="휴강신청">
+                </router-link>
             </div>
         </div>
     </div>
@@ -53,7 +55,4 @@ export default {
 </script>
 
 <style scoped>
-#closelist tr td {
-    text-align: center;
-}
 </style>

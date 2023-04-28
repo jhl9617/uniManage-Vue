@@ -2,7 +2,7 @@
     <div class="container">
         <h3>3번 공지 수정하기</h3>
         <br>
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="noticeupdate">
             <tr>
                 <th style="width: 25%">제목</th>
                 <td><input type="text" value="3번 공지" class="form-control"></td>
@@ -26,7 +26,11 @@
 <script>
 </script>
 <style>
-table tr td {
+#noticeupdate tr td {
     text-align: left;
+}
+
+#noticeupdate tr th {
+    vertical-align: middle;
 }
 </style>

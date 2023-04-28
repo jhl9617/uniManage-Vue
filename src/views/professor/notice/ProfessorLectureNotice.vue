@@ -51,7 +51,4 @@
 <script>
 </script>
 <style>
-#noticetable tr td {
-    text-align: center;
-}
 </style>
