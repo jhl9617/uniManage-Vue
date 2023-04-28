@@ -1,6 +1,6 @@
 <template>
     <div>
-        <PageHeader/>
+        <PageHeader/>학생 레이어웃입니다.
         <EclassHeader v-if="$route.name && $route.name.startsWith('Eclass')"/>
         <div class="container-fluid">
             <div class="row">
@@ -15,13 +15,14 @@
                 </div>
             </div>
         </div>
+        학생 레이어웃입니다.
         <PageFooter/>
     </div>
 </template>
 
 <script>
-import PageHeader from './components/common/PageHeader.vue';
-import PageFooter from './components/common/PageFooter.vue';
+// import PageHeader from './components/common/PageHeader.vue';
+// import PageFooter from './components/common/PageFooter.vue';
 import StudentSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
 import EclassSidebar from "@/views/student/Eclass/PageSidebar.vue";
 import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
@@ -29,12 +30,10 @@ import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
 import EclassHeader from "@/views/student/Eclass/PageHeader.vue"
 
 export default {
-    name: 'App',
+    name: 'AdminLayout',
     components: {
         AdminSidebar,
-        PageHeader,
         EclassHeader,
-        PageFooter,
         StudentSidebar,
         ProfessorSidebar,
         EclassSidebar
