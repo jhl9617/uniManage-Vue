@@ -1,10 +1,11 @@
 <template>
     <div class="container">
-        공지글 작성
-        <table class="table table-bordered">
+        <h3>공지글 작성</h3>
+        <br>
+        <table class="table table-bordered" id="noticewrite">
             <tr>
                 <th style="width: 25%">제목</th>
-                <td><input type="text"></td>
+                <td><input type="text" class="form-control"></td>
             </tr>
             <tr>
                 <th>파일첨부</th>
@@ -13,7 +14,7 @@
             <tr>
                 <th>공지내용</th>
                 <td>
-                    <textarea name="" id="" cols="70" rows="5"></textarea>
+                    <textarea name="" id="" cols="70" rows="5" class="form-control"></textarea>
                 </td>
             </tr>
         </table>
@@ -24,4 +25,13 @@
 </template>
 <script>
 </script>
-<style></style>
+<style>
+#noticewrite tr td {
+    text-align: left;
+}
+
+#noticewrite tr th {
+    vertical-align: middle;
+}
+
+</style>

@@ -1,5 +1,5 @@
 <template>
-  학색 출석관리
+  학생 출석관리
 </template>
 
 <script>

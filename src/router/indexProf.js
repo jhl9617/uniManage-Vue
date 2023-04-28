@@ -25,6 +25,7 @@ import ProfessorLectureNoticeDetail from "@/views/professor/lecture/ProfessorLec
 import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorUniversityNoticeDetail.vue";
 import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue";
 
+import ProfessorCloseLectureWrite from "@/views/professor/lecture/ProfessorCloseLectureWrite.vue"
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -157,6 +158,12 @@ const routesProf = [
         path: '/prof/lecture/reference/write',
         name: 'ProfessorReferenceWrite',
         component: ProfessorReferenceWrite
+    },
+    {
+        //강의자료실 작성
+        path: '/prof/lecture/closed/write',
+        name: 'ProfessorCloseLectureWrite',
+        component: ProfessorCloseLectureWrite
     }
 ]
 

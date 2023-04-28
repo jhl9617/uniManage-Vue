@@ -1,7 +1,8 @@
 <template>
     <div class="container">
-        공업미적분 공지사항
-        <table class="table table-hover">
+        <h3>공업미적분 공지사항</h3>
+        <br>
+        <table class="table table-hover" id="noticetable">
             <thead>
             <tr>
                 <th>번호</th>
@@ -50,4 +51,5 @@
 </template>
 <script>
 </script>
-<style></style>
+<style>
+</style>
