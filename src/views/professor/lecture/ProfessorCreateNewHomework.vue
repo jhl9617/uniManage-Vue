@@ -3,7 +3,7 @@
         <div class="row">
             <h3>과제생성</h3>
             <br>
-            <table class="table table-bordered" id="homeworkwrite">
+            <table class="table table-bordered">
                 <tr>
                     <th>강의명</th>
                     <td>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-#homeworkwrite tr td {
+table tr td {
     text-align: left;
 }
 </style>
