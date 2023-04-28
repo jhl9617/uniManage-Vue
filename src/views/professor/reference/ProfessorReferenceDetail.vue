@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         참고자료 1 상세보기
-        <table class="table">
+        <table class="table table-bordered" id="referencedetail">
             <tr>
                 <th style="width: 25%">제목</th>
                 <td style="width: 25%">참고자료 1</td>
@@ -36,4 +36,8 @@
 </template>
 <script>
 </script>
-<style></style>
+<style>
+#referencedetail tr td {
+    text-align: left;
+}
+</style>
