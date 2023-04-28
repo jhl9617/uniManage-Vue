@@ -6,25 +6,21 @@ import ProfessorNewLectureDetails from "@/views/professor/newLecture/ProfessorNe
 import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLecture.vue"
 import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue"
 import ProfessorCloseLecture from "@/views/professor/lecture/ProfessorCloseLecture.vue"
-import ProfessorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue"
-import ProfessorHomeworkCheck from "@/views/professor/student/ProfesscorHomeworkCheck.vue"
+import ProfesscorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue"
+import ProfesscorHomeworkCheck from "@/views/professor/student/ProfesscorHomeworkCheck.vue"
 import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluation.vue"
 import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue"
 import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue"
-import ProfessorPayslip from "@/views/professor/payslip/ProfessorPayslip.vue"
+import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue"
 import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue"
+import ProfessorLectureNotice from "@/views/professor/notice/ProfessorLectureNotice.vue"
+import ProfessorLectureNoticeDetail from "@/views/professor/notice/ProfessorLectureNoticeDetail.vue"
 import ProfessorLectureNoticeWrite from "@/views/professor/notice/ProfessorLectureNoticeWrite.vue"
 import ProfessorLectureNoticeUpdate from "@/views/professor/notice/ProfessorLectureNoticeUpdate.vue"
 import ProfessorReferenceList from "@/views/professor/reference/ProfessorReferenceList.vue"
 import ProfessorReferenceDetail from "@/views/professor/reference/ProfessorReferenceDetail.vue"
 import ProfessorReferenceUpdate from "@/views/professor/reference/ProfessorReferenceUpdate.vue"
 import ProfessorReferenceWrite from "@/views/professor/reference/ProfessorReferenceWrite.vue"
-import ProfessorLectureNotice from "@/views/professor/lecture/ProfessorLectureNotice.vue"
-import ProfessorLectureNoticeDetail from "@/views/professor/lecture/ProfessorLectureNoticeDetail.vue"
-
-import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorUniversityNoticeDetail.vue";
-import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue";
-
 import ProfessorCloseLectureWrite from "@/views/professor/lecture/ProfessorCloseLectureWrite.vue"
 
 const routesProf = [
@@ -70,13 +66,13 @@ const routesProf = [
     },
     {   //학생관리_학생 출석관리
         path: '/prof/student/attendance',
-        name: 'ProfessorStudentAttendance',
-        component: ProfessorStudentAttendance
+        name: 'ProfesscorStudentAttendance',
+        component: ProfesscorStudentAttendance
     },
     {   //학생관리_과제 제출현황
         path: '/prof/student/homework/list',
-        name: 'ProfessorHomeworkCheck',
-        component: ProfessorHomeworkCheck
+        name: 'ProfesscorHomeworkCheck',
+        component: ProfesscorHomeworkCheck
     },
     {   //강의평가_강의 평가내역
         path: '/prof/lecture/rating',
@@ -95,33 +91,26 @@ const routesProf = [
     },
     {   //급여_급여명세서
         path: '/prof/salary',
-        name: 'ProfessorPayslip',
-        component: ProfessorPayslip
+        name: 'ProfesscorPayslip',
+        component: ProfesscorPayslip
     },
-    {   //강의_강의정보 확인
-        path: '/prof/lecture/detail',
+    {
+        //강의정보 확인
+        path: '/prof/lecture/deatil',
         name: 'ProfessorLectureDetail',
         component: ProfessorLectureDetail
     },
-    {   //강의_강의정보 확인_공지리스트(공지사항 + 강의자료실)
+    {
+        //강의공지 리스트
         path: '/prof/lecture/notice/list',
         name: 'ProfessorLectureNotice',
         component: ProfessorLectureNotice
     },
-    {   //강의_강의정보 확인_공지사항_강의공지 상세보기
+    {
+        //강의공지 상세보기
         path: '/prof/lecture/notice/deatil',
         name: 'ProfessorLectureNoticeDetail',
         component: ProfessorLectureNoticeDetail
-    },
-    {   //공지사항_전체공지_상세보기
-        path: '/prof/notice/universityNoticeDetail',
-        name: 'ProfessorUniversityNoticeDetail',
-        component: ProfessorUniversityNoticeDetail
-    },
-    {   //공지사항_학과공지_상세보기
-        path: '/prof/notice/DepartmentNoticeDetail',
-        name: 'ProfessorDepartmentNoticeDetail',
-        component: ProfessorDepartmentNoticeDetail
     },
     {
         //강의공지 작성하기
