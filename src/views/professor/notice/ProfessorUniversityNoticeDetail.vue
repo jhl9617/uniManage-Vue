@@ -18,7 +18,7 @@
           <tr>
               <th>파일첨부</th>
               <td colspan="3">
-                  <input type="button" value="파일선택"> 선택된 파일없음
+                  <input type='file'>
               </td>
           </tr>
           <tr>

@@ -24,6 +24,7 @@ import ProfessorLectureNoticeDetail from "@/views/professor/lecture/ProfessorLec
 
 import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorUniversityNoticeDetail.vue";
 import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue";
+import ProfessorLectureEvaluationAnswer from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluationAnswer.vue";
 
 
 const routesProf = [
@@ -157,6 +158,11 @@ const routesProf = [
         path: '/prof/lecture/reference/write',
         name: 'ProfessorReferenceWrite',
         component: ProfessorReferenceWrite
+    },
+    {   //강의평가_추가 답변내용
+        path: '/prof/lectureEvaluation/lectureEvaluationAnswer',
+        name: 'ProfessorLectureEvaluationAnswer',
+        component: ProfessorLectureEvaluationAnswer
     }
 ]
 
