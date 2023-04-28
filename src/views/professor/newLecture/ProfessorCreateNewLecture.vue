@@ -2,7 +2,7 @@
     <div class="container">
         <form action="">
             <h4>신규강의 개설하기</h4> <br>
-            <table class="table" style="width: 800px">
+            <table class="table" style="width: 800px" id="newlecture">
                 <tr>
                     <th>강의명</th>
                     <td colspan="3"><input type="text" class="form-control"></td>
@@ -37,7 +37,7 @@
                     <td><input type="text" class="form-control"></td>
                 </tr>
                 <tr>
-                    <th colspan="4">
+                    <th colspan="4" style="text-align: left">
                         <router-link to="/prof/create/room" target="_blank">
                             <input type="button" value="강의실 조회">
                         </router-link>
@@ -58,7 +58,10 @@
 <script>
 </script>
 <style>
-table tr {
+#newlecture tr {
     vertical-align: middle
+}
+#newlecture tr td {
+    text-align: left;
 }
 </style>

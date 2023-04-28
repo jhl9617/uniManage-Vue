@@ -1,44 +1,135 @@
 <template>
-    <div class="d-flex justify-content-around col-md-12">
-        <div class="border" style="width: 400px">
-            개인정보 <br>
-            <div class="d-flex justify-content-start">
-                <div>
-                    <img src="" alt="" class="img-circle"> <!-- 원형 이미지 -->
+    <div class="col-md-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <fieldset>
+                            <legend>개인정보
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </legend>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                             class="rounded-circle" width="150">
+                                    </td>
+                                    <td>
+                                        <div class="mt-3">
+                                            <h4>홍길동</h4>
+                                            <div class="text-secondary mb-1" align="left">
+                                                소속:<br>
+                                                구분:<br>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-primary">비밀번호변경</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+
                 </div>
-                <div>
-                    소속 : <br>
-                    구분 : <br>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>공지사항 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-outline-dark">전체보기</button>
+                        </legend>
+
+                        <table class="w3-table-all">
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                        </table>
+                    </fieldset>
                 </div>
             </div>
             <br>
-            <button value="비밀번호변경"/>
-        </div>
-        <div class="border" style="width: 400px">
-            교수 공지사항 <br>
-            <table class="table table-bordered">
-                <tr>
-                    <th>제목</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <br><br><br>
-    <div class="d-flex justify-content-around col-md-12">
-        <div class="border" style="width: 400px">
-            <table class="table table-bordered">
-                <tr>
-                    <th></th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                </tr>
-            </table>
-        </div>
-        <div class="border" style="width: 400px">
-            학사일정
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>시간표
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </legend>
+                        <table class="w3-table-all">
+                            <tr>
+                                <td></td>
+                                <td>월</td>
+                                <td>화</td>
+                                <td>수</td>
+                                <td>목</td>
+                                <td>금</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>학사일정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-outline-dark">전체보기</button>
+                        </legend>
+                        <table class="w3-table-all">
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                            <tr>
+                                <td>글제목</td>
+                                <td>작성일자</td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+            </div>
         </div>
     </div>
 </template>
