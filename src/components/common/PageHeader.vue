@@ -23,7 +23,6 @@
                 <li><router-link to="/eclass"> e-class </router-link></li> &nbsp; | &nbsp;
                 <li><router-link to="/student"> 수강신청 </router-link></li> &nbsp; | &nbsp;
                 <li><router-link to="/prof/main"> 교수 </router-link></li> &nbsp; | &nbsp;
-
             </ul>
 
             <div class="col-md-3 text-end">
