@@ -1,7 +1,6 @@
 <template>
     <div class="container">
-        <h3>공업미적분 공지사항</h3>
-        <br>
+        공업미적분 공지사항
         <table class="table table-hover" id="noticetable">
             <thead>
             <tr>
@@ -52,4 +51,7 @@
 <script>
 </script>
 <style>
+#noticetable tr td {
+    text-align: center;
+}
 </style>

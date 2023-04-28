@@ -2,7 +2,7 @@
     <div class="container">
         <h3>공지글 작성</h3>
         <br>
-        <table class="table table-bordered" id="noticewrite">
+        <table class="table table-bordered">
             <tr>
                 <th style="width: 25%">제목</th>
                 <td><input type="text" class="form-control"></td>
@@ -26,12 +26,7 @@
 <script>
 </script>
 <style>
-#noticewrite tr td {
+table tr td {
     text-align: left;
 }
-
-#noticewrite tr th {
-    vertical-align: middle;
-}
-
 </style>
