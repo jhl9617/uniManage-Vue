@@ -29,6 +29,7 @@ import ProfessorCloseLectureWrite from "@/views/professor/lecture/ProfessorClose
 import ProfessorHomeworkList from "@/views/professor/student/ProfessorHomeworkList.vue"
 import ProfessorHomeworkDetail from "@/views/professor/student/ProfessorHomeworkDetail.vue"
 
+
 const routesProf = [
     {   //교수_기본(메인)
         path: '/prof/main',
@@ -161,6 +162,11 @@ const routesProf = [
         name: 'ProfessorReferenceWrite',
         component: ProfessorReferenceWrite
     },
+    {   //강의평가_추가 답변내용
+        path: '/prof/lectureEvaluation/lectureEvaluationAnswer',
+        name: 'ProfessorLectureEvaluationAnswer',
+        component: ProfessorLectureEvaluationAnswer
+
     {
         //휴강사유 작성
         path: '/prof/lecture/closed/write',
