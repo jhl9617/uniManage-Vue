@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         참고자료 1 수정하기
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="referenceupdate">
             <tr>
                 <th style="width: 25%">제목</th>
                 <td><input type="text" value="참고자료 1"></td>
@@ -25,4 +25,8 @@
 </template>
 <script>
 </script>
-<style></style>
+<style>
+#referenceupdate tr td {
+    text-align: left;
+}
+</style>
