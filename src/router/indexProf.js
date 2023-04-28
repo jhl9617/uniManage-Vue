@@ -7,15 +7,20 @@ import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLectu
 import ProfessorStudentCheck from "@/views/professor/lecture/ProfessorStudentCheck.vue"
 import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue"
 import ProfessorCloseLecture from "@/views/professor/lecture/ProfessorCloseLecture.vue"
-import ProfesscorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue"
-import ProfesscorHomeworkCheck from "@/views/professor/student/ProfesscorHomeworkCheck.vue"
+import ProfessorStudentAttendance from "@/views/professor/student/ProfesscorStudentAttendance.vue"
+import ProfessorHomeworkCheck from "@/views/professor/student/ProfesscorHomeworkCheck.vue"
 import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluation.vue"
 import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue"
 import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue"
-import ProfesscorPayslip from "@/views/professor/payslip/ProfesscorPayslip.vue"
+import ProfessorPayslip from "@/views/professor/payslip/ProfessorPayslip.vue"
+
 import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue"
-import ProfessorLectureNotice from "@/views/professor/notice/ProfessorLectureNotice.vue"
-import ProfessorLectureNoticeDetail from "@/views/professor/notice/ProfessorLectureNoticeDetail.vue"
+import ProfessorLectureNotice from "@/views/professor/lecture/ProfessorLectureNotice.vue"
+import ProfessorLectureNoticeDetail from "@/views/professor/lecture/ProfessorLectureNoticeDetail.vue"
+
+import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorUniversityNoticeDetail.vue";
+import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue";
+
 
 const routesProf = [
     {   //교수_기본(메인)
@@ -65,13 +70,13 @@ const routesProf = [
     },
     {   //학생관리_학생 출석관리
         path: '/prof/student/attendance',
-        name: 'ProfesscorStudentAttendance',
-        component: ProfesscorStudentAttendance
+        name: 'ProfessorStudentAttendance',
+        component: ProfessorStudentAttendance
     },
     {   //학생관리_과제 제출현황
         path: '/prof/student/homework/list',
-        name: 'ProfesscorHomeworkCheck',
-        component: ProfesscorHomeworkCheck
+        name: 'ProfessorHomeworkCheck',
+        component: ProfessorHomeworkCheck
     },
     {   //강의평가_강의 평가내역
         path: '/prof/lecture/rating',
@@ -90,27 +95,35 @@ const routesProf = [
     },
     {   //급여_급여명세서
         path: '/prof/salary',
-        name: 'ProfesscorPayslip',
-        component: ProfesscorPayslip
+        name: 'ProfessorPayslip',
+        component: ProfessorPayslip
     },
-    {
-        //강의정보 확인
-        path: '/prof/lecture/deatil',
+    {   //강의_강의정보 확인
+        path: '/prof/lecture/detail',
         name: 'ProfessorLectureDetail',
         component: ProfessorLectureDetail
     },
-    {
-        //강의공지 리스트
+    {   //강의_강의정보 확인_공지리스트(공지사항 + 강의자료실)
         path: '/prof/lecture/notice/list',
         name: 'ProfessorLectureNotice',
         component: ProfessorLectureNotice
     },
-    {
-        //강의공지 상세보기
+    {   //강의_강의정보 확인_공지사항_강의공지 상세보기
         path: '/prof/lecture/notice/deatil',
         name: 'ProfessorLectureNoticeDetail',
         component: ProfessorLectureNoticeDetail
-    }
+    },
+    {   //공지사항_전체공지_상세보기
+        path: '/prof/notice/universityNoticeDetail',
+        name: 'ProfessorUniversityNoticeDetail',
+        component: ProfessorUniversityNoticeDetail
+    },
+    {   //공지사항_학과공지_상세보기
+        path: '/prof/notice/DepartmentNoticeDetail',
+        name: 'ProfessorDepartmentNoticeDetail',
+        component: ProfessorDepartmentNoticeDetail
+    },
+    {},
 ]
 
 export default routesProf
