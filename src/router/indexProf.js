@@ -24,7 +24,7 @@ import ProfessorLectureNoticeDetail from "@/views/professor/lecture/ProfessorLec
 import ProfessorStudentAtList from "@/views/professor/student/ProfessorStudentAtList.vue"
 import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorUniversityNoticeDetail.vue"
 import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue"
-
+import ProfessorStudentAtDetail from "@/views/professor/student/ProfessorStudentAtDetail.vue"
 import ProfessorCloseLectureWrite from "@/views/professor/lecture/ProfessorCloseLectureWrite.vue"
 
 const routesProf = [
@@ -170,6 +170,12 @@ const routesProf = [
         path: '/prof/student/attendance/list',
         name: 'ProfessorStudentAtList',
         component: ProfessorStudentAtList
+    },
+    {
+        //출결조회 상세
+        path: '/prof/student/attendance/detail',
+        name: 'ProfessorStudentAtDetail',
+        component: ProfessorStudentAtDetail
     },
 ]
 
