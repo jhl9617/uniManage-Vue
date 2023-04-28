@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        공업미적분 공지사항
+        <h3>공업미적분 공지사항</h3>
+        <br>
         <table class="table table-hover" id="noticetable">
             <thead>
             <tr>
