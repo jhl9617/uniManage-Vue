@@ -22,7 +22,7 @@
                 <td>월요일</td>
                 <td>09:00~11:00</td>
                 <td>
-                    <router-link to="/prof/lecture/deatil">
+                    <router-link to="/prof/lecture/detail">
                         <input type="button" value="이동하기">
                     </router-link>
                 </td>

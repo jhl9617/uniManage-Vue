@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         3번 공지 상세보기
-        <table class="table">
+        <table class="table table-bordered" id="noticedetail">
             <tr>
                 <th style="width: 25%">제목</th>
                 <td style="width: 25%">3번 공지</td>
@@ -35,4 +35,8 @@
 </template>
 <script>
 </script>
-<style></style>
+<style>
+#noticedetail tr td {
+    text-align: left;
+}
+</style>
