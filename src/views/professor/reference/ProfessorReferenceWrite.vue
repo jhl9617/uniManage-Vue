@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         강의자료 작성
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="referencewrite">
             <tr>
                 <th style="width: 25%">제목</th>
                 <td><input type="text"></td>
@@ -24,4 +24,8 @@
 </template>
 <script>
 </script>
-<style></style>
+<style>
+#referencewrite tr td {
+    text-align: left;
+}
+</style>

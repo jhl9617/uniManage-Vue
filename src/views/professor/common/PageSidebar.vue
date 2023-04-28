@@ -30,7 +30,7 @@
                 <div class="collapse" id="lecture-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><router-link to="/prof/lecture/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의정보 확인</router-link></li>
-                        <li><router-link to="/prof/student/homework" class="link-body-emphasis d-inline-flex text-decoration-none rounded">새로운 과제생성</router-link></li>
+                        <li><router-link to="/prof/student/homework/write" class="link-body-emphasis d-inline-flex text-decoration-none rounded">새로운 과제생성</router-link></li>
                         <li><router-link to="/prof/lecture/closed" class="link-body-emphasis d-inline-flex text-decoration-none rounded">휴강</router-link></li>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="collapse" id="student-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><router-link to="/prof/student/attendance" class="link-body-emphasis d-inline-flex text-decoration-none rounded">학생 출석관리</router-link></li>
-                        <li><router-link to="/prof/student/homework/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">과제 제출현황</router-link></li>
+                        <li><router-link to="/prof/student/homework/check" class="link-body-emphasis d-inline-flex text-decoration-none rounded">과제 제출현황</router-link></li>
                     </ul>
                 </div>
             </li>
