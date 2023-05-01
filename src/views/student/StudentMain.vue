@@ -30,7 +30,7 @@
                         <img alt="Admin" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png"
                              width="150">
                         <div class="mt-3">
-                            <h4>OOO 학생</h4>
+                            <h4 v-if="loginMember">Logged in as {{ loginMember.name}}</h4>
                             <p class="text-secondary mb-1"> OO 학과</p>
                             <button class="btn btn-outline-primary me-2" type="button">LogOut</button>
 
@@ -95,8 +95,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class=" col-md-4
-                            ">
+                    <div class=" col-md-4">
                             챗봇
                             <br><br>
                             <div class="container">
@@ -118,9 +117,34 @@ export default {
     components: {
         // HelloWorld
         PageFooter,
+    },
+    data() {
+        return {
+            loginMember: null,
+        };
+    },
+    methods: {
+        async getSession() {
+            try {
+                const response = await fetch("/sessionCheck");
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log("Session data:", data);
+                    this.loginMember = data;
+                } else {
+                    console.error("Error fetching session data");
+                }
+            } catch (error) {
+                console.error("Error fetching session data:", error);
+            }
+        },
+    },
+    created() {
+        this.getSession();
+    },
 
-    }
-}
+
+};
 </script>
 <style scoped>
 </style>
