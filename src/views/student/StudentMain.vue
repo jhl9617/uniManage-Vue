@@ -30,7 +30,7 @@
                         <img alt="Admin" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png"
                              width="150">
                         <div class="mt-3">
-                            <h4 v-if="loginMember">Logged in as {{ loginMember.name}}</h4>
+                            <h4 v-if="loginMember">학부생 :{{ loginMember.name}}</h4>
                             <p class="text-secondary mb-1"> OO 학과</p>
                             <button class="btn btn-outline-primary me-2" type="button">LogOut</button>
 
