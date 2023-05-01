@@ -1,15 +1,6 @@
 <template>
     <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-
-            <router-link to="/eclass">
-                <img alt="logo" src="../../../assets/images/collegeimage.jpg" width="1300" height="300">
-            </router-link>
-
-        </header>
-    </div>
-    <div class="container-fluid">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             </ul>
 
@@ -130,19 +121,9 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-
-// import PageHeader from "@/views/student/Eclass/PageHeader.vue";
-import PageFooter from "@/components/common/PageFooter.vue";
 
 
-export default {
-    components: {
-        // HelloWorld
-        PageFooter,
 
-    }
-}
 </script>
 <style scoped>
 </style>

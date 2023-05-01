@@ -10,15 +10,15 @@
             <div class="form-floating">
                 <input type="text" class="form-control" id="name" placeholder="">
                 <label for="floatingInput">이름</label>
-            </div>
+            </div><br>
             <div class="form-floating">
                 <input type="text" class="form-control" id="id" placeholder="">
                 <label for="floatingInput">ID</label>
-            </div>
+            </div><br>
             <div class="form-floating">
                 <input type="email" class="form-control" id="email" placeholder="">
                 <label for="floatingInput">이메일</label>
-            </div>
+            </div><br>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">비밀번호 찾기</button>
 

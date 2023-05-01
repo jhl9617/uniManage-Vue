@@ -41,7 +41,7 @@ const routesStudent = [
         component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/PageAbout.vue')
     },
     {
-
+        //학생
         path: '/student',
         name: 'StMain',
         component: StMain
