@@ -32,7 +32,6 @@
             </div>
         </header>
     </div>
-    <hr/>
   </template>
   
   <script>
