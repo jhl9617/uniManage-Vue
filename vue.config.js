@@ -10,12 +10,12 @@ module.exports = defineConfig({
   // changeOrigin 
   // -> true로 해야 cros 문제 해결할 수 있음
 
- /* devServer: {
+  devServer: {
     proxy: {
       '/': {
         target: "http://localhost:9090",
         changeOrigin: true,
       }
     }
-  }*/
+  }
 })
