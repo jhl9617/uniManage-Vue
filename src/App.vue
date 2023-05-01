@@ -1,17 +1,16 @@
 <template>
     <div>
-        <PageHeader/>
-        <EclassHeader v-if="$route.name && $route.name.startsWith('Eclass')"/>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
+        <div class="container">
+            <div class="d-flex justify-content-start">
+                <div>
                     <AdminSidebar v-if="$route.name && $route.name.startsWith('Admin')"/>
                     <StudentSidebar v-if="$route.name && $route.name.startsWith('Student')"/>
                     <ProfessorSidebar v-if="$route.name && $route.name.startsWith('Prof')"/>
                     <EclassSidebar v-if="$route.name && $route.name.startsWith('Eclass')"/>
-
                 </div>
-                <div class="col-md-8">
+                <div>
+                    <EclassHeader v-if="$route.name && $route.name.startsWith('Eclass')"/>
+                    <PageHeader/>
                     <router-view/>
                 </div>
             </div>
@@ -50,6 +49,5 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
 }
 </style>

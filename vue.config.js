@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
   // npm run build 타겟 디렉토리 (백엔드쪽!)
-  outputDir: "../bindvue/src/main/resources/static",
+  outputDir: "../uniManageBoot/src/main/resources/static",
   
   // npm run server 개발 진행시 포트가 다르기 때문에 
   // 프록시 설정해줘야 함

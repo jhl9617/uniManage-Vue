@@ -24,6 +24,11 @@ import AdminDetailProfessor from "@/views/admin/manage/DetailProfessor.vue";
 
 const routesAdmin = [
   {
+    path: '/admin',
+    name: 'AdminMain',
+    component: AdminMain
+  },
+  {
     path: '/admin/notice/list',
     name: 'AdminNoticeList',
     component: AdminNoticeList
@@ -43,11 +48,7 @@ const routesAdmin = [
     name: 'AdminManageStudent',
     component: AdminManageStudent
   },
-  {
-    path: '/admin',
-    name: 'AdminMain',
-    component: AdminMain
-  },
+
   {
     path: '/admin/manage/scholarship',
     name: 'AdminManageScholarship',

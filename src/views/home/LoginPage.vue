@@ -1,17 +1,17 @@
 <template>
     <body class="text-center">
    <main class="form-signin w-100 m-auto">
-        <form>
+       <form @submit.prevent="handleSubmit">
 
             <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">아이디</label>
+                <input type="number" class="form-control" id="member_id" placeholder="163150">
+                <label for="member_id">아이디</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">비밀번호</label>
+                <input type="password" class="form-control" id="member_pwd" placeholder="Password">
+                <label for="member_pwd">비밀번호</label>
             </div>
             <router-link to="/findid" class="font-weight-bold">ID 찾기</router-link> &nbsp;
             <router-link to="/findpassword" class="font-weight-bold">비밀번호 찾기</router-link> &nbsp;
@@ -25,6 +25,37 @@
 
 <script>
 export default {
+    methods: {
+        async handleSubmit() {
+            const response = await fetch("/onLogin", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    member_id: this.member_id,
+                    member_pwd: this.member_pwd,
+                }),
+            });
+            /*const data = await response.json();
+            const path = await response.text();
+            if (data.member_id) {
+                console.log("Logged in with ID:", data.member_id);
+                this.$router.push(path);
+            } else {
+                console.error("Error logging in");
+            }*/
+            const path = await response.text();
+
+            if (response.ok) {
+                console.log("Logged in with ID:", this.member_id);
+                this.$router.push(path);
+            } else {
+                console.error("Error logging in");
+            }
+        },
+    },
+
 
 }
 </script>

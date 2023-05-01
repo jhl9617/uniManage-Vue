@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -16,7 +16,7 @@
                                     </td>
                                     <td>
                                         <div class="mt-3">
-                                            <h4>홍길동</h4>
+                                            <h4 v-if="loginMember">{{ loginMember.name}} 교수님</h4>
                                             <div class="text-secondary mb-1" align="left">
                                                 소속:<br>
                                                 구분:<br>
@@ -133,7 +133,38 @@
         </div>
     </div>
 </template>
-<script setup>
+<script>
+
+export default {
+
+    data() {
+        return {
+            loginMember: null,
+        };
+    },
+    methods: {
+        async getSession() {
+            try {
+                const response = await fetch("/sessionCheck");
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log("Session data:", data);
+                    this.loginMember = data;
+                } else {
+                    console.error("Error fetching session data");
+                }
+            } catch (error) {
+                console.error("Error fetching session data:", error);
+            }
+        },
+    },
+    created() {
+        this.getSession();
+    },
+
+
+};
+
 </script>
 <style>
 </style>
