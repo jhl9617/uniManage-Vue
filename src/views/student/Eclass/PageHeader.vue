@@ -1,14 +1,13 @@
 <!-- PageHeader.vue -->
 <template>
-
-  <div class="container">
+  <div class="container-fluid">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
-        <img alt="logo" src="../../../assets/images/collegeimage.jpg" width="1920" height="300">
+        <img alt="logo" src="../../../assets/images/collegeimage.jpg" width="2560" height="300">
       
     </header>
   </div>
-    <div class="container">
+    <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             </ul>
@@ -19,7 +18,7 @@
             </div>
         </header>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
 
