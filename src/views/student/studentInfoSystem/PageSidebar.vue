@@ -1,76 +1,148 @@
 <!-- PageSidebar.vue -->
 <template>
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 300px;">
-        <router-link to="/student/studentinfomain" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-            <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-5 fw-semibold">학생정보시스템</span>
-        </router-link>
-        <ul class="list-unstyled ps-0">
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                    학적/장학
-                </button>
-                <div class="collapse" id="home-collapse" style="">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><router-link to="/student/status" class="link-body-emphasis d-inline-flex text-decoration-none rounded">학적변동내역</router-link></li>
-                        <li><router-link to="/student/takeoff" class="link-body-emphasis d-inline-flex text-decoration-none rounded">휴학신청</router-link></li>
-                        <li><router-link to="/student/return" class="link-body-emphasis d-inline-flex text-decoration-none rounded">복학신청</router-link></li>
-                        <li><router-link to="/student/checkscholarship" class="link-body-emphasis d-inline-flex text-decoration-none rounded">장학수혜내역조회</router-link></li>
-                    </ul>
+    <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <router-link class="nav-link" to="/student/studentinfomain">
+                <span>학생정보시스템</span>
+            </router-link>
+        </li>
+        <li class="nav-item active">
+            <router-link class="nav-link" to="/Eclass">
+                <span>E-Class</span>
+            </router-link>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!--  -->
+        <li class="nav-item">
+            <router-link class="nav-link collapsed" to="/student">
+                <span>수강신청</span>
+            </router-link>
+        </li>
+
+        <!-- 학적/장학 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#info-collapse"
+               aria-expanded="true" aria-controls="info-collapse">
+                <span>학적/장학</span>
+            </a>
+            <div id="info-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/student/status" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                        학적변동내역
+                    </router-link>
+                    <br>
+                    <router-link to="/student/takeoff" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                        휴학신청
+                    </router-link>
+                    <br>
+                    <router-link to="/student/return" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                        복학신청
+                    </router-link>
+                    <br>
+                    <router-link to="/student/checkscholarship" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                        장학수혜내역조회
+                    </router-link>
                 </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                    교과/수강
-                </button>
-                <div class="collapse" id="dashboard-collapse" style="">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><router-link to="/student/timelinebydepart" class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과별강의시간표</router-link></li>
-                        <li><router-link to="/student/studenttimetable" class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강과목시간표</router-link></li>
-                        <li><router-link to="/student/checkcourse" class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회</router-link></li>
-                    </ul>
+            </div>
+        </li>
+
+        <!-- 교과/수강 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#create-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>교과/수강</span>
+            </a>
+            <div id="create-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/student/timelinebydepart"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과별강의시간표
+                    </router-link>
+                    <router-link to="/student/studenttimetable"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강과목시간표
+                    </router-link>
+                    <router-link to="/student/checkcourse"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회
+                    </router-link>
                 </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                    등록
-                </button>
-                <div class="collapse" id="orders-collapse" style="">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><router-link to="/student/payreceipt" class="link-body-emphasis d-inline-flex text-decoration-none rounded">등록금납입증명서</router-link></li>
-                        <li><router-link to="/student/printreceipt" class="link-body-emphasis d-inline-flex text-decoration-none rounded">등록금고지서출력</router-link></li>
-                    </ul>
+            </div>
+        </li>
+
+        <!-- 등록 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#lecture-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>등록</span>
+            </a>
+            <div id="lecture-collapse" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/student/payreceipt"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">등록금납입증명서
+                    </router-link>
+                    <router-link to="/student/printreceipt"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">등록금고지서출력
+                    </router-link>
                 </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                    성적/졸업
-                </button>
-                <div class="collapse" id="account-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><router-link to="/student/checkcredit" class="link-dark d-inline-flex text-decoration-none rounded">졸업학점조회</router-link></li>
-                        <li><router-link to="/student/checkgrade" class="link-dark d-inline-flex text-decoration-none rounded">수강성적조회</router-link></li>
-                    </ul>
+            </div>
+        </li>
+
+        <!-- 성적/졸업 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#student-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>성적/졸업</span>
+            </a>
+            <div id="student-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/student/checkcredit"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">졸업학점조회
+                    </router-link>
+                    <router-link to="/student/checkgrade"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강성적조회
+                    </router-link>
                 </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#survey-collapse" aria-expanded="false">
-                    강의평가
-                </button>
-                <div class="collapse" id="survey-collapse" style="">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><router-link to="/student/surveycourse" class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의평가</router-link></li>
-                    </ul>
+            </div>
+        </li>
+
+        <!-- 자유게시판 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#rating-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>강의평가</span>
+            </a>
+            <div id="rating-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/student/surveycourse"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의평가 작성
+                    </router-link>
                 </div>
-            </li>
-        </ul>
-    </div>
+            </div>
+        </li>
+    </ul>
 </template>
 
 <script>
-export default {}
+
 </script>
 
 <style scoped>
+@import "@/assets/css/sb-admin-2.min.css";
+@import "@/assets/vendor/fontawesome-free/css/all.min.css";
+@import "https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i";
 
+#accordionSidebar {
+    background-color: #c6dddc;
+}
+
+ul li a span {
+    color: black;
+}
 </style>
+
