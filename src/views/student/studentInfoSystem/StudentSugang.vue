@@ -1,28 +1,5 @@
 <template>
     <div class="container-fluid">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="/">
-                <svg class="bi me-2" height="32" width="40">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4"> OO 대학교</span>
-            </a>
-
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a aria-current="page" class="nav-link" href="#">학교홈페이지</a></li>
-                <li class="nav-item">
-                    <router-link class="nav-link active" to="/student/studentinfomain">학생정보시스템</router-link>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#">OFFICE 365</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">도서관</a></li>
-                <li class="nav-item">
-                    <router-link class="nav-link active" to="/eclass">E-CLASS</router-link>
-                </li>
-            </ul>
-        </header>
-    </div>
-
-    <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
                 <div class="col">

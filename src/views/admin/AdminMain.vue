@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-6">
+
         <div class="d-flex flex-column align-items-center text-center">
             <fieldset>
                 <legend>개인정보
@@ -27,7 +27,7 @@
             </fieldset>
         </div>
 
-    </div>
+
 </template>
 
 <script>

@@ -1,4 +1,4 @@
-<!-- PageSidebar.vue -->
+<!-- LectureSidebar.vue -->
 <template>
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
         <li>&nbsp;</li>

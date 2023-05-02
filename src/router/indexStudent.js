@@ -1,17 +1,17 @@
-import TotalHomeworkList from "@/views/student/Eclass/TotalHomeworkList.vue";
-import EclassLectureMain from "@/views/student/Eclass/LectureMain.vue";
-import EclassBoardList from '@/views/student/Eclass/BoardList.vue'
-import EclassBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
-import EclassBoardWrite from '@/views/student/Eclass/BoardWrite.vue'
-import EclassSourceList from "@/views/student/Eclass/SourceList.vue";
-import EclassSourceDetail from "@/views/student/Eclass/SourceDetail.vue";
-import EclassNoticeList from "@/views/student/Eclass/NoticeList.vue";
-import EclassNoticeDetail from "@/views/student/Eclass/NoticeDetail.vue";
-import EclassHomeworkList from "@/views/student/Eclass/HomeworkList.vue";
-import EclassHomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
-import EclassHomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
-import EclassLectureInfo from "@/views/student/Eclass/LectureInfo.vue";
-import EcMain from "@/views/student/Eclass/EclassMain.vue";
+import EclassHomeworkList from "@/views/student/Eclass/TotalHomeworkList.vue";
+import LectureMain from "@/views/student/Eclass/LectureMain.vue";
+import LectureBoardList from '@/views/student/Eclass/BoardList.vue'
+import LectureBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
+import LectureBoardWrite from '@/views/student/Eclass/BoardWrite.vue'
+import LectureSourceList from "@/views/student/Eclass/SourceList.vue";
+import LectureSourceDetail from "@/views/student/Eclass/SourceDetail.vue";
+import LectureNoticeList from "@/views/student/Eclass/NoticeList.vue";
+import LectureNoticeDetail from "@/views/student/Eclass/NoticeDetail.vue";
+import LectureHomeworkList from "@/views/student/Eclass/HomeworkList.vue";
+import LectureHomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
+import LectureHomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
+import LectureInfo from "@/views/student/Eclass/LectureInfo.vue";
+import EclassMain from "@/views/student/Eclass/EclassMain.vue";
 
 import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
 import StudentApplyTakeOff from "@/views/student/studentInfoSystem/ApplyTakeOff.vue";
@@ -27,7 +27,7 @@ import StudentCheckGrade from "@/views/student/studentInfoSystem/StudentCheckGra
 import StudentCheckScholarship from "@/views/student/studentInfoSystem/StudentCheckScholarship.vue";
 import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
-import StMain from "@/views/student/StudentMain.vue";
+import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
 
 
 const routesStudent = [
@@ -43,80 +43,80 @@ const routesStudent = [
     {
         //학생
         path: '/student',
-        name: 'StMain',
-        component: StMain
+        name: 'StudentMain',
+        component: StudentMain
     },
     {
         path: '/eclass',
-        name: 'EcMain',
-        component: EcMain
+        name: 'EclassMain',
+        component: EclassMain
 
     },
     {
         path: '/eclass/1',
-        name: 'EclassLectureMain',
-        component: EclassLectureMain
+        name: 'LectureMain',
+        component: LectureMain
     },
 
     {
         path: '/eclass/board/list',
-        name: 'EclassBoardList',
-        component: EclassBoardList
+        name: 'LectureBoardList',
+        component: LectureBoardList
     },
     {
         path: '/eclass/board/detail',
-        name: 'EclassBoardDetail',
-        component: EclassBoardDetail
+        name: 'LectureBoardDetail',
+        component: LectureBoardDetail
     },
     {
         path: '/eclass/board/write',
-        name: 'EclassBoardWrite',
-        component: EclassBoardWrite
+        name: 'LectureBoardWrite',
+        component: LectureBoardWrite
     },
     {
         path: '/eclass/source/list',
-        name: 'EclassSourceList',
-        component: EclassSourceList
+        name: 'LectureSourceList',
+        component: LectureSourceList
     },
     {
         path: '/eclass/source/detail',
-        name: 'EclassSourceDetail',
-        component: EclassSourceDetail
+        name: 'LectureSourceDetail',
+        component: LectureSourceDetail
     },
     {
         path: '/eclass/notice/list',
-        name: 'EclassNoticeList',
-        component: EclassNoticeList
+        name: 'LectureNoticeList',
+        component: LectureNoticeList
     },
     {
         path: '/eclass/notice/detail',
-        name: 'EclassNoticeDetail',
-        component: EclassNoticeDetail
+        name: 'LectureNoticeDetail',
+        component: LectureNoticeDetail
     },
     {
         path: '/eclass/homework/list',
+        name: 'LectureHomeworkList',
+        component: LectureHomeworkList
+    },
+    {
+        path: '/eclass/totalhomework/list',
         name: 'EclassHomeworkList',
         component: EclassHomeworkList
     },
     {
-        path: '/eclass/totalhomework/list',
-        name: 'TotalHomeworkList',
-        component: TotalHomeworkList
-    },
-    {
         path: '/eclass/homework/detail',
-        name: 'EclassHomeworkDetail',
-        component: EclassHomeworkDetail
+        name: 'LectureHomeworkDetail',
+        component: LectureHomeworkDetail
     },
     {
         path: '/eclass/homework/write',
-        name: 'EclassHomeworkWrite',
-        component: EclassHomeworkWrite
+        name: 'LectureHomeworkWrite',
+        component: LectureHomeworkWrite
     },
     {
         path: '/eclass/lectureinfo',
-        name: 'EclassLectureInfo',
-        component: EclassLectureInfo
+        name: 'LectureInfo',
+        component: LectureInfo
 
     },
     {
