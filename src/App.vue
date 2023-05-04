@@ -48,6 +48,8 @@ export default {
         LectureSidebar
     }
 }
+
+
 </script>
 
 <style>

@@ -24,18 +24,22 @@
                         </td>
                     </tr>
                 </table>
+
             </fieldset>
         </div>
 
 
 </template>
 
+
 <script>
+
 export default {
     name: "AdminMain",
     data() {
         return {
             loginMember: null,
+
         };
     },
     methods: {
@@ -57,7 +61,9 @@ export default {
     created() {
         this.getSession();
     },
+
 }
+
 </script>
 
 <style scoped>

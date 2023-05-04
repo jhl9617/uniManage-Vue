@@ -22,6 +22,9 @@ import AdminDetailGrade from "@/views/admin/manage/DetailGrade.vue";
 import AdminDetailScholarship from "@/views/admin/manage/DetailScholarship.vue";
 import AdminDetailProfessor from "@/views/admin/manage/DetailProfessor.vue";
 
+import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
+
+
 const routesAdmin = [
   {
     path: '/admin',
@@ -133,6 +136,11 @@ const routesAdmin = [
     path: '/admin/manage/detailprofessor',
     name: 'AdminDetailProfessor',
     component: AdminDetailProfessor
+  },
+  {
+    path: '/chatbot',
+    name: 'AdminChatbot',
+    component: AdminChatbot
   },
 ]
 
