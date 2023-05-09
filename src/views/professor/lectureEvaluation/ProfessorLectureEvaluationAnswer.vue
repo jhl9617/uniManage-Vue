@@ -11,6 +11,7 @@
     <button><router-link to="/prof/lectureEvaluation/lectureEvaluationAnswer">추가 답변내용</router-link></button>
 
 <br><br>
+
     <table class="table table-bordered"  style="width: 800px;">
         <thead>
         <tr>

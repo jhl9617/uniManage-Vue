@@ -29,11 +29,11 @@
 import PageHeader from './components/common/PageHeader.vue';
 import PageFooter from './components/common/PageFooter.vue';
 import StudentSidebar from "@/views/student/studentInfoSystem/PageSidebar.vue";
-import LectureSidebar from "@/views/student/Eclass/LectureSidebar.vue";
-import EclassSidebar from "@/views/student/Eclass/EClassSidebar.vue";
+import LectureSidebar from "@/views/student/Eclass/lecture/LectureSidebar.vue";
+import EclassSidebar from "@/views/student/Eclass/common/EClassSidebar.vue";
 import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
 import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
-import EclassHeader from "@/views/student/Eclass/PageHeader.vue"
+import EclassHeader from "@/views/student/Eclass/common/PageHeader.vue"
 
 export default {
     name: 'App',
