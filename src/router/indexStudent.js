@@ -1,17 +1,17 @@
-import EclassHomeworkList from "@/views/student/Eclass/TotalHomeworkList.vue";
-import LectureMain from "@/views/student/Eclass/LectureMain.vue";
-import LectureBoardList from '@/views/student/Eclass/BoardList.vue'
-import LectureBoardDetail from '@/views/student/Eclass/BoardDetail.vue'
-import LectureBoardWrite from '@/views/student/Eclass/BoardWrite.vue'
-import LectureSourceList from "@/views/student/Eclass/SourceList.vue";
-import LectureSourceDetail from "@/views/student/Eclass/SourceDetail.vue";
-import LectureNoticeList from "@/views/student/Eclass/NoticeList.vue";
-import LectureNoticeDetail from "@/views/student/Eclass/NoticeDetail.vue";
-import LectureHomeworkList from "@/views/student/Eclass/HomeworkList.vue";
-import LectureHomeworkWrite from "@/views/student/Eclass/HomeworkWrite.vue";
-import LectureHomeworkDetail from "@/views/student/Eclass/HomeworkDetail.vue";
-import LectureInfo from "@/views/student/Eclass/LectureInfo.vue";
-import EclassMain from "@/views/student/Eclass/EclassMain.vue";
+import EclassHomeworkList from "@/views/student/Eclass/lecture/homework/TotalHomeworkList.vue";
+import LectureMain from "@/views/student/Eclass/lecture/LectureMain.vue";
+import LectureBoardList from '@/views/student/Eclass/lecture/board/BoardList.vue'
+import LectureBoardDetail from '@/views/student/Eclass/lecture/board/BoardDetail.vue'
+import LectureBoardWrite from '@/views/student/Eclass/lecture/board/BoardWrite.vue'
+import LectureSourceList from "@/views/student/Eclass/lecture/source/SourceList.vue";
+import LectureSourceDetail from "@/views/student/Eclass/lecture/source/SourceDetail.vue";
+import LectureNoticeList from "@/views/student/Eclass/lecture/notice/NoticeList.vue";
+import LectureNoticeDetail from "@/views/student/Eclass/lecture/notice/NoticeDetail.vue";
+import LectureHomeworkList from "@/views/student/Eclass/lecture/homework/HomeworkList.vue";
+import LectureHomeworkWrite from "@/views/student/Eclass/lecture/homework/HomeworkWrite.vue";
+import LectureHomeworkDetail from "@/views/student/Eclass/lecture/homework/HomeworkDetail.vue";
+import LectureInfo from "@/views/student/Eclass/lecture/LectureInfo.vue";
+import EclassMain from "@/views/student/Eclass/common/EclassMain.vue";
 
 import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
 import StudentApplyTakeOff from "@/views/student/studentInfoSystem/ApplyTakeOff.vue";
@@ -38,7 +38,7 @@ const routesStudent = [
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/PageAbout.vue')
+        component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/common/PageAbout.vue')
     },
     {
         //학생
