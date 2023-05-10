@@ -60,6 +60,10 @@
                     <router-link to="/admin/manage/appliedclass"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의 개설 요청 리스트
                     </router-link>
+                    <br>
+                    <router-link to="/admin/manage/closelecture"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">휴강 관리
+                    </router-link>
                 </div>
             </div>
         </li>

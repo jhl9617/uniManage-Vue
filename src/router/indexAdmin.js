@@ -21,9 +21,9 @@ import AdminDetailStudent from "@/views/admin/manage/DetailStudent.vue";
 import AdminDetailGrade from "@/views/admin/manage/DetailGrade.vue";
 import AdminDetailScholarship from "@/views/admin/manage/DetailScholarship.vue";
 import AdminDetailProfessor from "@/views/admin/manage/DetailProfessor.vue";
+import AdminCloseLecture from "@/views/admin/manage/ManageCloseLecture.vue";
 
 import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
-
 
 const routesAdmin = [
   {
@@ -136,6 +136,11 @@ const routesAdmin = [
     path: '/admin/manage/detailprofessor',
     name: 'AdminDetailProfessor',
     component: AdminDetailProfessor
+  },
+  {
+    path: '/admin/manage/closelecture',
+    name: 'AdminCloseLecture',
+    component: AdminCloseLecture
   },
   {
     path: '/chatbot',
