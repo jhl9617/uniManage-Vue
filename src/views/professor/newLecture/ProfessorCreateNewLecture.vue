@@ -2,7 +2,7 @@
     <div class="container">
         <form action="">
             <h4>신규강의 개설하기</h4> <br>
-            <table class="table" style="width: 800px" id="newlecture">
+            <table class="table" id="newlecture">
                 <tr>
                     <th>강의명</th>
                     <td colspan="3"><input type="text" class="form-control"></td>
@@ -10,7 +10,7 @@
                 <tr>
                     <th>학점</th>
                     <td colspan="3">
-                        <select name="" id="">
+                        <select name="" id="" class="form-control">
                             <option value="" selected>선택</option>
                             <option value="">1학점</option>
                             <option value="">2학점</option>
@@ -38,6 +38,12 @@
                 </tr>
                 <tr>
                     <th colspan="4" style="text-align: left">
+                        <button @click="openModal">모달 열기</button>
+                        <div v-if="modalOpen">
+                            <modal-component @close="closeModal">
+                                <lecture-room></lecture-room>
+                            </modal-component>
+                        </div>
                         <router-link to="/prof/create/room" target="_blank">
                             <input type="button" value="강의실 조회">
                         </router-link>
@@ -46,7 +52,7 @@
                 <tr>
                     <th>강의계획서</th>
                     <td colspan="3">
-                        <input type="file">
+                        <input type="file" class="btn btn-toolbar">
                     </td>
                 </tr>
             </table>
@@ -56,12 +62,39 @@
     </div>
 </template>
 <script>
+import LectureRoom from '@/views/professor/newLecture/LectureRoom.vue'
+import ModalComponent from '@/components/professor/ModalComponent.vue'
+
+export default {
+    components: {
+        LectureRoom,
+        ModalComponent
+    },
+    data() {
+        return {
+            modalOpen: false
+        }
+    },
+    methods: {
+        openModal() {
+            this.modalOpen = true
+        },
+        closeModal() {
+            this.modalOpen = false
+        }
+    }
+}
 </script>
 <style>
 #newlecture tr {
     vertical-align: middle
 }
+
 #newlecture tr td {
     text-align: left;
+}
+
+#newlecture tr th {
+    vertical-align: middle;
 }
 </style>

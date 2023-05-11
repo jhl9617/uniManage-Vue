@@ -30,7 +30,6 @@ import ProfessorHomeworkList from "@/views/professor/student/ProfessorHomeworkLi
 import ProfessorHomeworkDetail from "@/views/professor/student/ProfessorHomeworkDetail.vue"
 import ProfessorLectureEvaluationAnswer from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluationAnswer.vue"
 
-
 const routesProf = [
     {   //교수_기본(메인)
         path: '/prof/main',
