@@ -141,6 +141,11 @@
     background-color: #c6dddc;
 }
 
+.collapse{
+    background-color: #c6dddc;
+
+}
+
 ul li a span {
     color: black;
 }
