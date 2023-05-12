@@ -46,7 +46,7 @@
             </a>
             <div id="homework-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/Eclass/homework/list"
+                    <router-link to="/eclass/homework/list"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">과제 목록
                     </router-link>
                 </div>
@@ -62,7 +62,7 @@
             <div id="notice-collapse" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/Eclass/notice/list"
+                    <router-link to="/eclass/notice/list"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">공지사항 조회
                     </router-link>
                 </div>
@@ -77,7 +77,7 @@
             </a>
             <div id="source-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/Eclass/source/list"
+                    <router-link to="/eclass/source/list"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의자료실
                     </router-link>
                 </div>
@@ -92,7 +92,7 @@
             </a>
             <div id="board-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/Eclass/board/list"
+                    <router-link to="/eclass/board/list"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">자유게시판
                     </router-link>
                 </div>
