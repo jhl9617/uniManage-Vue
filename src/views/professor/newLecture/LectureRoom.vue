@@ -1,45 +1,47 @@
 <template>
     <div class="container">
         강의실 조회 <br>
-        <select name="build" id="build" required>
-            <option value="#">건물</option>
-            <option value="공학관">공학관</option>
-            <option value="인문관">인문관</option>
-            <option value="자연관">자연관</option>
-            <option value="사과관">사과관</option>
-        </select>
-        <select name="day" id="day">
-            <option value="#">요일</option>
-            <option value="mon">월요일</option>
-            <option value="tue">화요일</option>
-            <option value="wed">수요일</option>
-            <option value="thu">목요일</option>
-            <option value="fri">금요일</option>
-        </select>
-        <select name="roomnum" id="roomnum">
-            <option value="#">강의실 번호(호수)</option>
-            <option value="101">101호</option>
-            <option value="102">102호</option>
-            <option value="103">103호</option>
-            <option value="104">104호</option>
-            <option value="201">201호</option>
-            <option value="202">202호</option>
-            <option value="203">203호</option>
-            <option value="204">204호</option>
-            <option value="301">301호</option>
-            <option value="303">302호</option>
-            <option value="304">303호</option>
-            <option value="304">304호</option>
-            <option value="401">401호</option>
-            <option value="402">402호</option>
-            <option value="403">403호</option>
-            <option value="404">404호</option>
-            <option value="501">503호</option>
-            <option value="502">502호</option>
-            <option value="503">503호</option>
-            <option value="504">504호</option>
-        </select>
-        <input type="submit" value="조회">
+        <form action="">
+            <select name="build" id="build" required>
+                <option value="#">건물</option>
+                <option value="공학관">공학관</option>
+                <option value="인문관">인문관</option>
+                <option value="자연관">자연관</option>
+                <option value="사과관">사과관</option>
+            </select>
+            <select name="day" id="day">
+                <option value="#">요일</option>
+                <option value="mon">월요일</option>
+                <option value="tue">화요일</option>
+                <option value="wed">수요일</option>
+                <option value="thu">목요일</option>
+                <option value="fri">금요일</option>
+            </select>
+            <select name="roomnum" id="roomnum">
+                <option value="#">강의실 번호(호수)</option>
+                <option value="101">101호</option>
+                <option value="102">102호</option>
+                <option value="103">103호</option>
+                <option value="104">104호</option>
+                <option value="201">201호</option>
+                <option value="202">202호</option>
+                <option value="203">203호</option>
+                <option value="204">204호</option>
+                <option value="301">301호</option>
+                <option value="303">302호</option>
+                <option value="304">303호</option>
+                <option value="304">304호</option>
+                <option value="401">401호</option>
+                <option value="402">402호</option>
+                <option value="403">403호</option>
+                <option value="404">404호</option>
+                <option value="501">503호</option>
+                <option value="502">502호</option>
+                <option value="503">503호</option>
+                <option value="504">504호</option>
+            </select>
+            <input type="submit" value="조회">
+        </form>
         <br>
         <div>
             <table class="table table-hover">
