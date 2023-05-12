@@ -23,14 +23,14 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   export default {
     data() { //변수생성
       return {
         requestBody: this.$route.query,
         free_id: this.$route.query.free_id,
-  
+
         free_title: '',
         member_id: '',
         free_content: '',
@@ -70,7 +70,7 @@
       },
       fnDelete() {
         if (!confirm("삭제하시겠습니까?")) return
-  
+
         this.$axios.delete(this.$serverUrl + '/Eclass/board/' + this.free_id, {})
             .then(() => {
               alert('삭제되었습니다.')
@@ -83,6 +83,6 @@
   }
   </script>
   <style scoped>
-  
-  
+
+
   </style>

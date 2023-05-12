@@ -18,14 +18,14 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   export default {
     data() { //변수생성
       return {
         requestBody: this.$route.query,
         free_id: this.$route.query.free_id,
-  
+
         free_title: '',
         member_id: '',
         free_content: '',
@@ -72,7 +72,7 @@
           "free_content": this.free_content,
           "member_id": this.member_id
         }
-  
+
         if (this.free_id === undefined) {
           //INSERT
           this.$axios.post(apiUrl, this.form)
@@ -101,5 +101,5 @@
   }
   </script>
   <style scoped>
-  
+
   </style>
