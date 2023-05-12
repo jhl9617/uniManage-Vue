@@ -104,7 +104,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/Eclass/board/list", {
+            this.$axios.get(this.$serverUrl + "/eclass/board/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -163,7 +163,7 @@ export default {
     //       "created_at": "작성일시1"
     //   },
     //   {
-    //       "idx":
+    //       "idx":1,
     //       "title": "제목1",
     //       "author": "작성자1",
     //       "created_at": "작성일시1"
