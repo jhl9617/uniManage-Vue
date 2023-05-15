@@ -14,11 +14,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, idx) in list" :key="idx">
-                <td>{{ row.idx }}</td>
-                <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
-                <td>{{ row.author }}</td>
-                <td>{{ row.created_at }}</td>
+            <tr v-for="(row, notice_id) in list" :key="notice_id">
+                <td>{{ row.notice_id }}</td>
+                <td><a v-on:click="fnView(`${row.notice_id}`)">{{ row.notice_title }}</a></td>
+                <td>{{ row.member_id }}</td>
+                <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
         </table>
@@ -43,9 +43,8 @@
         <div>
             <select v-model="search_key">
                 <option value="">- 선택 -</option>
-                <option value="author">작성자</option>
-                <option value="title">제목</option>
-                <option value="contents">내용</option>
+                <option value="notice_title">작성자</option>
+                <option value="notice_content">제목</option>
             </select>
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
@@ -104,7 +103,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/board/list", {
+            this.$axios.get(this.$serverUrl + "/admin/notice/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -122,8 +121,8 @@ export default {
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(notice_id) {
+            this.requestBody.notice_id = notice_id
             this.$router.push({
                 path: '/admin/notice/view',
                 query: this.requestBody

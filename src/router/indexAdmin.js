@@ -5,8 +5,8 @@ import AdminManageStudent from '@/views/admin/manage/ManageStudent.vue'
 import AdminMain from "@/views/admin/AdminMain.vue";
 
 import AdminManageScholarship from "@/views/admin/manage/ManageScholarship.vue";
-import AdminAddScholarship from "@/views/admin/manage/AddScholarship.vue";
-import AdminModifyScholarship from "@/views/admin/manage/ModifyScholarship.vue";
+import AdminWriteScholarship from "@/views/admin/manage/WriteScholarship.vue";
+import AdminCheckScholarship from "@/views/admin/manage/CheckScholarship.vue";
 import AdminManageProfessor from "@/views/admin/manage/ManageProfessor.vue";
 import AdminAddProfessor from "@/views/admin/manage/AddProfessor.vue";
 import AdminModifyProfessor from "@/views/admin/manage/ModifyProfessor.vue";
@@ -58,15 +58,16 @@ const routesAdmin = [
     component: AdminManageScholarship
   },
   {
-    path: '/admin/manage/addscholarship',
-    name: 'AdminAddScholarship',
-    component: AdminAddScholarship
+    path: '/admin/manage/scholarship/write',
+    name: 'AdminWriteScholarship',
+    component: AdminWriteScholarship
   },
   {
-    path: '/admin/manage/modifyscholarship',
-    name: 'AdminModifyScholarship',
-    component: AdminModifyScholarship
+    path: '/admin/manage/scholarship/check',
+    name: 'AdminCheckScholarship',
+    component: AdminCheckScholarship
   },
+
   {
     path: '/admin/manage/professor',
     name: 'AdminManageProfessor',

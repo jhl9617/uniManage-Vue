@@ -6,15 +6,15 @@
           <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
         </div> -->
         <div class="board-contents">
-            <h3>{{ title }}</h3>
+            <h3>{{ notice_title }}</h3>
             <div>
-                <strong class="w3-large">{{ author }}</strong>
+                <strong class="w3-large">{{ member_id }}</strong>
                 <br>
-                <span>{{ created_at }}</span>
+                <span>{{ created_date }}</span>
             </div>
         </div>
         <div class="board-contents">
-            <span>{{ contents }}</span>
+            <span>{{ notice_content }}</span>
         </div>
         <div class="common-buttons">
             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
@@ -29,12 +29,13 @@ export default {
     data() { //변수생성
         return {
             requestBody: this.$route.query,
-            idx: this.$route.query.idx,
+            notice_id: this.$route.query. notice_id,
 
-            title: '',
-            author: '',
-            contents: '',
-            created_at: ''
+            notice_title: '',
+            notice_content: '',
+            member_id: '',
+            created_date: '',
+            readcount: '',
         }
     },
     mounted() { // document.ready, window.onload와 같은 형태
@@ -42,13 +43,13 @@ export default {
     },
     methods: {
         fnGetView() {
-            this.$axios.get(this.$serverUrl + '/board/' + this.idx, {
+            this.$axios.get(this.$serverUrl + '/admin/notice/' + this.notice_id, {
                 params: this.requestBody
             }).then((res) => { //success
-                this.title = res.data.title
-                this.author = res.data.author
-                this.contents = res.data.contents
-                this.created_at = res.data.created_at
+                this.notice_title = res.data.notice_title
+                this.notice_content = res.data.notice_content
+                this.member_id = res.data.member_id
+                this.readcount = res.data.readcount
             }).catch((err) => { // error
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
@@ -56,7 +57,7 @@ export default {
             })
         },
         fnList() {
-            delete this.requestBody.idx
+            delete this.requestBody.notice_id
             this.$router.push({
                 path: './list',
                 query: this.requestBody
@@ -71,7 +72,7 @@ export default {
         fnDelete() {
             if (!confirm("삭제하시겠습니까?")) return
 
-            this.$axios.delete(this.$serverUrl + '/board/' + this.idx, {})
+            this.$axios.delete(this.$serverUrl + '/admin/notice/' + this.notice_id, {})
                 .then(() => {
                     alert('삭제되었습니다.')
                     this.fnList();
