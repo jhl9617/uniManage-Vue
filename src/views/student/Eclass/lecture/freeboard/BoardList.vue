@@ -14,11 +14,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, idx) in list" :key="idx">
-                <td>{{ row.idx }}</td>
-                <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
-                <td>{{ row.author }}</td>
-                <td>{{ row.created_at }}</td>
+            <tr v-for="(row, free_id) in list" :key="free_id">
+                <td>{{ row.free_id }}</td>
+                <td><a v-on:click="fnView(`${row.free_id}`)">{{ row.free_title }}</a></td>
+                <td>{{ row.member_id }}</td>
+                <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
         </table>
@@ -43,9 +43,9 @@
         <div>
             <select v-model="search_key">
                 <option value="">- 선택 -</option>
-                <option value="author">작성자</option>
-                <option value="title">제목</option>
-                <option value="contents">내용</option>
+                <option value="member_id">작성자</option>
+                <option value="free_title">제목</option>
+                <option value="free_content">내용</option>
             </select>
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
@@ -104,7 +104,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/board/list", {
+            this.$axios.get(this.$serverUrl + "/eclass/board/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -122,8 +122,8 @@ export default {
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(free_id) {
+            this.requestBody.free_id = free_id
             this.$router.push({
                 path: './detail',
                 query: this.requestBody
@@ -168,8 +168,8 @@ export default {
     //       "author": "작성자1",
     //       "created_at": "작성일시1"
     //   }
-    // ]
+    // ]a
     // }
-    // }
+    // }a
 }
 </script>
