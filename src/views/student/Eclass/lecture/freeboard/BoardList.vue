@@ -17,7 +17,7 @@
             <tr v-for="(row, free_id) in list" :key="free_id">
                 <td>{{ row.free_id }}</td>
                 <td><a v-on:click="fnView(`${row.free_id}`)">{{ row.free_title }}</a></td>
-                <td>{{ row.member_id }}</td>
+                <td>{{ row.name }}</td>
                 <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
@@ -43,7 +43,7 @@
         <div>
             <select v-model="search_key">
                 <option value="">- 선택 -</option>
-                <option value="member_id">작성자</option>
+                <option value="name">작성자</option>
                 <option value="free_title">제목</option>
                 <option value="free_content">내용</option>
             </select>
@@ -104,7 +104,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/eclass/board/list", {
+            this.$axios.get(this.$serverUrl + "/Eclass/board/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {

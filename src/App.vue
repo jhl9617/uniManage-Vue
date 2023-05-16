@@ -16,7 +16,7 @@
                 <div class="col-md-2">
 
                 </div>
-                <div class="col-md-8 position-absolute top-50 start-50 translate-middle">
+                <div class="position-absolute top-50 start-50 translate-middle">
                     <router-view/>
                 </div>
             </div>

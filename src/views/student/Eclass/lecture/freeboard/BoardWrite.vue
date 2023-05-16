@@ -6,7 +6,7 @@
       </div> -->
       <div class="board-contents">
         <input type="text" v-model="free_title" class="w3-input w3-border" placeholder="제목을 입력해주세요." >
-        <input type="text" v-model="member_id" class="w3-input w3-border">
+        <input type="text" v-model="member_id" class="w3-input w3-border" >
       </div>
       <div class="board-contents">
         <textarea id="" cols="30" rows="10" v-model="free_content" class="w3-input w3-border" style="resize: none;">
@@ -25,9 +25,9 @@
       return {
         requestBody: this.$route.query,
         free_id: this.$route.query.free_id,
-
+        member_id : '',
         free_title: '',
-        member_id: '',
+        name: '',
         free_content: '',
         created_date: ''
       }
@@ -41,10 +41,11 @@
           this.$axios.get(this.$serverUrl + '/Eclass/board/' + this.free_id, {
             params: this.requestBody
           }).then((res) => {
-            this.free_title = res.data.free_title
-            this.member_id = res.data.member_id
-            this.free_content = res.data.free_content
-            this.created_date = res.data.created_date
+            this.free_title = res.data.freeboard.free_title
+            this.name = res.data.freeboard.name
+            this.member_id = res.data.freeboard.member_id
+            this.free_content = res.data.freeboard.free_content
+            this.created_date = res.data.freeboard.created_date
           }).catch((err) => {
             console.log(err)
           })
