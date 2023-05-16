@@ -54,10 +54,10 @@
             <div id="lecture-collapse" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/admin/manage/class"
+                    <router-link to="/admin/manage/lecture"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">개설 강의 리스트
                     </router-link>
-                    <router-link to="/admin/manage/appliedclass"
+                    <router-link to="/admin/manage/appliedlecture"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의 개설 요청 리스트
                     </router-link>
                     <br>

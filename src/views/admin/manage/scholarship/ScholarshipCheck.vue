@@ -1,6 +1,6 @@
 <template>
-    <div class="scholarship-detail">
-        <div style="border:2px solid black; padding:100px;" class="scholarship-contents">
+    <div class="board-detail">
+        <div style="border:2px solid black; padding:100px;" class="board-contents">
             <table align="center" class="table table-bordered">
                 <tr>
                     <th width="100">장학금명</th>
