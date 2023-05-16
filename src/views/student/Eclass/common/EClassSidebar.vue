@@ -12,7 +12,7 @@
             </router-link>
         </li>
         <li class="nav-item active">
-            <router-link class="nav-link" to="/Eclass">
+            <router-link class="nav-link" to="/eclass">
                 <span>E-Class</span>
             </router-link>
         </li>
