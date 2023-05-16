@@ -2,19 +2,18 @@
     <div class="modal">
         <div class="modal-content">
             <slot></slot>
-            <button @click="$emit('close')">모달 닫기</button>
+            <div style="text-align: center">
+                <button class="btn btn-dark" style="width: 100px" @click="$emit('close')">창 닫기</button>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 800px;
     height: 700px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0);
     display: flex;
     align-items: center;
     justify-content: center;
