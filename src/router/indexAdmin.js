@@ -25,7 +25,7 @@ import AdminCloseLecture from "@/views/admin/manage/ManageCloseLecture.vue";
 
 import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
 
-import AdminPopupExample from "@/views/admin/manage/PopupExample.vue";
+
 
 const routesAdmin = [
   {
@@ -150,11 +150,7 @@ const routesAdmin = [
     name: 'AdminChatbot',
     component: AdminChatbot
   },
-  {  /*팝업 테스트*/
-    path: '/popup',
-    name: 'AdminPopupExample',
-    component: AdminPopupExample
-  },
+
 ]
 
 export default routesAdmin
