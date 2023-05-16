@@ -3,11 +3,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import routesAdmin from './indexAdmin.js'
 import routesProf from './indexProf.js'
 import routesStudent from './indexStudent.js'
+import routesAuth from './auth.js'
 // import PageHome from "@/views/home/PageHome.vue";
 import Login from "@/views/home/LoginPage.vue";
 import FindID from "@/views/home/FindID.vue";
 import FindPassword from "@/views/home/FindPassword.vue";
 import ResetPassword from "@/views/home/ResetPassword.vue";
+
 
 
 
@@ -42,13 +44,11 @@ const routes = [
   },
 ]
 
-const allRoutes = [...routes, ...routesAdmin, ...routesProf, ...routesStudent]
+const allRoutes = [...routes, ...routesAdmin, ...routesProf, ...routesStudent, ...routesAuth]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: allRoutes
 })
-
-
 
 export default router
