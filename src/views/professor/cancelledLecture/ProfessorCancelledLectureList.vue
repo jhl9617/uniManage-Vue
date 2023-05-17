@@ -17,7 +17,9 @@
                 <tbody>
                 <tr>
                     <td>2</td>
-                    <td>공업미적분</td>
+                    <td>
+                        <router-link to="/prof/lecture/cancelled">공업미적분</router-link>
+                    </td>
                     <td>3회차</td>
                     <td>2023.04.28 09:00~11:00</td>
                     <td></td>
