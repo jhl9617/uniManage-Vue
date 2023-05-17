@@ -5,21 +5,27 @@
             <br>
             <table class="table table-bordered" id="closewrite">
                 <tr>
-                    <th style="width: 30%">강의명</th>
+                    <th style="width: 30%">강의명(강의번호)</th>
                     <td>
                         <select>
-                            <option value="">공업미적분</option>
-                            <option value="">공업적분</option>
+                            <option value="">강의과목1</option>
+                            <option value="">강의과목2</option>
+                            <option value="">강의과목3</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th>휴강일</th>
-                    <td><input type="date"></td>
+                    <th style="width: 30%">작성자</th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>시간</th>
+                    <th>휴강차시</th>
+                    <td>3회차</td>
+                </tr>
+                <tr>
+                    <th>보강일시</th>
                     <td>
+                        <input type="date"> &nbsp;
                         <select name="" id="">
                             <option value="">09:00~10:00</option>
                             <option value="">09:00~11:00</option>

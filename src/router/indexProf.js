@@ -5,7 +5,6 @@ import LectureRoom from '@/views/professor/lectureClass/LectureRoom.vue'
 import ProfessorNewLectureDetails from "@/views/professor/lectureClass/ProfessorNewLectureDetails.vue"
 import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLecture.vue"
 import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue"
-import ProfessorCloseLecture from "@/views/professor/cancelledLecture/ProfessorCloseLecture.vue"
 import ProfessorStudentAttendance from "@/views/professor/attendance/ProfesscorStudentAttendance.vue"
 import ProfessorHomeworkCheck from "@/views/professor/homework/ProfesscorHomeworkCheck.vue"
 import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluation.vue"
@@ -25,10 +24,12 @@ import ProfessorStudentAtList from "@/views/professor/attendance/ProfessorStuden
 import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorUniversityNoticeDetail.vue"
 import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue"
 import ProfessorStudentAtDetail from "@/views/professor/attendance/ProfessorStudentAtDetail.vue"
-import ProfessorCloseLectureWrite from "@/views/professor/cancelledLecture/ProfessorCloseLectureWrite.vue"
 import ProfessorHomeworkList from "@/views/professor/homework/ProfessorHomeworkList.vue"
 import ProfessorHomeworkDetail from "@/views/professor/homework/ProfessorHomeworkDetail.vue"
 import ProfessorLectureEvaluationAnswer from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluationAnswer.vue";
+import ProfessorCancelledLectureList from "@/views/professor/cancelledLecture/ProfessorCancelledLectureList.vue";
+import ProfessorCancelledLectureWrite from "@/views/professor/cancelledLecture/ProfessorCancelledLectureWrite.vue";
+import ProfessorCancelledLecture from "@/views/professor/cancelledLecture/ProfessorCancelledLecture.vue";
 
 
 const routesProf = [
@@ -67,10 +68,20 @@ const routesProf = [
         name: 'ProfessorCreateNewHomework',
         component: ProfessorCreateNewHomework
     },
-    {   //강의_휴강
-        path: '/prof/lecture/closed',
-        name: 'ProfessorCloseLecture',
-        component: ProfessorCloseLecture
+    {   //휴강 게시글 리스트
+        path: '/prof/lecture/cancelled/list',
+        name: 'ProfessorCancelledLectureList',
+        component: ProfessorCancelledLectureList
+    },
+    {   //휴강 게시글 작성하기
+        path: '/prof/lecture/cancelled/write',
+        name: 'ProfessorCancelledLectureWrite',
+        component: ProfessorCancelledLectureWrite
+    },
+    {   // 휴강 게시글 상세보기
+        path: '/prof/lecture/cancelled',
+        name: 'ProfessorCancelledLecture',
+        component: ProfessorCancelledLecture
     },
     {   //학생관리_학생 출석관리
         path: '/prof/student/attendance',
@@ -127,14 +138,12 @@ const routesProf = [
         name: 'ProfessorDepartmentNoticeDetail',
         component: ProfessorDepartmentNoticeDetail
     },
-    {
-        //강의공지 작성하기
+    {//강의공지 작성하기
         path: '/prof/lecture/notice/write',
         name: 'ProfessorLectureNoticeWrite',
         component: ProfessorLectureNoticeWrite
     },
-    {
-        //강의공지 수정하기
+    {//강의공지 수정하기
         path: '/prof/lecture/notice/update',
         name: 'ProfessorLectureNoticeUpdate',
         component: ProfessorLectureNoticeUpdate
@@ -167,12 +176,6 @@ const routesProf = [
         path: '/prof/lectureEvaluation/lectureEvaluationAnswer',
         name: 'ProfessorLectureEvaluationAnswer',
         component: ProfessorLectureEvaluationAnswer
-    },
-    {
-        //휴강사유 작성
-        path: '/prof/lecture/closed/write',
-        name: 'ProfessorCloseLectureWrite',
-        component: ProfessorCloseLectureWrite
     },
     {
         //출결조회
