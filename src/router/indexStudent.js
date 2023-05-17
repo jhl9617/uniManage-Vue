@@ -31,7 +31,6 @@ import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseLi
 import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
 import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
 
-
 const routesStudent = [
 
     {
@@ -198,7 +197,6 @@ const routesStudent = [
         name: 'StudentInfoMain',
         component: StudentInfoMain
     },
-
 ]
 
 export default routesStudent

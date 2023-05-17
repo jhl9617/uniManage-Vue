@@ -1,16 +1,17 @@
 <template>
     <h6>공지사항 발송</h6>
     <table class="table table-bordered" align="center">
+        <form @submit.prevent="submitForm">
         <tr style="border: solid 1px ;">
             <th style="border: solid 1px ;">제목</th>
             <td style="border: 1px solid;">
-                <input type="text" name="text" size="20" style="width:100%;">
+                <input type="text" name="text" v-model="noticeTitle" size="20" style="width:100%;">
             </td>
         </tr>
         <tr style="border: solid 1px ;">
             <th style="border: solid 1px ;">내용</th>
             <td style="border: 1px solid;">
-                <textarea name="content" rows="10" style="width:100%;"></textarea>
+                <textarea name="content" v-model="noticeContent" rows="10" style="width:100%;"></textarea>
             </td>
         </tr>
         <tr style="border: solid 1px ;">
@@ -40,11 +41,13 @@
                 <input type="radio" name="chk_info">SMS &nbsp;
             </td>
         </tr>
-    </table>
+
     <div>
             <button type="button">전송</button>&nbsp;&nbsp;
             <button type="button">전송취소</button>
     </div>
+    </form>
+    </table>
 </template>
 
 <script>

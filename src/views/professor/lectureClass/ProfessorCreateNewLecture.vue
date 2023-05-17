@@ -71,7 +71,7 @@
     </div>
 </template>
 <script>
-import LectureRoom from '@/views/professor/newLecture/LectureRoom.vue'
+import LectureRoom from '@/views/professor/lectureClass/LectureRoom.vue'
 import ModalComponent from '@/components/professor/ModalComponent.vue'
 import axios from "axios";
 
