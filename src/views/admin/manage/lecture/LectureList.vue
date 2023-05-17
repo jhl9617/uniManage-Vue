@@ -1,22 +1,20 @@
 <template>
-    <div class="scholarship-list">
-        <div class="common-buttons">
-            <router-link to="/admin/manage/scholarship/write">
-                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
-            </router-link>
-        </div>
+    <div class="board-list">
+        개설 강의 관리
         <table class="w3-table-all">
             <thead>
             <tr>
                 <th>No</th>
-                <th>장학금명</th>
-                <th>학생명</th>
+                <th>학과명</th>
+                <th>과목명</th>
+                <th>교수명</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, scho_id) in list" :key="scho_id">
-                <td>{{ row.scho_id }}</td>
-                <td><a v-on:click="fnView(`${row.scho_id}`)">{{ row.scho_name }}</a></td>
+            <tr v-for="(row, lecture_id) in list" :key="lecture_id">
+                <td>{{ row.lecture_id }}</td>
+                <td><a v-on:click="fnView(`${row.lecture_id}`)">{{ row.department_name }}</a></td>
+                <td>{{ row.lecture_title }}</td>
                 <td>{{ row.name }}</td>
             </tr>
             </tbody>
@@ -45,9 +43,9 @@
     <div>
         <select v-model="search_key">
             <option value="">- 선택 -</option>
-            <option value="scho_name">장학금명</option>
-            <option value="name">학생명</option>
-            <option value="scho_term">학기</option>
+            <option value="lecture_title">강의명</option>
+            <option value="semester">학기</option>
+            <option value="name">교수명</option>
         </select>
         &nbsp;
         <input type="text" v-model="search_value" @keyup.enter="fnPage()">
@@ -56,7 +54,6 @@
     </div>
     <root>
     </root>
-
 </template>
 
 <script>
@@ -109,7 +106,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get( "/admin/manage/scholarship", {
+            this.$axios.get( "/admin/manage/lecture", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -126,16 +123,11 @@ export default {
                 }
             })
         },
-        fnView(scho_id) {
-            this.requestBody.scho_id = scho_id
+        fnView(lecture_id) {
+            this.requestBody.lecture_id = lecture_id
             this.$router.push({
-                path: '/admin/manage/scholarship/check', //경로, 같은 폴더에 있는 detail.vue
+                path: '/admin/manage/lecture/detail', //경로, 같은 폴더에 있는 detail.vue
                 query: this.requestBody /*파라미터*/
-            })
-        },
-        fnWrite() {
-            this.$router.push({
-                path: '/admin/manage/scholarship/write'
             })
         },
         fnPage(n) {
@@ -148,3 +140,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+</style>

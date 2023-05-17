@@ -1,66 +1,26 @@
 <template>
-  강의 관리
-    <br><br>
-
-    <div class="container">
+    <div class="board-list">
+        장학금 관리
+        <div class="common-buttons">
+            <router-link to="/admin/manage/scholarship/write">
+                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
+            </router-link>
+        </div>
         <table class="w3-table-all">
+            <thead>
             <tr>
-                <td>강의번호</td>
-                <td>학과명</td>
-                <td>과목명</td>
-                <td>교수명</td>
-                <td>삭제</td>
+                <th>No</th>
+                <th>장학금명</th>
+                <th>학생명</th>
             </tr>
-            <tr>
-                <td>5</td>
-                <td>2</td>
-                <td>201</td>
-                <td>30</td>
-                <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                </td>
-
+            </thead>
+            <tbody>
+            <tr v-for="(row, scho_id) in list" :key="scho_id">
+                <td>{{ row.scho_id }}</td>
+                <td><a v-on:click="fnView(`${row.scho_id}`)">{{ row.scho_name }}</a></td>
+                <td>{{ row.name }}</td>
             </tr>
-            <tr>
-                <td>4</td>
-                <td>3</td>
-                <td>301</td>
-                <td>30</td>
-                <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                </td>
-
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>2</td>
-                <td>202</td>
-                <td>30</td>
-                <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                </td>
-
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>1</td>
-                <td>104</td>
-                <td>25</td>
-                <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                </td>
-
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>205</td>
-                <td>30</td>
-                <td>
-                    <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-                </td>
-
-            </tr>
+            </tbody>
         </table>
         <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
       <span class="pg">
@@ -80,19 +40,24 @@
       <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
         </div>
-        <div>
-            <select v-model="search_key">
-                <option value="">- 선택 -</option>
-                <option value="author">작성자</option>
-                <option value="title">제목</option>
-                <option value="contents">내용</option>
-            </select>
-            &nbsp;
-            <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-            &nbsp;
-            <button @click="fnPage()">검색</button>
-        </div>
     </div>
+    <!--검색 필드 추가-->
+
+    <div>
+        <select v-model="search_key">
+            <option value="">- 선택 -</option>
+            <option value="scho_name">장학금명</option>
+            <option value="name">학생명</option>
+            <option value="scho_term">학기</option>
+        </select>
+        &nbsp;
+        <input type="text" v-model="search_value" @keyup.enter="fnPage()">
+        &nbsp;
+        <PrimeButton @click="fnPage()">검색</PrimeButton>
+    </div>
+    <root>
+    </root>
+
 </template>
 
 <script>
@@ -117,9 +82,10 @@ export default {
             }, //페이징 데이터
             page: this.$route.query.page ? this.$route.query.page : 1,
             size: this.$route.query.size ? this.$route.query.size : 10,
+            //keyword: this.$route.query.keyword,
             search_key: this.$route.query.sk ? this.$route.query.sk : '',
             search_value: this.$route.query.sv ? this.$route.query.sv : '',
-            // keyword: this.$route.query.keyword,
+
             paginavigation: function () { //페이징 처리 for문 커스텀
                 let pageNumber = [] //;
                 let start_page = this.paging.start_page;
@@ -137,41 +103,40 @@ export default {
         fnGetList() {
             //스프링 부트에서 전송받은 데이터 출력 처리
             this.requestBody = { // 데이터 전송
+                //keyword: this.keyword,
                 sk: this.search_key,
                 sv: this.search_value,
-                // keyword: this.keyword,
                 page: this.page,
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/board/list", {
+            this.$axios.get( "/admin/manage/scholarship", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
 
-                // this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
+                //this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
                 if (res.data.result_code === "OK") {
                     this.list = res.data.data
                     this.paging = res.data.pagination
                     this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
                 }
-
             }).catch((err) => {
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(scho_id) {
+            this.requestBody.scho_id = scho_id
             this.$router.push({
-                path: './detail',
-                query: this.requestBody
+                path: '/admin/manage/scholarship/check', //경로, 같은 폴더에 있는 detail.vue
+                query: this.requestBody /*파라미터*/
             })
         },
         fnWrite() {
             this.$router.push({
-                path: './write'
+                path: '/admin/manage/scholarship/write'
             })
         },
         fnPage(n) {
@@ -184,7 +149,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

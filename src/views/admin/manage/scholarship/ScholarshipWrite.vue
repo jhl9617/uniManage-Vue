@@ -9,7 +9,7 @@
              </td>
             </tr>
             <tr>
-                <th width="100">학생명</th>
+                <th width="100">학생 번호</th>
                 <td>
                     <input type="text" v-model="member_id" class="w3-input w3-border" placeholder="학생명을 입력해주세요.">
                 </td>

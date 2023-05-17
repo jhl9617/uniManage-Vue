@@ -1,27 +1,27 @@
 import AdminNoticeList from '@/views/admin/notice/NoticeList.vue'
 import AdminNoticeDetailView from '@/views/admin/notice/NoticeDetailView.vue'
 import AdminNoticewrite from '@/views/admin/notice/NoticeWrite.vue'
-import AdminManageStudent from '@/views/admin/manage/ManageStudent.vue'
+import AdminManageStudent from '@/views/admin/manage/student/StudentList.vue'
 import AdminMain from "@/views/admin/AdminMain.vue";
 
-import AdminManageScholarship from "@/views/admin/manage/ManageScholarship.vue";
-import AdminWriteScholarship from "@/views/admin/manage/WriteScholarship.vue";
-import AdminCheckScholarship from "@/views/admin/manage/CheckScholarship.vue";
-import AdminManageProfessor from "@/views/admin/manage/ManageProfessor.vue";
-import AdminAddProfessor from "@/views/admin/manage/AddProfessor.vue";
-import AdminModifyProfessor from "@/views/admin/manage/ModifyProfessor.vue";
-import AdminManageClassroom from "@/views/admin/manage/ManageClassroom.vue";
-import AdminAddClassroom from "@/views/admin/manage/AddClassroom.vue";
-import AdminModifyClassroom from "@/views/admin/manage/ModifyClassroom.vue";
-import AdminManageAppliedClass from "@/views/admin/manage/ManageAppliedClass.vue";
-import AdminManageClass from "@/views/admin/manage/ManageClass.vue";
-import AdminAddStudent from '@/views/admin/manage/AddStudent.vue'
-import AdminModifyStudent from '@/views/admin/manage/ModifyStudent.vue'
-import AdminDetailStudent from "@/views/admin/manage/DetailStudent.vue";
-import AdminDetailGrade from "@/views/admin/manage/DetailGrade.vue";
-import AdminDetailScholarship from "@/views/admin/manage/DetailScholarship.vue";
-import AdminDetailProfessor from "@/views/admin/manage/DetailProfessor.vue";
-import AdminCloseLecture from "@/views/admin/manage/ManageCloseLecture.vue";
+import AdminManageScholarship from "@/views/admin/manage/scholarship/ScholarshipList.vue";
+import AdminWriteScholarship from "@/views/admin/manage/scholarship/ScholarshipWrite.vue";
+import AdminCheckScholarship from "@/views/admin/manage/scholarship/ScholarshipCheck.vue";
+import AdminManageProfessor from "@/views/admin/manage/professor/ManageProfessor.vue";
+import AdminAddProfessor from "@/views/admin/manage/professor/AddProfessor.vue";
+import AdminModifyProfessor from "@/views/admin/manage/professor/ModifyProfessor.vue";
+import AdminManageClassroom from "@/views/admin/manage/classroom/ClassroomList.vue";
+import AdminAddClassroom from "@/views/admin/manage/classroom/ClassroomWrite.vue";
+import AdminDetailClassroom from "@/views/admin/manage/classroom/ClassroomDetail.vue";
+import AdminManageAppliedLecture from "@/views/admin/manage/lecture/AppliedLectureList.vue";
+import AdminManageLecture from "@/views/admin/manage/lecture/LectureList.vue";
+import AdminAddStudent from '@/views/admin/manage/student/StudentWrite.vue'
+import AdminModifyStudent from '@/views/admin/manage/student/ModifyStudent.vue'
+import AdminDetailStudent from "@/views/admin/manage/student/StudentDetail.vue";
+import AdminDetailGrade from "@/views/admin/manage/student/DetailGrade.vue";
+import AdminDetailScholarship from "@/views/admin/manage/student/DetailScholarship.vue";
+import AdminDetailProfessor from "@/views/admin/manage/professor/DetailProfessor.vue";
+import AdminCloseLecture from "@/views/admin/manage/lecture/ManageCloseLecture.vue";
 
 import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
 
@@ -91,24 +91,24 @@ const routesAdmin = [
     component: AdminManageClassroom
   },
   {
-    path: '/admin/manage/addclassroom',
+    path: '/admin/manage/classroom/write',
     name: 'AdminAddClassroom',
     component: AdminAddClassroom
   },
   {
-    path: '/admin/manage/modifyclassroom',
-    name: 'AdminModifyClassroom',
-    component: AdminModifyClassroom
+    path: '/admin/manage/classroom/detail',
+    name: 'AdminDetailClassroom',
+    component: AdminDetailClassroom
   },
   {
-    path: '/admin/manage/appliedclass',
-    name: 'AdminManageAppliedClass',
-    component: AdminManageAppliedClass
+    path: '/admin/manage/appliedlecture',
+    name: 'AdminManageAppliedLecture',
+    component: AdminManageAppliedLecture
   },
   {
-    path: '/admin/manage/class',
-    name: 'AdminManageClass',
-    component: AdminManageClass
+    path: '/admin/manage/lecture',
+    name: 'AdminManageLecture',
+    component: AdminManageLecture
   },
   {
     path: '/admin/manage/addstudent',
