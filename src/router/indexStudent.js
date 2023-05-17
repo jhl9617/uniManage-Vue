@@ -1,9 +1,9 @@
 import EclassHomeworkList from "@/views/student/Eclass/lecture/homework/TotalHomeworkList.vue";
 import LectureMain from "@/views/student/Eclass/lecture/LectureMain.vue";
 
-// import LectureBoardList from '@/views/student/Eclass/lecture/board/BoardList.vue'
-// import LectureBoardDetail from '@/views/student/Eclass/lecture/board/BoardDetail.vue'
-// import LectureBoardWrite from '@/views/student/Eclass/lecture/board/BoardWrite.vue'
+import LectureBoardList from '@/views/student/Eclass/lecture/freeboard/BoardList.vue'
+import LectureBoardDetail from '@/views/student/Eclass/lecture/freeboard/BoardDetail.vue'
+import LectureBoardWrite from '@/views/student/Eclass/lecture/freeboard/BoardWrite.vue'
 
 import LectureSourceList from "@/views/student/Eclass/lecture/source/SourceList.vue";
 import LectureSourceDetail from "@/views/student/Eclass/lecture/source/SourceDetail.vue";
@@ -30,6 +30,7 @@ import StudentCheckScholarship from "@/views/student/studentInfoSystem/StudentCh
 import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
 import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
+
 
 const routesStudent = [
 
@@ -59,12 +60,12 @@ const routesStudent = [
         component: LectureMain
     },
 
-    // {
-    //     path: '/eclass/board/list',
-    //     name: 'LectureBoardList',
-    //     component: LectureBoardList
-    // },
-    /*{
+    {
+        path: '/eclass/board/list',
+        name: 'LectureBoardList',
+        component: LectureBoardList
+    },
+    {
         path: '/eclass/board/detail',
         name: 'LectureBoardDetail',
         component: LectureBoardDetail
@@ -73,7 +74,7 @@ const routesStudent = [
         path: '/eclass/board/write',
         name: 'LectureBoardWrite',
         component: LectureBoardWrite
-    },*/
+    },
     {
         path: '/eclass/source/list',
         name: 'LectureSourceList',
@@ -197,6 +198,7 @@ const routesStudent = [
         name: 'StudentInfoMain',
         component: StudentInfoMain
     },
+
 ]
 
 export default routesStudent
