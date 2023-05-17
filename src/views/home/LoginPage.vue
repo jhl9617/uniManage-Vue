@@ -1,7 +1,7 @@
 <template>
     <body class="text-center">
    <main class="form-signin w-100 m-auto">
-       <form @submit.prevent="handleSubmit">
+       <form @submit.prevent="fireSignin">
 
             <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
@@ -11,7 +11,7 @@
                        class="form-control"
                        id="member_id"
                        placeholder="163150"
-                       v-model="member_id"
+                       v-model="userId"
                />
                <label for="member_id">아이디</label>
            </div>
@@ -22,7 +22,7 @@
                        class="form-control"
                        id="member_pwd"
                        placeholder="Password"
-                       v-model="member_pwd"
+                       v-model="password"
                />
                <label for="member_pwd">비밀번호</label>
            </div>
@@ -38,41 +38,47 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+import axios from 'axios'
+
 export default {
-    methods: {
-        async handleSubmit() {
-            const response = await fetch("/onLogin", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    member_id: this.member_id,
-                    member_pwd: this.member_pwd,
-                }),
-            });
-            /*const data = await response.json();
-            const path = await response.text();
-            if (data.member_id) {
-                console.log("Logged in with ID:", data.member_id);
-                this.$router.push(path);
-            } else {
-                console.error("Error logging in");
-            }*/
-            const path = await response.text();
+    name: 'SigninForm',
+    emits: ['sign-in'],
+    setup(props, context) {
+        const userId = ref('')
+        const password = ref('')
 
-            if (response.ok) {
-                console.log("Logged in with ID:", this.member_id);
-                this.$router.push(path);
-            } else {
-                console.error("Error logging in");
-            }
-        },
+        const fireSignin = () => {
+            // Emit the 'sign-in' event with the user's data
+            context.emit('sign-in', {
+                userId: userId.value,
+                password: password.value
+            })
+
+            // Send a POST request to your login endpoint with the user's data
+            axios.post('http://localhost:9090/login', {
+                username:  userId.value,
+                password: "{noop}" + password.value
+            })
+                .then(response => {
+                    console.log(response)
+                    // handle your response here
+                })
+                .catch(error => {
+                    console.error(error)
+                    // handle your error here
+                })
+        }
+
+        return {
+            userId,
+            password,
+            fireSignin,
+        }
     },
-
-
 }
 </script>
+
 
 <style scoped>
 
