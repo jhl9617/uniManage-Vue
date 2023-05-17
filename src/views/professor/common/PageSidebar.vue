@@ -65,7 +65,7 @@
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">새로운 과제생성
                     </router-link>
                     <br>
-                    <router-link to="/prof/lecture/closed"
+                    <router-link to="/prof/lecture/cancelled/list"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">휴강
                     </router-link>
                 </div>
