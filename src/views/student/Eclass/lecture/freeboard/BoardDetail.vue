@@ -17,13 +17,16 @@
         <span>{{ free_content }}</span>
 
       </div>
-            <div class="d-flex">
-                <div class="flex-shrink-0"></div>
-                <div class="ms-3" v-for="(row, index) in list" :key="index">
-                    <div class="fw-bold">{{ row.member_id }}</div>
-                    {{ row.free_rep_content }} <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete(row.free_rep_id)">삭제</button>
-                </div>
-            </div>
+      <table class="w3-table-all">
+
+        <tbody>
+        <tr v-for="(row, index) in list" :key="index">
+          <td>{{ row.name }}</td>
+          <td>{{ row.free_rep_content }}</td>
+          <td>{{ row.created_date}} </td> <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete(row.free_rep_id)">삭제</button>
+        </tr>
+        </tbody>
+      </table>
           <hr><hr>
 
             <div class="reply-contents">
