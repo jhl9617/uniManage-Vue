@@ -4,6 +4,7 @@ import LectureMain from "@/views/student/Eclass/lecture/LectureMain.vue";
 import LectureBoardList from '@/views/student/Eclass/lecture/freeboard/BoardList.vue'
 import LectureBoardDetail from '@/views/student/Eclass/lecture/freeboard/BoardDetail.vue'
 import LectureBoardWrite from '@/views/student/Eclass/lecture/freeboard/BoardWrite.vue'
+
 import LectureSourceList from "@/views/student/Eclass/lecture/source/SourceList.vue";
 import LectureSourceDetail from "@/views/student/Eclass/lecture/source/SourceDetail.vue";
 import LectureNoticeList from "@/views/student/Eclass/lecture/notice/NoticeList.vue";
@@ -29,7 +30,6 @@ import StudentCheckScholarship from "@/views/student/studentInfoSystem/StudentCh
 import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
 import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
-
 
 const routesStudent = [
 
@@ -60,13 +60,11 @@ const routesStudent = [
     },
 
     {
-
         path: '/eclass/lecture/board/list',
         name: 'LectureBoardList',
         component: LectureBoardList
     },
     {
-
         path: '/eclass/lecture/board/detail',
         name: 'LectureBoardDetail',
         component: LectureBoardDetail
@@ -112,7 +110,7 @@ const routesStudent = [
         component: LectureHomeworkDetail
     },
     {
-        path: '/eclass/lecute/homework/write',
+        path: '/eclass/lecture/homework/write',
         name: 'LectureHomeworkWrite',
         component: LectureHomeworkWrite
     },
@@ -199,7 +197,6 @@ const routesStudent = [
         name: 'StudentInfoMain',
         component: StudentInfoMain
     },
-
 ]
 
 export default routesStudent

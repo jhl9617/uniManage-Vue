@@ -70,7 +70,7 @@
     },
     methods: {
       fnGetView() {
-        this.$axios.get(this.$serverUrl + '/Eclass/board/' + this.free_id, {
+        this.$axios.get(this.$serverUrl + '/Eclass/lecture/board/' + this.free_id, {
           params: this.requestBody
         }).then((res) => { //success
             console.log(res.data);

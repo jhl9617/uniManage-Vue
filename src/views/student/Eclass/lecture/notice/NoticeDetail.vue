@@ -40,7 +40,7 @@
     },
     methods: {
       fnGetView() {
-        this.$axios.get(this.$serverUrl + '/board/' + this.idx, {
+        this.$axios.get(this.$serverUrl + '/Eclass/lecture/notice/' + this.idx, {
           params: this.requestBody
         }).then((res) => { //success
           this.title = res.data.title
