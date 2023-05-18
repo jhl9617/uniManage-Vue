@@ -7,9 +7,8 @@ import AdminMain from "@/views/admin/AdminMain.vue";
 import AdminManageScholarship from "@/views/admin/manage/scholarship/ScholarshipList.vue";
 import AdminWriteScholarship from "@/views/admin/manage/scholarship/ScholarshipWrite.vue";
 import AdminCheckScholarship from "@/views/admin/manage/scholarship/ScholarshipCheck.vue";
-import AdminManageProfessor from "@/views/admin/manage/professor/ManageProfessor.vue";
-import AdminAddProfessor from "@/views/admin/manage/professor/AddProfessor.vue";
-import AdminModifyProfessor from "@/views/admin/manage/professor/ModifyProfessor.vue";
+import AdminManageProfessor from "@/views/admin/manage/professor/ProfessorList.vue";
+import AdminWriteProfessor from "@/views/admin/manage/professor/ProfessorWrite.vue";
 import AdminManageClassroom from "@/views/admin/manage/classroom/ClassroomList.vue";
 import AdminAddClassroom from "@/views/admin/manage/classroom/ClassroomWrite.vue";
 import AdminDetailClassroom from "@/views/admin/manage/classroom/ClassroomDetail.vue";
@@ -17,12 +16,12 @@ import AdminManageAppliedLecture from "@/views/admin/manage/lecture/AppliedLectu
 import AdminDetailAppliedLecture from "@/views/admin/manage/lecture/AppliedLectureDetail.vue";
 import AdminManageLecture from "@/views/admin/manage/lecture/LectureList.vue";
 import AdminDetailLecture from "@/views/admin/manage/lecture/LectureDetail.vue";
-import AdminAddStudent from '@/views/admin/manage/student/StudentWrite.vue'
+import AdminWriteStudent from '@/views/admin/manage/student/StudentWrite.vue'
 import AdminModifyStudent from '@/views/admin/manage/student/ModifyStudent.vue'
 import AdminDetailStudent from "@/views/admin/manage/student/StudentDetail.vue";
 import AdminDetailGrade from "@/views/admin/manage/student/DetailGrade.vue";
 import AdminDetailScholarship from "@/views/admin/manage/student/DetailScholarship.vue";
-import AdminDetailProfessor from "@/views/admin/manage/professor/DetailProfessor.vue";
+import AdminDetailProfessor from "@/views/admin/manage/professor/ProfessorDetail.vue";
 import AdminCloseLecture from "@/views/admin/manage/lecture/ManageCloseLecture.vue";
 
 import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
@@ -78,14 +77,19 @@ const routesAdmin = [
     component: AdminManageProfessor
   },
   {
-    path: '/admin/manage/addprofessor',
-    name: 'AdminAddProfessor',
-    component: AdminAddProfessor
+    path: '/admin/manage/professor/write',
+    name: 'AdminWriteProfessor',
+    component: AdminWriteProfessor
   },
+  // {
+  //   path: '/admin/manage/modifyprofessor',
+  //   name: 'AdminModifyProfessor',
+  //   component: AdminModifyProfessor
+  // },
   {
-    path: '/admin/manage/modifyprofessor',
-    name: 'AdminModifyProfessor',
-    component: AdminModifyProfessor
+    path: '/admin/manage/professor/detail',
+    name: 'AdminDetailProfessor',
+    component: AdminDetailProfessor
   },
   {
     path: '/admin/manage/classroom',
@@ -128,9 +132,9 @@ const routesAdmin = [
   //   component: AdminWriteLecture
   // },
   {
-    path: '/admin/manage/addstudent',
-    name: 'AdminAddStudent',
-    component: AdminAddStudent
+    path: '/admin/manage/student/write',
+    name: 'AdminWriteStudent',
+    component: AdminWriteStudent
   },
   {
     path: '/admin/manage/modifystudent',
@@ -138,7 +142,7 @@ const routesAdmin = [
     component: AdminModifyStudent
   },
   {
-    path: '/admin/manage/detailstudent',
+    path: '/admin/manage/student/detail',
     name: 'AdminDetailStudent',
     component: AdminDetailStudent
   },
@@ -151,11 +155,6 @@ const routesAdmin = [
     path: '/admin/manage/detailscholarship',
     name: 'AdminDetailScholarship',
     component: AdminDetailScholarship
-  },
-  {
-    path: '/admin/manage/detailprofessor',
-    name: 'AdminDetailProfessor',
-    component: AdminDetailProfessor
   },
   {
     path: '/admin/manage/closelecture',

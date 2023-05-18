@@ -1,18 +1,5 @@
 <template>
-    학생 정보 상세
-    <br>
-    <div align="left">
-        <router-link to="/admin/manage/student">
-            <button type="button">기본정보</button>&nbsp;&nbsp;
-        </router-link>
-        <router-link to="/admin/manage/detailgrade">
-            <button type="button">성적</button>&nbsp;&nbsp;
-        </router-link>
-        <router-link to="/admin/manage/detailscholarship">
-            <button type="button">장학</button>
-        </router-link>
-    </div>
-    <br>
+    교수 정보 상세
     <div style="border:2px solid black; padding:100px;">
         <div class="col-md-8">
             <div class="container">
@@ -22,7 +9,7 @@
                             <fieldset>
                                 <table>
                                     <td>
-                                        <img src="@/assets/images/cha.jpg" class="rounded-circle" width="150">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                                     </td>
                                 </table>
                             </fieldset>
@@ -71,6 +58,9 @@
                 <br>
 
             </div>
+            <div align="center">
+                <button type="button">목록</button>
+            </div>
         </div>
     </div>
     <div class="common-buttons">
@@ -108,7 +98,7 @@ export default {
     },
     methods: {
         fnGetView() {
-            this.$axios.get(this.$serverUrl + '/admin/manage/student/' + this.member_idx, {
+            this.$axios.get(this.$serverUrl + '/admin/manage/professor/' + this.member_idx, {
                 params: this.requestBody
             }).then((res) => {  //성공 -> res에 정보를 저장함
                 this.member_id = res.data.member_id
@@ -122,8 +112,8 @@ export default {
                 this.postcode = res.data.postcode
                 this.address1 = res.data.address1
                 this.address2 = res.data.address2
-                this.auth = res.data.auth
                 this.department_name = res.data.department_name
+                this.auth = res.data.auth
             }).catch((err) => { //실패 -> err에 정보를 저장함
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
@@ -133,20 +123,20 @@ export default {
         fnList() {
             delete this.requestBody.member_idx
             this.$router.push({
-                path: '/admin/manage/student',
+                path: '/admin/manage/professor',
                 query: this.requestBody
             })
         },
         fnUpdate() {
             this.$router.push({
-                path: '/admin/manage/student/write',
+                path: '/admin/manage/professor/write',
                 query: this.requestBody
             })
         },
         fnDelete() {
             if (!confirm("삭제하시겠습니까?")) return
 
-            this.$axios.delete(this.$serverUrl + '/admin/manage/student/' + this.member_idx, {})
+            this.$axios.delete(this.$serverUrl + '/admin/manage/professor/' + this.member_idx, {})
                 .then(() => {
                     alert('삭제되었습니다.')
                     this.fnList();
