@@ -1,5 +1,6 @@
 import EclassHomeworkList from "@/views/student/Eclass/lecture/homework/TotalHomeworkList.vue";
 import LectureMain from "@/views/student/Eclass/lecture/LectureMain.vue";
+
 import LectureBoardList from '@/views/student/Eclass/lecture/freeboard/BoardList.vue'
 import LectureBoardDetail from '@/views/student/Eclass/lecture/freeboard/BoardDetail.vue'
 import LectureBoardWrite from '@/views/student/Eclass/lecture/freeboard/BoardWrite.vue'
@@ -59,11 +60,13 @@ const routesStudent = [
     },
 
     {
+
         path: '/eclass/lecture/board/list',
         name: 'LectureBoardList',
         component: LectureBoardList
     },
     {
+
         path: '/eclass/lecture/board/detail',
         name: 'LectureBoardDetail',
         component: LectureBoardDetail

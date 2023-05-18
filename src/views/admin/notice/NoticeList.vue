@@ -9,7 +9,6 @@
             <tr>
                 <th>No</th>
                 <th>제목</th>
-                <th>작성자</th>
                 <th>등록일시</th>
             </tr>
             </thead>
@@ -17,7 +16,6 @@
             <tr v-for="(row, notice_id) in list" :key="notice_id">
                 <td>{{ row.notice_id }}</td>
                 <td><a v-on:click="fnView(`${row.notice_id}`)">{{ row.notice_title }}</a></td>
-                <td>{{ row.member_id }}</td>
                 <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
@@ -43,8 +41,8 @@
         <div>
             <select v-model="search_key">
                 <option value="">- 선택 -</option>
-                <option value="notice_title">작성자</option>
-                <option value="notice_content">제목</option>
+                <option value="notice_title">제목</option>
+                <option value="notice_content">내용</option>
             </select>
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">

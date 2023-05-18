@@ -1,80 +1,24 @@
 <template>
-  강의 신청 관리
-    <br><br>
-    <div class="container">
+    <div class="board-list">
+        개설 강의 관리
         <table class="w3-table-all">
+            <thead>
             <tr>
-                <td>번호</td>
-                <td>강의명</td>
-                <td>담당교수</td>
-                <td>학과</td>
-                <td></td>
+                <th>No</th>
+                <th>학과명</th>
+                <th>과목명</th>
+                <th>교수명</th>
             </tr>
-            <tr>
-                <td>5</td>
-                <td>강의명</td>
-                <td>담당교수</td>
-                <td>학과</td>
-                <td>
-                    <form method="" action="">
-                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
-                    </form>
-                </td>
-
+            </thead>
+            <tbody>
+            <tr v-for="(row, lecture_id) in list" :key="lecture_id">
+                <td>{{ row.lecture_id }}</td>
+                <td><a v-on:click="fnView(`${row.lecture_id}`)">{{ row.department_name }}</a></td>
+                <td>{{ row.lecture_title }}</td>
+                <td>{{ row.name }}</td>
             </tr>
-            <tr>
-                <td>4</td>
-                <td>강의명</td>
-                <td>담당교수</td>
-                <td>학과</td>
-                <td>
-                    <form method="" action="">
-                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
-                    </form>
-                </td>
-
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>강의명</td>
-                <td>담당교수</td>
-                <td>학과</td>
-                <td>
-                    <form method="" action="">
-                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
-                    </form>
-                </td>
-
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>강의명</td>
-                <td>담당교수</td>
-                <td>학과</td>
-                <td>
-                    <form method="" action="">
-                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
-                    </form>
-                </td>
-
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>강의명</td>
-                <td>담당교수</td>
-                <td>학과</td>
-                <td>
-                    <form method="" action="">
-                        <label><input type="checkbox" name="accept" value="강의개설허용"> 강의개설허용</label>
-                    </form>
-                </td>
-
-            </tr>
+            </tbody>
         </table>
-        <br>
-        <div align="right">
-                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">허용</button>
-        </div>
         <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
       <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
@@ -93,19 +37,23 @@
       <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
         </div>
-        <div>
-            <select v-model="search_key">
-                <option value="">- 선택 -</option>
-                <option value="author">작성자</option>
-                <option value="title">제목</option>
-                <option value="contents">내용</option>
-            </select>
-            &nbsp;
-            <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-            &nbsp;
-            <button @click="fnPage()">검색</button>
-        </div>
     </div>
+    <!--검색 필드 추가-->
+
+    <div>
+        <select v-model="search_key">
+            <option value="">- 선택 -</option>
+            <option value="lecture_title">강의명</option>
+            <option value="semester">학기</option>
+            <option value="name">교수명</option>
+        </select>
+        &nbsp;
+        <input type="text" v-model="search_value" @keyup.enter="fnPage()">
+        &nbsp;
+        <PrimeButton @click="fnPage()">검색</PrimeButton>
+    </div>
+    <root>
+    </root>
 </template>
 
 <script>
@@ -130,9 +78,10 @@ export default {
             }, //페이징 데이터
             page: this.$route.query.page ? this.$route.query.page : 1,
             size: this.$route.query.size ? this.$route.query.size : 10,
+            //keyword: this.$route.query.keyword,
             search_key: this.$route.query.sk ? this.$route.query.sk : '',
             search_value: this.$route.query.sv ? this.$route.query.sv : '',
-            // keyword: this.$route.query.keyword,
+
             paginavigation: function () { //페이징 처리 for문 커스텀
                 let pageNumber = [] //;
                 let start_page = this.paging.start_page;
@@ -150,41 +99,35 @@ export default {
         fnGetList() {
             //스프링 부트에서 전송받은 데이터 출력 처리
             this.requestBody = { // 데이터 전송
+                //keyword: this.keyword,
                 sk: this.search_key,
                 sv: this.search_value,
-                // keyword: this.keyword,
                 page: this.page,
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/board/list", {
+            this.$axios.get( "/admin/manage/appliedlecture", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
 
-                // this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
+                //this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
                 if (res.data.result_code === "OK") {
                     this.list = res.data.data
                     this.paging = res.data.pagination
                     this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
                 }
-
             }).catch((err) => {
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(lecture_id) {
+            this.requestBody.lecture_id = lecture_id
             this.$router.push({
-                path: './detail',
-                query: this.requestBody
-            })
-        },
-        fnWrite() {
-            this.$router.push({
-                path: './write'
+                path: '/admin/manage/appliedlecture/detail', //경로, 같은 폴더에 있는 detail.vue
+                query: this.requestBody /*파라미터*/
             })
         },
         fnPage(n) {

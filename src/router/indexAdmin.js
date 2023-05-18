@@ -14,7 +14,9 @@ import AdminManageClassroom from "@/views/admin/manage/classroom/ClassroomList.v
 import AdminAddClassroom from "@/views/admin/manage/classroom/ClassroomWrite.vue";
 import AdminDetailClassroom from "@/views/admin/manage/classroom/ClassroomDetail.vue";
 import AdminManageAppliedLecture from "@/views/admin/manage/lecture/AppliedLectureList.vue";
+import AdminDetailAppliedLecture from "@/views/admin/manage/lecture/AppliedLectureDetail.vue";
 import AdminManageLecture from "@/views/admin/manage/lecture/LectureList.vue";
+import AdminDetailLecture from "@/views/admin/manage/lecture/LectureDetail.vue";
 import AdminAddStudent from '@/views/admin/manage/student/StudentWrite.vue'
 import AdminModifyStudent from '@/views/admin/manage/student/ModifyStudent.vue'
 import AdminDetailStudent from "@/views/admin/manage/student/StudentDetail.vue";
@@ -106,10 +108,25 @@ const routesAdmin = [
     component: AdminManageAppliedLecture
   },
   {
+    path: '/admin/manage/appliedlecture/detail',
+    name: 'AdminDetailAppliedLecture',
+    component: AdminDetailAppliedLecture
+  },
+  {
     path: '/admin/manage/lecture',
     name: 'AdminManageLecture',
     component: AdminManageLecture
   },
+  {
+    path: '/admin/manage/lecture/detail',
+    name: 'AdminDetailLecture',
+    component: AdminDetailLecture
+  },
+  // {
+  //   path: '/admin/manage/lecture/write',
+  //   name: 'AdminWriteLecture',
+  //   component: AdminWriteLecture
+  // },
   {
     path: '/admin/manage/addstudent',
     name: 'AdminAddStudent',
