@@ -2,21 +2,23 @@
     <div class="board-list">
         학생 관리
         <div class="common-buttons">
-            <router-link to="/admin/manage/scholarship/write">
+            <router-link to="/admin/manage/student/write">
                 <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
             </router-link>
         </div>
         <table class="w3-table-all">
             <thead>
             <tr>
+                <th>No</th>
                 <th>학생명</th>
                 <th>학생 번호</th>
                 <th>학과명</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, member_id) in list" :key="member_id">
-                <td><a v-on:click="fnView(`${row.member_id}`)">{{ row.name }}</a></td>
+            <tr v-for="(row, member_idx) in list" :key="member_idx">
+                <td></td>
+                <td><a v-on:click="fnView(`${row.member_idx}`)">{{ row.name }}</a></td>
                 <td>{{ row.member_id }}</td>
                 <td>{{ row.department_name }}</td>
             </tr>
@@ -46,9 +48,9 @@
     <div>
         <select v-model="search_key">
             <option value="">- 선택 -</option>
-            <option value="scho_name">장학금명</option>
             <option value="name">학생명</option>
-            <option value="scho_term">학기</option>
+            <option value="member_id">학생 번호</option>
+            <option value="department_name">학과명</option>
         </select>
         &nbsp;
         <input type="text" v-model="search_value" @keyup.enter="fnPage()">
@@ -109,7 +111,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/admin/manage/student", {
+            this.$axios.get("/admin/manage/student", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -127,16 +129,16 @@ export default {
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx  //학번으로 수정 필요
+        fnView(member_idx) {
+            this.requestBody.member_idx = member_idx  //학번으로 수정 필요
             this.$router.push({
-                path: '',
+                path: '/admin/manage/student/detail',
                 query: this.requestBody
             })
         },
         fnWrite() {
             this.$router.push({
-                path: '/admin/mange/addstudent'
+                path: '/admin/manage/student/write'
             })
         },
         fnPage(n) {
@@ -145,7 +147,7 @@ export default {
 
             }
             this.fnGetList()
-        }
+        },
     }
     // fnGetList() {
 

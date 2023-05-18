@@ -25,45 +25,148 @@
                             <table class="w3-table-all">
                                 <tr>
                                     <td>이름</td>
-                                    <td></td>
+                                    <td>
+                                        <input type="text" v-model="name" class="w3-input w3-border" placeholder="학생명을 입력해주세요.">
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>학번(ID)</td>
-                                    <td></td>
+                                    <td>학생 번호(ID)</td>
+                                    <td>
+                                        <input type="text" v-model="member_id" class="w3-input w3-border" placeholder="학생 번호를 입력해주세요.">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>임시 비밀번호</td>
+                                    <td>
+                                        <input type="text" v-model="member_pwd" class="w3-input w3-border" placeholder="임시 비밀번호를 입력해주세요.">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>학과</td>
+                                    <td>
+                                        <select v-model="department_id">
+                                            <option value="">- 선택 -</option>
+                                            <option value="1">1:국어국문학과</option>
+                                            <option value="2">2:영어영문학과</option>
+                                            <option value="3">3:사학과</option>
+                                            <option value="4">4:철학과</option>
+                                            <option value="5">5:법학과</option>
+                                            <option value="6">6:행정학과</option>
+                                            <option value="7">7:정치학과</option>
+                                            <option value="8">8:경제학과</option>
+                                            <option value="9">9:사회학과</option>
+                                            <option value="10">10:무역학과</option>
+                                            <option value="11">11:신문방송학과</option>
+                                            <option value="12">12:경영학과</option>
+                                            <option value="13">13:회계학과</option>
+                                            <option value="14">14:호텔관광학과</option>
+                                            <option value="15">15:교육학과</option>
+                                            <option value="16">16:영미어문화학과</option>
+                                            <option value="17">17:불어불문학과</option>
+                                            <option value="18">18:중어중문학과</option>
+                                            <option value="19">19:일어일문학과</option>
+                                            <option value="20">20:서반아어학과</option>
+                                            <option value="21">21:국제경영학과</option>
+                                            <option value="22">22:수학과</option>
+                                            <option value="23">23:물리학과</option>
+                                            <option value="24">24:화학과</option>
+                                            <option value="25">25:생물학과</option>
+                                            <option value="26">26:지리학과</option>
+                                            <option value="27">27:아동주거학과</option>
+                                            <option value="28">28:의상학과</option>
+                                            <option value="29">29:식품영양학과</option>
+                                            <option value="30">30:약학과</option>
+                                            <option value="31">31:임상약학과</option>
+                                            <option value="32">32:한약학과</option>
+                                            <option value="33">33:간호학과</option>
+                                            <option value="34">34:환경조경학과</option>
+                                            <option value="35">35:생명공학원</option>
+                                            <option value="36">36:우주과학과</option>
+                                            <option value="37">37한방재료가공학과:</option>
+                                            <option value="38">38:생태시스템공학과</option>
+                                            <option value="39">39:식품생명공학과</option>
+                                            <option value="40">40:원예학과</option>
+                                            <option value="41">41:환경응용과학과</option>
+                                            <option value="42">42:원자력공학과</option>
+                                            <option value="43">43:전자공학과</option>
+                                            <option value="44">44:컴퓨터공학과</option>
+                                            <option value="45">45:건축공학과</option>
+                                            <option value="46">46:토목공학과</option>
+                                            <option value="47">47:기계공학과</option>
+                                            <option value="48">48:전파공학과</option>
+                                            <option value="49">49:산업공학과</option>
+                                            <option value="50">50:섬유공학과</option>
+                                            <option value="51">51:화학공학과</option>
+                                            <option value="52">52:동서의료공학과</option>
+                                            <option value="53">53:의학과</option>
+                                            <option value="54">54:한의학과</option>
+                                            <option value="55">55:치의학과</option>
+                                            <option value="56">56:미술학과</option>
+                                            <option value="57">57:무용학과</option>
+                                            <option value="58">58:공연예술학과</option>
+                                            <option value="59">59:음악학과</option>
+                                            <option value="60">60:도예학과</option>
+                                            <option value="61">61:산업디자인학과</option>
+                                            <option value="62">62:디자인학과</option>
+                                            <option value="63">63:체육학과</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>학년</td>
+                                    <td>
+                                        <select v-model="grade">
+                                            <option value="">- 선택 -</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>=
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>권한</td>
+                                    <td>
+                                        <select v-model="auth">
+                                            <option value="">- 선택 -</option>
+                                            <option value="1">1:교수</option>
+                                            <option value="2">2:교직원</option>
+                                            <option value="3">3:재학생</option>
+                                            <option value="4">4:졸업생</option>
+                                            <option value="5">5:휴학생</option>
+                                        </select>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>생년월일</td>
-                                    <td></td>
+                                    <td>
+                                        <input type="text" v-model="birthday" class="w3-input w3-border" placeholder="생년월일을 입력해주세요.">
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>소속</td>
-                                    <td></td>
+                                    <td>휴대전화번호</td>
+                                    <td>
+                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="휴대전화번호를 입력해주세요.">
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>우편번호</td>
-                                    <td></td>
+                                    <td>e-mail</td>
+                                    <td>
+                                        <input type="text" v-model="email " class="w3-input w3-border" placeholder="이메일 주소를 입력해주세요.">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>주소</td>
                                     <td>
+                                        <input type="text" v-model="postcode " class="w3-input w3-border" placeholder="우편번호를 입력해주세요.">
+                                        <input type="text" v-model="address1 " class="w3-input w3-border" placeholder="주소를 입력해주세요.">
+                                        <input type="text" v-model="address2 " class="w3-input w3-border" placeholder="주소를 입력해주세요.">
                                         <input type="text" id="sample6_postcode" placeholder="우편번호">
                                         <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
                                         <input type="text" id="sample6_address" placeholder="주소"><br>
                                         <input type="text" id="sample6_detailAddress" placeholder="상세주소">
                                         <input type="text" id="sample6_extraAddress" placeholder="참고항목">
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>성별</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>휴대전화번호</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>e-mail</td>
-                                    <td></td>
                                 </tr>
                             </table>
                         </fieldset>
@@ -72,29 +175,126 @@
                 <br>
 
             </div>
-            <div align="center">
-                <button type="button">추가</button>&nbsp;&nbsp;
-                <button type="button">목록</button>
-            </div>
         </div>
     </div>
+    <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
+    <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
 </template>
 
 <script>
 export default {
-    name: "AddProfessor"
+    data() { //변수생성
+        return {
+            requestBody: this.$route.query, //route 가 가지고 있는 쿼리를 requestBody 에 담는다.
+            member_idx: this.$route.query.member_idx,
+
+            member_id: '',
+            member_pwd: '',
+            name:'',
+            department_id:'',
+            grade:'',
+            birthday:'',
+            phone:'',
+            email:'',
+            postcode:'',
+            address1:'',
+            address2:'',
+            auth:'',
+
+        }
+    },
+    mounted() {
+        this.fnGetView()
+        // let script = document.createElement('script');
+        // script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+        // script.async = true;
+        // document.body.appendChild(script);
+    },
+    methods: {
+        fnGetView() {
+            if (this.member_idx !== undefined) {
+                this.$axios.get(this.$serverUrl + '/admin/manage/student/' + this.member_idx, {
+                    params: this.requestBody
+                }).then((res) => {
+                    this.member_id = res.data.member_id
+                    this.member_pwd = res.data.member_pwd
+                    this.name = res.data.name
+                    this.department_id = res.data.department_id
+                    this.grade = res.data.grade
+                    this.birthday = res.data.birthday
+                    this.phone = res.data.phone
+                    this.email = res.data.email
+                    this.postcode = res.data.postcode
+                    this.address1 = res.data.address1
+                    this.address2 = res.data.address2
+                    this.auth = res.data.auth
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }
+        },
+        fnView(member_idx) {
+            this.requestBody.member_idx = member_idx
+            this.$router.push({
+                path: './detail',
+                query: this.requestBody
+            })
+        },
+        fnList() {
+            delete this.requestBody.member_idx
+            this.$router.push({
+                path: '/admin/manage/student',
+                query: this.requestBody
+            })
+        },
+        fnSave() {
+            let apiUrl = this.$serverUrl + '/admin/manage/student'  //let = var
+            this.form = {
+                "member_idx": this.member_idx,
+                "member_id": this.member_id,
+                "member_pwd": this.member_pwd,
+                "name": this.name,
+                "department_id": this.department_id,
+                "grade": this.grade,
+                "birthday": this.birthday,
+                "phone": this.phone,
+                "email": this.email,
+                "postcode": this.postcode,
+                "address1": this.address1,
+                "address2": this.address2,
+                "auth": this.auth,
+            },
+                console.log(this.department_id);
+
+            if (this.member_idx === undefined) {
+                //INSERT
+                this.$axios.post(apiUrl, this.form)
+                    .then((res) => {
+                        alert('학생 글이 저장되었습니다.')
+                        this.fnView(res.data.member_idx)
+                    }).catch((err) => {
+                    if (err.message.indexOf('Network Error') > -1) {
+                        alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                    }
+                })
+            } else {
+                //UPDATE
+                this.$axios.patch(apiUrl, this.form)
+                    .then((res) => {
+                        alert('글이 저장되었습니다.')
+                        this.fnView(res.data.member_idx)
+                    }).catch((err) => {
+                    if (err.message.indexOf('Network Error') > -1) {
+                        alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                    }
+                })
+            }
+        },
+
+    },
 }
 </script>
 
 <style scoped>
 
 </style>
-
-<!--            <label for="exampleFormControlSelect1">학과</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-                <option>경영학과</option>
-                <option>컴퓨터공학과</option>
-                <option>전자공학과</option>
-                <option>중어중문학과</option>
-                <option>영어영문학과</option>
-            </select>-->
