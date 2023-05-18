@@ -57,6 +57,7 @@
 export default {
     data() { //변수생성
         return {
+
             list: {},
             requestBody: {}, //리스트 페이지 데이터전송
             lecture_id : this.$route.query.lecture_id,
@@ -90,6 +91,7 @@ export default {
         }
     },
     mounted() { //연결 되면 == window.onload()
+
         this.fnGetList()
     },
     methods: {
@@ -101,8 +103,10 @@ export default {
                 sv: this.search_value,
                 // keyword: this.keyword,
                 page: this.page,
-                size: this.size
+                size: this.size,
+
             }
+            console.log(this.requestBody.lecture_id);
 
             this.$axios.get(this.$serverUrl + "/eclass/lecture/notice/list" + this.lecture_id, {
                 params: this.requestBody,
@@ -122,6 +126,7 @@ export default {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                 }
             })
+
         },
         fnView(idx) {
             this.requestBody.idx = idx
@@ -141,7 +146,8 @@ export default {
 
             }
             this.fnGetList()
-        }
+        },
+
     }
     // fnGetList() {
 

@@ -60,6 +60,8 @@ export default {
         return {
             requestBody: {}, //리스트 페이지 데이터전송
             list: {}, //리스트 데이터
+
+             lecture_id : this.$route.query.lecture_id,
             no: '', //게시판 숫자처리
             paging: {
                 block: 0,
@@ -103,7 +105,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/board/list", {
+            this.$axios.get(this.$serverUrl + "/eclass/lecture/source/list" + this.lecture_id, {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
