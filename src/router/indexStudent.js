@@ -4,7 +4,6 @@ import LectureMain from "@/views/student/Eclass/lecture/LectureMain.vue";
 import LectureBoardList from '@/views/student/Eclass/lecture/freeboard/BoardList.vue'
 import LectureBoardDetail from '@/views/student/Eclass/lecture/freeboard/BoardDetail.vue'
 import LectureBoardWrite from '@/views/student/Eclass/lecture/freeboard/BoardWrite.vue'
-
 import LectureSourceList from "@/views/student/Eclass/lecture/source/SourceList.vue";
 import LectureSourceDetail from "@/views/student/Eclass/lecture/source/SourceDetail.vue";
 import LectureNoticeList from "@/views/student/Eclass/lecture/notice/NoticeList.vue";
@@ -55,48 +54,50 @@ const routesStudent = [
 
     },
     {
-        path: '/eclass/1',
+        path: '/eclass/lecture',
         name: 'LectureMain',
         component: LectureMain
     },
 
     {
-        path: '/eclass/board/list',
+
+        path: '/eclass/lecture/board/list',
         name: 'LectureBoardList',
         component: LectureBoardList
     },
     {
-        path: '/eclass/board/detail',
+
+        path: '/eclass/lecture/board/detail',
         name: 'LectureBoardDetail',
         component: LectureBoardDetail
     },
     {
-        path: '/eclass/board/write',
+        path: '/eclass/lecture/board/write',
         name: 'LectureBoardWrite',
         component: LectureBoardWrite
     },
     {
-        path: '/eclass/source/list',
+        path: '/eclass/lecture/source/list',
         name: 'LectureSourceList',
         component: LectureSourceList
     },
     {
-        path: '/eclass/source/detail',
+        path: '/eclass/lecture/source/detail',
         name: 'LectureSourceDetail',
         component: LectureSourceDetail
     },
     {
-        path: '/eclass/notice/list',
+        path: '/eclass/lecture/notice/list',
         name: 'LectureNoticeList',
         component: LectureNoticeList
     },
     {
-        path: '/eclass/notice/detail',
+        path: '/eclass/lecture/notice/detail',
         name: 'LectureNoticeDetail',
         component: LectureNoticeDetail
     },
     {
-        path: '/eclass/homework/list',
+        path: '/eclass/lecture/homework/list',
         name: 'LectureHomeworkList',
         component: LectureHomeworkList
     },
@@ -106,17 +107,17 @@ const routesStudent = [
         component: EclassHomeworkList
     },
     {
-        path: '/eclass/homework/detail',
+        path: '/eclass/lecture/homework/detail',
         name: 'LectureHomeworkDetail',
         component: LectureHomeworkDetail
     },
     {
-        path: '/eclass/homework/write',
+        path: '/eclass/lecute/homework/write',
         name: 'LectureHomeworkWrite',
         component: LectureHomeworkWrite
     },
     {
-        path: '/eclass/lectureinfo',
+        path: '/eclass/lecture/lectureinfo',
         name: 'LectureInfo',
         component: LectureInfo
 
