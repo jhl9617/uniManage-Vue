@@ -38,7 +38,7 @@
     methods: {
       fnGetView() {
         if (this.free_id !== undefined) { // 상세보기 -> 수정
-          this.$axios.get(this.$serverUrl + '/Eclass/board/' + this.free_id, {
+          this.$axios.get(this.$serverUrl + '/Eclass/lecture/board/' + this.free_id, {
             params: this.requestBody
           }).then((res) => {
             this.free_title = res.data.freeboard.free_title
@@ -66,7 +66,7 @@
         })
       },
       fnSave() {
-        let apiUrl = this.$serverUrl + '/Eclass/board'
+        let apiUrl = this.$serverUrl + '/Eclass/lecture/board'
         this.form = {
           "free_id": this.free_id,
           "free_title": this.free_title,

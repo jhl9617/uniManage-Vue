@@ -31,7 +31,7 @@
             </a>
             <div id="lectureinfo-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a v-on:click="fnLectureInfo(`${lecture_id}`)">
+                  <a v-on:click="fnLectureInfo(lecture_id)">
                         강의정보 조회
                   </a>
                 </div>
@@ -46,9 +46,9 @@
             </a>
             <div id="homework-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/eclass/homework/list"
+                    <a v-on:click="fnHomework(lecture_id)"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">과제 목록
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -62,9 +62,9 @@
             <div id="notice-collapse" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/eclass/notice/list"
+                    <a v-on:click="fnNotice(lecture_id)"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">공지사항 조회
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -77,9 +77,9 @@
             </a>
             <div id="source-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/eclass/source/list"
+                    <a v-on:click="fnSource(lecture_id)"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의자료실
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -166,7 +166,13 @@ export default {
         lecture_id : this.lecture_id
       }
     },
-
+    fnMain(lecture_id) {
+      this.lecture_id = lecture_id
+      this.$router.push({
+        path: '/eclass/lecture',
+        query: this.requestBody
+      })
+    },
     fnLectureInfo(lecture_id) {
       this.lecture_id = lecture_id
       this.$router.push({
@@ -174,10 +180,24 @@ export default {
         query: this.requestBody
       })
     },
-    fnMain(lecture_id) {
+    fnHomework(lecture_id) {
       this.lecture_id = lecture_id
       this.$router.push({
-        path: '/eclass/lecture',
+        path: '/eclass/lecture/homework/list',
+        query: this.requestBody
+      })
+    },
+    fnNotice(lecture_id) {
+      this.lecture_id = lecture_id
+      this.$router.push({
+        path: '/eclass/lecture/notice/list',
+        query: this.requestBody
+      })
+    },
+    fnSource(lecture_id) {
+      this.lecture_id = lecture_id
+      this.$router.push({
+        path: '/eclass/lecture/source/list',
         query: this.requestBody
       })
     },
