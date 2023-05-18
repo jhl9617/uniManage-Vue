@@ -1,4 +1,5 @@
 <template>
+    장학금 상세
     <div class="board-detail">
         <div style="border:2px solid black; padding:100px;" class="board-contents">
             <table align="center" class="table table-bordered">
