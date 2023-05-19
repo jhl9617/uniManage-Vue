@@ -17,7 +17,6 @@ import AdminDetailAppliedLecture from "@/views/admin/manage/lecture/AppliedLectu
 import AdminManageLecture from "@/views/admin/manage/lecture/LectureList.vue";
 import AdminDetailLecture from "@/views/admin/manage/lecture/LectureDetail.vue";
 import AdminWriteStudent from '@/views/admin/manage/student/StudentWrite.vue'
-import AdminModifyStudent from '@/views/admin/manage/student/ModifyStudent.vue'
 import AdminDetailStudent from "@/views/admin/manage/student/StudentDetail.vue";
 import AdminDetailGrade from "@/views/admin/manage/student/DetailGrade.vue";
 import AdminDetailScholarship from "@/views/admin/manage/student/DetailScholarship.vue";
@@ -135,11 +134,6 @@ const routesAdmin = [
     path: '/admin/manage/student/write',
     name: 'AdminWriteStudent',
     component: AdminWriteStudent
-  },
-  {
-    path: '/admin/manage/modifystudent',
-    name: 'AdminModifyStudent',
-    component: AdminModifyStudent
   },
   {
     path: '/admin/manage/student/detail',

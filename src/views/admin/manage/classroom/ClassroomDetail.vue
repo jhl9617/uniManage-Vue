@@ -16,7 +16,7 @@
                 </tr>
                 <tr>
                     <th width="100">층수</th>
-                    <td>{{ number_floor }}</td>
+                    <td>{{ number_floor }}층</td>
                 </tr>
                 <tr>
                     <th width="100">강의실 호수</th>
@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <th width="100">강의실 수용인원</th>
-                    <td>{{ class_capacity }}</td>
+                    <td>{{ class_capacity }}명</td>
                 </tr>
             </table>
         </div>

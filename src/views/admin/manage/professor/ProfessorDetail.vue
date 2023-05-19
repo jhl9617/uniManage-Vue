@@ -9,7 +9,7 @@
                             <fieldset>
                                 <table>
                                     <td>
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                        <img src="@/assets/images/chacha.jpg" class="rounded-circle" width="150">
                                     </td>
                                 </table>
                             </fieldset>
@@ -57,9 +57,6 @@
                 </div>
                 <br>
 
-            </div>
-            <div align="center">
-                <button type="button">목록</button>
             </div>
         </div>
     </div>

@@ -125,7 +125,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>권한</td>
+                                    <td>구분</td>
                                     <td>
                                         <select v-model="auth">
                                             <option value="">- 선택 -</option>
@@ -140,13 +140,13 @@
                                 <tr>
                                     <td>생년월일</td>
                                     <td>
-                                        <input type="text" v-model="birthday" class="w3-input w3-border" placeholder="생년월일을 입력해주세요.">
+                                        <input type="date" v-model="birthday" class="w3-input w3-border" placeholder="yyyy-MM-dd">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>휴대전화번호</td>
                                     <td>
-                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="휴대전화번호를 입력해주세요.">
+                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="000-0000-0000">
                                     </td>
                                 </tr>
                                 <tr>
@@ -216,6 +216,7 @@ export default {
                 this.$axios.get(this.$serverUrl + '/admin/manage/student/' + this.member_idx, {
                     params: this.requestBody
                 }).then((res) => {
+                    this.memebr_idx = res.data.member_idx
                     this.member_id = res.data.member_id
                     this.member_pwd = res.data.member_pwd
                     this.name = res.data.name
@@ -270,7 +271,7 @@ export default {
                 //INSERT
                 this.$axios.post(apiUrl, this.form)
                     .then((res) => {
-                        alert('학생 글이 저장되었습니다.')
+                        alert('학생 정보가 저장되었습니다.')
                         this.fnView(res.data.member_idx)
                     }).catch((err) => {
                     if (err.message.indexOf('Network Error') > -1) {

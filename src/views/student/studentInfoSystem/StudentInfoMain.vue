@@ -14,7 +14,7 @@
                             </td>
                             <td>
                                 <div class="mt-3">
-                                    <h4>홍길동</h4>
+                                    <h4 v-if="loginMember">{{ loginMember.name}} 학생</h4>
                                     <div align="left" class="text-secondary mb-1">
                                         소속:<br>
                                         구분:<br>
@@ -141,7 +141,31 @@
 
 <script>
 export default {
-    name: "StudentInfoMain"
+    data() {
+        return {
+            loginMember: null,
+        };
+    },
+    methods: {
+        async getSession() {
+            try {
+                const response = await fetch("/sessionCheck");
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log("Session data:", data);
+                    this.loginMember = data;
+                } else {
+                    console.error("Error fetching session data");
+                }
+            } catch (error) {
+                console.error("Error fetching session data:", error);
+            }
+        },
+    },
+    created() {
+        this.getSession();
+    },
+
 }
 </script>
 

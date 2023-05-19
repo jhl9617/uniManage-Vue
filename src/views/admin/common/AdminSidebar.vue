@@ -45,6 +45,21 @@
             </div>
         </li>
 
+        <!-- 교수 관리 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#professor-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>교수 관리</span>
+            </a>
+            <div id="professor-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/admin/manage/professor"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">교수 명부
+                    </router-link>
+                </div>
+            </div>
+        </li>
+
         <!-- 강의 관리 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#lecture-collapse"
@@ -78,21 +93,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <router-link to="/admin/manage/classroom"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의실 리스트
-                    </router-link>
-                </div>
-            </div>
-        </li>
-
-        <!-- 교수 관리 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#professor-collapse"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <span>교수 관리</span>
-            </a>
-            <div id="professor-collapse" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/admin/manage/professor"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">교수 명부
                     </router-link>
                 </div>
             </div>
