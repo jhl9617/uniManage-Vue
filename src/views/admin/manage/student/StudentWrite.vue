@@ -158,14 +158,10 @@
                                 <tr>
                                     <td>주소</td>
                                     <td>
-                                        <input type="text" v-model="postcode " class="w3-input w3-border" placeholder="우편번호를 입력해주세요.">
-                                        <input type="text" v-model="address1 " class="w3-input w3-border" placeholder="주소를 입력해주세요.">
-                                        <input type="text" v-model="address2 " class="w3-input w3-border" placeholder="주소를 입력해주세요.">
-                                        <input type="text" id="sample6_postcode" placeholder="우편번호">
-                                        <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                                        <input type="text" id="sample6_address" placeholder="주소"><br>
-                                        <input type="text" id="sample6_detailAddress" placeholder="상세주소">
-                                        <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+                                        <input type="text" placeholder="우편번호" v-model="postcode" readonly />
+                                        <input type="button" @click="execDaumPostcode()" value="우편번호 찾기"/>
+                                        <input type="text" v-model="address1" placeholder="주소" readonly/>
+                                        <input type="text" v-model="address2" placeholder="상세주소" />
                                     </td>
                                 </tr>
                             </table>
@@ -182,7 +178,9 @@
 </template>
 
 <script>
+
 export default {
+
     data() { //변수생성
         return {
             requestBody: this.$route.query, //route 가 가지고 있는 쿼리를 requestBody 에 담는다.
@@ -190,25 +188,29 @@ export default {
 
             member_id: '',
             member_pwd: '',
-            name:'',
-            department_id:'',
-            grade:'',
-            birthday:'',
-            phone:'',
-            email:'',
-            postcode:'',
-            address1:'',
-            address2:'',
-            auth:'',
+            name: '',
+            department_id: '',
+            grade: '',
+            birthday: '',
+            phone: '',
+            email: '',
+            postcode: '',
+            address1: '',
+            address2: '',
+            auth: '',
+
+            postOpen: false
 
         }
     },
     mounted() {
-        this.fnGetView()
-        // let script = document.createElement('script');
-        // script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
-        // script.async = true;
-        // document.body.appendChild(script);
+        this.fnGetView();
+
+        let script = document.createElement('script');
+        script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+        script.async = true;
+        document.body.appendChild(script);
+
     },
     methods: {
         fnGetView() {
@@ -216,7 +218,6 @@ export default {
                 this.$axios.get(this.$serverUrl + '/admin/manage/student/' + this.member_idx, {
                     params: this.requestBody
                 }).then((res) => {
-                    this.memebr_idx = res.data.member_idx
                     this.member_id = res.data.member_id
                     this.member_pwd = res.data.member_pwd
                     this.name = res.data.name
@@ -291,8 +292,47 @@ export default {
                 })
             }
         },
+        execDaumPostcode() {
+            new window.daum.Postcode({
+                oncomplete: (data) => {
+                    if (this.extraAddress !== "") {
+                        this.extraAddress = "";
+                    }
+                    if (data.userSelectedType === "R") {
+                        // 사용자가 도로명 주소를 선택했을 경우
+                        this.address1 = data.roadAddress;
+                    } else {
+                        // 사용자가 지번 주소를 선택했을 경우(J)
+                        this.address1 = data.jibunAddress;
+                    }
 
-    },
+                    // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                    if (data.userSelectedType === "R") {
+                        // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                        // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                        if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
+                            this.extraAddress += data.bname;
+                        }
+                        // 건물명이 있고, 공동주택일 경우 추가한다.
+                        if (data.buildingName !== "" && data.apartment === "Y") {
+                            this.extraAddress +=
+                                this.extraAddress !== ""
+                                    ? `, ${data.buildingName}`
+                                    : data.buildingName;
+                        }
+                        // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                        if (this.extraAddress !== "") {
+                            this.extraAddress = `(${this.extraAddress})`;
+                        }
+                    } else {
+                        this.extraAddress = "";
+                    }
+                    // 우편번호를 입력한다.
+                    this.postcode = data.zonecode;
+                },
+            }).open();
+        },
+    }
 }
 </script>
 

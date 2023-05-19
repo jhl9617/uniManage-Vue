@@ -1,16 +1,11 @@
 <template>
     <div class="board-detail">
-        <!-- <div class="common-buttons">
-          <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
-          <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-          <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-        </div> -->
         <div class="board-contents">
             <h3>{{ notice_title }}</h3>
             <div>
-<!--                <strong class="w3-large">{{ member_id }}</strong>-->
-                <br>
                 <span>{{ created_date }}</span>
+                <br>
+                <span>조회수 : {{ readcount }}</span>
             </div>
         </div>
         <div class="board-contents">
@@ -39,7 +34,7 @@ export default {
         }
     },
     mounted() { // document.ready, window.onload와 같은 형태
-        this.fnGetView()
+        this.fnGetView();
     },
     methods: {
         fnGetView() {
@@ -49,6 +44,7 @@ export default {
                 this.notice_title = res.data.notice_title
                 this.notice_content = res.data.notice_content
                 this.member_id = res.data.member_id
+                this.created_date = res.data.created_date
                 this.readcount = res.data.readcount
             }).catch((err) => { // error
                 if (err.message.indexOf('Network Error') > -1) {
@@ -78,9 +74,10 @@ export default {
                     this.fnList();
                 }).catch((err) => {
                 console.log(err);
-            })
-        }
-    }
+            });
+        },
+    },
+
 }
 </script>
 <style scoped>

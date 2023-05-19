@@ -16,9 +16,8 @@
                                 <div class="mt-3">
                                     <h4 v-if="loginMember">{{ loginMember.name}} 학생</h4>
                                     <div align="left" class="text-secondary mb-1">
-                                        소속:<br>
-                                        구분:<br>
-                                        학년:<br>
+                                        <h6 v-if="loginMember">소속 : {{ loginMember.department_name}}</h6>
+                                        <h6 v-if="loginMember">학년 : {{ loginMember.grade}}학년</h6>
                                     </div>
                                 </div>
                             </td>

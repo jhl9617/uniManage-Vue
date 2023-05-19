@@ -18,8 +18,8 @@ import AdminManageLecture from "@/views/admin/manage/lecture/LectureList.vue";
 import AdminDetailLecture from "@/views/admin/manage/lecture/LectureDetail.vue";
 import AdminWriteStudent from '@/views/admin/manage/student/StudentWrite.vue'
 import AdminDetailStudent from "@/views/admin/manage/student/StudentDetail.vue";
-import AdminDetailGrade from "@/views/admin/manage/student/DetailGrade.vue";
-import AdminDetailScholarship from "@/views/admin/manage/student/DetailScholarship.vue";
+import AdminGradeDetail from "@/views/admin/manage/student/GradeDetail.vue";
+import AdminScholarshipDetail from "@/views/admin/manage/student/ScholarshipDetail.vue";
 import AdminDetailProfessor from "@/views/admin/manage/professor/ProfessorDetail.vue";
 import AdminCloseLecture from "@/views/admin/manage/lecture/ManageCloseLecture.vue";
 
@@ -53,7 +53,6 @@ const routesAdmin = [
     name: 'AdminManageStudent',
     component: AdminManageStudent
   },
-
   {
     path: '/admin/manage/scholarship',
     name: 'AdminManageScholarship',
@@ -80,11 +79,6 @@ const routesAdmin = [
     name: 'AdminWriteProfessor',
     component: AdminWriteProfessor
   },
-  // {
-  //   path: '/admin/manage/modifyprofessor',
-  //   name: 'AdminModifyProfessor',
-  //   component: AdminModifyProfessor
-  // },
   {
     path: '/admin/manage/professor/detail',
     name: 'AdminDetailProfessor',
@@ -125,11 +119,6 @@ const routesAdmin = [
     name: 'AdminDetailLecture',
     component: AdminDetailLecture
   },
-  // {
-  //   path: '/admin/manage/lecture/write',
-  //   name: 'AdminWriteLecture',
-  //   component: AdminWriteLecture
-  // },
   {
     path: '/admin/manage/student/write',
     name: 'AdminWriteStudent',
@@ -141,14 +130,14 @@ const routesAdmin = [
     component: AdminDetailStudent
   },
   {
-    path: '/admin/manage/detailgrade',
-    name: 'AdminDetailGrade',
-    component: AdminDetailGrade
+    path: '/admin/manage/student/grade',
+    name: 'AdminGradeDetail',
+    component: AdminGradeDetail
   },
   {
-    path: '/admin/manage/detailscholarship',
-    name: 'AdminDetailScholarship',
-    component: AdminDetailScholarship
+    path: '/admin/manage/student/scholarship',
+    name: 'AdminScholarshipDetail',
+    component: AdminScholarshipDetail
   },
   {
     path: '/admin/manage/closelecture',

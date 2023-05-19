@@ -2,15 +2,17 @@
     학생 정보 상세
     <br>
     <div align="left">
-        <router-link to="/admin/manage/student">
-            <button type="button">기본정보</button>&nbsp;&nbsp;
-        </router-link>
-        <router-link to="/admin/manage/detailgrade">
-            <button type="button">성적</button>&nbsp;&nbsp;
-        </router-link>
-        <router-link to="/admin/manage/detailscholarship">
-            <button type="button">장학</button>
-        </router-link>
+        <a v-on:click="fnView(`${member_id}`)">
+            <button type="button" class="w3-button w3-round w3-gray">기본정보</button>
+        </a>
+            &nbsp;&nbsp;
+        <a v-on:click="fnViewGrade(`${member_id}`)">
+            <button type="button" class="w3-button w3-round w3-gray">성적</button>
+        </a>
+        &nbsp;&nbsp;
+        <a v-on:click="fnViewScho(`${member_id}`)">
+            <button type="button" class="w3-button w3-round w3-gray">장학</button>
+        </a>
     </div>
     <br>
     <div style="border:2px solid black; padding:100px;">
@@ -85,9 +87,8 @@ export default {
     data() { //변수생성
         return {
             requestBody: this.$route.query, //route 가 가지고 있는 쿼리를 requestBody 에 담는다.
-            member_idx: this.$route.query.member_idx,
+            member_id: this.$route.query.member_id,
 
-            member_id: '',
             member_pwd: '',
             name: '',
             department_id: '',
@@ -108,7 +109,7 @@ export default {
     },
     methods: {
         fnGetView() {
-            this.$axios.get(this.$serverUrl + '/admin/manage/student/' + this.member_idx, {
+            this.$axios.get(this.$serverUrl + '/admin/manage/student/' + this.member_id, {
                 params: this.requestBody
             }).then((res) => {  //성공 -> res에 정보를 저장함
                 this.member_id = res.data.member_id
@@ -131,7 +132,7 @@ export default {
             })
         },
         fnList() {
-            delete this.requestBody.member_idx
+            delete this.requestBody.member_id
             this.$router.push({
                 path: '/admin/manage/student',
                 query: this.requestBody
@@ -146,14 +147,43 @@ export default {
         fnDelete() {
             if (!confirm("삭제하시겠습니까?")) return
 
-            this.$axios.delete(this.$serverUrl + '/admin/manage/student/' + this.member_idx, {})
+            this.$axios.delete(this.$serverUrl + '/admin/manage/student/' + this.member_id, {})
                 .then(() => {
                     alert('삭제되었습니다.')
                     this.fnList();
                 }).catch((err) => {
                 console.log(err);
             })
-        }
+        },
+        fnView(member_id) {
+            this.requestBody.member_id = member_id
+            this.$router.push({
+                path: '/admin/manage/student/detail',
+                query: this.requestBody
+            })
+        },
+        fnViewGrade(member_id) {
+            this.requestBody.member_id = member_id
+            this.$router.push({
+                path: '/admin/manage/student/grade',
+                query: this.requestBody
+            })
+        },
+        // fnViewScho(member_id) {
+        //     this.requestBody.member_id= member_id
+        //     this.$router.push({
+        //         path: '/admin/manage/student/scholarship',
+        //         query: this.requestBody
+        //     })
+        // },
+        fnViewScho(member_id) {
+            this.$router.push({
+                path: '/admin/manage/student/scholarship',
+                params: { member_id },
+                query: this.requestBody
+            });
+
+        },
     }
 }
 </script>
