@@ -38,9 +38,10 @@
     methods: {
       fnGetView() {
         if (this.free_id !== undefined) { // 상세보기 -> 수정
-          this.$axios.get(this.$serverUrl + '/Eclass/lecture/board/' + this.free_id, {
+          this.$axios.get(this.$serverUrl + '/eclass/lecture/board/' + this.free_id, {
             params: this.requestBody
           }).then((res) => {
+            console.log(res.data)
             this.free_title = res.data.freeboard.free_title
             this.name = res.data.freeboard.name
             this.member_id = res.data.freeboard.member_id

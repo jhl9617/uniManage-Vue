@@ -10,15 +10,15 @@
                 <th>No</th>
                 <th>과제제목</th>
                 <th>마감일</th>
-                <th>제출상태</th>
+                <th>제출확인</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="(row, idx) in list" :key="idx">
-                <td>{{ row.idx }}</td>
-                <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
-                <td>{{ row.author }}</td>
-                <td>{{ row.created_at }}</td>
+                <td>{{ row.homework_id }}</td>
+                <td><a v-on:click="fnView(`${row.homework_id}`)">{{ row.homework_name }}</a></td>
+                <td>{{ row.deadline }}</td>
+                <td>{{ row.submitted }}</td>
             </tr>
             </tbody>
         </table>
@@ -50,6 +50,7 @@ export default {
         return {
             requestBody: {}, //리스트 페이지 데이터전송
             list: {}, //리스트 데이터
+            lecture_id : this.$route.query.lecture_id,
             no: '', //게시판 숫자처리
             paging: {
                 block: 0,
@@ -90,10 +91,11 @@ export default {
                 sv: this.search_value,
                 // keyword: this.keyword,
                 page: this.page,
-                size: this.size
+                size: this.size,
+                lecture_id : this.lecture_id
             }
 
-            this.$axios.get(this.$serverUrl + "/board/list", {
+            this.$axios.get(this.$serverUrl + "/eclass/lecture/homework/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -111,8 +113,8 @@ export default {
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(homework_id) {
+            this.requestBody.homework_id = homework_id
             this.$router.push({
                 path: './detail',
                 query: this.requestBody

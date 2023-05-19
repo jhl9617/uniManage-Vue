@@ -136,7 +136,8 @@ export default {
       this.$axios.get(this.$serverUrl + '/eclass/lecture/' + this.lecture_id , {
         params: this.requestBody
       }).then((res) => { //success
-        console.log(res.data);
+        console.log(this.requestBody);
+        this.lecture = res.data.lecture_dto
         this.lecture_id = res.data.lecture_id
         this.member_id = res.data.member_id
         this.classification = res.data.classification

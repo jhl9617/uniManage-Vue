@@ -13,9 +13,9 @@
             </thead>
             <tbody>
             <tr v-for="(row, idx) in list" :key="idx">
-                <td>{{ row.idx }}</td>
-                <td><a v-on:click="fnView(`${row.idx}`)">{{ row.lecture_notice_title }}</a></td>
-                <td>{{ row.created_at }}</td>
+                <td>{{ row.lecture_notice_id }}</td>
+                <td><a v-on:click="fnView(`${row.lecture_notice_id}`)">{{ row.lecture_notice_title }}</a></td>
+                <td>{{ row.created_date }}</td>
                 <td>{{ row.readcount }}</td>
             </tr>
             </tbody>
@@ -104,11 +104,11 @@ export default {
                 // keyword: this.keyword,
                 page: this.page,
                 size: this.size,
-
+                lecture_id : this.lecture_id
             }
             console.log(this.requestBody.lecture_id);
 
-            this.$axios.get(this.$serverUrl + "/eclass/lecture/notice/list" + this.lecture_id, {
+            this.$axios.get(this.$serverUrl + "/eclass/lecture/notice/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -128,8 +128,8 @@ export default {
             })
 
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(lecture_notice_id) {
+            this.requestBody.lecture_notice_id = lecture_notice_id
             this.$router.push({
                 path: './detail',
                 query: this.requestBody
@@ -149,34 +149,6 @@ export default {
         },
 
     }
-    // fnGetList() {
 
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]
-    // }
-    // }
 }
 </script>

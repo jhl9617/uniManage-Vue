@@ -104,7 +104,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get(this.$serverUrl + "/Eclass/lecture/board/list", {
+            this.$axios.get(this.$serverUrl + "/eclass/lecture/board/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {

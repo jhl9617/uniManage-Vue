@@ -14,10 +14,10 @@
             </thead>
             <tbody>
             <tr v-for="(row, idx) in list" :key="idx">
-                <td>{{ row.idx }}</td>
-                <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
-                <td>{{ row.author }}</td>
-                <td>{{ row.created_at }}</td>
+                <td>{{ row.lecture_room_id }}</td>
+                <td><a v-on:click="fnView(`${row.lecture_room_id}`)">{{ row.lecture_room_title }}</a></td>
+                <td>{{ row.member_id }}</td>
+                <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
         </table>
@@ -60,8 +60,7 @@ export default {
         return {
             requestBody: {}, //리스트 페이지 데이터전송
             list: {}, //리스트 데이터
-
-             lecture_id : this.$route.query.lecture_id,
+            lecture_id : this.$route.query.lecture_id,
             no: '', //게시판 숫자처리
             paging: {
                 block: 0,
@@ -102,10 +101,11 @@ export default {
                 sv: this.search_value,
                 // keyword: this.keyword,
                 page: this.page,
-                size: this.size
+                size: this.size,
+                lecture_id : this.lecture_id
             }
 
-            this.$axios.get(this.$serverUrl + "/eclass/lecture/source/list" + this.lecture_id, {
+            this.$axios.get(this.$serverUrl + "/eclass/lecture/source/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -123,8 +123,8 @@ export default {
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(lecture_room_id) {
+            this.requestBody.lecture_room_id = lecture_room_id
             this.$router.push({
                 path: './detail',
                 query: this.requestBody
@@ -143,34 +143,6 @@ export default {
             this.fnGetList()
         }
     }
-    // fnGetList() {
 
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]
-    // }
-    // }
 }
 </script>
