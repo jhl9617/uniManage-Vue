@@ -1,34 +1,13 @@
 <template>
   <div class="container" style="text-align: center">
     강의실 조회 <br><br>
-    <form action="">
-      <select name="build" id="build" required>
-        <option value="#">건물</option>
-        <option value="공학관">공학관</option>
-        <option value="과학관">과학관</option>
-        <option value="인문사회관">인문사회관</option>
-      </select>
-      <select name="day" id="day" required>
-        <option value="#">요일</option>
-        <option value="월">월요일</option>
-        <option value="화">화요일</option>
-        <option value="수">수요일</option>
-        <option value="목">목요일</option>
-        <option value="금">금요일</option>
-      </select>
-      <select name="roomnum" id="roomnum" required>
-        <option value="#">강의실 호수</option>
-        <option value="101호">101호</option>
-        <option value="102호">102호</option>
-        <option value="103호">103호</option>
-        <option value="104호">104호</option>
-        <option value="201호">201호</option>
-        <option value="202호">202호</option>
-        <option value="203호">203호</option>
-      </select>
-      <input type="submit" value="조회">
-    </form>
+    <!-- 강의실 검색을 위한 폼 -->
+    <!--    <form @submit="searchLectureRooms">-->
+    <!-- 건물, 요일, 강의실 호수를 선택하기 위한 셀렉트 옵션 -->
+    <!-- ... (중략) ... -->
+    <!--    </form>-->
     <br>
+    <!-- 강의실 목록을 표시하기 위한 테이블 -->
     <div>
       <table class="table table-hover">
         <thead>
@@ -42,36 +21,57 @@
         </tr>
         </thead>
         <tbody>
+        <!-- lectureRooms 배열을 순회하며 각각의 강의실을 표시합니다 -->
+        <tr v-for="lectureRoom in lectureRooms" :key="lectureRoom.lectureRoomTimetableIdx">
+          <td>{{ lectureRoom.buildingName }}</td>
+          <td>{{ lectureRoom.lectureRoomNum }}</td>
+          <td>{{ lectureRoom.dayTime }}</td>
+          <td>{{ lectureRoom.startTime }}</td>
+          <td>{{ lectureRoom.classCapacity }}</td>
+          <td>
+            <button @click="selectLectureRoom(lectureRoom)">선택</button>
+          </td>
+        </tr>
         </tbody>
       </table>
-      1 2 3 4 5 > >>
+      <!-- 페이지 변경을 처리하기 위한 페이지네이션 컴포넌트 -->
+      <!--      <pagination :currentPage="currentPage" :totalPages="totalPages" @pageChanged="handlePageChange"/>-->
     </div>
     <br><br>
+    <!-- 선택한 강의실을 표시하는 추가적인 내용 -->
     <div>
       선택한 강의실
       <table class="table">
-        <thead>
-        <tr>
-          <th colspan="5" style="text-align:left"> &nbsp; &nbsp; &nbsp; 목록</th>
-          <th>신청여부</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
+        <!-- ... (중략) ... -->
       </table>
     </div>
   </div>
 </template>
+
 <script>
+import axios from 'axios';
 
+export default {
+  data() {
+    return {
+      lectureRooms: [], // 강의실 데이터를 저장하는 배열
+      currentPage: 1,
+      totalPages: 0
+    };
+  },
+  mounted() {
+    this.fetchLectureRooms();
+  },
+  methods: {
+    fetchLectureRooms() {
+      axios.post('/prof/create/room')
+          .then(response => {
+            this.lectureRooms = response.data.data; // 서버에서 받은 강의실 목록 업데이트
+          })
+          .catch(error => {
+            console.log(error);
+          });
+    }
+  }
+};
 </script>
-<style>
-select {
-  height: 28px;
-  text-align: center;
-}
-
-table tr td {
-  text-align: center;
-}
-</style>
