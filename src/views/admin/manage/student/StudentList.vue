@@ -17,8 +17,8 @@
             </thead>
             <tbody>
             <tr v-for="(row, member_idx) in list" :key="member_idx">
-                <td></td>
-                <td><a v-on:click="fnView(`${row.member_idx}`)">{{ row.name }}</a></td>
+                <td>{{ row.member_idx}}</td>
+                <td><a v-on:click="fnView(`${row.member_id}`)">{{ row.name }}</a></td>
                 <td>{{ row.member_id }}</td>
                 <td>{{ row.department_name }}</td>
             </tr>
@@ -129,8 +129,8 @@ export default {
                 }
             })
         },
-        fnView(member_idx) {
-            this.requestBody.member_idx = member_idx  //학번으로 수정 필요
+        fnView(member_id) {
+            this.requestBody.member_id = member_id
             this.$router.push({
                 path: '/admin/manage/student/detail',
                 query: this.requestBody

@@ -29,7 +29,7 @@
             <tr>
                 <th width="100">강의실 호수</th>
                 <td>
-                    <input type="text" v-model="lecture_room_num" class="w3-input w3-border" placeholder="금액을 입력해주세요.">
+                    <input type="text" v-model="lecture_room_num" class="w3-input w3-border" placeholder="000호 형식으로 입력해 주세요.">
                 </td>
             </tr>
             <tr>
