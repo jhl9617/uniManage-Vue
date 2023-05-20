@@ -13,7 +13,7 @@
                 </tr>
                 <tr>
                     <th style="width: 30%">작성자</th>
-                    <td v-if="loginMember === 4">{{loginMember.name}} 교수</td>
+                    <td v-if="loginMember === 4">{{loginMember.name}} 교수님</td>
                 </tr>
                 <tr>
                     <th><label for ="ATTENDANCE_DAY"></label>휴강차시</th>

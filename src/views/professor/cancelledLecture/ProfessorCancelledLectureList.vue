@@ -17,10 +17,10 @@
                 <tbody>
                 <tr v-for="(row, cancelled_lecture_idx_seq) in list" :key="cancelled_lecture_idx_seq">
                     <td>{{row.cancelled_lecture_idx_seq}}</td>
-                    <td><a v-on:click="fnGetList(`${row.cancelled_lecture_idx_seq}`)">{{row.lecture_id}},{{row.attendance_day}},{{row.supply_date}}</a></td>
+                    <td><a v-on:click="fnList(`${row.cancelled_lecture_idx_seq}`)">{{row.lecture_id}}</a></td>
                     <td>{{row.attendance_day}}</td>
                     <td>{{row.supply_date}}</td>
-                    <td>{{row.cancelled_file}}</td>
+                    <td><a v-if: >{{row.cancelled_file}}</a></td>
                     <td>{{row.cancelled_apply}}</td>
                 </tr>
                 </tbody>
@@ -92,10 +92,10 @@ export default {
         }
     },
     mounted() {
-        this.fnGetList()
+        this.fnList()
     },
     methods: {
-        fnGetList() {
+        fnList() {
             this.requestBody = {
                 sk: this.search_key,
                 sv: this.search_value,
@@ -138,7 +138,7 @@ export default {
             if (this.page !== n) {
                 this.page = n
             }
-            this.fnGetList()
+            this.fnList()
         }
     }
 }
