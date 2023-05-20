@@ -56,21 +56,17 @@
         requestBody: this.$route.query,
         free_id: this.$route.query.free_id,
         list : [],
-        free_title: '',
-        name: '',
-        free_content: '',
-        created_date: '',
-        free_rep_id : '',
-        free_rep_content: ''
+
 
       }
     },
     mounted() { // document.ready, window.onload와 같은 형태
+      console.log(this.requestBody)
       this.fnGetView()
     },
     methods: {
       fnGetView() {
-        this.$axios.get(this.$serverUrl + '/Eclass/lecture/board/' + this.free_id, {
+        this.$axios.get(this.$serverUrl + '/eclass/lecture/board/' + this.free_id, {
           params: this.requestBody
         }).then((res) => { //success
             console.log(res.data);
@@ -96,7 +92,7 @@
         })
       },
         fnSave() {
-            let apiUrl = this.$serverUrl + '/Eclass/board/' +  this.free_id
+            let apiUrl = this.$serverUrl + '/eclass/lecture/board/' +  this.free_id
             this.form = {
                 "free_rep_id": this.free_rep_id,
                 "free_rep_content": this.free_rep_content,
@@ -151,7 +147,7 @@
       //     }
       // }
         fnDelete(id) {
-            let apiUrl = this.$serverUrl + '/Eclass/board/' + this.free_id
+            let apiUrl = this.$serverUrl + '/eclass/lecture/board/' + this.free_id
             this.form = {
                 "id": id,
                 "free_id" : this.free_id
