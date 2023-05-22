@@ -128,7 +128,8 @@ export default {
         },
         fnWrite() {
             this.$router.push({
-                path: '/admin/notice/write'
+                path: '/admin/notice/write',
+                query: this.requestBody
             })
         },
         fnPage(n) {

@@ -20,7 +20,7 @@
                     <td><a v-on:click="fnList(`${row.cancelled_lecture_idx_seq}`)">{{row.lecture_id}}</a></td>
                     <td>{{row.attendance_day}}</td>
                     <td>{{row.supply_date}}</td>
-                    <td><a v-if: >{{row.cancelled_file}}</a></td>
+                    <td>{{row.cancelled_file}}</td>
                     <td>{{row.cancelled_apply}}</td>
                 </tr>
                 </tbody>
