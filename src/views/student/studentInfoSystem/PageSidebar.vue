@@ -12,9 +12,9 @@
             </router-link>
         </li>
         <li class="nav-item active">
-            <router-link class="nav-link" to="/Eclass">
+            <a class="nav-link" v-on:click="fnEclass">
                 <span>E-Class</span>
-            </router-link>
+            </a>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
@@ -129,6 +129,48 @@
 </template>
 
 <script>
+export default {
+  data() { //변수생성
+    return {
+      loginMember: null,
+      requestBody: '',
+    }
+  },
+  created() {
+    this.getSession();
+  },
+  methods: {
+    fnEclass() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/eclass',
+          query: this.requestBody
+        });
+      }
+    },
+    async getSession() {
+      try {
+        const response = await fetch("/sessionCheck");
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log("Session data:", data);
+          this.loginMember = data;
+        } else {
+          console.error("Error fetching session data");
+        }
+      } catch (error) {
+        console.error("Error fetching session data:", error);
+      }
+      this.requestBody = { // 데이터 전송
+        member_id : this.member_id
+      }
+    }
+  }
+}
+
 
 </script>
 

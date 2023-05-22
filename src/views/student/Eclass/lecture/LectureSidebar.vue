@@ -4,14 +4,14 @@
         <li>&nbsp;</li>
         <li>&nbsp;</li>
         <li class="nav-item active">
-            <router-link class="nav-link" to="/student/studentinfomain">
+            <a class="nav-link" v-on:click="fnEclass">
                 <span>학생정보시스템</span>
-            </router-link>
+            </a>
         </li>
         <li class="nav-item active">
-            <router-link class="nav-link" to="/eclass">
+            <a class="nav-link" v-on:click="fnEclass">
                 <span>E-Class</span>
-            </router-link>
+            </a>
         </li>
         <li>&nbsp;</li>
         <!-- Nav Item - Dashboard -->
@@ -105,6 +105,7 @@
 export default {
   data() { //변수생성
     return {
+      loginMember: null,
       requestBody: this.$route.query,
       lecture_id : this.$route.query.lecture_id,
       member_id : '',
@@ -129,6 +130,9 @@ export default {
   },
   mounted() { // document.ready, window.onload와 같은 형태
     this.fnGetView()
+  },
+  created() {
+    this.getSession();
   },
   methods: {
     fnGetView() {
@@ -202,6 +206,32 @@ export default {
         query: this.requestBody
       })
     },
+    fnEclass() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/eclass',
+          query: this.requestBody
+        });
+      }
+    },
+    async getSession() {
+      try {
+        const response = await fetch("/sessionCheck");
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log("Session data:", data);
+          this.loginMember = data;
+        } else {
+          console.error("Error fetching session data");
+        }
+      } catch (error) {
+        console.error("Error fetching session data:", error);
+      }
+    },
+
   }
 }
 </script>
