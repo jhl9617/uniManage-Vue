@@ -17,47 +17,23 @@
 
         <!-- 공지사항 관리 -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#notice-collapse"
-               aria-expanded="true" aria-controls="info-collapse">
+            <router-link class="nav-link collapsed" to="/admin/notice/list">
                 <span>공지사항 관리</span>
-            </a>
-            <div id="notice-collapse" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/admin/notice/list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                        공지사항 목록
-                    </router-link>
-                </div>
-            </div>
+            </router-link>
         </li>
 
         <!-- 학생 관리 -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#student-collapse"
-               aria-expanded="true" aria-controls="collapseUtilities">
+            <router-link class="nav-link collapsed" to="/admin/manage/student">
                 <span>학생 관리</span>
-            </a>
-            <div id="student-collapse" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/admin/manage/student"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">학생 명부
-                    </router-link>
-                </div>
-            </div>
+            </router-link>
         </li>
 
         <!-- 교수 관리 -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#professor-collapse"
-               aria-expanded="true" aria-controls="collapseUtilities">
+            <router-link class="nav-link collapsed" to="/admin/manage/professor">
                 <span>교수 관리</span>
-            </a>
-            <div id="professor-collapse" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/admin/manage/professor"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">교수 명부
-                    </router-link>
-                </div>
-            </div>
+            </router-link>
         </li>
 
         <!-- 강의 관리 -->
@@ -85,32 +61,16 @@
 
         <!-- 강의실 관리 -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#classroom-collapse"
-               aria-expanded="true" aria-controls="collapseUtilities">
+            <router-link class="nav-link collapsed" to="/admin/manage/classroom">
                 <span>강의실 관리</span>
-            </a>
-            <div id="classroom-collapse" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/admin/manage/classroom"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의실 리스트
-                    </router-link>
-                </div>
-            </div>
+            </router-link>
         </li>
 
         <!-- 장학금 관리 -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#scholarship-collapse"
-               aria-expanded="true" aria-controls="collapseUtilities">
+            <router-link class="nav-link collapsed" to="/admin/manage/scholarship">
                 <span>장학금 관리</span>
-            </a>
-            <div id="scholarship-collapse" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/admin/manage/scholarship"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">장학금 리스트
-                    </router-link>
-                </div>
-            </div>
+            </router-link>
         </li>
     </ul>
 </template>
