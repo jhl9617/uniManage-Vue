@@ -46,6 +46,7 @@ import axios from 'axios'
 import router from "@/router";
 import client from "@/modules/client";
 import Cookies from 'js-cookie'
+import jwt from 'jsonwebtoken';
 
 export default {
     name: 'SigninForm',
@@ -72,12 +73,32 @@ export default {
                     const { authorization } = response.headers
                     //엑세스토큰을 추출하여
                     const accessToken = authorization.substring(7)
+
+                    // Decode the token and extract the roles
+                    const decoded = decodeToken(accessToken);
+                    let pagePath = '';
+                    if (decoded && decoded.rol && decoded.rol.length > 0) {
+                        // Extract the roles and store it in a variable (or in the state)
+                        const roles = decoded.rol;
+                        if (roles.includes('1')) {
+                            pagePath = '/prof/main';
+                        } else if (roles.includes('2')) {
+                            pagePath = '/admin';
+                        } else if (roles.includes('3') || roles.includes('4') || roles.includes('5')) {
+                            pagePath = '/student';
+                        } else {
+                            // Default path in case roles do not match any condition
+                            pagePath = '';
+                        }
+                    }
+
+
                     //스토어 상태에 저장하는 함수를 호출한다.
                     SET_ACCESS_TOKEN(accessToken)
 
                     // Redirect to another page
                     router.push({
-                        path: '/admin',
+                        path: pagePath,
                     });
                 })
                 .catch(error => {
@@ -117,6 +138,16 @@ export default {
                 Cookies.set('accessToken', accessToken, { expires: 1 })
             }
         }
+
+        //토큰 decode
+        const decodeToken = (token) => {
+            try {
+                return jwt.decode(token);
+            } catch (error) {
+                console.error("Error decoding token: ", error);
+                return null;
+            }
+        };
 
         return {
             userId,
