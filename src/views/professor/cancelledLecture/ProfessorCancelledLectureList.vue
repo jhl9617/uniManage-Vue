@@ -20,7 +20,10 @@
                     <td><a v-on:click="fnList(`${row.cancelled_lecture_idx_seq}`)">{{row.lecture_id}}</a></td>
                     <td>{{row.attendance_day}}</td>
                     <td>{{row.supply_date}}</td>
-                    <td><a v-if: >{{row.cancelled_file}}</a></td>
+
+                    <!-- 파일이 존재하면 ◎, 존재하지 않는다면 빈칸 -->
+                    <td><p v-if="findFile"> ◎ </p>
+                        <p v-else>  </p></td>
                     <td>{{row.cancelled_apply}}</td>
                 </tr>
                 </tbody>
@@ -42,74 +45,24 @@
                 <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
             </span>
         </div>
-        <div>
-            <select v-model="search_key">
-                <option value="">- 선택 -</option>
-                <option value="author">작성자</option>
-                <option value="title">제목</option>
-                <option value="contents">내용</option>
-            </select>
-            &nbsp;
-            <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-            &nbsp;
-            <button @click="fnPage()">검색</button>
-        </div>
     </div>
 </template>
 
 <script>
 export default {
     data() {
-        return {
-            requestBody: {},
-            list: {},
-            no: '',
-            paging: {
-                block: 0,
-                end_page: 0,
-                next_block: 0,
-                page: 0,
-                page_size: 0,
-                prev_block: 0,
-                start_index: 0,
-                start_page: 0,
-                total_block_cnt: 0,
-                total_list_cnt: 0,
-                total_page_cnt: 0,
-            },
-            page: this.$route.query.page ? this.$route.query.page : 1,
-            size: this.$route.query.size ? this.$route.query.size : 10,
-            // search_key: this.$route.query.sk ? this.$route.query.sk : '',
-            // search_value: this.$route.query.sv ? this.$route.query.sv : '',
-            // keyword: this.$route.query.keyword,
-            paginavigation: function () { //페이징 처리 for문 커스텀
-                let pageNumber = [] //;
-                let start_page = this.paging.start_page;
-                let end_page = this.paging.end_page;
-                for (let i = start_page; i <= end_page; i++) pageNumber.push(i);
-                return pageNumber;
-            }
-        }
+
     },
     mounted() {
         this.fnList()
     },
     methods: {
         fnList() {
-            this.requestBody = {
-                sk: this.search_key,
-                sv: this.search_value,
-                // keyword: this.keyword,
-                page: this.page,
-                size: this.size
-            }
-
             this.$axios.get(this.$serverUrl + "/prof/lecture/cancelled/list", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
 
-                // this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
                 if (res.data.result_code === "OK") {
                     this.list = res.data.data
                     this.paging = res.data.pagination
@@ -122,8 +75,8 @@ export default {
                 }
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(cancelled_lecture_idx_seq) {
+            this.requestBody.cancelled_lecture_idx_seq = cancelled_lecture_idx_seq
             this.$router.push({
                 path: '/prof/lecture/cancelled',
                 query: this.requestBody
@@ -134,14 +87,10 @@ export default {
                 path: '/prof/lecture/cancelled/write'
             })
         },
-        fnPage(n) {
-            if (this.page !== n) {
-                this.page = n
-            }
-            this.fnList()
-        }
+
     }
 }
+
 </script>
 
 <style scoped>

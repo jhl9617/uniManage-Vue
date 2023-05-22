@@ -80,7 +80,7 @@ export default {
     methods: {
         fnView() {
             if (this.member_id !== undefined) {
-                this.$axios.get(this.$serverUrl + '/prof/main', {
+                this.$axios.get(this.$serverUrl + '/prof/info', {
                     params: this.requestBody
                 }).then((res) => {
                     this.member_id = res.data.member_id
@@ -96,7 +96,7 @@ export default {
             }
         },
 
-        //교수 메인페이지로 이동하기(이거 delect가 맞을까요?)
+        //교수 메인페이지로 이동하기
         fnMain(){
         delete this.requestBody.member_id
         this.$router.push({
