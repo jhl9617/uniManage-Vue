@@ -1,7 +1,7 @@
 <template>
     <div class="board-list">
         개설 강의 관리
-        <table class="w3-table-all">
+        <table class="w3-table-all table-hover">
             <thead>
             <tr>
                 <th>No</th>
