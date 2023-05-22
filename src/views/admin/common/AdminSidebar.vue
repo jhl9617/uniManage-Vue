@@ -17,9 +17,22 @@
 
         <!-- 공지사항 관리 -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/admin/notice/list">
-                <span>공지사항 관리</span>
-            </router-link>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#notice-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>공지 관리</span>
+            </a>
+            <div id="notice-collapse" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/admin/notice/list"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">공지사항 관리
+                    </router-link>
+                    <br>
+                    <router-link to="/admin/schedule"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">학사일정 관리
+                    </router-link>
+                </div>
+            </div>
         </li>
 
         <!-- 학생 관리 -->

@@ -22,6 +22,7 @@ import AdminScoreDetail from "@/views/admin/manage/student/ScoreDetail.vue";
 import AdminScholarshipDetail from "@/views/admin/manage/student/ScholarshipDetail.vue";
 import AdminDetailProfessor from "@/views/admin/manage/professor/ProfessorDetail.vue";
 import AdminCloseLecture from "@/views/admin/manage/lecture/ManageCloseLecture.vue";
+import AdminScheduleList from "@/views/admin/notice/ScheduleList.vue";
 
 import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
 
@@ -148,6 +149,11 @@ const routesAdmin = [
     path: '/chatbot',
     name: 'AdminChatbot',
     component: AdminChatbot
+  },
+  {
+    path: '/admin/schedule',
+    name: 'AdminScheduleList',
+    component: AdminScheduleList
   },
 
 ]

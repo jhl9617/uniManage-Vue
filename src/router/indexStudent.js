@@ -30,6 +30,8 @@ import StudentCheckScholarship from "@/views/student/studentInfoSystem/scholarsh
 import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/common/StudentInfoMain.vue";
 import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
+import StudentNoticeList from "@/views/student/studentInfoSystem/notice/NoticeList.vue";
+import StudentNoticeDetail from "@/views/student/studentInfoSystem/notice/NoticeDetail.vue";
 
 const routesStudent = [
 
@@ -196,6 +198,16 @@ const routesStudent = [
         path: '/student',
         name: 'StudentInfoMain',
         component: StudentInfoMain
+    },
+    {
+        path: '/student/notice',
+        name: 'StudentNoticeList',
+        component: StudentNoticeList
+    },
+    {
+        path: '/student/notice/detail',
+        name: 'StudentNoticeDetail',
+        component: StudentNoticeDetail
     },
 ]
 
