@@ -43,7 +43,7 @@ const routesStudent = [
     },
     {
         //학생
-        path: '/student',
+        path: '/student/sugang',
         name: 'StudentMain',
         component: StudentMain
     },
@@ -193,7 +193,7 @@ const routesStudent = [
         component: StudentCourseList
     },
     {
-        path: '/student/studentinfomain',
+        path: '/student',
         name: 'StudentInfoMain',
         component: StudentInfoMain
     },

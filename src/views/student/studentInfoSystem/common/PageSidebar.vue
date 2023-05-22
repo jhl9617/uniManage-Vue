@@ -7,7 +7,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <router-link class="nav-link" to="/student/studentinfomain">
+            <router-link class="nav-link" to="/student">
                 <span>학생정보시스템</span>
             </router-link>
         </li>
@@ -21,7 +21,7 @@
 
         <!--  -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/student">
+            <router-link class="nav-link collapsed" to="/student/sugang">
                 <span>수강신청</span>
             </router-link>
         </li>
