@@ -6,7 +6,7 @@
                 <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
             </router-link>
         </div>
-        <table class="w3-table-all">
+        <table class="w3-table-all table-hover">
             <thead>
             <tr>
                 <th>No</th>
@@ -18,7 +18,7 @@
             <tbody>
             <tr v-for="(row, member_idx) in list" :key="member_idx">
                 <td>{{ row.member_idx}}</td>
-                <td><a v-on:click="fnView(`${row.member_idx}`)">{{ row.name }}</a></td>
+                <td><a v-on:click="fnView(`${row.member_id}`)">{{ row.name }}</a></td>
                 <td>{{ row.member_id }}</td>
                 <td>{{ row.department_name }}</td>
             </tr>
@@ -49,7 +49,7 @@
         <select v-model="search_key">
             <option value="">- 선택 -</option>
             <option value="name">교수명</option>
-            <option value="member_id">학생 번호</option>
+            <option value="member_id">교수 번호</option>
             <option value="department_name">학과명</option>
         </select>
         &nbsp;
@@ -128,8 +128,8 @@ export default {
                 }
             })
         },
-        fnView(member_idx) {
-            this.requestBody.member_idx = member_idx  //학번으로 수정 필요
+        fnView(member_id) {
+            this.requestBody.member_id = member_id
             this.$router.push({
                 path: '/admin/manage/professor/detail',
                 query: this.requestBody

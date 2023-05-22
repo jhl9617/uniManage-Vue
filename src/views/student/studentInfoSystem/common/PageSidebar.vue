@@ -7,7 +7,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <router-link class="nav-link" to="/student/studentinfomain">
+            <router-link class="nav-link" to="/student">
                 <span>학생정보시스템</span>
             </router-link>
         </li>
@@ -21,7 +21,7 @@
 
         <!--  -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/student">
+            <router-link class="nav-link collapsed" to="/student/sugang">
                 <span>수강신청</span>
             </router-link>
         </li>
@@ -35,19 +35,19 @@
             <div id="info-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <router-link to="/student/status" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                        학적변동내역
+                         <span>학적변동내역</span>
                     </router-link>
                     <br>
                     <router-link to="/student/takeoff" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                        휴학신청
+                         <span>휴학신청</span>
                     </router-link>
                     <br>
                     <router-link to="/student/return" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                        복학신청
+                         <span>복학신청</span>
                     </router-link>
                     <br>
                     <router-link to="/student/checkscholarship" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                        장학수혜내역조회
+                         <span>장학수혜내역조회</span>
                     </router-link>
                 </div>
             </div>
@@ -102,10 +102,13 @@
             <div id="student-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <router-link to="/student/checkcredit"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">졸업학점조회
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                        <span>졸업학점조회</span>
+                        <br>
                     </router-link>
                     <router-link to="/student/checkgrade"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강성적조회
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                        <span>수강성적조회</span>
                     </router-link>
                 </div>
             </div>

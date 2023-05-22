@@ -19,18 +19,20 @@
         <table class="w3-table-all">
             <thead>
             <tr>
-                <th>장학금번호</th>
-                <th>장학금명</th>
-                <th>장학금액</th>
-                <th>받은학기</th>
+                <th>강의명</th>
+                <th>중간고사</th>
+                <th>기말고사</th>
+                <th>과제</th>
+                <th>합계</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="(row, member_id) in list" :key="member_id">
-                <td>{{ row.scho_id }}</td>
-                <td>{{ row.scho_name }}</td>
-                <td>{{ row.amount }}</td>
-                <td>{{ row.scho_term }}</td>
+                <td>{{ row.lecture_title }}</td>
+                <td>{{ row.mid_score }}</td>
+                <td>{{ row.final_score }}</td>
+                <td>{{ row.assign_score }}</td>
+                <td>{{ row.total_score }}</td>
             </tr>
             </tbody>
         </table>
@@ -44,21 +46,23 @@ export default {
             requestBody: this.$route.query, //route 가 가지고 있는 쿼리를 requestBody 에 담는다.
             member_id: this.$route.query.member_id,
 
-            scho_id:'',
-            scho_name:'',
-            scho_term:'',
-            amount:'',
+            score_id:'',
+            lecture_id:'',
+            mid_score:'',
+            final_score:'',
+            assign_score:'',
+            total_score:'',
+            lecture_title:'',
             list: {},
+
         }
     },
     mounted() {
         this.fnGetView()
-
     },
-
     methods: {
         fnGetView() {
-            this.$axios.get(this.$serverUrl + '/admin/manage/student/scholarship/' + this.member_id, {
+            this.$axios.get(this.$serverUrl + '/admin/manage/student/score/' + this.member_id, {
                 params: this.requestBody
             }).then((res) => {  //성공 -> res에 정보를 저장함
                 this.list = res.data.data

@@ -1,26 +1,24 @@
 <template>
     <div class="board-list">
-        학생 관리
+        학사일정
         <div class="common-buttons">
-            <router-link to="/admin/manage/student/write">
-                <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
-            </router-link>
+            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
         </div>
-        <table class="w3-table-all table-hover">
+        <table class="w3-table-all">
             <thead>
             <tr>
                 <th>No</th>
-                <th>학생명</th>
-                <th>학생 번호</th>
-                <th>학과명</th>
+                <th>제목</th>
+                <th>시작일</th>
+                <th>끝일</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, member_idx) in list" :key="member_idx">
-                <td>{{ row.member_idx}}</td>
-                <td><a v-on:click="fnView(`${row.member_id}`)">{{ row.name }}</a></td>
-                <td>{{ row.member_id }}</td>
-                <td>{{ row.department_name }}</td>
+            <tr v-for="(row, sche_id) in list" :key="sche_id">
+                <td>{{ row.sche_id }}</td>
+                <td>{{ row.sche_title }}</td>
+                <td>{{ row.start_date }}</td>
+                <td>{{ row.end_date }}</td>
             </tr>
             </tbody>
         </table>
@@ -42,24 +40,18 @@
       <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
         </div>
+        <div>
+            <select v-model="search_key">
+                <option value="">- 선택 -</option>
+                <option value="sche_title">제목</option>
+                <option value="sche_content">내용</option>
+            </select>
+            &nbsp;
+            <input type="text" v-model="search_value" @keyup.enter="fnPage()">
+            &nbsp;
+            <button @click="fnPage()">검색</button>
+        </div>
     </div>
-    <!--검색 필드 추가-->
-
-    <div>
-        <select v-model="search_key">
-            <option value="">- 선택 -</option>
-            <option value="name">학생명</option>
-            <option value="member_id">학생 번호</option>
-            <option value="department_name">학과명</option>
-        </select>
-        &nbsp;
-        <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-        &nbsp;
-        <PrimeButton @click="fnPage()">검색</PrimeButton>
-    </div>
-    <root>
-    </root>
-
 </template>
 
 <script>
@@ -111,7 +103,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get("/admin/manage/student", {
+            this.$axios.get(this.$serverUrl + "/admin/schedule", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -129,16 +121,9 @@ export default {
                 }
             })
         },
-        fnView(member_id) {
-            this.requestBody.member_id = member_id
-            this.$router.push({
-                path: '/admin/manage/student/detail',
-                query: this.requestBody
-            })
-        },
         fnWrite() {
             this.$router.push({
-                path: '/admin/manage/student/write'
+                path: '/admin/schedule/write'
             })
         },
         fnPage(n) {
@@ -147,36 +132,11 @@ export default {
 
             }
             this.fnGetList()
-        },
+        }
     }
-    // fnGetList() {
-
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]
-    // }
-    // }
 }
 </script>
+
+<style scoped>
+
+</style>

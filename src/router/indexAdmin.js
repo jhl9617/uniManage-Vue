@@ -18,10 +18,11 @@ import AdminManageLecture from "@/views/admin/manage/lecture/LectureList.vue";
 import AdminDetailLecture from "@/views/admin/manage/lecture/LectureDetail.vue";
 import AdminWriteStudent from '@/views/admin/manage/student/StudentWrite.vue'
 import AdminDetailStudent from "@/views/admin/manage/student/StudentDetail.vue";
-import AdminGradeDetail from "@/views/admin/manage/student/GradeDetail.vue";
+import AdminScoreDetail from "@/views/admin/manage/student/ScoreDetail.vue";
 import AdminScholarshipDetail from "@/views/admin/manage/student/ScholarshipDetail.vue";
 import AdminDetailProfessor from "@/views/admin/manage/professor/ProfessorDetail.vue";
 import AdminCloseLecture from "@/views/admin/manage/lecture/ManageCloseLecture.vue";
+import AdminScheduleList from "@/views/admin/notice/ScheduleList.vue";
 
 import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
 
@@ -130,9 +131,9 @@ const routesAdmin = [
     component: AdminDetailStudent
   },
   {
-    path: '/admin/manage/student/grade',
-    name: 'AdminGradeDetail',
-    component: AdminGradeDetail
+    path: '/admin/manage/student/score',
+    name: 'AdminScoreDetail',
+    component: AdminScoreDetail
   },
   {
     path: '/admin/manage/student/scholarship',
@@ -148,6 +149,11 @@ const routesAdmin = [
     path: '/chatbot',
     name: 'AdminChatbot',
     component: AdminChatbot
+  },
+  {
+    path: '/admin/schedule',
+    name: 'AdminScheduleList',
+    component: AdminScheduleList
   },
 
 ]
