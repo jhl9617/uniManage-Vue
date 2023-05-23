@@ -12,9 +12,13 @@
             <span>{{ notice_content }}</span>
         </div>
         <div class="common-buttons">
+            <button type="button" class="btn btn-dark" @click="sendsms">메세지 발송</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
             <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
             <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
+
+
         </div>
     </div>
 </template>
@@ -31,6 +35,8 @@ export default {
             member_id: '',
             created_date: '',
             readcount: '',
+
+            loginMember: null,
         }
     },
     mounted() { // document.ready, window.onload와 같은 형태
@@ -75,6 +81,30 @@ export default {
                 }).catch((err) => {
                 console.log(err);
             });
+        },
+        sendsms(){
+            this.$axios.post(this.$serverUrl + "/sms/send/", null, {
+                params: {
+                    notice_content: this.notice_content
+                }
+            })
+        },
+        async getSession() {
+            try {
+                const response = await fetch("/sessionCheck");
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log("Session data:", data);
+                    this.loginMember = data;
+                } else {
+                    console.error("Error fetching session data");
+                }
+            } catch (error) {
+                console.error("Error fetching session data:", error);
+            }
+        },
+        created() {
+            this.getSession();
         },
     },
 
