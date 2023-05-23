@@ -29,6 +29,8 @@ export default {
             notice_title: '',
             notice_content: '',
             member_id: '',
+            created_date:'',
+            readcount:'',
 
             loginMember: null,
 
@@ -47,6 +49,8 @@ export default {
                     this.notice_title = res.data.notice_title
                     this.notice_content = res.data.notice_content
                     this.member_id = res.data.member_id
+                    this.created_date = res.data.created_date
+                    this.readcount = res.data.readcount
                 }).catch((err) => {
                     console.log(err)
                 })
