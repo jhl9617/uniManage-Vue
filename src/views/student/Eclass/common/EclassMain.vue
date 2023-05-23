@@ -29,16 +29,7 @@
               <td>강의시간</td>
               <td>바로가기</td>
             </tr>
-            <tr>
-              <td>번호</td>
-              <td>강의명</td>
-              <td>강의시간</td>
-              <td>
-                <router-link to="/eclass/lecture">
-                  <button class="btn btn-outline-info" type="button">바로가기</button>
-                </router-link>
-              </td>
-            </tr>
+
             <tr v-for="(row, index) in list" :key="index">
               <td>{{ row.course_regi_id }}</td>
               <td>{{ row.lecture_title }}</td>

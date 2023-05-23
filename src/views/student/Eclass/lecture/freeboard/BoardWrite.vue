@@ -72,12 +72,12 @@
         })
       },
       fnSave() {
-        let apiUrl = this.$serverUrl + '/eclass/lecture/board'
+        let apiUrl = this.$serverUrl + '/eclass/lecture/board/'
         this.form = {
           "free_id": this.free_id,
           "free_title": this.free_title,
           "free_content": this.free_content,
-          "member_id": this.member_id
+          "member_id": this.loginMember.member_id
         }
 
         if (this.free_id === undefined) {

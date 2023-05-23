@@ -64,9 +64,9 @@
                     <router-link to="/student/timelinebydepart"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과별강의시간표
                     </router-link>
-                    <router-link to="/student/studenttimetable"
+                    <a v-on:click="fnTimetable"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강과목시간표
-                    </router-link>
+                    </a>
                     <router-link to="/student/checkcourse"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회
                     </router-link>
@@ -114,7 +114,7 @@
             </div>
         </li>
 
-        <!-- 자유게시판 -->
+        <!-- 강의평가 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#rating-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -122,9 +122,9 @@
             </a>
             <div id="rating-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/student/surveycourse"
+                    <a v-on:click="fnSurvey"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의평가 작성
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -143,13 +143,35 @@ export default {
     this.getSession();
   },
   methods: {
-    fnEclass() {
+    fnEclass() { // Eclass로 이동
       if (this.loginMember) {
         this.requestBody = {
           member_id: this.loginMember.member_id
         };
         this.$router.push({
           path: '/eclass',
+          query: this.requestBody
+        });
+      }
+    },
+    fnSurvey() { // 강의평가로 이동
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/student/surveycourse',
+          query: this.requestBody
+        });
+      }
+    },
+    fnTimetable() { // 수강과목시간표로 이동
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/student/studenttimetable',
           query: this.requestBody
         });
       }

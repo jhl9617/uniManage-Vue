@@ -20,15 +20,6 @@
         <hr class="sidebar-divider">
 
 
-
-        <!-- 과제 현황 -->
-        <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/eclass/totalhomework/list">
-                <span>과제현황</span>
-            </router-link>
-        </li>
-
-
     </ul>
 </template>
 
