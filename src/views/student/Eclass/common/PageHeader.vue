@@ -9,7 +9,7 @@
   </div>
       <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-
+              <h4>{{loginMember.name}} 학생</h4>
 
             <div class="col-md-12 text-end">
               강의명 : {{ lecture_title }} //&nbsp;  &nbsp;&nbsp;&nbsp; 강의시간 : {{ timecode1 }} {{ timecode2 }} {{ timecode3 }} // {{ roomcode1 }} // 학점 : {{ credit }} 학점 // 수강생 :
@@ -25,6 +25,7 @@
   export default {
     data() { //변수생성
       return {
+        loginMember : '',
         requestBody: this.$route.query,
         lecture_id : this.$route.query.lecture_id,
         member_id : '',
@@ -50,6 +51,9 @@
     },
     mounted() { // document.ready, window.onload와 같은 형태
       this.fnGetView()
+    },
+    created() {
+      this.getSession();
     },
     methods: {
       fnGetView() {
@@ -95,6 +99,23 @@
           query: this.requestBody
         })
       },
+      async getSession() {
+        try {
+          const response = await fetch("/sessionCheck");
+          if (response.status === 200) {
+            const data = await response.json();
+            console.log("Session data:", data);
+            this.loginMember = data;
+          } else {
+            console.error("Error fetching session data");
+          }
+        } catch (error) {
+          console.error("Error fetching session data:", error);
+        }
+        this.requestBody = { // 데이터 전송
+          member_id : this.member_id
+        }
+      }
     }
   }
   </script>

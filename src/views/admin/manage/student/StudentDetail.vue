@@ -6,7 +6,7 @@
             <button type="button" class="w3-button w3-round w3-gray">기본정보</button>
         </a>
             &nbsp;&nbsp;
-        <a v-on:click="fnViewGrade(`${member_id}`)">
+        <a v-on:click="fnViewScore(`${member_id}`)">
             <button type="button" class="w3-button w3-round w3-gray">성적</button>
         </a>
         &nbsp;&nbsp;
@@ -113,6 +113,7 @@ export default {
                 params: this.requestBody
             }).then((res) => {  //성공 -> res에 정보를 저장함
                 this.member_id = res.data.member_id
+                this.member_idx = res.data.member_idx
                 this.member_pwd = res.data.member_pwd
                 this.name = res.data.name
                 this.department_id = res.data.department_id
@@ -156,26 +157,19 @@ export default {
             })
         },
         fnView(member_id) {
-            this.requestBody.member_id = member_id
             this.$router.push({
+                params: { member_id },
                 path: '/admin/manage/student/detail',
                 query: this.requestBody
             })
         },
-        fnViewGrade(member_id) {
-            this.requestBody.member_id = member_id
+        fnViewScore(member_id) {
             this.$router.push({
-                path: '/admin/manage/student/grade',
+                path: '/admin/manage/student/score',
+                params: { member_id },
                 query: this.requestBody
             })
         },
-        // fnViewScho(member_id) {
-        //     this.requestBody.member_id= member_id
-        //     this.$router.push({
-        //         path: '/admin/manage/student/scholarship',
-        //         query: this.requestBody
-        //     })
-        // },
         fnViewScho(member_id) {
             this.$router.push({
                 path: '/admin/manage/student/scholarship',

@@ -33,8 +33,39 @@
             </div>
             <div class="col-md-6">
                 <fieldset>
+<!--                    <legend>공지사항 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--                        <router-link to="/student/notice">-->
+<!--                            <button class="btn btn-outline-dark" type="button">전체보기</button>-->
+<!--                        </router-link>-->
+<!--                    </legend>-->
+
+<!--                    <table class="w3-table-all">-->
+<!--                        <tr>-->
+<!--                            <td>글제목</td>-->
+<!--                            <td>작성일자</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>글제목</td>-->
+<!--                            <td>작성일자</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>글제목</td>-->
+<!--                            <td>작성일자</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>글제목</td>-->
+<!--                            <td>작성일자</td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+                </fieldset>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <fieldset>
                     <legend>공지사항 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <router-link to="/Eclass/source/list">
+                        <router-link to="/student/notice">
                             <button class="btn btn-outline-dark" type="button">전체보기</button>
                         </router-link>
                     </legend>
@@ -57,51 +88,44 @@
                             <td>작성일자</td>
                         </tr>
                     </table>
-                </fieldset>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <fieldset>
-                    <legend>시간표
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </legend>
+<!--                    <legend>시간표-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--                    </legend>-->
 
-                    <table class="w3-table-all">
-                        <tr>
-                            <td></td>
-                            <td>월</td>
-                            <td>화</td>
-                            <td>수</td>
-                            <td>목</td>
-                            <td>금</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
+<!--                    <table class="w3-table-all">-->
+<!--                        <tr>-->
+<!--                            <td></td>-->
+<!--                            <td>월</td>-->
+<!--                            <td>화</td>-->
+<!--                            <td>수</td>-->
+<!--                            <td>목</td>-->
+<!--                            <td>금</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>1</td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2</td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>3</td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                            <td></td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
                 </fieldset>
             </div>
             <div class="col-md-6">

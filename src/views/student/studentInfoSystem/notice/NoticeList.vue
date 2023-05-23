@@ -1,21 +1,19 @@
 <template>
     <div class="board-list">
-        강의 개설 요청 관리
+        공지사항
         <table class="w3-table-all table-hover">
             <thead>
             <tr>
                 <th>No</th>
-                <th>과목명</th>
-                <th>학과명</th>
-                <th>교수명</th>
+                <th>제목</th>
+                <th>등록일시</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, lecture_id) in list" :key="lecture_id">
-                <td>{{ row.lecture_id }}</td>
-                <td><a v-on:click="fnView(`${row.lecture_id}`)">{{ row.lecture_title }}</a></td>
-                <td>{{ row.department_name }}</td>
-                <td>{{ row.name }}</td>
+            <tr v-for="(row, notice_id) in list" :key="notice_id">
+                <td>{{ row.notice_id }}</td>
+                <td><a v-on:click="fnView(`${row.notice_id}`)">{{ row.notice_title }}</a></td>
+                <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
         </table>
@@ -37,23 +35,18 @@
       <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
         </div>
+        <div>
+            <select v-model="search_key">
+                <option value="">- 선택 -</option>
+                <option value="notice_title">제목</option>
+                <option value="notice_content">내용</option>
+            </select>
+            &nbsp;
+            <input type="text" v-model="search_value" @keyup.enter="fnPage()">
+            &nbsp;
+            <button @click="fnPage()">검색</button>
+        </div>
     </div>
-    <!--검색 필드 추가-->
-
-    <div>
-        <select v-model="search_key">
-            <option value="">- 선택 -</option>
-            <option value="lecture_title">강의명</option>
-            <option value="semester">학기</option>
-            <option value="name">교수명</option>
-        </select>
-        &nbsp;
-        <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-        &nbsp;
-        <PrimeButton @click="fnPage()">검색</PrimeButton>
-    </div>
-    <root>
-    </root>
 </template>
 
 <script>
@@ -78,10 +71,9 @@ export default {
             }, //페이징 데이터
             page: this.$route.query.page ? this.$route.query.page : 1,
             size: this.$route.query.size ? this.$route.query.size : 10,
-            //keyword: this.$route.query.keyword,
             search_key: this.$route.query.sk ? this.$route.query.sk : '',
             search_value: this.$route.query.sv ? this.$route.query.sv : '',
-
+            // keyword: this.$route.query.keyword,
             paginavigation: function () { //페이징 처리 for문 커스텀
                 let pageNumber = [] //;
                 let start_page = this.paging.start_page;
@@ -99,35 +91,36 @@ export default {
         fnGetList() {
             //스프링 부트에서 전송받은 데이터 출력 처리
             this.requestBody = { // 데이터 전송
-                //keyword: this.keyword,
                 sk: this.search_key,
                 sv: this.search_value,
+                // keyword: this.keyword,
                 page: this.page,
                 size: this.size
             }
 
-            this.$axios.get( "/admin/manage/appliedlecture", {
+            this.$axios.get(this.$serverUrl + "/student/notice", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
 
-                //this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
+                // this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
                 if (res.data.result_code === "OK") {
                     this.list = res.data.data
                     this.paging = res.data.pagination
                     this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
                 }
+
             }).catch((err) => {
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                 }
             })
         },
-        fnView(lecture_id) {
-            this.requestBody.lecture_id = lecture_id
+        fnView(notice_id) {
+            this.requestBody.notice_id = notice_id
             this.$router.push({
-                path: '/admin/manage/appliedlecture/detail', //경로, 같은 폴더에 있는 detail.vue
-                query: this.requestBody /*파라미터*/
+                path: '/student/notice/detail',
+                query: this.requestBody
             })
         },
         fnPage(n) {

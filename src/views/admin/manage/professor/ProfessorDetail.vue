@@ -72,9 +72,9 @@ export default {
     data() { //변수생성
         return {
             requestBody: this.$route.query, //route 가 가지고 있는 쿼리를 requestBody 에 담는다.
-            member_idx: this.$route.query.member_idx,
+            member_id: this.$route.query.member_id,
 
-            member_id: '',
+            member_idx:'',
             member_pwd: '',
             name: '',
             department_id: '',
@@ -95,10 +95,11 @@ export default {
     },
     methods: {
         fnGetView() {
-            this.$axios.get(this.$serverUrl + '/admin/manage/professor/' + this.member_idx, {
+            this.$axios.get(this.$serverUrl + '/admin/manage/professor/' + this.member_id, {
                 params: this.requestBody
             }).then((res) => {  //성공 -> res에 정보를 저장함
                 this.member_id = res.data.member_id
+                this.member_idx = res.data.member_idx
                 this.member_pwd = res.data.member_pwd
                 this.name = res.data.name
                 this.department_id = res.data.department_id
@@ -109,8 +110,8 @@ export default {
                 this.postcode = res.data.postcode
                 this.address1 = res.data.address1
                 this.address2 = res.data.address2
-                this.department_name = res.data.department_name
                 this.auth = res.data.auth
+                this.department_name = res.data.department_name
             }).catch((err) => { //실패 -> err에 정보를 저장함
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
@@ -118,7 +119,7 @@ export default {
             })
         },
         fnList() {
-            delete this.requestBody.member_idx
+            delete this.requestBody.member_id
             this.$router.push({
                 path: '/admin/manage/professor',
                 query: this.requestBody
@@ -133,7 +134,7 @@ export default {
         fnDelete() {
             if (!confirm("삭제하시겠습니까?")) return
 
-            this.$axios.delete(this.$serverUrl + '/admin/manage/professor/' + this.member_idx, {})
+            this.$axios.delete(this.$serverUrl + '/admin/manage/professor/' + this.member_id, {})
                 .then(() => {
                     alert('삭제되었습니다.')
                     this.fnList();
