@@ -33,7 +33,7 @@
                 </td>
             </tr>
             <tr>
-                <th width="100">강으실 수용인원</th>
+                <th width="100">강의실 수용인원</th>
                 <td>
                     <input type="number" v-model="class_capacity" class="w3-input w3-border" placeholder="강의실 호수를 입력해주세요.">
                 </td>

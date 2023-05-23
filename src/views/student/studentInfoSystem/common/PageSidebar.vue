@@ -104,8 +104,8 @@
                     <router-link to="/student/checkcredit"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">
                         <span>졸업학점조회</span>
-                        <br>
                     </router-link>
+                    <br>
                     <router-link to="/student/checkgrade"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">
                         <span>수강성적조회</span>
