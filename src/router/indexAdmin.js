@@ -17,12 +17,11 @@ import AdminDetailAppliedLecture from "@/views/admin/manage/lecture/AppliedLectu
 import AdminManageLecture from "@/views/admin/manage/lecture/LectureList.vue";
 import AdminDetailLecture from "@/views/admin/manage/lecture/LectureDetail.vue";
 import AdminWriteStudent from '@/views/admin/manage/student/StudentWrite.vue'
-import AdminModifyStudent from '@/views/admin/manage/student/ModifyStudent.vue'
 import AdminDetailStudent from "@/views/admin/manage/student/StudentDetail.vue";
-import AdminDetailGrade from "@/views/admin/manage/student/DetailGrade.vue";
-import AdminDetailScholarship from "@/views/admin/manage/student/DetailScholarship.vue";
+import AdminScoreDetail from "@/views/admin/manage/student/ScoreDetail.vue";
+import AdminScholarshipDetail from "@/views/admin/manage/student/ScholarshipDetail.vue";
 import AdminDetailProfessor from "@/views/admin/manage/professor/ProfessorDetail.vue";
-import AdminCloseLecture from "@/views/admin/manage/lecture/ManageCloseLecture.vue";
+import AdminScheduleList from "@/views/admin/notice/ScheduleList.vue";
 
 import AdminChatbot from "@/views/admin/common/ChatbotPage.vue";
 
@@ -54,7 +53,6 @@ const routesAdmin = [
     name: 'AdminManageStudent',
     component: AdminManageStudent
   },
-
   {
     path: '/admin/manage/scholarship',
     name: 'AdminManageScholarship',
@@ -81,11 +79,6 @@ const routesAdmin = [
     name: 'AdminWriteProfessor',
     component: AdminWriteProfessor
   },
-  // {
-  //   path: '/admin/manage/modifyprofessor',
-  //   name: 'AdminModifyProfessor',
-  //   component: AdminModifyProfessor
-  // },
   {
     path: '/admin/manage/professor/detail',
     name: 'AdminDetailProfessor',
@@ -126,20 +119,10 @@ const routesAdmin = [
     name: 'AdminDetailLecture',
     component: AdminDetailLecture
   },
-  // {
-  //   path: '/admin/manage/lecture/write',
-  //   name: 'AdminWriteLecture',
-  //   component: AdminWriteLecture
-  // },
   {
     path: '/admin/manage/student/write',
     name: 'AdminWriteStudent',
     component: AdminWriteStudent
-  },
-  {
-    path: '/admin/manage/modifystudent',
-    name: 'AdminModifyStudent',
-    component: AdminModifyStudent
   },
   {
     path: '/admin/manage/student/detail',
@@ -147,24 +130,24 @@ const routesAdmin = [
     component: AdminDetailStudent
   },
   {
-    path: '/admin/manage/detailgrade',
-    name: 'AdminDetailGrade',
-    component: AdminDetailGrade
+    path: '/admin/manage/student/score',
+    name: 'AdminScoreDetail',
+    component: AdminScoreDetail
   },
   {
-    path: '/admin/manage/detailscholarship',
-    name: 'AdminDetailScholarship',
-    component: AdminDetailScholarship
-  },
-  {
-    path: '/admin/manage/closelecture',
-    name: 'AdminCloseLecture',
-    component: AdminCloseLecture
+    path: '/admin/manage/student/scholarship',
+    name: 'AdminScholarshipDetail',
+    component: AdminScholarshipDetail
   },
   {
     path: '/chatbot',
     name: 'AdminChatbot',
     component: AdminChatbot
+  },
+  {
+    path: '/admin/schedule',
+    name: 'AdminScheduleList',
+    component: AdminScheduleList
   },
 
 ]

@@ -6,7 +6,7 @@
       </div> -->
       <div class="board-contents">
         <input type="text" v-model="free_title" class="w3-input w3-border" placeholder="제목을 입력해주세요." >
-        <input type="text" v-model="member_id" class="w3-input w3-border" >
+        <input type="text" v-model="member_id" class="w3-input w3-border" :placeholder="loginMember.name" readonly>
       </div>
       <div class="board-contents">
         <textarea id="" cols="30" rows="10" v-model="free_content" class="w3-input w3-border" style="resize: none;">
@@ -23,6 +23,7 @@
   export default {
     data() { //변수생성
       return {
+        loginMember : '',
         requestBody: this.$route.query,
         free_id: this.$route.query.free_id,
         member_id : '',
@@ -35,12 +36,17 @@
     mounted() {
       this.fnGetView()
     },
+    created() {
+      this.getSession();
+    },
     methods: {
       fnGetView() {
         if (this.free_id !== undefined) { // 상세보기 -> 수정
-          this.$axios.get(this.$serverUrl + '/Eclass/lecture/board/' + this.free_id, {
+          this.$axios.get(this.$serverUrl + '/eclass/lecture/board/' + this.free_id, {
             params: this.requestBody
           }).then((res) => {
+            console.log(res.data)
+            this.free_id = res.data.freeboard.free_id
             this.free_title = res.data.freeboard.free_title
             this.name = res.data.freeboard.name
             this.member_id = res.data.freeboard.member_id
@@ -66,7 +72,7 @@
         })
       },
       fnSave() {
-        let apiUrl = this.$serverUrl + '/Eclass/lecture/board'
+        let apiUrl = this.$serverUrl + '/eclass/lecture/board'
         this.form = {
           "free_id": this.free_id,
           "free_title": this.free_title,
@@ -88,14 +94,31 @@
         } else {
           //UPDATE
           this.$axios.patch(apiUrl, this.form)
-          .then((res) => {
+          .then(() => {
             alert('글이 수정되었습니다.')
-            this.fnView(res.data.free_id)
+            this.fnView(this.free_id)
           }).catch((err) => {
             if (err.message.indexOf('Network Error') > -1) {
               alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
             }
           })
+        }
+      },
+      async getSession() {
+        try {
+          const response = await fetch("/sessionCheck");
+          if (response.status === 200) {
+            const data = await response.json();
+            console.log("Session data:", data);
+            this.loginMember = data;
+          } else {
+            console.error("Error fetching session data");
+          }
+        } catch (error) {
+          console.error("Error fetching session data:", error);
+        }
+        this.requestBody = { // 데이터 전송
+          member_id : this.member_id
         }
       }
     }

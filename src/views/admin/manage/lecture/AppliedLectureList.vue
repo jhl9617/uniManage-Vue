@@ -1,20 +1,20 @@
 <template>
     <div class="board-list">
-        강의개설 요청 관리
-        <table class="w3-table-all">
+        강의 개설 요청 관리
+        <table class="w3-table-all table-hover">
             <thead>
             <tr>
                 <th>No</th>
-                <th>학과명</th>
                 <th>과목명</th>
+                <th>학과명</th>
                 <th>교수명</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="(row, lecture_id) in list" :key="lecture_id">
                 <td>{{ row.lecture_id }}</td>
-                <td><a v-on:click="fnView(`${row.lecture_id}`)">{{ row.department_name }}</a></td>
-                <td>{{ row.lecture_title }}</td>
+                <td><a v-on:click="fnView(`${row.lecture_id}`)">{{ row.lecture_title }}</a></td>
+                <td>{{ row.department_name }}</td>
                 <td>{{ row.name }}</td>
             </tr>
             </tbody>
