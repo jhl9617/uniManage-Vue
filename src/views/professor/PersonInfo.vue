@@ -1,56 +1,56 @@
 <!-- PersonInfo.vue -->
 <template>
     <div>
+        <h1>개인정보 확인하기</h1>
+        <br><br>
+        <h3>개인정보 조회</h3>
         <table class="table table-bordered">
             <tr>
-                <th colspan="2">개인정보 조회</th>
-            </tr>
-            <tr>
                 <th style="width: 25%">소속</th>
-                <td>{{ member.department_id}}</td>
+                <td>{{ this.departmentName}}</td>
             </tr>
             <tr>
                 <th>생년원일</th>
-                <td>{{member.birthday}}</td>
+                <td>{{this.birthday}}</td>
             </tr>
             <tr>
                 <th>이름</th>
-                <td>{{ member.name }}</td>
+                <td>{{ this.name }}</td>
             </tr>
             <tr>
                 <th>E-Mail</th>
-                <td>{{ member.email }}</td>
+                <td>{{ this.email }}</td>
             </tr>
             <tr>
                 <th>학적상태</th>
                 <td>재직</td>
             </tr>
         </table>
-        <br>
+        <br><br><br>
+        <h3>개인정보 수정</h3>
         <table class="table table-bordered">
-            <tr>
-                <th colspan="2">개인정보 수정</th>
-            </tr>
             <tr>
                 <th>전화번호</th>
                 <td>
-                    <input type="tel" class="form-control" placeholder="{{ member.phone }}">
+                    <input type="text" class="form-control" v-model="phone">
                 </td>
             </tr>
             <tr>
                 <th>우편번호</th>
                 <td >
-                    <input type="text" class="form-control" placeholder="{{ member.postcode }}">
+                    <input type="text" class="form-control" v-model="postcode">
                 </td>
             </tr>
             <tr>
                 <th style="vertical-align: middle;">기본주소</th>
                 <td>
-                    <input type="text" class="form-control" placeholder="{{ member.address1 }}">
+                    <input type="text" class="form-control" v-model="address1">
                 </td>
+            </tr>
+            <tr>
                 <th style="vertical-align: middle;">상세주소</th>
                 <td>
-                    <input type="text" class="form-control" placeholder="{{ member.address2 }}">
+                    <input type="text" class="form-control" v-model="address2">
                 </td>
             </tr>
         </table>
@@ -59,44 +59,53 @@
     </div>
 </template>
 
+
+
 <script>
+
 export default {
     data() {
         return {
-            requestBody: this.$router.query,
-            member_id: this.$router.query.member_id,
+            requestBody: null,
+            member_idx: '',
+            memberId: null,
             birthday: '',
             name: '',
             email: '',
             phone: '',
             postcode: '',
             address1: '',
-            address2: ''
+            address2: '',
+            department_id: '',
+            departmentName: '',
         }
     },
     mounted() {
         this.fnView()
     },
     methods: {
-        fnView() {
-            if (this.member_id !== undefined) {
-                this.$axios.get(this.$serverUrl + '/prof/main', {
-                    params: this.requestBody
-                }).then((res) => {
-                    this.member_id = res.data.member_id
-                    this.birthday = res.birthday
-                    this.name = res.name
-                    this.postcode = res.postcode
-                    this.address1 = res.address1
-                    this.address2 = res.address2
-                    this.phone = res.phone
-                }).catch((err) => {
-                    console.log(err)
-                })
+        async fnView() {
+            const response = await fetch("/prof/info");
+            if(response.ok) {
+                const data = await response.json();
+                this.member_idx = data.member_idx;
+                this.memberId = data.memberId;
+                this.birthday = data.birthday;
+                this.name = data.name;
+                this.email = data.email;
+                this.phone = data.phone;
+                this.postcode = data.postcode;
+                this.address1 = data.address1;
+                this.address2 = data.address2;
+                this.department_id = data.department_id;
+                this.departmentName = data.department_name;
+                console.log(data);
+            } else {
+                console.log("HTTP-Error: " + response.status);
             }
         },
 
-        //교수 메인페이지로 이동하기(이거 delect가 맞을까요?)
+        //교수 개인정보 페이지로 이동하기
         fnMain(){
         delete this.requestBody.member_id
         this.$router.push({
@@ -107,7 +116,7 @@ export default {
 
         //개인정보(우편번호, 기본주소, 상세주소, 전화번호) 수정하기
         fnSave() {
-            let apiUrl = this.$serverUrl + '/prof/info'
+            let apiUrl = '/prof/info'
             this.form = {
                 "phone": this.phone,
                 "postcode": this.postcode,
@@ -138,7 +147,7 @@ export default {
         }
     }
 }
-</script>
+</script>npm
 
 <style>
 td {
