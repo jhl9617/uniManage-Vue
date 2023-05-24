@@ -76,7 +76,6 @@ export default {
             size: this.$route.query.size ? this.$route.query.size : 10,
             search_key: this.$route.query.sk ? this.$route.query.sk : '',
             search_value: this.$route.query.sv ? this.$route.query.sv : '',
-            // keyword: this.$route.query.keyword,
             paginavigation: function () { //페이징 처리 for문 커스텀
                 let pageNumber = [] //;
                 let start_page = this.paging.start_page;
@@ -139,34 +138,5 @@ export default {
             this.fnGetList()
         }
     }
-    // fnGetList() {
-
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]
-    // }
-    // }
 }
 </script>

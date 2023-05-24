@@ -38,9 +38,6 @@
                 <fieldset>
                     <legend>공지사항 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button v-on:click="fnNoticeList(notice_id)" class="btn btn-outline-dark" type="button">전체보기</button>
-<!--                        <router-link to="/student/notice">-->
-<!--                            <button class="btn btn-outline-dark" type="button">전체보기</button>-->
-<!--                        </router-link>-->
                     </legend>
 
                     <table class="w3-table-all">
@@ -60,9 +57,7 @@
             <div class="col-md-6">
                 <fieldset>
                     <legend>학사일정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <router-link to="/Eclass/board/list">
-                            <button class="btn btn-outline-dark" type="button">전체보기</button>
-                        </router-link>
+                        <button v-on:click="fnScheList(sche_id)" class="btn btn-outline-dark" type="button">전체보기</button>
                     </legend>
 
                     <table class="w3-table-all">
@@ -146,10 +141,10 @@ export default {
                 query: this.requestBody
             })
         },
-        fnSche(sche_id){
-            this.requestBody.sche_id = sche_id
+        fnScheList(sche_id){
+            this.sche_id = sche_id
             this.$router.push({
-                path: '/student/schedule/detail',
+                path: '/student/schedule',
                 query: this.requestBody
             })
         },

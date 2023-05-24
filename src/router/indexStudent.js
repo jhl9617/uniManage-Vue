@@ -31,7 +31,10 @@ import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseLi
 import StudentInfoMain from "@/views/student/studentInfoSystem/common/StudentInfoMain.vue";
 import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
 import StudentNoticeList from "@/views/student/studentInfoSystem/notice/NoticeList.vue";
+import StudentScheduleList from "@/views/student/studentInfoSystem/notice/ScheduleList.vue";
 import StudentNoticeDetail from "@/views/student/studentInfoSystem/notice/NoticeDetail.vue";
+import StudentTakeoffAppliedView from "@/views/student/studentInfoSystem/status/TakeoffAppliedView.vue";
+import StudentReturnAppliedView from "@/views/student/studentInfoSystem/status/ReturnAppliedView.vue";
 
 const routesStudent = [
 
@@ -208,6 +211,21 @@ const routesStudent = [
         path: '/student/notice/detail',
         name: 'StudentNoticeDetail',
         component: StudentNoticeDetail
+    },
+    {
+        path: '/student/schedule',
+        name: 'StudentScheduleList',
+        component: StudentScheduleList
+    },
+    {
+        path: '/student/takeoff/detail',
+        name: 'StudentTakeoffAppliedView',
+        component: StudentTakeoffAppliedView
+    },
+    {
+        path: '/student/return/detail',
+        name: 'StudentReturnAppliedView',
+        component: StudentReturnAppliedView
     },
 ]
 

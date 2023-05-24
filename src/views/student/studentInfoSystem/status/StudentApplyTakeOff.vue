@@ -10,47 +10,31 @@
             <td v-if="loginMember">{{ loginMember.grade }}학년</td>
             <th>학부(과)</th>
             <td v-if="loginMember">{{ loginMember.department_name }}</td>
-            <!--            <th width="100">학적상태</th>-->
-            <!--            <td v-if="loginMember">{{loginMember.auth }}</td>-->
         </tr>
-        <!--        <tr align="left">-->
-        <!--            <th>학년</th>-->
-        <!--            <td v-if="loginMember">{{ loginMember.grade }}</td>-->
-        <!--            <th>이수학기</th>-->
-        <!--            <td v-if="loginMember"></td>-->
-        <!--            <th>학부(과)</th>-->
-        <!--            <td colspan="3"></td>-->
-        <!--        </tr>-->
     </table>
     <br><br>
     <div class="orderInfo">
-        <form role="form" method="post" autocomplete="off">
-
-            <input type="hidden" name="amount" value="${sum}" />
-
-            <div>
-                <label for="start_date">휴학신청날짜</label> <input type="date" name="start_date" id="start_date">
-            </div>
-            <br>
-            <div>
-                <label for="end_date">휴학끝날짜</label> <input type="date" name="end_date" id="end_date">
-            </div>
-            <br>
-            <div>
-                <label for="classify">휴학분류</label>&nbsp;
-                <select>
-                <option value="">- 선택 -</option>
-                <option value="author">일반휴학</option>
-                <option value="title">군휴학</option>
-                </select>
-            </div>
-
-            <br>
-            <div class="inputArea">
-                <input type="submit" value="제출">
-            </div>
-
-        </form>
+        <table align="center" class="table table-bordered">
+            <tr>
+                <th width="100">휴학신청날짜</th>
+                <td>
+                    <input type="date" v-model="start_date" class="w3-input w3-border">
+                </td>
+            </tr>
+            <tr>
+                <th width="100">휴학끝날짜</th>
+                <td>
+                    <input type="date" v-model="end_date" class="w3-input w3-border">
+                </td>
+            </tr>
+            <tr>
+                <th width="100">사유</th>
+                <td>
+                    <input type="text" v-model="reason_of_leave" class="w3-input w3-border" placeholder="사유를 입력해주세요.">
+                </td>
+            </tr>
+        </table>
+        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
     </div>
 </template>
 
@@ -58,10 +42,37 @@
 export default {
     data() {
         return {
+            requestBody: this.$route.query,
+            status_id: this.$route.query.status_id,
+
+            member_id:'',
+            start_date:'',
+            end_date:'',
+            reason_of_leave:'',
+
             loginMember: null,
-        };
+        }
+    },
+    mounted() {
+        this.fnGetView()
     },
     methods: {
+        fnGetView() {
+            if (this.status_id !== undefined) {
+                this.$axios.get(this.$serverUrl + '/takeoff/' + this.status_id, {
+                    params: this.requestBody
+                }).then((res) => {
+                    this.status_id = res.data.status_id
+                    this.member_id = res.data.member_id
+                    this.start_date = res.data.start_date
+                    this.end_date = res.data.end_date
+                    this.reason_of_leave = res.data.reason_of_leave
+
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }
+        },
         async getSession() {
             try {
                 const response = await fetch("/sessionCheck");
@@ -75,6 +86,48 @@ export default {
             } catch (error) {
                 console.error("Error fetching session data:", error);
             }
+        },
+        fnView(status_id) {
+            this.requestBody.status_id = status_id
+            this.$router.push({
+                path: './takeoff/detail',
+                query: this.requestBody
+            })
+        },
+        fnSave() {
+            let apiUrl = this.$serverUrl + '/student/takeoff'
+            this.form = {
+                "status_id": this.status_id,
+                "member_id": this.loginMember.member_id,
+                "start_date": this.start_date,
+                "end_date": this.end_date,
+                "reason_of_leave": this.reason_of_leave,
+            }
+
+            if (this.status_id === undefined) {
+                //INSERT
+                this.$axios.post(apiUrl, this.form)
+                    .then((res) => {
+                        alert('휴학이 신청되었습니다.')
+                        this.fnView(res.data.status_id)
+                    }).catch((err) => {
+                    if (err.message.indexOf('Network Error') > -1) {
+                        alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                    }
+                })
+            }
+            // else {
+            //     //UPDATE
+            //     this.$axios.patch(apiUrl, this.form)
+            //         .then((res) => {
+            //             alert('글이 저장되었습니다.')
+            //             this.fnView(res.data.status_id)
+            //         }).catch((err) => {
+            //         if (err.message.indexOf('Network Error') > -1) {
+            //             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+            //         }
+            //     })
+            // }
         },
     },
     created() {
