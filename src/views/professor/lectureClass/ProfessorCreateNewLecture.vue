@@ -11,9 +11,9 @@
         <td colspan="4">
           <select id="" class="form-control" name="">
             <option selected value="">선택</option>
-            <option value="">1학점</option>
-            <option value="">2학점</option>
-            <option value="">3학점</option>
+            <option value="1">1학점</option>
+            <option value="2">2학점</option>
+            <option value="3">3학점</option>
           </select>
         </td>
       </tr>
@@ -25,7 +25,7 @@
         <td style="width: 8%">
           <button class="btn" @click="openModal(1)">조회</button>
           <div v-if="modalOpen[1]">
-            <ModalComponent @close="closeModal(1)">
+            <ModalComponent @selectLectureRoom="handleSelectedLecture1" @close="closeModal(1)">
               <LectureRoom :room="lectureRoom1" :time="lectureTime1"></LectureRoom>
             </ModalComponent>
           </div>
@@ -39,7 +39,7 @@
         <td>
           <button class="btn" @click="openModal(2)">조회</button>
           <div v-if="modalOpen[2]">
-            <ModalComponent @close="closeModal(2)">
+            <ModalComponent @selectLectureRoom="handleSelectedLecture2" @close="closeModal(2)">
               <LectureRoom :room="lectureRoom2" :time="lectureTime2"></LectureRoom>
             </ModalComponent>
           </div>
@@ -53,7 +53,7 @@
         <td>
           <button class="btn" @click="openModal(3)">조회</button>
           <div v-if="modalOpen[3]">
-            <ModalComponent @close="closeModal(3)">
+            <ModalComponent @selectLectureRoom="handleSelectedLecture3" @close="closeModal(3)">
               <LectureRoom :room="lectureRoom3" :time="lectureTime3"></LectureRoom>
             </ModalComponent>
           </div>
@@ -101,7 +101,27 @@ export default {
     },
     closeModal(index) {
       this.modalOpen[index] = false;
-    }
+    },
+    handleSelectedLecture1(selectedData) {
+      console.log("receive selectedData:", selectedData);
+
+      this.lectureRoom1 = selectedData.lecture_room_code;
+      this.lectureTime1 = selectedData.timecode;
+    },
+
+    handleSelectedLecture2(selectedData) {
+      console.log("receive selectedData:", selectedData);
+
+      this.lectureRoom2 = selectedData.lecture_room_code;
+      this.lectureTime2 = selectedData.timecode;
+    },
+
+    handleSelectedLecture3(selectedData) {
+      console.log("receive selectedData:", selectedData);
+
+      this.lectureRoom3 = selectedData.lecture_room_code;
+      this.lectureTime3 = selectedData.timecode;
+    },
   }
 }
 </script>
@@ -124,7 +144,8 @@ export default {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
+  text-align: center;
+  top: -300px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -135,6 +156,6 @@ export default {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
-  max-width: 600px;
+  max-width: 800px;
 }
 </style>
