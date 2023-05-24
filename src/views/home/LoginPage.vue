@@ -65,6 +65,7 @@ export default {
                 console.log("Logged in with ID:", this.member_id);
                 this.$router.push(path);
             } else {
+                alert('ID 또는 비밀번호가 일치하지 않습니다.')
                 console.error("Error logging in");
             }
         },

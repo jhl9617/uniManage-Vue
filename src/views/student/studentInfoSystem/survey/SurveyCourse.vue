@@ -7,7 +7,7 @@
   </div>
   <div align="left" style="border:1px solid black; padding:10px;">
     <select id="lectureTitle" v-model="lecture_id" >
-      <option selected disabled hidden>수강중인 강의를 선택하세요</option>
+      <option value="">수강중인 강의를 선택하세요</option>
       <option v-for="lecture in list" :value="lecture.lecture_id" :key="lecture.id">
         {{ lecture.lecture_title }}
       </option>
@@ -140,7 +140,7 @@ export default {
       }).then((res) => { //success
 
         this.list = res.data
-        this.lecture_id = res.data.lecture_id
+
         console.log(this.list);
       }).catch((err) => { // error
         if (err.message.indexOf('Network Error') > -1) {

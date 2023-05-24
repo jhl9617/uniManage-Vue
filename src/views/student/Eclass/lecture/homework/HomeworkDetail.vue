@@ -5,7 +5,7 @@
         <div>
           <strong class="w3-large">{{ homework_content }}</strong>
           <br>
-          <span>{{ deadline }}</span>
+          <span>마감 기한 : {{ deadline }}</span>
         </div>
       </div>
 

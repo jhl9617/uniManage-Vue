@@ -9,7 +9,7 @@
             <tr>
                 <th>No</th>
                 <th>과제제목</th>
-                <th>마감일</th>
+                <th>마감기한</th>
                 <th>제출확인</th>
             </tr>
             </thead>

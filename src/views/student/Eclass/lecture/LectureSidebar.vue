@@ -2,7 +2,7 @@
 <template>
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
         <li>&nbsp;</li>
-        <li>&nbsp;</li>
+        <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
         <li class="nav-item active">
             <a class="nav-link" v-on:click="fnEclass">
                 <span>학생정보시스템</span>
@@ -27,7 +27,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#lectureinfo-collapse"
                aria-expanded="true" aria-controls="info-collapse">
-                <span>강의정보</span>
+                <span>강의 정보</span>
             </a>
             <div id="lectureinfo-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -38,11 +38,11 @@
             </div>
         </li>
 
-        <!-- 과제제출 -->
+        <!-- 과제관리 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#homework-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <span>과제제출</span>
+                <span>과제 관리</span>
             </a>
             <div id="homework-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -63,22 +63,22 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a v-on:click="fnNotice(lecture_id)"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">공지사항 조회
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의 공지사항 조회
                     </a>
                 </div>
             </div>
         </li>
 
-        <!-- 강의자료실 -->
+        <!-- 강의 자료실 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#source-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <span>강의자료실</span>
+                <span>강의 자료실</span>
             </a>
             <div id="source-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a v-on:click="fnSource(lecture_id)"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의자료실
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의자료 조회
                     </a>
                 </div>
             </div>
@@ -88,7 +88,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#board-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <span>자유게시판</span>
+                <span>게시판</span>
             </a>
             <div id="board-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -231,6 +231,21 @@ export default {
         console.error("Error fetching session data:", error);
       }
     },
+    logout() {
+      this.$axios.post('/logout')
+          .then(response => {
+            console.log(response)
+            alert('로그아웃 되었습니다.')
+            this.$router.push({
+              path: '/'
+
+            })
+          })
+          .catch(error => {
+            alert('로그아웃에 실패했습니다.')
+            console.error(error);
+          });
+    }
 
   }
 }

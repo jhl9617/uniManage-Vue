@@ -26,8 +26,8 @@
           <td>{{ row.created_date}} </td> <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete(row.free_rep_id)">삭제</button>
         </tr>
         </tbody>
-      </table>
-          <hr><hr>
+      </table><hr><br><br>
+
 
             <div class="reply-contents">
                 {{loginMember.name}}
@@ -56,14 +56,15 @@
         requestBody: this.$route.query,
         free_id: this.$route.query.free_id,
         list : [],
-        loginMember : '',
+        loginMember : null,
 
 
       }
     },
     mounted() { // document.ready, window.onload와 같은 형태
-      console.log(this.requestBody)
-      this.fnGetView()
+
+      this.fnGetView();
+
     },
     created() {
       this.getSession();
@@ -73,9 +74,7 @@
         this.$axios.get(this.$serverUrl + '/eclass/lecture/board/' + this.free_id, {
           params: this.requestBody
         }).then((res) => { //success
-            console.log(res.data);
-            console.log(res.data.freeboard); // Check the freeboard object in the response
-            console.log(res.data.freeboard_reps); // Check the freeboardReps array in the response
+          console.log(this.requestBody)
           this.free_title = res.data.freeboard.free_title
           this.name = res.data.freeboard.name
           this.free_content = res.data.freeboard.free_content
@@ -101,7 +100,7 @@
                 "free_rep_id": this.free_rep_id,
                 "free_rep_content": this.free_rep_content,
                 "free_id": this.free_id,
-                "member_id": this.member_id
+                "member_id": this.loginMember.member_id
             }
 
             if (this.free_id !== undefined) {
@@ -136,9 +135,7 @@
         } catch (error) {
           console.error("Error fetching session data:", error);
         }
-        this.requestBody = { // 데이터 전송
-          member_id : this.member_id
-        }
+
       },
         fnDelete(id) {
             let apiUrl = this.$serverUrl + '/eclass/lecture/board/' + this.free_id

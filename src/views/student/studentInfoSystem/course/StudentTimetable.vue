@@ -4,7 +4,7 @@
     <tr align="left">
         <th width="100">년도</th>
         <td width="200">
-            <select>
+            <select v-model="year" >
                 <option value="">- 선택 -</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
@@ -13,7 +13,7 @@
         </td>
         <th width="100">학기</th>
         <td width="200">
-            <select>
+            <select v-model="semester">
                 <option value="">- 선택 -</option>
                 <option value="01">1학기</option>
                 <option value="02">2학기</option>
@@ -65,11 +65,14 @@ export default {
       requestBody: {},
       list: [],
       lecture_id: '',
-      course_regi_term : ''
+      course_regi_term : this.year + this.semester,
+      year : '',
+      semester : ''
+
     }
   },
   mounted() { // document.ready, window.onload와 같은 형태
-
+  this.fnGetView()
   },
 
   created() {
@@ -77,23 +80,22 @@ export default {
   },
   methods: {
     fnGetView() {
+      this.course_regi_term = this.year + this.semester;
+      this.requestBody.course_regi_term = this.course_regi_term;
 
-      this.$axios.get(this.$serverUrl + '/student/studenttimetable/' + + this.member_id + this.course_regi_term, {
+      this.$axios.get(this.$serverUrl + '/student/studenttimetable/' + this.member_id, {
         params: this.requestBody
-      }).then((res) => { //success
-
-        this.list = res.data
-        this.lecture_id = res.data.lecture_id
+      }).then((res) => {
+        this.list = res.data;
+        this.lecture_id = res.data.lecture_id;
         console.log(this.list);
-      }).catch((err) => { // error
+      }).catch((err) => {
         if (err.message.indexOf('Network Error') > -1) {
-          alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+          alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
         }
-      })
-      this.requestBody = { // 데이터 전송
-        lecture_id: this.lecture_id
-      }
+      });
     },
+
 
     fnView(course_regi_term) {
       this.requestBody.course_regi_term = course_regi_term

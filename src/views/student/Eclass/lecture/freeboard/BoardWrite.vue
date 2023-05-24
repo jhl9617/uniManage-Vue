@@ -49,7 +49,7 @@
             this.free_id = res.data.freeboard.free_id
             this.free_title = res.data.freeboard.free_title
             this.name = res.data.freeboard.name
-            this.member_id = res.data.freeboard.member_id
+
             this.free_content = res.data.freeboard.free_content
             this.created_date = res.data.freeboard.created_date
           }).catch((err) => {
