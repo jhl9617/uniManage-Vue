@@ -11,8 +11,6 @@
                 <td v-if="loginMember">{{ loginMember.grade }}학년</td>
                 <th>학부(과)</th>
                 <td v-if="loginMember">{{ loginMember.department_name }}</td>
-                <!--            <th width="100">학적상태</th>-->
-                <!--            <td v-if="loginMember">{{loginMember.auth }}</td>-->
             </tr>
         </table>
         <br><br>

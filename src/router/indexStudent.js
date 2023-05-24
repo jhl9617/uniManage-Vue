@@ -21,8 +21,6 @@ import StudentApplyReturn from "@/views/student/studentInfoSystem/status/Student
 import StudentTimelineByDepart from "@/views/student/studentInfoSystem/course/TimelineByDepart.vue";
 import StudentTimetable from "@/views/student/studentInfoSystem/course/StudentTimetable.vue";
 import StudentCheckCourse from "@/views/student/studentInfoSystem/course/CheckCourse.vue";
-import StudentPayReceipt from "@/views/student/studentInfoSystem/receipt/PayReceipt.vue";
-import StudentPrintReceipt from "@/views/student/studentInfoSystem/receipt/PrintReceipt.vue";
 import StudentSurveyCourse from "@/views/student/studentInfoSystem/survey/SurveyCourse.vue";
 import StudentCheckCredit from "@/views/student/studentInfoSystem/score/CheckCredit.vue";
 import StudentCheckGrade from "@/views/student/studentInfoSystem/score/StudentCheckGrade.vue";
@@ -157,22 +155,6 @@ const routesStudent = [
         component: StudentCheckCourse
     },
     {
-        path: '/student/payreceipt',
-        name: 'StudentPayReceipt',
-        component: StudentPayReceipt
-    },
-    {
-        path: '/student/printreceipt',
-        name: 'StudentPrintReceipt',
-        component: StudentPrintReceipt
-    },
-    {
-        path: '/student/printreceipt',
-        name: 'StudentPrintReceipt',
-        component: StudentPrintReceipt
-
-    },
-    {
         path: '/student/checkcredit',
         name: 'StudentCheckCredit',
         component: StudentCheckCredit
@@ -188,7 +170,7 @@ const routesStudent = [
         component: StudentSurveyCourse
     },
     {
-        path: '/student/checkscholarship',
+        path: '/student/scholarship',
         name: 'StudentCheckScholarship',
         component: StudentCheckScholarship
     },

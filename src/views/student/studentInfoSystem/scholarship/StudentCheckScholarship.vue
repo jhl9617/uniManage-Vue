@@ -16,11 +16,14 @@
     <table class="table table-bordered" align="center" width="505">
         <tr>
             <th>년도</th>
-            <th>학기</th>
             <th>장학금명</th>
             <th>장학금액</th>
         </tr>
-
+        <tr v-for="(row, index) in list" :key="index">
+            <td>{{ row.scho_term }}</td>
+            <td>{{ row.scho_name }}</td>
+            <td>{{ row.amount }}</td>
+        </tr>
     </table>
 
 </template>
@@ -29,10 +32,33 @@
 export default {
     data(){
         return {
+            member_id : this.$route.query.member_id ? this.$route.query.member_id : '',
             loginMember : null,
+            requestBody: {},
+            list: [],
         };
     },
+    mounted() { // document.ready, window.onload와 같은 형태
+        this.fnGetView()
+
+    },
     methods: {
+        fnGetView() {
+
+            this.$axios.get(this.$serverUrl + '/student/scholarship/' + this.member_id , {
+                params : this.requestBody
+            }).
+            then((res) => { //success
+
+                this.list = res.data.data
+                this.scho_id = res.data.scho_id
+                console.log(this.list);
+            }).catch((err) => { // error
+                if (err.message.indexOf('Network Error') > -1) {
+                    alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                }
+            })
+        },
         async getSession() {
             try {
                 const response = await fetch("/sessionCheck");

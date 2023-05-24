@@ -46,9 +46,12 @@
                          <span>복학신청</span>
                     </router-link>
                     <br>
-                    <router-link to="/student/checkscholarship" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                         <span>장학수혜내역조회</span>
-                    </router-link>
+                    <a v-on:click="fnScho" style="cursor: pointer;">
+                        <span>장학수혜내역조회</span>
+                    </a>
+<!--                    <router-link to="/student/scholarship" class="link-body-emphasis d-inline-flex text-decoration-none rounded">-->
+<!--                         <span>장학수혜내역조회</span>-->
+<!--                    </router-link>-->
                 </div>
             </div>
         </li>
@@ -69,25 +72,6 @@
                     </router-link>
                     <router-link to="/student/checkcourse"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회
-                    </router-link>
-                </div>
-            </div>
-        </li>
-
-        <!-- 등록 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#lecture-collapse"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <span>등록</span>
-            </a>
-            <div id="lecture-collapse" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/student/payreceipt"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">등록금납입증명서
-                    </router-link>
-                    <router-link to="/student/printreceipt"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">등록금고지서출력
                     </router-link>
                 </div>
             </div>
@@ -154,6 +138,17 @@ export default {
         });
       }
     },
+      fnScho() {
+          if (this.loginMember) {
+              this.requestBody = {
+                  member_id: this.loginMember.member_id
+              };
+              this.$router.push({
+                  path: '/student/scholarship',
+                  query: this.requestBody
+              });
+          }
+      },
     async getSession() {
       try {
         const response = await fetch("/sessionCheck");
