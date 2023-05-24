@@ -8,19 +8,16 @@
                     <th style="width: 30%">강의명</th>
                     <td>
                         <select>
-                            <option value="">강의과목1</option>
-                            <option value="">강의과목2</option>
-                            <option value="">강의과목3</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <th style="width: 30%">작성자</th>
-                    <td>교수 홍길동</td>
+                    <td v-if="loginMember === 4">{{loginMember.name}} 교수님</td>
                 </tr>
                 <tr>
-                    <th>휴강차시</th>
-                    <td>3회차</td>
+                    <th><label for ="ATTENDANCE_DAY"></label>휴강차시</th>
+                    <td><input type="number" id="attendanceDay" name="attendanceDay"> 회차</td>
                 </tr>
                 <tr>
                     <th>보강일시</th>
@@ -88,8 +85,14 @@
         </div>
     </div>
 </template>
+
 <script>
+
+
 </script>
+
+
+
 <style>
 #closewrite tr td {
     text-align: left;

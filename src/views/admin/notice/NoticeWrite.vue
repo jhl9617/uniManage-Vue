@@ -1,52 +1,19 @@
 <template>
-    <h6>공지사항 발송</h6>
+    <h6>공지사항 작성</h6>
     <table class="table table-bordered" align="center">
-        <form @submit.prevent="submitForm">
         <tr style="border: solid 1px ;">
             <th style="border: solid 1px ;">제목</th>
             <td style="border: 1px solid;">
-                <input type="text" name="text" v-model="noticeTitle" size="20" style="width:100%;">
+                <input type="text" name="text" v-model="notice_title" size="20" style="width:100%;">
             </td>
         </tr>
         <tr style="border: solid 1px ;">
             <th style="border: solid 1px ;">내용</th>
             <td style="border: 1px solid;">
-                <textarea name="content" v-model="noticeContent" rows="10" style="width:100%;"></textarea>
+                <textarea name="content" v-model="notice_content" rows="10" style="width:100%;"></textarea>
             </td>
         </tr>
-        <tr style="border: solid 1px ;">
-            <th style="border: solid 1px ;">보낼사람</th>
-            <td style="border: 1px solid;">
-                <input type="radio" name="chk_info">전체 &nbsp;
-                <input type="radio" name="chk_info">이메일 &nbsp;
-                <input type="radio" name="chk_info">SMS &nbsp;
-            </td>
-        </tr>
-        <tr style="border: solid 1px ;">
-            <th style="border: solid 1px ;">소속</th>
-            <td style="border: 1px solid;">
-                <input type="radio" name="chk_info">전체 &nbsp;
-                <select>
-                    <option value="">- 선택 -</option>
-                    <option value="">인문계</option>
-                    <option value="">이공계</option>
-                </select>
-            </td>
-        </tr>
-        <tr style="border: solid 1px ;">
-            <th style="border: solid 1px ;">전송수단</th>
-            <td style="border: 1px solid;">
-                <input type="radio" name="chk_info">전체 &nbsp;
-                <input type="radio" name="chk_info">이메일 &nbsp;
-                <input type="radio" name="chk_info">SMS &nbsp;
-            </td>
-        </tr>
-
-    <div>
-            <button type="button">전송</button>&nbsp;&nbsp;
-            <button type="button">전송취소</button>
-    </div>
-    </form>
+        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
     </table>
 </template>
 
@@ -55,12 +22,16 @@ export default {
     data() { //변수생성
         return {
             requestBody: this.$route.query,
-            idx: this.$route.query.idx,
+            notice_id: this.$route.query.notice_id,
 
-            title: '',
-            author: '',
-            contents: '',
-            created_at: ''
+            notice_title: '',
+            notice_content: '',
+            member_id: '',
+            created_date:'',
+            readcount:'',
+
+            loginMember: null,
+
         }
     },
     mounted() {
@@ -68,48 +39,50 @@ export default {
     },
     methods: {
         fnGetView() {
-            if (this.idx !== undefined) {
-                this.$axios.get(this.$serverUrl + '/board/' + this.idx, {
+            if (this.notice_id !== undefined) {
+                this.$axios.get(this.$serverUrl + '/admin/notice/' + this.notice_id, {
                     params: this.requestBody
                 }).then((res) => {
-                    this.title = res.data.title
-                    this.author = res.data.author
-                    this.contents = res.data.contents
-                    this.created_at = res.data.created_at
+                    this.notice_id = res.data.notice_id
+                    this.notice_title = res.data.notice_title
+                    this.notice_content = res.data.notice_content
+                    this.member_id = res.data.member_id
+                    this.created_date = res.data.created_date
+                    this.readcount = res.data.readcount
                 }).catch((err) => {
                     console.log(err)
                 })
             }
         },
         fnList() {
-            delete this.requestBody.idx
+            delete this.requestBody.notice_id
             this.$router.push({
-                path: './list', //  board/list
+                path: './list',
                 query: this.requestBody
             })
         },
-        fnView(idx) {
-            this.requestBody.idx = idx
+        fnView(notice_id) {
+            this.requestBody.notice_id = notice_id
             this.$router.push({
-                path: './detail',
+                path: './view',
                 query: this.requestBody
             })
         },
         fnSave() {
-            let apiUrl = this.$serverUrl + '/board'
+            let apiUrl = this.$serverUrl + '/admin/notice'
             this.form = {
-                "idx": this.idx,
-                "title": this.title,
-                "contents": this.contents,
-                "author": this.author
-            }//asd
+                "notice_id": this.notice_id,
+                "notice_title": this.notice_title,
+                "notice_content": this.notice_content,
+                "member_id": this.loginMember.member_id,
+            }
 
-            if (this.idx === undefined) {
+            if (this.notice_id === undefined) {
                 //INSERT
                 this.$axios.post(apiUrl, this.form)
                     .then((res) => {
                         alert('글이 저장되었습니다.')
-                        this.fnView(res.data.idx)
+                        this.fnView(res.data.notice_id)
                     }).catch((err) => {
                     if (err.message.indexOf('Network Error') > -1) {
                         alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
@@ -120,15 +93,32 @@ export default {
                 this.$axios.patch(apiUrl, this.form)
                     .then((res) => {
                         alert('글이 저장되었습니다.')
-                        this.fnView(res.data.idx)
+                        this.fnView(res.data.notice_id)
                     }).catch((err) => {
                     if (err.message.indexOf('Network Error') > -1) {
                         alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                     }
                 })
             }
-        }
-    }
+        },  async getSession() {
+            try {
+                const response = await fetch("/sessionCheck");
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log("Session data:", data);
+                    this.loginMember = data;
+                } else {
+                    console.error("Error fetching session data");
+                }
+            } catch (error) {
+                console.error("Error fetching session data:", error);
+            }
+        },
+    },
+    created() {
+        this.getSession();
+    },
+
 }
 </script>
 <style scoped>

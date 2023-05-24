@@ -4,6 +4,7 @@ import LectureMain from "@/views/student/Eclass/lecture/LectureMain.vue";
 import LectureBoardList from '@/views/student/Eclass/lecture/freeboard/BoardList.vue'
 import LectureBoardDetail from '@/views/student/Eclass/lecture/freeboard/BoardDetail.vue'
 import LectureBoardWrite from '@/views/student/Eclass/lecture/freeboard/BoardWrite.vue'
+
 import LectureSourceList from "@/views/student/Eclass/lecture/source/SourceList.vue";
 import LectureSourceDetail from "@/views/student/Eclass/lecture/source/SourceDetail.vue";
 import LectureNoticeList from "@/views/student/Eclass/lecture/notice/NoticeList.vue";
@@ -14,22 +15,23 @@ import LectureHomeworkDetail from "@/views/student/Eclass/lecture/homework/Homew
 import LectureInfo from "@/views/student/Eclass/lecture/LectureInfo.vue";
 import EclassMain from "@/views/student/Eclass/common/EclassMain.vue";
 
-import StudentStatus from "@/views/student/studentInfoSystem/StudentStatus.vue";
-import StudentApplyTakeOff from "@/views/student/studentInfoSystem/StudentApplyTakeOff.vue";
-import StudentApplyReturn from "@/views/student/studentInfoSystem/StudentApplyReturn.vue";
-import StudentTimelineByDepart from "@/views/student/studentInfoSystem/TimelineByDepart.vue";
-import StudentTimetable from "@/views/student/studentInfoSystem/StudentTimetable.vue";
-import StudentCheckCourse from "@/views/student/studentInfoSystem/CheckCourse.vue";
-import StudentPayReceipt from "@/views/student/studentInfoSystem/PayReceipt.vue";
-import StudentPrintReceipt from "@/views/student/studentInfoSystem/PrintReceipt.vue";
-import StudentSurveyCourse from "@/views/student/studentInfoSystem/SurveyCourse.vue";
-import StudentCheckCredit from "@/views/student/studentInfoSystem/CheckCredit.vue";
-import StudentCheckGrade from "@/views/student/studentInfoSystem/StudentCheckGrade.vue";
-import StudentCheckScholarship from "@/views/student/studentInfoSystem/StudentCheckScholarship.vue";
+import StudentStatus from "@/views/student/studentInfoSystem/status/StudentStatus.vue";
+import StudentApplyTakeOff from "@/views/student/studentInfoSystem/status/StudentApplyTakeOff.vue";
+import StudentApplyReturn from "@/views/student/studentInfoSystem/status/StudentApplyReturn.vue";
+import StudentTimelineByDepart from "@/views/student/studentInfoSystem/course/TimelineByDepart.vue";
+import StudentTimetable from "@/views/student/studentInfoSystem/course/StudentTimetable.vue";
+import StudentCheckCourse from "@/views/student/studentInfoSystem/course/CheckCourse.vue";
+import StudentPayReceipt from "@/views/student/studentInfoSystem/receipt/PayReceipt.vue";
+import StudentPrintReceipt from "@/views/student/studentInfoSystem/receipt/PrintReceipt.vue";
+import StudentSurveyCourse from "@/views/student/studentInfoSystem/survey/SurveyCourse.vue";
+import StudentCheckCredit from "@/views/student/studentInfoSystem/score/CheckCredit.vue";
+import StudentCheckGrade from "@/views/student/studentInfoSystem/score/StudentCheckGrade.vue";
+import StudentCheckScholarship from "@/views/student/studentInfoSystem/scholarship/StudentCheckScholarship.vue";
 import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
-import StudentInfoMain from "@/views/student/studentInfoSystem/StudentInfoMain.vue";
+import StudentInfoMain from "@/views/student/studentInfoSystem/common/StudentInfoMain.vue";
 import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
-
+import StudentNoticeList from "@/views/student/studentInfoSystem/notice/NoticeList.vue";
+import StudentNoticeDetail from "@/views/student/studentInfoSystem/notice/NoticeDetail.vue";
 
 const routesStudent = [
 
@@ -43,7 +45,7 @@ const routesStudent = [
     },
     {
         //학생
-        path: '/student',
+        path: '/student/sugang',
         name: 'StudentMain',
         component: StudentMain
     },
@@ -60,13 +62,11 @@ const routesStudent = [
     },
 
     {
-
         path: '/eclass/lecture/board/list',
         name: 'LectureBoardList',
         component: LectureBoardList
     },
     {
-
         path: '/eclass/lecture/board/detail',
         name: 'LectureBoardDetail',
         component: LectureBoardDetail
@@ -112,7 +112,7 @@ const routesStudent = [
         component: LectureHomeworkDetail
     },
     {
-        path: '/eclass/lecute/homework/write',
+        path: '/eclass/lecture/homework/write',
         name: 'LectureHomeworkWrite',
         component: LectureHomeworkWrite
     },
@@ -195,11 +195,20 @@ const routesStudent = [
         component: StudentCourseList
     },
     {
-        path: '/student/studentinfomain',
+        path: '/student',
         name: 'StudentInfoMain',
         component: StudentInfoMain
     },
-
+    {
+        path: '/student/notice',
+        name: 'StudentNoticeList',
+        component: StudentNoticeList
+    },
+    {
+        path: '/student/notice/detail',
+        name: 'StudentNoticeDetail',
+        component: StudentNoticeDetail
+    },
 ]
 
 export default routesStudent

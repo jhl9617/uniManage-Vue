@@ -30,7 +30,7 @@
           <hr><hr>
 
             <div class="reply-contents">
-                /*{토큰. 이름}*/
+                {{loginMember.name}}
                 <hr>
         <textarea id="" cols="300" rows="10" v-model="free_rep_content" class="w3-input w3-border" style="resize: none;">
         </textarea>
@@ -56,21 +56,21 @@
         requestBody: this.$route.query,
         free_id: this.$route.query.free_id,
         list : [],
-        free_title: '',
-        name: '',
-        free_content: '',
-        created_date: '',
-        free_rep_id : '',
-        free_rep_content: ''
+        loginMember : '',
+
 
       }
     },
     mounted() { // document.ready, window.onload와 같은 형태
+      console.log(this.requestBody)
       this.fnGetView()
+    },
+    created() {
+      this.getSession();
     },
     methods: {
       fnGetView() {
-        this.$axios.get(this.$serverUrl + '/Eclass/board/' + this.free_id, {
+        this.$axios.get(this.$serverUrl + '/eclass/lecture/board/' + this.free_id, {
           params: this.requestBody
         }).then((res) => { //success
             console.log(res.data);
@@ -96,7 +96,7 @@
         })
       },
         fnSave() {
-            let apiUrl = this.$serverUrl + '/Eclass/board/' +  this.free_id
+            let apiUrl = this.$serverUrl + '/eclass/lecture/board/' +  this.free_id
             this.form = {
                 "free_rep_id": this.free_rep_id,
                 "free_rep_content": this.free_rep_content,
@@ -123,35 +123,25 @@
           query: this.requestBody
         })
       },
-      // fnDelete(id) {
-      //
-      //     let apiUrl = this.$serverUrl + '/Eclass/board/' +  this.free_id
-      //     this.form = {
-      //         "id": id,
-      //         "free_id" : this.free_id
-      //     }
-      //
-      //     if (id === undefined) {
-      //         if (!confirm("삭제하시겠습니까?")) return
-      //   this.$axios.delete(apiUrl, this.form.free_id).then(() => {
-      //         alert('글이 삭제되었습니다.')
-      //         this.fnList();
-      //       }).catch((err) => {
-      //     console.log(err);
-      //   })
-      // } else {
-      //         console.log(this.form.id);
-      //         if (!confirm("댓글을 삭제하시겠습니까?")) return
-      //         this.$axios.delete(apiUrl, this.form.id).then((res) => {
-      //             alert('댓글이 삭제되었습니다.')
-      //             this.fnGetView(res.data.free_id);
-      //         }).catch((err) => {
-      //             console.log(err);
-      //         })
-      //     }
-      // }
+      async getSession() {
+        try {
+          const response = await fetch("/sessionCheck");
+          if (response.status === 200) {
+            const data = await response.json();
+            console.log("Session data:", data);
+            this.loginMember = data;
+          } else {
+            console.error("Error fetching session data");
+          }
+        } catch (error) {
+          console.error("Error fetching session data:", error);
+        }
+        this.requestBody = { // 데이터 전송
+          member_id : this.member_id
+        }
+      },
         fnDelete(id) {
-            let apiUrl = this.$serverUrl + '/Eclass/board/' + this.free_id
+            let apiUrl = this.$serverUrl + '/eclass/lecture/board/' + this.free_id
             this.form = {
                 "id": id,
                 "free_id" : this.free_id

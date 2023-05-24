@@ -8,39 +8,18 @@
                 <tr>
                     <th>번호</th>
                     <th>강의명</th>
-                    <th>휴강일</th>
-                    <th>휴강시간</th>
-                    <th>보강일</th>
-                    <th>보강시간</th>
+                    <th>휴강회차</th>
+                    <th>보강일시</th>
                     <th>제출서류</th>
                     <th>승인여부</th>
-
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>공업미적분</td>
-                    <td>2023.04.28</td>
-                    <td>09:00~11:00</td>
-                    <td>2023.05.03</td>
-                    <td>15:00~17:00</td>
-                    <td></td>
-                    <td><select v-model="approved">
-                        <option disabled value="">- 선택 -</option>
-                        <option value="author" selected>승인</option>
-                        <option value="title">반려</option>
-                        <option value="contents">대기</option>
-                    </select></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>공업미적분</td>
-                    <td>2023.04.24</td>
-                    <td>14:00~16:00</td>
-                    <td>2023.04.26</td>
-                    <td>09:00~11:00</td>
-                    <td>◎</td>
+                <tr v-for="(row, cancelled_lecture_idx_seq) in list" :key="cancelled_lecture_idx_seq">
+                    <td>{{row.cancelled_lecture_idx_seq}}</td>
+                    <td><a v-on:click="fnList(`${row.cancelled_lecture_idx_seq}`)">{{row.lecture_id}}</a></td>
+                    <td>{{row.attendance_day}}</td>
+                    <td>{{row.supply_date}}</td>
                     <td><select v-model="approved">
                         <option disabled value="">- 선택 -</option>
                         <option value="author" selected>승인</option>
@@ -50,16 +29,3 @@
                 </tr>
                 </tbody>
             </table>
-
-        </div>
-    </div>
-</template>
-
-<script>
-export default {
-    name: "ProfessorCloseLecture.vue"
-}
-</script>
-
-<style scoped>
-</style>

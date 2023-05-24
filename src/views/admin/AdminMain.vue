@@ -11,10 +11,9 @@
                     </td>
                     <td>
                         <div class="mt-3">
-                            <h4 v-if="loginMember">교직원 :{{ loginMember.name}}</h4>
+                            <h4 v-if="loginMember">{{ loginMember.name}} 님</h4>
                             <div class="text-secondary mb-1" align="left">
-                                소속:<br>
-                                구분:<br>
+                                <h6 v-if="loginMember">소속 : {{ loginMember.department_name}}</h6>
                             </div>
                         </div>
                     </td>

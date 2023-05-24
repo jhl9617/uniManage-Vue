@@ -4,14 +4,14 @@
         <li>&nbsp;</li>
         <li>&nbsp;</li>
         <li class="nav-item active">
-            <router-link class="nav-link" to="/student/studentinfomain">
+            <a class="nav-link" v-on:click="fnEclass">
                 <span>학생정보시스템</span>
-            </router-link>
+            </a>
         </li>
         <li class="nav-item active">
-            <router-link class="nav-link" to="/eclass">
+            <a class="nav-link" v-on:click="fnEclass">
                 <span>E-Class</span>
-            </router-link>
+            </a>
         </li>
         <li>&nbsp;</li>
         <!-- Nav Item - Dashboard -->
@@ -31,7 +31,7 @@
             </a>
             <div id="lectureinfo-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a v-on:click="fnLectureInfo(`${lecture_id}`)">
+                  <a v-on:click="fnLectureInfo(lecture_id)">
                         강의정보 조회
                   </a>
                 </div>
@@ -46,9 +46,9 @@
             </a>
             <div id="homework-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/eclass/homework/list"
+                    <a v-on:click="fnHomework(lecture_id)"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">과제 목록
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -62,9 +62,9 @@
             <div id="notice-collapse" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/eclass/notice/list"
+                    <a v-on:click="fnNotice(lecture_id)"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">공지사항 조회
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -77,9 +77,9 @@
             </a>
             <div id="source-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/eclass/source/list"
+                    <a v-on:click="fnSource(lecture_id)"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의자료실
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -105,6 +105,7 @@
 export default {
   data() { //변수생성
     return {
+      loginMember: null,
       requestBody: this.$route.query,
       lecture_id : this.$route.query.lecture_id,
       member_id : '',
@@ -130,13 +131,17 @@ export default {
   mounted() { // document.ready, window.onload와 같은 형태
     this.fnGetView()
   },
+  created() {
+    this.getSession();
+  },
   methods: {
     fnGetView() {
 
       this.$axios.get(this.$serverUrl + '/eclass/lecture/' + this.lecture_id , {
         params: this.requestBody
       }).then((res) => { //success
-        console.log(res.data);
+        console.log(this.requestBody);
+        this.lecture = res.data.lecture_dto
         this.lecture_id = res.data.lecture_id
         this.member_id = res.data.member_id
         this.classification = res.data.classification
@@ -166,14 +171,6 @@ export default {
         lecture_id : this.lecture_id
       }
     },
-
-    fnLectureInfo(lecture_id) {
-      this.lecture_id = lecture_id
-      this.$router.push({
-        path: '/eclass/lecture/lectureinfo',
-        query: this.requestBody
-      })
-    },
     fnMain(lecture_id) {
       this.lecture_id = lecture_id
       this.$router.push({
@@ -181,6 +178,60 @@ export default {
         query: this.requestBody
       })
     },
+    fnLectureInfo(lecture_id) {
+      this.lecture_id = lecture_id
+      this.$router.push({
+        path: '/eclass/lecture/lectureinfo',
+        query: this.requestBody
+      })
+    },
+    fnHomework(lecture_id) {
+      this.lecture_id = lecture_id
+      this.$router.push({
+        path: '/eclass/lecture/homework/list',
+        query: this.requestBody
+      })
+    },
+    fnNotice(lecture_id) {
+      this.lecture_id = lecture_id
+      this.$router.push({
+        path: '/eclass/lecture/notice/list',
+        query: this.requestBody
+      })
+    },
+    fnSource(lecture_id) {
+      this.lecture_id = lecture_id
+      this.$router.push({
+        path: '/eclass/lecture/source/list',
+        query: this.requestBody
+      })
+    },
+    fnEclass() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/eclass',
+          query: this.requestBody
+        });
+      }
+    },
+    async getSession() {
+      try {
+        const response = await fetch("/sessionCheck");
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log("Session data:", data);
+          this.loginMember = data;
+        } else {
+          console.error("Error fetching session data");
+        }
+      } catch (error) {
+        console.error("Error fetching session data:", error);
+      }
+    },
+
   }
 }
 </script>

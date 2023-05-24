@@ -12,7 +12,7 @@
 <style scoped>
 .modal {
     width: 800px;
-    height: 700px;
+    height: 1000px;
     background-color: rgba(255, 255, 255, 0);
     display: flex;
     align-items: center;
