@@ -3,13 +3,13 @@
     <h5><b>강의실 조회</b></h5>
     <div>
       <select v-model="building_name">
-        <option disabled value="">건물명</option>
+        <option value="">건물명</option>
         <option value="공학관">공학관</option>
         <option value="과학관">과학관</option>
         <option value="인문사회관">인문사회관</option>
       </select>
       <select v-model="lecture_room_num">
-        <option disabled value="">강의실호수</option>
+        <option value="">강의실번호</option>
         <option value="101호">101호</option>
         <option value="102호">102호</option>
         <option value="103호">103호</option>
@@ -19,7 +19,7 @@
         <option value="203호">203호</option>
       </select>
       <select v-model="day_time">
-        <option disabled value="">요일</option>
+        <option value="">요일</option>
         <option value="월">월요일</option>
         <option value="화">화요일</option>
         <option value="수">수요일</option>
@@ -48,7 +48,10 @@
         <td>{{ row.start_time }}</td>
         <td>{{ row.class_capacity }}</td>
         <td>
-          <button type="button" class="w3-button w3-round w3-blue-gray" @click="selectLecture()">선택</button>
+          <button type="button" class="w3-button w3-round w3-blue-gray"
+                  @click="handleSelectClick(row.timecode, row.lecture_room_code)">
+            선택
+          </button>
         </td>
       </tr>
       </tbody>
@@ -72,14 +75,15 @@
       </span>
     </div>
   </div>
-  <root>
-  </root>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      building_name: "", // 초기값을 빈 문자열로 설정
+      lecture_room_num: "", // 초기값을 빈 문자열로 설정
+      day_time: "", // 초기값을 빈 문자열로 설정
       requestBody: {}, //리스트 페이지 데이터전송
       list: {}, //리스트 데이터
       no: '', //게시판 숫자처리
@@ -128,11 +132,9 @@ export default {
         params: this.requestBody,
         headers: {}
       }).then((res) => {
-        console.log(res); //응답확인
         //this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
         if (res.data.result_code === "OK") {
           this.list = res.data.data
-          console.log(this.list); //list 확인
           this.paging = res.data.pagination
           this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
         }
@@ -149,13 +151,16 @@ export default {
       }
       this.fnGetList()
     },
-    selectLecture() {
-      const lecture = {
-        room: this.room,
-        time: this.time
+    handleSelectClick(timecode, lecture_room_code) {
+      const selectedData = {
+        timecode: timecode,
+        lecture_room_code: lecture_room_code
       };
-      this.$emit('selectLecture', lecture);
-      // 선택한 강의 정보를 이벤트로 전달합니다.
+
+      console.log("selectedData:", selectedData);
+
+      this.$emit('selectLectureRoom', selectedData);
+      this.$emit('close');
     }
   }
 };
