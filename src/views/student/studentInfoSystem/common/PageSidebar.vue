@@ -19,11 +19,22 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!--  -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/student/sugang">
-                <span>수강신청</span>
-            </router-link>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#sugang-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>강의수강</span>
+            </a>
+            <div id="sugang-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/student/sugang"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청
+                    </router-link>
+                    <br>
+                    <router-link to="/student/courselist"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역
+                    </router-link>
+                </div>
+            </div>
         </li>
 
         <!-- 학적/장학 -->

@@ -15,7 +15,7 @@
             <tbody>
             <tr v-for="(row, notice_id) in list" :key="notice_id">
                 <td>{{ row.notice_id }}</td>
-                <td><a v-on:click="fnView(`${row.notice_id}`)" >style="cursor: pointer;"{{ row.notice_title }}</a></td>
+                <td><a v-on:click="fnView(`${row.notice_id}`)" style="cursor: pointer;">{{ row.notice_title }}</a></td>
                 <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
