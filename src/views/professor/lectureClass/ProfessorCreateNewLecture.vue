@@ -1,73 +1,102 @@
 <template>
   <div class="container">
-    <h4>신규강의 개설하기</h4> <br>
+    <h3><b>신규강의 개설하기</b></h3> <br>
     <table id="newlecture" class="table" style="width: 1000px;">
       <tr>
         <th>강의명</th>
-        <td colspan="4"><input class="form-control" type="text"></td>
+        <td colspan="4">
+          <input class="form-control" type="text" name="text" v-model="lecture_title">
+        </td>
       </tr>
       <tr>
+        <th>구분</th>
+        <td>
+          <select class="form-control" v-model="classification" required>
+            <option value="">선택</option>
+            <option value="1">교양</option>
+            <option value="2">전공</option>
+          </select>
+        </td>
         <th>학점</th>
-        <td colspan="4">
-          <select id="" class="form-control" name="">
-            <option selected value="">선택</option>
+        <td>
+          <select class="form-control" v-model="credit" required>
+            <option value="">선택</option>
             <option value="1">1학점</option>
             <option value="2">2학점</option>
             <option value="3">3학점</option>
           </select>
         </td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>학기</th>
+        <td colspan="4">
+          <input type="number" class="form-control" value="202301">
+        </td>
       </tr>
       <tr>
         <th style="width: 13%;">강의실 1</th>
-        <td style="width: 33%"><input v-model="lectureRoom1" class="form-control" type="text"></td>
+        <td style="width: 33%"><input v-model="roomcode1" class="form-control" type="text" disabled></td>
         <th style="width: 13%;">강의시간 1</th>
-        <td style="width: 33%"><input v-model="lectureTime1" class="form-control" type="text"></td>
+        <td style="width: 33%"><input v-model="timecode1" class="form-control" type="text" disabled></td>
         <td style="width: 8%">
-          <button class="btn" @click="openModal(1)">조회</button>
+          <button class="w3-button w3-round w3-blue-gray" @click="openModal(1)">조회</button>
           <div v-if="modalOpen[1]">
-            <ModalComponent @selectLectureRoom="handleSelectedLecture1" @close="closeModal(1)">
-              <LectureRoom :room="lectureRoom1" :time="lectureTime1"></LectureRoom>
+            <ModalComponent @close="closeModal(1)">
+              <LectureRoom @selectLectureRoom="handleSelectedLecture1" @close="closeModal(1)" :room="roomcode1"
+                           :time="timecode1"></LectureRoom>
             </ModalComponent>
           </div>
         </td>
       </tr>
       <tr>
         <th>강의실 2</th>
-        <td><input v-model="lectureRoom2" class="form-control" type="text"></td>
+        <td><input v-model="roomcode2" class="form-control" type="text" disabled></td>
         <th>강의시간 2</th>
-        <td><input v-model="lectureTime2" class="form-control" type="text"></td>
+        <td><input v-model="timecode2" class="form-control" type="text" disabled></td>
         <td>
-          <button class="btn" @click="openModal(2)">조회</button>
+          <button class="w3-button w3-round w3-blue-gray" @click="openModal(2)">조회</button>
           <div v-if="modalOpen[2]">
-            <ModalComponent @selectLectureRoom="handleSelectedLecture2" @close="closeModal(2)">
-              <LectureRoom :room="lectureRoom2" :time="lectureTime2"></LectureRoom>
+            <ModalComponent @close="closeModal(2)">
+              <LectureRoom @selectLectureRoom="handleSelectedLecture2" @close="closeModal(2)" :room="roomcode2"
+                           :time="timecode2"></LectureRoom>
             </ModalComponent>
           </div>
         </td>
       </tr>
       <tr>
         <th>강의실 3</th>
-        <td><input v-model="lectureRoom3" class="form-control" type="text"></td>
+        <td><input v-model="roomcode3" class="form-control" type="text" disabled></td>
         <th>강의시간 3</th>
-        <td><input v-model="lectureTime3" class="form-control" type="text"></td>
+        <td><input v-model="timecode3" class="form-control" type="text" disabled></td>
         <td>
-          <button class="btn" @click="openModal(3)">조회</button>
+          <button class="w3-button w3-round w3-blue-gray" @click="openModal(3)">조회</button>
           <div v-if="modalOpen[3]">
-            <ModalComponent @selectLectureRoom="handleSelectedLecture3" @close="closeModal(3)">
-              <LectureRoom :room="lectureRoom3" :time="lectureTime3"></LectureRoom>
+            <ModalComponent @close="closeModal(3)">
+              <LectureRoom @selectLectureRoom="handleSelectedLecture3" @close="closeModal(3)" :room="roomcode3"
+                           :time="timecode3"></LectureRoom>
             </ModalComponent>
           </div>
         </td>
       </tr>
       <tr>
-        <th>강의계획서</th>
+        <th>수강인원</th>
         <td colspan="4">
-          <input class="btn btn-toolbar" type="file">
+          <input type="number" class="form-control" min="5" max="100" step="5" value="5">
+        </td>
+      </tr>
+      <tr>
+        <th>강의계획서</th>
+        <td colspan="5" style="text-align: left;">
+          <input type="file" class="w3-button w3-round w3-blue-gray">
         </td>
       </tr>
     </table>
-    <input type="submit" value="신규강의 생성하기"> &nbsp; &nbsp;
-    <input type="button" value="홈페이지로 돌아가기">
+    <button type="submit" class="w3-button w3-round w3-blue-gray">작성</button> &nbsp;
+    <button type="reset" class="w3-button w3-round w3-blue-gray" @click="resetForm">취소</button> &nbsp;
+    <router-link to="/prof/main">
+      <button type="button" class="w3-button w3-round w3-blue-gray">메인페이지</button>
+    </router-link>
   </div>
 </template>
 <script>
@@ -81,18 +110,22 @@ export default {
   },
   data() {
     return {
+      lecture_title: "",
+      classification: "",
+      credit: "",
+      syllabus_title: "",
       showPopup: false,
       modalOpen: {
         1: false,
         2: false,
         3: false,
       },
-      lectureRoom1: "",
-      lectureTime1: "",
-      lectureRoom2: "",
-      lectureTime2: "",
-      lectureRoom3: "",
-      lectureTime3: "",
+      roomcode1: "",
+      roomcode2: "",
+      roomcode3: "",
+      timecode1: "",
+      timecode2: "",
+      timecode3: "",
     };
   },
   methods: {
@@ -103,25 +136,31 @@ export default {
       this.modalOpen[index] = false;
     },
     handleSelectedLecture1(selectedData) {
-      console.log("receive selectedData:", selectedData);
-
-      this.lectureRoom1 = selectedData.lecture_room_code;
-      this.lectureTime1 = selectedData.timecode;
+      this.roomcode1 = selectedData.lecture_room_code;
+      this.timecode1 = selectedData.timecode;
     },
 
     handleSelectedLecture2(selectedData) {
-      console.log("receive selectedData:", selectedData);
-
-      this.lectureRoom2 = selectedData.lecture_room_code;
-      this.lectureTime2 = selectedData.timecode;
+      this.roomcode2 = selectedData.lecture_room_code;
+      this.timecode2 = selectedData.timecode;
     },
 
     handleSelectedLecture3(selectedData) {
-      console.log("receive selectedData:", selectedData);
-
-      this.lectureRoom3 = selectedData.lecture_room_code;
-      this.lectureTime3 = selectedData.timecode;
+      this.roomcode3 = selectedData.lecture_room_code;
+      this.timecode3 = selectedData.timecode;
     },
+    resetForm() {
+      this.lecture_title = "";
+      this.classification = "";
+      this.credit = "";
+      this.roomcode1 = "";
+      this.timecode1 = "";
+      this.roomcode2 = "";
+      this.timecode2 = "";
+      this.roomcode3 = "";
+      this.timecode3 = "";
+      this.syllabus_title = "";
+    }
   }
 }
 </script>
@@ -131,8 +170,16 @@ export default {
   vertical-align: middle
 }
 
+#newlecture tr td select option {
+  text-align: center;
+}
+
 #newlecture tr td {
-  text-align: left;
+  text-align: center;
+}
+
+#newlecture tr td input {
+  text-align: center;
 }
 
 #newlecture tr th {

@@ -156,9 +156,6 @@ export default {
         timecode: timecode,
         lecture_room_code: lecture_room_code
       };
-
-      console.log("selectedData:", selectedData);
-
       this.$emit('selectLectureRoom', selectedData);
       this.$emit('close');
     }
