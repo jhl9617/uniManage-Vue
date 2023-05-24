@@ -89,30 +89,30 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            requestBody: this.$router.query,
-            lecture_id: '',
-            member_id: '',
-            attendance_Day: '',
-            supply_Date: '',
-            lecture_room_code: '',
-            cancelled_file: '',
-            cancelled_file_rename: '',
-            reason: ''
-        }
-    },
-    mounted() {
-       this.fnView()
-    },
-    // methods: {
+// export default {
+//     data() {
+//         return {
+//             requestBody: this.$router.query,
+//             lecture_id: '',
+//             member_id: '',
+//             attendance_Day: '',
+//             supply_Date: '',
+//             lecture_room_code: '',
+//             cancelled_file: '',
+//             cancelled_file_rename: '',
+//             reason: ''
+//         }
+//     },
+//     mounted() {
+//        this.fnView()
+//     },
+//     // methods: {
     //     async fnView(){
     //         const response = await fetch
     //     }
     //
-    // }
-}
+//     // }
+// }
 
 
 

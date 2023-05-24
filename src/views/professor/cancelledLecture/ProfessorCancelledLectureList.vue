@@ -21,18 +21,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(row, cancelled_lecture_idx_seq) in list" :key="cancelled_lecture_idx_seq">
-                    <td>{{row.cancelled_lecture_idx_seq}}</td>
-                    <td><a v-on:click="fnGetList(`${row.cancelled_lecture_idx_seq}`)">{{row.lecture_id}}</a></td>
-                    <td>{{row.attendance_day}}</td>
-                    <td>{{row.supply_date}}</td>
+                <tr v-for="(row, cancelledLectureIdx) in list" :key="cancelledLectureIdx">
+                    <td>{{row.cancelledLectureIdx}}</td>
+                    <td><a v-on:click="fnGetList(`${row.cancelledLectureIdx}`)">{{row.lectureId}}</a></td>
+                    <td>{{row.attendanceDay}}</td>
+                    <td>{{row.supplyDate}}</td>
 
                     <!-- 파일이 존재하면 ◎, 존재하지 않는다면 빈칸 -->
                     <td>
-                        <p v-if="findName"> ◎ </p>
+                        <p v-if="row.cancelledFile"> ◎ </p>
                         <p v-else></p>
                     </td>
-                    <td>{{row.cancelled_apply}}</td>
+                    <td>{{row.cancelledApply}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -113,8 +113,8 @@ export default {
                 }
             })
         },
-        fnView(cancelled_lecture_idx_seq) {
-            this.requestBody.cancelled_lecture_idx_seq = cancelled_lecture_idx_seq
+        fnView(cancelledLectureIdx) {
+            this.requestBody.cancelledLectureIdx = cancelledLectureIdx
             this.$router.push({
                 path: '/prof/lecture/cancelled',
                 query: this.requestBody
