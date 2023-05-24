@@ -23,11 +23,11 @@ import StudentTimetable from "@/views/student/studentInfoSystem/course/StudentTi
 import StudentCheckCourse from "@/views/student/studentInfoSystem/course/CheckCourse.vue";
 import StudentSurveyCourse from "@/views/student/studentInfoSystem/survey/SurveyCourse.vue";
 import StudentCheckCredit from "@/views/student/studentInfoSystem/score/CheckCredit.vue";
-import StudentCheckGrade from "@/views/student/studentInfoSystem/score/StudentCheckGrade.vue";
+import StudentCheckScore from "@/views/student/studentInfoSystem/score/StudentCheckScore.vue";
 import StudentCheckScholarship from "@/views/student/studentInfoSystem/scholarship/StudentCheckScholarship.vue";
-import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
+import StudentCourseList from "@/views/student/studentInfoSystem/sugang/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/common/StudentInfoMain.vue";
-import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
+import StudentMain from "@/views/student/studentInfoSystem/sugang/StudentSugang.vue";
 import StudentNoticeList from "@/views/student/studentInfoSystem/notice/NoticeList.vue";
 import StudentScheduleList from "@/views/student/studentInfoSystem/notice/ScheduleList.vue";
 import StudentNoticeDetail from "@/views/student/studentInfoSystem/notice/NoticeDetail.vue";
@@ -39,9 +39,6 @@ const routesStudent = [
     {
         path: '/about',
         name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/common/PageAbout.vue')
     },
     {
@@ -160,9 +157,9 @@ const routesStudent = [
         component: StudentCheckCredit
     },
     {
-        path: '/student/checkgrade',
-        name: 'StudentCheckGrade',
-        component: StudentCheckGrade
+        path: '/student/score',
+        name: 'StudentCheckScore',
+        component: StudentCheckScore
     },
     {
         path: '/student/surveycourse',

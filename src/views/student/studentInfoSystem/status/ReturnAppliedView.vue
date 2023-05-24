@@ -40,6 +40,10 @@ export default {
         this.fnGetView()
     },
     methods: {
+        formatDate(date) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(date).toLocaleDateString('ko-KR', options);
+        },
         fnGetView() {
             if (this.status_id !== undefined) {
                 this.$axios.get(this.$serverUrl + '/student/return/' + this.status_id, {
@@ -47,7 +51,7 @@ export default {
                 }).then((res) => {
                     this.status_id = res.data.status_id
                     this.member_id = res.data.member_id
-                    this.return_date = res.data.return_date
+                    this.return_date = this.formatDate(res.data.return_date);
                 }).catch((err) => {
                     console.log(err)
                 })

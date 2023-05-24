@@ -22,7 +22,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#sugang-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <span>강의수강</span>
+                <span>수강신청</span>
             </a>
             <div id="sugang-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -30,9 +30,9 @@
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청
                     </router-link>
                     <br>
-                    <router-link to="/student/courselist"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역
-                    </router-link>
+<!--                    <router-link to="/student/courselist"-->
+<!--                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역-->
+<!--                    </router-link>-->
                 </div>
             </div>
         </li>
@@ -100,10 +100,9 @@
                         <span>졸업학점조회</span>
                     </router-link>
                     <br>
-                    <router-link to="/student/checkgrade"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                    <a v-on:click="fnScore" style="cursor: pointer;">
                         <span>수강성적조회</span>
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </li>
@@ -166,6 +165,17 @@ export default {
               };
               this.$router.push({
                   path: '/student/status',
+                  query: this.requestBody
+              });
+          }
+      },
+      fnScore() {
+          if (this.loginMember) {
+              this.requestBody = {
+                  member_id: this.loginMember.member_id
+              };
+              this.$router.push({
+                  path: '/student/score',
                   query: this.requestBody
               });
           }

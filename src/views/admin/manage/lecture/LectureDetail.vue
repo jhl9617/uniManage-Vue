@@ -25,18 +25,16 @@
                 </tr>
                 <tr>
                     <th width="100">강의실</th>
-                    <td>{{ roomcode1 }}, {{ roomcode2 }}, {{ roomcode3 }}호</td>
+                    <td>{{ roomcode1 }} {{ roomcode2 }} {{ roomcode3 }}호</td>
                 </tr>
                 <tr>
                     <th width="100">시간</th>
-                    <td>{{ timecode1 }}, {{ timecode2 }}, {{ timecode3 }}</td>
+                    <td>{{ timecode1 }} {{ timecode2 }} {{ timecode3 }}</td>
                 </tr>
             </table>
         </div>
 
         <div class="common-buttons">
-<!--            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>-->
-<!--            <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;-->
             <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
         </div>
     </div>
