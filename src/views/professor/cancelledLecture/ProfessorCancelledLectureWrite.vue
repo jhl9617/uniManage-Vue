@@ -1,8 +1,7 @@
 <template>
+    <h2>휴강 신청하기</h2>
     <div class="container">
         <div class="row">
-            <h3>휴강 신청</h3>
-            <br>
             <table class="table table-bordered" id="closewrite">
                 <tr>
                     <th style="width: 30%">강의명</th>
@@ -13,7 +12,7 @@
                 </tr>
                 <tr>
                     <th style="width: 30%">작성자</th>
-                    <td v-if="loginMember === 4">{{loginMember.name}} 교수님</td>
+                    <td>{{this.departmentName}} 교수님</td>
                 </tr>
                 <tr>
                     <th><label for ="ATTENDANCE_DAY"></label>휴강차시</th>
@@ -67,7 +66,9 @@
                 <tr>
                     <th>제출서류</th>
                     <td>
-                        <input type="file">
+                        <div class="common-buttons">
+                            <input type="file">
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -77,18 +78,53 @@
                     </td>
                 </tr>
             </table>
-            <div>
-                <input type="submit" value="제출하기"> &nbsp;
-                <input type="reset" value="작성취소"> &nbsp;
-                <input type="button" value="이전목록">
+            <div class="common-buttons">
+                <button type="button" class="" v-on:click="fnSave">휴강 신청하기</button> &nbsp;
+                <router-link to="/prof/lecture/cancelled/list">
+                    <button type="button" class="" v-on:click="fnCancelledLectureList">목록으로 돌아가기</button> &nbsp;
+                </router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+export default {
+    data() {
+        return {
+            requestBody: this.$router.query,
+            lecture_id: '',
+            member_id: '',
+            attendance_Day: '',
+            supply_Date: '',
+            lecture_room_code: '',
+            cancelled_file: '',
+            cancelled_file_rename: '',
+            reason: ''
+        }
+    },
+    mounted() {
+       this.fnView()
+    },
+    // methods: {
+    //     async fnView(){
+    //         const response = await fetch
+    //     }
+    //
+    // }
+}
 
 
+
+
+
+
+
+
+
+
+
+// fnCancelledLectureList
 </script>
 
 
