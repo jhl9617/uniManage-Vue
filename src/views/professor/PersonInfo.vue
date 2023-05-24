@@ -114,7 +114,7 @@ export default {
         })
     },
 
-        //교수 개인정보 페이지 수정
+        //개인정보(우편번호, 기본주소, 상세주소, 전화번호) 수정하기
         fnSave() {
             let apiUrl = '/prof/info'
             this.form = {
@@ -137,7 +137,7 @@ export default {
                 this.$axios.patch(apiUrl, this.form)
                     .then((res) => {
                         alert('개인정보가 수정되었습니다.')
-                        this.fnView(res.data.memberId)
+                        this.fnView(res.data.member_id)
                     }).catch((err) => {
                     if (err.message.indexOf('Network Error') > -1) {
                         alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
@@ -147,7 +147,7 @@ export default {
         }
     }
 }
-</script>
+</script>npm
 
 <style>
 td {
