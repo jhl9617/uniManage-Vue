@@ -4,19 +4,19 @@
         <li>&nbsp;</li>
         <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnEclass">
+            <router-link class="nav-link" to="/student">
                 <span>학생정보시스템</span>
-            </a>
+            </router-link>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnEclass">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
                 <span>E-Class</span>
             </a>
         </li>
         <li>&nbsp;</li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnMain(`${lecture_id}`)">
+            <a class="nav-link" v-on:click="fnMain(`${lecture_id}`)" style="cursor: pointer;">
                 <span>Home</span>
             </a>
         </li>
@@ -31,7 +31,7 @@
             </a>
             <div id="lectureinfo-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a v-on:click="fnLectureInfo(lecture_id)">
+                  <a v-on:click="fnLectureInfo(lecture_id)" style="cursor: pointer;">
                         강의정보 조회
                   </a>
                 </div>
@@ -47,7 +47,7 @@
             <div id="homework-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a v-on:click="fnHomework(lecture_id)"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">과제 목록
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">과제 목록
                     </a>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a v-on:click="fnNotice(lecture_id)"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의 공지사항 조회
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">강의 공지사항 조회
                     </a>
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <div id="source-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a v-on:click="fnSource(lecture_id)"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의자료 조회
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">강의자료 조회
                     </a>
                 </div>
             </div>

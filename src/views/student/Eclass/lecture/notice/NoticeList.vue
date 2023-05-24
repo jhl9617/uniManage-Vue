@@ -41,9 +41,8 @@
         <div>
             <select v-model="search_key">
                 <option value="">- 선택 -</option>
-                <option value="author">작성자</option>
-                <option value="title">제목</option>
-                <option value="contents">내용</option>
+                <option value="lecture_notice_title">제목</option>
+                <option value="lecture_notice_content">내용</option>
             </select>
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">

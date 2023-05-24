@@ -61,13 +61,12 @@ export default {
     return {
       member_id: this.$route.query.member_id ? this.$route.query.member_id : '',
       loginMember: null,
-      times: ['01', '02', '03', '04', '05', '06', '07', '08'], // 시간대 목록
+      times: ['01', '02', '03', '04', '05', '06', '07', '08'],
       requestBody: {},
       list: [],
       lecture_id: '',
-      course_regi_term : this.year + this.semester,
-      year : '',
-      semester : ''
+      year: '',
+      semester: ''
 
     }
   },
@@ -80,20 +79,19 @@ export default {
   },
   methods: {
     fnGetView() {
-      this.course_regi_term = this.year + this.semester;
-      this.requestBody.course_regi_term = this.course_regi_term;
-
-      this.$axios.get(this.$serverUrl + '/student/studenttimetable/' + this.member_id, {
-        params: this.requestBody
-      }).then((res) => {
-        this.list = res.data;
-        this.lecture_id = res.data.lecture_id;
-        console.log(this.list);
-      }).catch((err) => {
-        if (err.message.indexOf('Network Error') > -1) {
-          alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
-        }
-      });
+            this.$axios.get(this.$serverUrl + '/student/studenttimetable/' + this.member_id, {
+            params: this.requestBody
+          })
+          .then((res) => {
+            this.list = res.data;
+            this.lecture_id = res.data.lecture_id;
+            console.log(this.list);
+          })
+          .catch((err) => {
+            if (err.message.indexOf('Network Error') > -1) {
+              alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
+            }
+          });
     },
 
 

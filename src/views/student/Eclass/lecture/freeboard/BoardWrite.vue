@@ -77,7 +77,7 @@
           "free_id": this.free_id,
           "free_title": this.free_title,
           "free_content": this.free_content,
-          "member_id": this.member_id
+          "member_id": this.loginMember.member_id
         }
 
         if (this.free_id === undefined) {
@@ -117,9 +117,7 @@
         } catch (error) {
           console.error("Error fetching session data:", error);
         }
-        this.requestBody = { // 데이터 전송
-          member_id : this.member_id
-        }
+
       }
     }
   }

@@ -12,7 +12,7 @@
             </router-link>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnEclass">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
                 <span>E-Class</span>
             </a>
         </li>
@@ -65,11 +65,11 @@
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과별강의시간표
                     </router-link>
                     <a v-on:click="fnTimetable"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강과목시간표
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">수강과목시간표
                     </a>
-                    <router-link to="/student/checkcourse"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회
-                    </router-link>
+                    <a v-on:click="fnCheckCourse"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">수강신청내역조회
+                    </a>
                 </div>
             </div>
         </li>
@@ -114,7 +114,7 @@
             </div>
         </li>
 
-        <!-- 자유게시판 -->
+        <!-- 강의평가 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#rating-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -123,7 +123,7 @@
             <div id="rating-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a v-on:click="fnSurvey"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의평가 작성
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">강의평가 작성
                     </a>
                 </div>
             </div>
@@ -161,6 +161,17 @@ export default {
         };
         this.$router.push({
           path: '/student/surveycourse',
+          query: this.requestBody
+        });
+      }
+    },
+    fnCheckCourse() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/student/checkcourse',
           query: this.requestBody
         });
       }

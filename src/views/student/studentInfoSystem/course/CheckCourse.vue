@@ -24,9 +24,7 @@
     <button>조회</button>
     <br><br>
     <div align="left">
-        -붉은색으로 표시된 과목은 폐강된 과목입니다. 다른 과목으로 변경하세요.<br>
-        -주황색으로 표시된 과목은 수강철회된 과목입니다.<br>
-        -강의를 클릭하시면 수업계획서를 조회하실 수 있습니다.
+
     </div>
     <br><br>
     <table class="table table-bordered" align="center" width="505">
@@ -35,16 +33,84 @@
             <th width="100">교과목명</th>
             <th width="100">담당교수</th>
             <th width="100">학점</th>
-            <th width="100">요일및시간</th>
+            <th width="100">요일 및 시간</th>
             <th width="100">강의실</th>
         </tr>
+      <tr v-for="(row, index) in list" :key="index">
+        <td>{{ row.lecture_id }}</td>
+        <td>{{ row.lecture_title }}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.credit }}</td>
+        <td>{{ row.timecode1 }} {{ row.timecode2 }} {{ row.timecode3 }}</td>
+        <td>{{ row.roomcode1 }} {{ row.roomcode2 }} {{ row.roomcode3 }}</td>
+      </tr>
 
     </table>
 </template>
 
 <script>
 export default {
-    name: "CheckCourse"
+  data() { //변수생성
+    return {
+      member_id: this.$route.query.member_id ? this.$route.query.member_id : '',
+      loginMember: null,
+      requestBody: {},
+      list: [],
+      lecture_id: '',
+      year: '',
+      semester: ''
+
+    }
+  },
+  mounted() { // document.ready, window.onload와 같은 형태
+    this.fnGetView()
+  },
+
+  created() {
+    this.getSession();
+  },
+  methods: {
+    fnGetView() {
+      this.$axios.get(this.$serverUrl + '/student/checkcourse/' + this.member_id, {
+        params: this.requestBody
+      })
+          .then((res) => {
+            this.list = res.data;
+            this.lecture_id = res.data.lecture_id;
+            console.log(this.list);
+          })
+          .catch((err) => {
+            if (err.message.indexOf('Network Error') > -1) {
+              alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
+            }
+          });
+    },
+
+
+    fnView(course_regi_term) {
+      this.requestBody.course_regi_term = course_regi_term
+      this.$router.push({
+        path: '/student/studenttimetable',
+        query: this.requestBody
+      })
+    },
+
+
+    async getSession() {
+      try {
+        const response = await fetch("/sessionCheck");
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log("Session data:", data);
+          this.loginMember = data;
+        } else {
+          console.error("Error fetching session data");
+        }
+      } catch (error) {
+        console.error("Error fetching session data:", error);
+      }
+    },
+  }
 }
 </script>
 

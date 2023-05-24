@@ -12,7 +12,7 @@
             </router-link>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnEclass">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
                 <span>E-Class</span>
             </a>
         </li>

@@ -94,7 +94,7 @@
     <!-- textarea 입력 -->
     <div>
       <label for="comments">기타 의견:</label><br>
-      <textarea id="comments" v-model="comments" rows="4" cols="140"></textarea>
+      <textarea id="comments" v-model="comments" rows="4" cols="100"></textarea>
     </div>
 
     <br>

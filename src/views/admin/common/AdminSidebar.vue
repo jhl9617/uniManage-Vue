@@ -87,21 +87,6 @@
 <script>
 export default {
   methods: {
-    logout() {
-      this.$axios.post('/logout')
-          .then(response => {
-            console.log(response)
-            alert('로그아웃 되었습니다.')
-            this.$router.push({
-              path: '/'
-
-            })
-          })
-          .catch(error => {
-            alert('로그아웃에 실패했습니다.')
-            console.error(error);
-          });
-    }
   }
 }
 </script>
