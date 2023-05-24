@@ -50,6 +50,10 @@ export default {
         this.fnGetView()
     },
     methods: {
+        formatDate(date) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(date).toLocaleDateString('ko-KR', options);
+        },
         fnGetView() {
             if (this.status_id !== undefined) {
                 this.$axios.get(this.$serverUrl + '/student/takeoff/' + this.status_id, {
@@ -57,8 +61,8 @@ export default {
                 }).then((res) => {
                     this.status_id = res.data.status_id
                     this.member_id = res.data.member_id
-                    this.start_date = res.data.start_date
-                    this.end_date = res.data.end_date
+                    this.start_date = this.formatDate(res.data.start_date);
+                    this.end_date = this.formatDate(res.data.end_date);
                     this.reason_of_leave = res.data.reason_of_leave
                 }).catch((err) => {
                     console.log(err)

@@ -34,9 +34,9 @@
             </a>
             <div id="info-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/student/status" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                         <span>학적변동내역</span>
-                    </router-link>
+                    <a v-on:click="fnStatus" style="cursor: pointer;">
+                        <span>학적변동내역</span>
+                    </a>
                     <br>
                     <router-link to="/student/takeoff" class="link-body-emphasis d-inline-flex text-decoration-none rounded">
                          <span>휴학신청</span>
@@ -145,6 +145,17 @@ export default {
               };
               this.$router.push({
                   path: '/student/scholarship',
+                  query: this.requestBody
+              });
+          }
+      },
+      fnStatus() {
+          if (this.loginMember) {
+              this.requestBody = {
+                  member_id: this.loginMember.member_id
+              };
+              this.$router.push({
+                  path: '/student/status',
                   query: this.requestBody
               });
           }
