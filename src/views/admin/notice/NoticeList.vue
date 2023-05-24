@@ -15,7 +15,7 @@
             <tbody>
             <tr v-for="(row, notice_id) in list" :key="notice_id">
                 <td>{{ row.notice_id }}</td>
-                <td><a v-on:click="fnView(`${row.notice_id}`)">{{ row.notice_title }}</a></td>
+                <td><a v-on:click="fnView(`${row.notice_id}`)" >style="cursor: pointer;"{{ row.notice_title }}</a></td>
                 <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
@@ -47,7 +47,7 @@
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
             &nbsp;
-            <button @click="fnPage()">검색</button>
+            <PrimeButton @click="fnPage()">검색</PrimeButton>
         </div>
     </div>
 </template>

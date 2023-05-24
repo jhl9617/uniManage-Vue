@@ -264,29 +264,6 @@ export default {
             },
                 console.log(this.department_id);
 
-            // if (this.member_id === undefined) {
-            //     //INSERT
-            //     this.$axios.post(apiUrl, this.form)
-            //         .then((res) => {
-            //             alert('교수 정보가 저장되었습니다.')
-            //             this.fnView(res.data.member_id)
-            //         }).catch((err) => {
-            //         if (err.message.indexOf('Network Error') > -1) {
-            //             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-            //         }
-            //     })
-            // } else {
-            //     //UPDATE
-            //     this.$axios.patch(apiUrl, this.form)
-            //         .then((res) => {
-            //             alert('글이 저장되었습니다.')
-            //             this.fnView(res.data.member_id)
-            //         }).catch((err) => {
-            //         if (err.message.indexOf('Network Error') > -1) {
-            //             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-            //         }
-            //     })
-            // }
             if (!this.member_idx) {
                 // INSERT
                 this.$axios.post(apiUrl, this.form)

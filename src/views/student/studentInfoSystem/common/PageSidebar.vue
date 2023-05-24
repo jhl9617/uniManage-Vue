@@ -12,7 +12,7 @@
             </router-link>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnEclass">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
                 <span>E-Class</span>
             </a>
         </li>
@@ -49,9 +49,6 @@
                     <a v-on:click="fnScho" style="cursor: pointer;">
                         <span>장학수혜내역조회</span>
                     </a>
-<!--                    <router-link to="/student/scholarship" class="link-body-emphasis d-inline-flex text-decoration-none rounded">-->
-<!--                         <span>장학수혜내역조회</span>-->
-<!--                    </router-link>-->
                 </div>
             </div>
         </li>
@@ -67,9 +64,11 @@
                     <router-link to="/student/timelinebydepart"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과별강의시간표
                     </router-link>
+                    <br>
                     <router-link to="/student/studenttimetable"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강과목시간표
                     </router-link>
+                    <br>
                     <router-link to="/student/checkcourse"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회
                     </router-link>
