@@ -34,7 +34,7 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#create-collapse"
          aria-expanded="true" aria-controls="collapseUtilities">
-        <span>개설강좌</span>
+        <span>강좌개설</span>
       </a>
       <div id="create-collapse" class="collapse" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">

@@ -83,14 +83,10 @@
                     </div>
                 </div>
             </div>
-            <PageFooter/>
         </div>
 </template>
 
 <script>
-import PageFooter from "@/components/common/PageFooter.vue";
-
-
 export default {
     data() {
         return {
@@ -115,12 +111,7 @@ export default {
     },
     created() {
         this.getSession();
-    },
-    components: {
-        // HelloWorld
-        PageFooter,
-
-    },
+    }
 }
 </script>
 <style scoped>

@@ -136,7 +136,6 @@
 <script>
 
 export default {
-
     data() {
         return {
             loginMember: null,
@@ -161,8 +160,6 @@ export default {
     created() {
         this.getSession();
     },
-
-
 };
 
 </script>

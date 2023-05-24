@@ -2,7 +2,7 @@ import ProfessorMain from '@/views/professor/common/ProfessorMain.vue'
 import ProfessorInfo from '@/views/professor/PersonInfo.vue'
 import ProfessorCreateNewLecture from '@/views/professor/lectureClass/ProfessorCreateNewLecture.vue'
 import LectureRoom from '@/views/professor/lectureClass/LectureRoom.vue'
-import ProfessorNewLectureDetails from "@/views/professor/lectureClass/ProfessorNewLectureDetails.vue"
+import ProfessorNewLectureList from "@/views/professor/lectureClass/ProfessorNewLectureList.vue"
 import ProfessorCheckLecture from "@/views/professor/lecture/ProfessorCheckLecture.vue"
 import ProfessorCreateNewHomework from "@/views/professor/lecture/ProfessorCreateNewHomework.vue"
 import ProfessorStudentAttendance from "@/views/professor/attendance/ProfesscorStudentAttendance.vue"
@@ -30,6 +30,7 @@ import ProfessorLectureEvaluationAnswer from "@/views/professor/lectureEvaluatio
 import ProfessorCancelledLectureList from "@/views/professor/cancelledLecture/ProfessorCancelledLectureList.vue";
 import ProfessorCancelledLectureWrite from "@/views/professor/cancelledLecture/ProfessorCancelledLectureWrite.vue";
 import ProfessorCancelledLecture from "@/views/professor/cancelledLecture/ProfessorCancelledLecture.vue";
+import NewLectureDetail from "@/views/professor/lectureClass/NewLectureDetail.vue";
 
 
 const routesProf = [
@@ -55,8 +56,13 @@ const routesProf = [
     },
     {   //개설강좌_신규강의 신청내역
         path: '/prof/create/list',
-        name: 'ProfessorNewLectureDetails',
-        component: ProfessorNewLectureDetails
+        name: 'ProfessorNewLectureList',
+        component: ProfessorNewLectureList
+    },
+    {   //개설강좌_신규강의 신청내역
+        path: '/prof/create/view',
+        name: 'ProfessorNewLectureDetail',
+        component: NewLectureDetail
     },
     {   //강의_강의정보 확인
         path: '/prof/lecture/list',
