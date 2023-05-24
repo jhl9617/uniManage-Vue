@@ -52,8 +52,11 @@ export default {
     name: 'SigninForm',
     emits: ['sign-in'],
     setup(props, context) {
+
+
         const userId = ref('')
         const password = ref('')
+
 
         const fireSignin = async () =>{
             // Emit the 'sign-in' event with the user's data
@@ -73,6 +76,21 @@ export default {
                     const { authorization } = response.headers
                     //엑세스토큰을 추출하여
                     const accessToken = authorization.substring(7)
+
+                    axios.post('http://localhost:9090/getProfile', {
+
+                        memberId: userId.value.toString(),
+                    })
+                        .then(response => {
+                            console.log("유저 정보 : " + response)
+                            // handle your response here
+                        })
+                        .catch(error => {
+                            console.error(error)
+                            // handle your error here
+
+                        })
+
 
                     // Decode the token and extract the roles
                     const decoded = decodeToken(accessToken);
@@ -139,6 +157,22 @@ export default {
             }
         }
 
+        //로그아웃 토큰, 세션 삭제
+        const fireLogout = () => {
+            // Remove the access token from the Vuex store
+            state.accessToken = ''
+
+            // Remove the access token from the Axios headers
+            client.defaults.headers.common.Authorization = ''
+
+            // Remove the access token from the cookies
+            Cookies.remove('accessToken')
+            axios.post('http://localhost:9090/logout')
+            // Now you can redirect the user to the login page
+            router.push({ path: '/' })
+        }
+        fireLogout();
+
         //토큰 decode
         const decodeToken = (token) => {
             try {
@@ -153,6 +187,7 @@ export default {
             userId,
             password,
             fireSignin,
+            fireLogout,
             inse
         }
     },
