@@ -25,7 +25,7 @@
         <td style="width: 8%">
           <button class="btn" @click="openModal(1)">조회</button>
           <div v-if="modalOpen[1]">
-            <ModalComponent @close="closeModal(1)">
+            <ModalComponent @close="closeModal(1)" @selectLecture="handleSelectedLecture">
               <LectureRoom :room="lectureRoom1" :time="lectureTime1"></LectureRoom>
             </ModalComponent>
           </div>
@@ -101,6 +101,10 @@ export default {
     },
     closeModal(index) {
       this.modalOpen[index] = false;
+    },
+    handleSelectedLecture(lecture) {
+      // 선택한 강의 정보를 처리하는 로직 작성
+      console.log(lecture); // 선택한 강의 정보 출력
     }
   }
 }
@@ -124,7 +128,8 @@ export default {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
+  text-align: center;
+  top: -300px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -135,6 +140,6 @@ export default {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
-  max-width: 600px;
+  max-width: 800px;
 }
 </style>

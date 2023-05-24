@@ -1,10 +1,37 @@
 <template>
-  <div class="board-list">
+  <div class="board-list" id="lectureroom">
     <h5><b>강의실 조회</b></h5>
-    <table class="w3-table-all">
+    <div>
+      <select v-model="building_name">
+        <option disabled value="">건물명</option>
+        <option value="공학관">공학관</option>
+        <option value="과학관">과학관</option>
+        <option value="인문사회관">인문사회관</option>
+      </select>
+      <select v-model="lecture_room_num">
+        <option disabled value="">강의실호수</option>
+        <option value="101호">101호</option>
+        <option value="102호">102호</option>
+        <option value="103호">103호</option>
+        <option value="104호">104호</option>
+        <option value="201호">201호</option>
+        <option value="202호">202호</option>
+        <option value="203호">203호</option>
+      </select>
+      <select v-model="day_time">
+        <option disabled value="">요일</option>
+        <option value="월">월요일</option>
+        <option value="화">화요일</option>
+        <option value="수">수요일</option>
+        <option value="목">목요일</option>
+        <option value="금">금요일</option>
+      </select>
+      <button class="w3-button w3-round w3-blue-gray" @click="fnPage()">검색</button>
+    </div>
+    <br>
+    <table class="w3-table-all" id="lectureroomlist">
       <thead>
       <tr>
-        <th>순번</th>
         <th>건물이름</th>
         <th>강의실번호</th>
         <th>요일</th>
@@ -15,19 +42,18 @@
       </thead>
       <tbody>
       <tr v-for="(row, lecture_room_timetable_idx) in list" :key="lecture_room_timetable_idx">
-        <td>{{ row.lecture_room_timetable_idx }}</td>
         <td>{{ row.building_name }}</td>
         <td>{{ row.lecture_room_num }}</td>
-        <td>{{ row.day_time }}</td>
+        <td>{{ row.day_time }}요일</td>
         <td>{{ row.start_time }}</td>
         <td>{{ row.class_capacity }}</td>
         <td>
-          <button type="button" class="w3-button w3-round w3-blue-gray">선택</button>
+          <button type="button" class="w3-button w3-round w3-blue-gray" @click="selectLecture()">선택</button>
         </td>
       </tr>
       </tbody>
     </table>
-    <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+    <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
       <span class="pg">
         <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
         <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(paging.start_page-1)"
@@ -45,18 +71,6 @@
         <a href="javascript:;" @click="fnPage(paging.total_page_cnt)" class="last w3-button w3-border">&gt;&gt;</a>
       </span>
     </div>
-  </div>
-  <div>
-    <select v-model="search_key">
-      <option value="">- 선택 -</option>
-      <option value="building_name">건물명</option>
-      <option value="lecture_room_num">강의실호수</option>
-      <option value="day_time">요일</option>
-    </select>
-    &nbsp;
-    <input type="text" v-model="search_value" @keyup.enter="fnPage()">
-    &nbsp;
-    <PrimeButton @click="fnPage()">검색</PrimeButton>
   </div>
   <root>
   </root>
@@ -103,9 +117,9 @@ export default {
   methods: {
     fnGetList() {
       this.requestBody = { // 데이터 전송
-        //keyword: this.keyword,
-        sk: this.search_key,
-        sv: this.search_value,
+        sv1: this.building_name,
+        sv2: this.lecture_room_num,
+        sv3: this.day_time,
         page: this.page,
         size: this.size
       }
@@ -134,7 +148,29 @@ export default {
 
       }
       this.fnGetList()
+    },
+    selectLecture() {
+      const lecture = {
+        room: this.room,
+        time: this.time
+      };
+      this.$emit('selectLecture', lecture);
+      // 선택한 강의 정보를 이벤트로 전달합니다.
     }
   }
 };
 </script>
+<style scoped>
+select {
+  height: 35px;
+  text-align: center;
+}
+
+#lectureroomlist tr th {
+  text-align: center !important;
+}
+
+#lectureroomlist tr td {
+  text-align: center !important;
+}
+</style>
