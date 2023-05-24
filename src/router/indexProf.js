@@ -50,7 +50,7 @@ const routesProf = [
     },
     {   //개설강좌_신규강좌 개설(강의실 조회)
         path: '/prof/create/room',
-        name: 'LectureRoom',
+        name: 'ProfessorLectureRoom',
         component: LectureRoom
     },
     {   //개설강좌_신규강의 신청내역
