@@ -38,8 +38,6 @@ export default {
     this.getSession();
   },
   methods: {
-
-
     fnEclass() {
       if (this.loginMember) {
         const member_id = this.loginMember.member_id;

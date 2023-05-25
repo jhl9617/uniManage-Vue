@@ -17,8 +17,6 @@
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><router-link to="/"> Home </router-link></li> |
-                <li><router-link to="/about"> About </router-link></li> |
-                <li><router-link to="/board/list"> 게시판 </router-link></li> |
                 <li><router-link to="/admin"> 교직원 </router-link></li> |
                 <li><router-link to="/student"> 학생 </router-link></li> |
                 <li><router-link to="/eclass"> e-class </router-link></li> |
