@@ -51,7 +51,7 @@ export default {
                     params: this.requestBody,
                 })
                 .then((res) => {
-                    this.list = res.data;
+                    this.list = res.data.data
                     console.log(this.list)
                 })
                 .catch((err) => {
