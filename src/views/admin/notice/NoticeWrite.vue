@@ -100,7 +100,8 @@ export default {
                     }
                 })
             }
-        },  async getSession() {
+        },
+        async getSession() {
             try {
                 const response = await fetch("/sessionCheck");
                 if (response.status === 200) {

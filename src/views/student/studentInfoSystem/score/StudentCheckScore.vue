@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h6>학적변동내역</h6>
+        <h6>수강 성적 조회</h6>
         <table className="table table-bordered" align="center" width="505">
             <tr align="left">
                 <th width="100">학번</th>
@@ -16,16 +16,16 @@
         <br>
         <table className="table table-bordered" align="center" width="505">
             <tr>
-                <th>변동유형</th>
-                <th>휴/복학일자</th>
-                <th>만료일자</th>
-                <th>사유</th>
+                <th>강좌번호</th>
+                <th>교과목명</th>
+                <th>학점</th>
+                <th>성적</th>
             </tr>
             <tr v-for="(row, index) in list" :key="index">
-                <td>{{ getChangeType(row.allowed_leave) }}</td>
-                <td>{{ getLeaveDate(row.start_date, row.return_date) }}</td>
-                <td>{{ row.end_date }}</td>
-                <td>{{ row.reason_of_leave }}</td>
+                <td>{{ row.lecture_id }}</td>
+                <td>{{ row.lecture_title }}</td>
+                <td>{{ row.credit }}</td>
+                <td>{{ getGrade(row.total_score) }}</td>
             </tr>
         </table>
     </div>
@@ -47,7 +47,7 @@ export default {
     methods: {
         fnGetView() {
             this.$axios
-                .get(this.$serverUrl + '/student/status/' + this.member_id, {
+                .get(this.$serverUrl + '/student/score/' + this.member_id, {
                     params: this.requestBody,
                 })
                 .then((res) => {
@@ -74,26 +74,27 @@ export default {
                 console.error('Error fetching session data:', error);
             }
         },
-        getChangeType(allowed_leave) {
-            return allowed_leave === '1' ? '휴학' : allowed_leave === '2' ? '복학' : '';
-        },
-        getLeaveDate(start_date, return_date) {
-            if (start_date && return_date) {
-                return `${start_date} ~ ${return_date}`;
-            } else if (start_date) {
-                return start_date;
-            } else if (return_date) {
-                return return_date;
+        getGrade(totalScore) {
+            if (totalScore >= 90) {
+                return 'A';
+            } else if (totalScore >= 70) {
+                return 'B';
+            } else if (totalScore >= 60) {
+                return 'C';
+            } else if (totalScore >= 50) {
+                return 'D';
             } else {
-                return '';
+                return 'F';
             }
         },
     },
     created() {
         this.getSession();
     },
-};
+}
+
 </script>
 
 <style scoped>
+
 </style>

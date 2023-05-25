@@ -17,7 +17,7 @@
             <tr>
                 <th width="100">건물명</th>
                 <td>
-                    <input type="text" v-model="building_name" class="w3-input w3-border" placeholder="건물명을  입력해주세요.">
+                    <input type="text" v-model="building_name" class="w3-input w3-border" placeholder="건물명을 입력해주세요.">
                 </td>
             </tr>
             <tr>

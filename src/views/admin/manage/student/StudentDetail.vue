@@ -108,6 +108,10 @@ export default {
         this.fnGetView()
     },
     methods: {
+        formatDate(date) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(date).toLocaleDateString('ko-KR', options);
+        },
         fnGetView() {
             this.$axios.get(this.$serverUrl + '/admin/manage/student/' + this.member_id, {
                 params: this.requestBody
@@ -118,7 +122,7 @@ export default {
                 this.name = res.data.name
                 this.department_id = res.data.department_id
                 this.grade = res.data.grade
-                this.birthday = res.data.birthday
+                this.birthday = this.formatDate(res.data.birthday);
                 this.phone = res.data.phone
                 this.email = res.data.email
                 this.postcode = res.data.postcode
