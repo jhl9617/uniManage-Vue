@@ -1,7 +1,6 @@
 <template>
-    <h6>공지사항 발송</h6>
+    <h6>공지사항 작성</h6>
     <table class="table table-bordered" align="center">
-<!--        <form @submit.prevent="submitForm">-->
         <tr style="border: solid 1px ;">
             <th style="border: solid 1px ;">제목</th>
             <td style="border: 1px solid;">
@@ -15,7 +14,6 @@
             </td>
         </tr>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
-<!--    </form>-->
     </table>
 </template>
 
@@ -77,7 +75,6 @@ export default {
                 "notice_title": this.notice_title,
                 "notice_content": this.notice_content,
                 "member_id": this.loginMember.member_id,
-                // "readcount": this.readcount,
             }
 
             if (this.notice_id === undefined) {

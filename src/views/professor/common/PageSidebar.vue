@@ -45,10 +45,6 @@
           <router-link to="/prof/create/list"
                        class="link-body-emphasis d-inline-flex text-decoration-none rounded">신규강의 신청내역
           </router-link>
-          <br>
-          <router-link to="/prof/create/room"
-                       class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의실 조회
-          </router-link>
         </div>
       </div>
     </li>
