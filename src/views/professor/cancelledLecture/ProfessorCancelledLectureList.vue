@@ -1,59 +1,58 @@
 <template>
-    <h2>휴강신청</h2>
-    <div class="common-buttons">
-        <router-link to="/prof/lecture/cancelled/write">
-            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">휴강 신청하기</button>
-        </router-link>
-    </div>
+ <div class="container">
+   <h3><b>휴강신청</b></h3> <br>
+     <table class="table">
+       <thead>
+         <tr>
+           <th>번호</th>
+           <th>강의명</th>
+           <th>휴강회차</th>
+           <th>보강일시</th>
+           <th>제출서류</th>
+           <th>승인여부</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr v-for="(row, memberId) in list" :key="memberId">
+           <td>{{row.cancelledLectureIdx}}</td>
+<!--           <td><a v-on:click="fnGetList(`${row.cancelledLectureIdx}`)">{{row.lectureId}}</a></td>-->
+           <td>{{row.lecture_id}}</td>
+           <td>{{row.attendanceDay}}</td>
+           <td>{{row.supplyDate}}</td>
+           <!-- 파일이 존재하면 ◎, 존재하지 않는다면 빈칸 -->
+           <td>
+             <p v-if="row.cancelledFile"> ◎ </p>
+             <p v-else></p>
+           </td>
+           <td>{{row.cancelledApply}}</td>
+         </tr>
+       </tbody>
+     </table>
 
-    <br><br>
-    <div class="container">
-        <div class="row">
-            <table class="table table-bordered" id="closelist">
-                <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>강의명</th>
-                    <th>휴강회차</th>
-                    <th>보강일시</th>
-                    <th>제출서류</th>
-                    <th>승인여부</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="(row, cancelledLectureIdx) in list" :key="cancelledLectureIdx">
-                    <td>{{row.cancelledLectureIdx}}</td>
-                    <td><a v-on:click="fnGetList(`${row.cancelledLectureIdx}`)">{{row.lectureId}}</a></td>
-                    <td>{{row.attendanceDay}}</td>
-                    <td>{{row.supplyDate}}</td>
+     <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+       <span class="pg">
+         <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
+         <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)" class="prev w3-button w3-border">&lt;</a>
+         <template v-for=" (n,index) in paginavigation()">
+           <template v-if="paging.page==n">
+             <strong class="w3-button w3-border w3-green" :key="index">{{ n }}</strong>
+           </template>
+           <template v-else>
+             <a class="w3-button w3-border" href="javascript:;" @click="fnPage(`${n}`)" :key="index">{{ n }}</a>
+           </template>
+         </template>
+         <a href="javascript:;" v-if="paging.total_page_cnt > paging.end_page" @click="fnPage(`${paging.end_page+1}`)"
+            class="next w3-button w3-border">&gt;</a>
+         <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
+       </span>
+     </div>
 
-                    <!-- 파일이 존재하면 ◎, 존재하지 않는다면 빈칸 -->
-                    <td>
-                        <p v-if="row.cancelledFile"> ◎ </p>
-                        <p v-else></p>
-                    </td>
-                    <td>{{row.cancelledApply}}</td>
-                </tr>
-                </tbody>
-            </table>
-            <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
-                <span class="pg">
-                    <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
-                    <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)" class="prev w3-button w3-border">&lt;</a>
-                    <template v-for=" (n,index) in paginavigation()">
-                        <template v-if="paging.page==n">
-                            <strong class="w3-button w3-border w3-green" :key="index">{{ n }}</strong>
-                        </template>
-                        <template v-else>
-                            <a class="w3-button w3-border" href="javascript:;" @click="fnPage(`${n}`)" :key="index">{{ n }}</a>
-                        </template>
-                    </template>
-                    <a href="javascript:;" v-if="paging.total_page_cnt > paging.end_page" @click="fnPage(`${paging.end_page+1}`)" class="next w3-button w3-border">&gt;</a>
-                    <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
-                </span>
-            </div>
-        </div>
-    </div>
+   <div class="common-buttons">
+     <router-link to="/prof/lecture/cancelled/write">
+       <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">휴강 신청하기</button>
+     </router-link>
+   </div>
+ </div>
 </template>
 
 <script>
