@@ -4,7 +4,7 @@
         <div class="common-buttons">
 
         </div>
-         <table class="w3-table-all">
+         <table class="w3-table-all table-bordered">
             <thead>
             <tr>
                 <th>No</th>
@@ -16,13 +16,13 @@
             <tbody>
             <tr v-for="(row, idx) in list" :key="idx">
                 <td>{{ row.homework_id }}</td>
-                <td><a v-on:click="fnView(`${row.homework_id}`)">{{ row.homework_name }}</a></td>
+                <td><a v-on:click="fnView(`${row.homework_id}`)" style="cursor: pointer;">{{ row.homework_name }}</a></td>
                 <td>{{ row.deadline }}</td>
                 <td>{{ row.submitted }}</td>
             </tr>
             </tbody>
         </table>
-        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+        <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
       <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
       <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"

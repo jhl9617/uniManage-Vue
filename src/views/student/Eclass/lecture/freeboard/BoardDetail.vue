@@ -42,7 +42,7 @@
 
 
       <div class="common-buttons">
-        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
+        <button v-if="checkPermissions()" type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete()">삭제</button>&nbsp;
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
       </div>
@@ -76,6 +76,7 @@
         }).then((res) => { //success
           console.log(this.requestBody)
           this.free_title = res.data.freeboard.free_title
+          this.member_id = res.data.freeboard.member_id
           this.name = res.data.freeboard.name
           this.free_content = res.data.freeboard.free_content
           this.created_date = res.data.freeboard.created_date
@@ -87,14 +88,14 @@
           }
         })
       },
-      fnList() {
+      fnList() { // 게시판 리스트 보기
         delete this.requestBody.free_id
         this.$router.push({
           path: './list',
           query: this.requestBody
         })
       },
-        fnSave() {
+        fnSave() { // 게시판 글 저장 또는 수정
             let apiUrl = this.$serverUrl + '/eclass/lecture/board/' +  this.free_id
             this.form = {
                 "free_rep_id": this.free_rep_id,
@@ -162,7 +163,10 @@
                     console.log(err);
                 })
             }
-        }
+        },
+      checkPermissions() { // 게시판 글 작성자와 로그인 한 사용자의 아이디가 일치하는지 확인
+        return this.member_id === this.loginMember.member_id;
+      },
     }
   }
   </script>

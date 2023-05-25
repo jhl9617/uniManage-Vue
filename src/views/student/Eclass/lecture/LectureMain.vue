@@ -9,7 +9,7 @@
                         </legend>
 
 
-                        <table class="w3-table-all">
+                        <table class="w3-table-all table-bordered">
                           <tr>
                             <td>글번호</td>
                             <td>글제목</td>
@@ -30,7 +30,7 @@
                           <button v-on:click="fnLectureRoomList(lecture_id)" class="btn btn-outline-dark" type="button" style="cursor: pointer;">전체보기</button>
                         </legend>
 
-                        <table class="w3-table-all">
+                        <table class="w3-table-all table-bordered" >
                           <tr>
                             <td>글번호</td>
                             <td>글제목</td>
@@ -53,7 +53,7 @@
                            <button v-on:click="fnHomeworkList(lecture_id)" class="btn btn-outline-dark" type="button">전체보기</button>
                         </legend>
 
-                        <table class="w3-table-all">
+                        <table class="w3-table-all table-bordered">
                           <tr>
                             <td>글번호</td>
                             <td>글제목</td>
@@ -75,7 +75,7 @@
                             </router-link>
                         </legend>
 
-                        <table class="w3-table-all">
+                        <table class="w3-table-all table-bordered">
                             <tr>
                                 <td>글번호</td>
                                 <td>글제목</td>

@@ -22,7 +22,7 @@
         내 강의실
         <br><br>
         <div class="container-fluid">
-          <table class="w3-table-all">
+          <table class="w3-table-all table-bordered">
             <tr>
               <td>번호</td>
               <td>강의명</td>
