@@ -130,6 +130,7 @@ export default {
                 this.address2 = res.data.address2
                 this.auth = res.data.auth
                 this.department_name = res.data.department_name
+                console.log(res.data)
             }).catch((err) => { //실패 -> err에 정보를 저장함
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')

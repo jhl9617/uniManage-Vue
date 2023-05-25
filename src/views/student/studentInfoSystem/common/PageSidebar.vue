@@ -1,6 +1,7 @@
 <!-- PageSidebar.vue -->
 <template>
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+        <li><router-link to="/"> Home </router-link></li>
         <li>&nbsp;</li>
         <li>&nbsp;</li>
         <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>

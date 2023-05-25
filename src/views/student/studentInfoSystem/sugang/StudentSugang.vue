@@ -1,20 +1,6 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-<!--            <div class="col-md-4">-->
-<!--                <div class="col">-->
-<!--                    <div class="d-flex flex-column align-items-center text-center">-->
-<!--                        <img alt="Admin" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png"-->
-<!--                             width="150">-->
-<!--                        <div class="mt-3">-->
-<!--                            <h4 v-if="loginMember">{{ loginMember.name}} 학생</h4>-->
-<!--                            <p class="text-secondary mb-1" v-if="loginMember"> {{ loginMember.department_name}}</p>-->
-<!--                            <button class="btn btn-outline-primary me-2" type="button">LogOut</button>-->
-
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
                 <div class="row">
                     <div>
                         수강신청
@@ -22,69 +8,180 @@
                         <div class="container-fluid">
                             <table align="center" class="w3-table-all table-bordered" width="505">
                                 <tr align="left">
-                                    <th>검색구분</th>
-                                    <td>
-                                        <select>
-                                            <option value="">- 선택 -</option>
-                                            <option value="">학과</option>
-                                        </select>
-                                    </td>
                                     <th>학과</th>
                                     <td>
+                                        <select id="departmentName" v-model="department_id" >
+                                            <option value="">학과를 선택하세요</option>
+                                            <option v-for="department in list" :value="department.department_id" :key="department.id">
+                                                {{ department.department_name }}
+                                            </option>
+                                        </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                    <th>구분</th>
+                                    <td>
                                         <select>
                                             <option value="">- 선택 -</option>
-                                            <option value="">경영학과</option>
-                                            <option value="">컴퓨터공학과</option>
-                                            <option value="">잔자공학과</option>
-                                            <option value="">중어중문학과</option>
-                                            <option value="">영어영문학과</option>
+                                            <option value="1">교양</option>
+                                            <option value="2">전공</option>
                                         </select>
                                     </td>
                                 </tr>
                             </table>
+<!--                            <table class="w3-table-all">-->
+<!--                                <tr>-->
+<!--                                    <th>강의명</th>-->
+<!--                                    <th>학점</th>-->
+<!--                                    <th>강의시간</th>-->
+<!--                                    <th>수강신청</th>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>강의명</td>-->
+<!--                                    <td>학점</td>-->
+<!--                                    <td>강의시간</td>-->
+<!--                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>강의명</td>-->
+<!--                                    <td>학점</td>-->
+<!--                                    <td>강의시간</td>-->
+<!--                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>강의명</td>-->
+<!--                                    <td>학점</td>-->
+<!--                                    <td>강의시간</td>-->
+<!--                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>-->
+<!--                                </tr>-->
+
+<!--                            </table>-->
                             <table class="w3-table-all">
+                                <thead>
                                 <tr>
                                     <th>강의명</th>
                                     <th>학점</th>
                                     <th>강의시간</th>
                                     <th>수강신청</th>
                                 </tr>
-                                <tr>
-                                    <td>강의명</td>
-                                    <td>학점</td>
-                                    <td>강의시간</td>
+                                </thead>
+                                <tbody>
+                                <tr v-for="(row, member_idx) in list" :key="member_idx">
+                                    <td>{{ row.lecture_title}}</td>
+                                    <td><a v-on:click="fnView(`${row.lecture_id}`)" style="cursor: pointer;">{{ row.credit }}</a></td>
+                                    <td>{{ row.timecode1 }} {{ row.timecode2 }} {{ row.timecode3 }}</td>
                                     <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>
                                 </tr>
-                                <tr>
-                                    <td>강의명</td>
-                                    <td>학점</td>
-                                    <td>강의시간</td>
-                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>
-                                </tr>
-                                <tr>
-                                    <td>강의명</td>
-                                    <td>학점</td>
-                                    <td>강의시간</td>
-                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>
-                                </tr>
-
+                                </tbody>
                             </table>
+                            <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
+                              <span class="pg">
+                              <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
+                              <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
+                                 class="prev w3-button w3-border">&lt;</a>
+                              <template v-for=" (n,index) in paginavigation()">
+                                  <template v-if="paging.page==n">
+                                      <strong class="w3-button w3-border w3-green" :key="index">{{ n }}</strong>
+                                  </template>
+                                  <template v-else>
+                                      <a class="w3-button w3-border" href="javascript:;" @click="fnPage(`${n}`)" :key="index">{{ n }}</a>
+                                  </template>
+                              </template>
+                              <a href="javascript:;" v-if="paging.total_page_cnt > paging.end_page"
+                                 @click="fnPage(`${paging.end_page+1}`)" class="next w3-button w3-border">&gt;</a>
+                              <a href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)" class="last w3-button w3-border">&gt;&gt;</a>
+                              </span>
+                            </div>
                         </div>
                     </div>
             </div>
         </div>
-        <PageFooter/>
     </div>
 </template>
 
 <script>
+
+
 export default {
     data() {
         return {
+            requestBody: {}, //리스트 페이지 데이터전송
+            list: {}, //리스트 데이터
+            no: '', //게시판 숫자처리
+            paging: {
+                block: 0,
+                end_page: 0,
+                next_block: 0,
+                page: 0,
+                page_size: 0,
+                prev_block: 0,
+                start_index: 0,
+                start_page: 0,
+                total_block_cnt: 0,
+                total_list_cnt: 0,
+                total_page_cnt: 0,
+            }, //페이징 데이터
+            page: this.$route.query.page ? this.$route.query.page : 1,
+            size: this.$route.query.size ? this.$route.query.size : 10,
+            search_key: this.$route.query.sk ? this.$route.query.sk : '',
+            search_value: this.$route.query.sv ? this.$route.query.sv : '',
+            // keyword: this.$route.query.keyword,
+            paginavigation: function () { //페이징 처리 for문 커스텀
+                let pageNumber = [] //;
+                let start_page = this.paging.start_page;
+                let end_page = this.paging.end_page;
+                for (let i = start_page; i <= end_page; i++) pageNumber.push(i);
+                return pageNumber;
+            },
+
             loginMember: null,
         };
     },
+    mounted() { //연결 되면 == window.onload()
+        this.fnGetList()
+    },
     methods: {
+        fnGetList() {
+            //스프링 부트에서 전송받은 데이터 출력 처리
+            this.requestBody = { // 데이터 전송
+                sk: this.search_key,
+                sv: this.search_value,
+                // keyword: this.keyword,
+                page: this.page,
+                size: this.size
+            }
+
+            this.$axios.get("/student/sugang", {
+                params: this.requestBody,
+                headers: {}
+            }).then((res) => {
+
+                // this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
+                if (res.data.result_code === "OK") {
+                    this.list = res.data.data
+                    console.log(this.list)
+                    this.paging = res.data.pagination
+                    this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
+                }
+
+            }).catch((err) => {
+                if (err.message.indexOf('Network Error') > -1) {
+                    alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                }
+            })
+        },
+        fnView(lecture_id) {
+            this.requestBody.lecture_id = lecture_id
+            this.$router.push({
+                path: '/student/sugang/detail',
+                query: this.requestBody
+            })
+        },
+        fnPage(n) {
+            if (this.page !== n) {
+                this.page = n
+
+            }
+            this.fnGetList()
+        },
         async getSession() {
             try {
                 const response = await fetch("/sessionCheck");
@@ -102,7 +199,7 @@ export default {
     },
     created() {
         this.getSession();
-    }
+    },
 }
 </script>
 <style scoped>
