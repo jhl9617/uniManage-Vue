@@ -25,7 +25,7 @@
                 <td>{{ row.lecture_id }}</td>
                 <td>{{ row.lecture_title }}</td>
                 <td>{{ row.credit }}</td>
-                <td>{{ row.mid_score }}</td>
+                <td>{{ getGrade(row.total_score) }}</td>
             </tr>
         </table>
     </div>
@@ -51,7 +51,7 @@ export default {
                     params: this.requestBody,
                 })
                 .then((res) => {
-                    this.list = res.data.data
+                    this.list = res.data;
                     console.log(this.list)
                 })
                 .catch((err) => {
@@ -72,6 +72,19 @@ export default {
                 }
             } catch (error) {
                 console.error('Error fetching session data:', error);
+            }
+        },
+        getGrade(totalScore) {
+            if (totalScore >= 90) {
+                return 'A';
+            } else if (totalScore >= 70) {
+                return 'B';
+            } else if (totalScore >= 60) {
+                return 'C';
+            } else if (totalScore >= 50) {
+                return 'D';
+            } else {
+                return 'F';
             }
         },
     },
