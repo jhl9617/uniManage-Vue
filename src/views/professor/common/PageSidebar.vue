@@ -119,8 +119,8 @@
                        class="link-body-emphasis d-inline-flex text-decoration-none rounded">전체 공지
           </router-link>
           <br>
-          <router-link to="/prof/dnotice/list"
-                       class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과 공지
+          <router-link to="/prof/schedule/list"
+                       class="link-body-emphasis d-inline-flex text-decoration-none rounded">학사 일정
           </router-link>
         </div>
       </div>
