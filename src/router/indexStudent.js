@@ -33,6 +33,7 @@ import StudentScheduleList from "@/views/student/studentInfoSystem/notice/Schedu
 import StudentNoticeDetail from "@/views/student/studentInfoSystem/notice/NoticeDetail.vue";
 import StudentTakeoffAppliedView from "@/views/student/studentInfoSystem/status/TakeoffAppliedView.vue";
 import StudentReturnAppliedView from "@/views/student/studentInfoSystem/status/ReturnAppliedView.vue";
+import StudentMyPage from "@/views/student/studentInfoSystem/common/MyPage.vue";
 
 const routesStudent = [
 
@@ -205,6 +206,11 @@ const routesStudent = [
         path: '/student/return/detail',
         name: 'StudentReturnAppliedView',
         component: StudentReturnAppliedView
+    },
+    {
+        path: '/student/mypage',
+        name: 'StudentMyPage',
+        component: StudentMyPage
     },
 ]
 

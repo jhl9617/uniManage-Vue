@@ -27,33 +27,6 @@
                                     </td>
                                 </tr>
                             </table>
-<!--                            <table class="w3-table-all">-->
-<!--                                <tr>-->
-<!--                                    <th>강의명</th>-->
-<!--                                    <th>학점</th>-->
-<!--                                    <th>강의시간</th>-->
-<!--                                    <th>수강신청</th>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td>강의명</td>-->
-<!--                                    <td>학점</td>-->
-<!--                                    <td>강의시간</td>-->
-<!--                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td>강의명</td>-->
-<!--                                    <td>학점</td>-->
-<!--                                    <td>강의시간</td>-->
-<!--                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td>강의명</td>-->
-<!--                                    <td>학점</td>-->
-<!--                                    <td>강의시간</td>-->
-<!--                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>-->
-<!--                                </tr>-->
-
-<!--                            </table>-->
                             <table class="w3-table-all">
                                 <thead>
                                 <tr>
@@ -68,7 +41,7 @@
                                     <td>{{ row.lecture_title}}</td>
                                     <td><a v-on:click="fnView(`${row.lecture_id}`)" style="cursor: pointer;">{{ row.credit }}</a></td>
                                     <td>{{ row.timecode1 }} {{ row.timecode2 }} {{ row.timecode3 }}</td>
-                                    <td><button class="btn btn-outline-dark" type="button">수강신청</button></td>
+                                    <td><button type="button" class="btn btn-outline-dark" v-on:click="fnSave">수강신청</button></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -133,6 +106,12 @@ export default {
             },
 
             loginMember: null,
+
+            course_regi_id: this.$route.query.course_regi_id,
+
+            member_id: '',
+            lecture_id: '',
+            course_regi_term: '',
         };
     },
     mounted() { //연결 되면 == window.onload()
@@ -171,7 +150,7 @@ export default {
         fnView(lecture_id) {
             this.requestBody.lecture_id = lecture_id
             this.$router.push({
-                path: '/student/sugang/detail',
+                path: '/',
                 query: this.requestBody
             })
         },
@@ -181,6 +160,41 @@ export default {
 
             }
             this.fnGetList()
+        },
+        fnSave() {
+            let apiUrl = this.$serverUrl + '/student/sugang'  //let = var
+            this.form = {
+                "course_regi_id": this.course_regi_id,
+                "member_id": this.member_id,
+                "lecture_id": this.lecture_id,
+                "course_regi_term": this.semester,
+            }
+
+            if (this.course_regi_id === undefined) {
+                //INSERT
+                this.$axios.post(apiUrl, this.form)
+                    .then((res) => {
+                        alert('수강신청이 성공하였습니다.')
+                        this.fnView(res.data.course_regi_id)
+                    }).catch((err) => {
+                    if (err.message.indexOf('Network Error') > -1) {
+                        alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                    }
+                })
+            }
+            // else {
+            //     //UPDATE
+            //     this.$axios.patch(apiUrl, this.form)
+            //         .then((res) => {
+            //             alert('글이 저장되었습니다.')
+            //             this.scho_id = res.data.scho_id;
+            //             this.fnView(res.data.scho_id)
+            //         }).catch((err) => {
+            //         if (err.message.indexOf('Network Error') > -1) {
+            //             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+            //         }
+            //     })
+            // }
         },
         async getSession() {
             try {

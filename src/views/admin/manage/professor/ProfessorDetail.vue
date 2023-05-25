@@ -3,19 +3,18 @@
     <div style="border:2px solid black; padding:100px;">
         <div class="col-md-8">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <fieldset>
-                                <table>
-                                    <td>
-                                        <img src="@/assets/images/chacha.jpg" class="rounded-circle" width="150">
-                                    </td>
-                                </table>
-                            </fieldset>
-                        </div>
-
-                    </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="d-flex flex-column align-items-center text-center">-->
+<!--                            <fieldset>-->
+<!--                                <table>-->
+<!--                                    <td>-->
+<!--                                        <img src="@/assets/images/chacha.jpg" class="rounded-circle" width="150">-->
+<!--                                    </td>-->
+<!--                                </table>-->
+<!--                            </fieldset>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="col-md-8">
                         <fieldset>
                             <table class="w3-table-all">
