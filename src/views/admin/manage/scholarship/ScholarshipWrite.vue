@@ -105,6 +105,7 @@ export default {
                 this.$axios.patch(apiUrl, this.form)
                     .then((res) => {
                         alert('글이 저장되었습니다.')
+                        this.scho_id = res.data.scho_id;
                         this.fnView(res.data.scho_id)
                     }).catch((err) => {
                     if (err.message.indexOf('Network Error') > -1) {

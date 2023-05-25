@@ -1,73 +1,98 @@
 <template>
   <div class="container">
-    <h4>신규강의 개설하기</h4> <br>
+    <h3><b>신규강의 개설하기</b></h3> <br>
     <table id="newlecture" class="table" style="width: 1000px;">
       <tr>
         <th>강의명</th>
-        <td colspan="4"><input class="form-control" type="text"></td>
+        <td colspan="4">
+          <input class="form-control" type="text" v-model="lecture_title">
+        </td>
       </tr>
       <tr>
-        <th>학점</th>
-        <td colspan="4">
-          <select id="" class="form-control" name="">
-            <option selected value="">선택</option>
-            <option value="">1학점</option>
-            <option value="">2학점</option>
-            <option value="">3학점</option>
+        <th>구분</th>
+        <td>
+          <select class="form-control" v-model="classification">
+            <option value="">선택</option>
+            <option value="1">교양</option>
+            <option value="2">전공</option>
           </select>
+        </td>
+        <th>학점</th>
+        <td>
+          <select class="form-control" v-model.number="credit">
+            <option value="">선택</option>
+            <option value="1">1학점</option>
+            <option value="2">2학점</option>
+            <option value="3">3학점</option>
+          </select>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>학기</th>
+        <td colspan="4">
+          <input type="number" class="form-control" v-model="semester" placeholder="202301">
         </td>
       </tr>
       <tr>
         <th style="width: 13%;">강의실 1</th>
-        <td style="width: 33%"><input v-model="lectureRoom1" class="form-control" type="text"></td>
+        <td style="width: 33%"><input v-model="roomcode1" class="form-control" type="text" disabled></td>
         <th style="width: 13%;">강의시간 1</th>
-        <td style="width: 33%"><input v-model="lectureTime1" class="form-control" type="text"></td>
+        <td style="width: 33%"><input v-model="timecode1" class="form-control" type="text" disabled></td>
         <td style="width: 8%">
-          <button class="btn" @click="openModal(1)">조회</button>
+          <button type="button" class="w3-button w3-round w3-blue-gray" @click="openModal(1)">조회</button>
           <div v-if="modalOpen[1]">
             <ModalComponent @close="closeModal(1)">
-              <LectureRoom :room="lectureRoom1" :time="lectureTime1"></LectureRoom>
+              <LectureRoom @selectLectureRoom="handleSelectedLecture1" @close="closeModal(1)" :room="roomcode1"
+                           :time="timecode1"></LectureRoom>
             </ModalComponent>
           </div>
         </td>
       </tr>
       <tr>
         <th>강의실 2</th>
-        <td><input v-model="lectureRoom2" class="form-control" type="text"></td>
+        <td><input v-model="roomcode2" class="form-control" type="text" disabled></td>
         <th>강의시간 2</th>
-        <td><input v-model="lectureTime2" class="form-control" type="text"></td>
+        <td><input v-model="timecode2" class="form-control" type="text" disabled></td>
         <td>
-          <button class="btn" @click="openModal(2)">조회</button>
+          <button type="button" class="w3-button w3-round w3-blue-gray" @click="openModal(2)">조회</button>
           <div v-if="modalOpen[2]">
             <ModalComponent @close="closeModal(2)">
-              <LectureRoom :room="lectureRoom2" :time="lectureTime2"></LectureRoom>
+              <LectureRoom @selectLectureRoom="handleSelectedLecture2" @close="closeModal(2)" :room="roomcode2"
+                           :time="timecode2"></LectureRoom>
             </ModalComponent>
           </div>
         </td>
       </tr>
       <tr>
         <th>강의실 3</th>
-        <td><input v-model="lectureRoom3" class="form-control" type="text"></td>
+        <td><input v-model="roomcode3" class="form-control" type="text" disabled></td>
         <th>강의시간 3</th>
-        <td><input v-model="lectureTime3" class="form-control" type="text"></td>
+        <td><input v-model="timecode3" class="form-control" type="text" disabled></td>
         <td>
-          <button class="btn" @click="openModal(3)">조회</button>
+          <button type="button" class="w3-button w3-round w3-blue-gray" @click="openModal(3)">조회</button>
           <div v-if="modalOpen[3]">
             <ModalComponent @close="closeModal(3)">
-              <LectureRoom :room="lectureRoom3" :time="lectureTime3"></LectureRoom>
+              <LectureRoom @selectLectureRoom="handleSelectedLecture3" @close="closeModal(3)" :room="roomcode3"
+                           :time="timecode3"></LectureRoom>
             </ModalComponent>
           </div>
         </td>
       </tr>
       <tr>
-        <th>강의계획서</th>
+        <th>수강인원</th>
         <td colspan="4">
-          <input class="btn btn-toolbar" type="file">
+          <input type="number" class="form-control" min="5" max="100" step="5" placeholder="30" v-model="number_of_student">
+        </td>
+      </tr>
+      <tr>
+        <th>강의계획서</th>
+        <td colspan="5" style="text-align: left;">
+          <input type="text" class="form-control" v-model="syllabus_title">
         </td>
       </tr>
     </table>
-    <input type="submit" value="신규강의 생성하기"> &nbsp; &nbsp;
-    <input type="button" value="홈페이지로 돌아가기">
+    <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">작성</button>
   </div>
 </template>
 <script>
@@ -81,28 +106,165 @@ export default {
   },
   data() {
     return {
+      loginMember: null,
+
+      requestBody: this.$router.query,
+      lecture_id: this.$route.query.lecture_id,
+
+      member_id: '',
+      classification: '',
+      semester: '',
+      department_id: '',
+      lecture_title: '',
+      number_of_student: '',
+      credit: '',
+      roomcode1: '',
+      roomcode2: '',
+      roomcode3: '',
+      timecode1: '',
+      timecode2: '',
+      timecode3: '',
+      syllabus_title: '',
+      syllabus_rename: '',
+      lecture_apply_status: '',
+
       showPopup: false,
       modalOpen: {
         1: false,
         2: false,
         3: false,
       },
-      lectureRoom1: "",
-      lectureTime1: "",
-      lectureRoom2: "",
-      lectureTime2: "",
-      lectureRoom3: "",
-      lectureTime3: "",
     };
   },
+  mounted() {
+    this.fnGetView()
+  },
   methods: {
+    fnGetView() {
+      if (this.lecture_id !== undefined) {
+        this.$axios.get(this.$serverUrl + '/prof/create/' + this.lecture_id, {
+          params: this.requestBody
+        }).then((res) => {
+          this.lecture_id = res.data.lecture_id
+          this.member_id = res.data.member_id
+          this.classification = res.data.classification
+          this.semester = res.data.semester
+          this.department_id = res.data.department_id
+          this.lecture_title = res.data.lecture_title
+          this.number_of_student = res.data.number_of_student
+          this.credit = res.data.credit
+          this.roomcode1 = res.data.roomcode1
+          this.roomcode2 = res.data.roomcode2
+          this.roomcode3 = res.data.roomcode3
+          this.timecode1 = res.data.timecode1
+          this.timecode2 = res.data.timecode2
+          this.timecode3 = res.data.timecode3
+          this.syllabus_title = res.data.syllabus_title
+          this.syllabus_rename = res.data.syllabus_rename
+          this.lecture_apply_status = res.data.lecture_apply_status
+        }).catch((err) => {
+          console.log(err)
+        })
+      }
+    },
+    fnList() {
+      delete this.requestBody.lecture_id
+      this.$router.push({
+        path: './list',
+        query: this.requestBody
+      })
+    },
+    fnView(lecture_id) {
+      this.requestBody.lecture_id = lecture_id
+      this.$router.push({
+        path: './view',
+        query: this.requestBody
+      })
+    },
+    fnSave() {
+      let apiUrl = this.$serverUrl + '/prof/create'
+
+      this.form = {
+        "lecture_id": this.lecture_id,
+        "member_id": this.loginMember.member_id,
+        "classification": this.classification,
+        "semester": this.semester,
+        "department_id": this.loginMember.department_id,
+        "lecture_title": this.lecture_title,
+        "number_of_student": this.number_of_student,
+        "credit": this.credit,
+        "roomcode1": this.roomcode1,
+        "roomcode2": this.roomcode2,
+        "roomcode3": this.roomcode3,
+        "timecode1": this.timecode1,
+        "timecode2": this.timecode2,
+        "timecode3": this.timecode3,
+        "syllabus_title": this.syllabus_title,
+        "syllabus_rename": this.syllabus_rename,
+        "lecture_apply_status": '1',
+      }
+
+      if (this.lecture_id === undefined) {
+        //INSERT
+        this.$axios.post(apiUrl, this.form)
+            .then((res) => {
+              alert('강의가 저장되었습니다.')
+              this.fnView(res.data.lecture_id)
+            }).catch((err) => {
+              if (err.message.indexOf('Network Error') > -1) {
+                alert('네트워크가 원할하지 않습니다.\n잠시 후 다시 시도해주세요.')
+              }
+        })
+      } else {
+        //UPDATE
+        this.$axios.patch(apiUrl, this.form)
+            .then((res) => {
+              alert('강의가 저장되었습니다.')
+              this.fnView(res.data.lecture_id)
+            }).catch((err) => {
+          if (err.message.indexOf('Network Error') > -1) {
+            alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+          }
+        })
+      }
+    }, async getSession() {
+      try {
+        const response = await fetch("/sessionCheck");
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log("Session data:", data);
+          this.loginMember = data;
+        } else {
+          console.error("Error fetching session data");
+        }
+      } catch (error) {
+        console.error("Error fetching session data:", error);
+      }
+    },
     openModal(index) {
       this.modalOpen[index] = true;
     },
     closeModal(index) {
       this.modalOpen[index] = false;
-    }
-  }
+    },
+    handleSelectedLecture1(selectedData) {
+      this.roomcode1 = selectedData.lecture_room_code;
+      this.timecode1 = selectedData.timecode;
+    },
+
+    handleSelectedLecture2(selectedData) {
+      this.roomcode2 = selectedData.lecture_room_code;
+      this.timecode2 = selectedData.timecode;
+    },
+
+    handleSelectedLecture3(selectedData) {
+      this.roomcode3 = selectedData.lecture_room_code;
+      this.timecode3 = selectedData.timecode;
+    },
+  },
+  created() {
+    this.getSession();
+  },
 }
 </script>
 
@@ -111,8 +273,16 @@ export default {
   vertical-align: middle
 }
 
+#newlecture tr td select option {
+  text-align: center;
+}
+
 #newlecture tr td {
-  text-align: left;
+  text-align: center;
+}
+
+#newlecture tr td input {
+  text-align: center;
 }
 
 #newlecture tr th {
@@ -124,7 +294,8 @@ export default {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
+  text-align: center;
+  top: -250px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -135,6 +306,6 @@ export default {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
-  max-width: 600px;
+  max-width: 800px;
 }
 </style>

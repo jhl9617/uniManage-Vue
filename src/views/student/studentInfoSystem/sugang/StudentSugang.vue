@@ -1,23 +1,22 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <div class="col">
-                    <div class="d-flex flex-column align-items-center text-center">
-                        <img alt="Admin" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                             width="150">
-                        <div class="mt-3">
-                            <h4 v-if="loginMember">{{ loginMember.name}} 학생</h4>
-                            <p class="text-secondary mb-1" v-if="loginMember"> {{ loginMember.department_name}}</p>
-                            <button class="btn btn-outline-primary me-2" type="button">LogOut</button>
+<!--            <div class="col-md-4">-->
+<!--                <div class="col">-->
+<!--                    <div class="d-flex flex-column align-items-center text-center">-->
+<!--                        <img alt="Admin" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png"-->
+<!--                             width="150">-->
+<!--                        <div class="mt-3">-->
+<!--                            <h4 v-if="loginMember">{{ loginMember.name}} 학생</h4>-->
+<!--                            <p class="text-secondary mb-1" v-if="loginMember"> {{ loginMember.department_name}}</p>-->
+<!--                            <button class="btn btn-outline-primary me-2" type="button">LogOut</button>-->
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div>
                         수강신청
                         <br><br>
                         <div class="container-fluid">
@@ -44,12 +43,12 @@
                                 </tr>
                             </table>
                             <table class="w3-table-all">
-                            <tr>
-                                <th>강의명</th>
-                                <th>학점</th>
-                                <th>강의시간</th>
-                                <th>수강신청</th>
-                            </tr>
+                                <tr>
+                                    <th>강의명</th>
+                                    <th>학점</th>
+                                    <th>강의시간</th>
+                                    <th>수강신청</th>
+                                </tr>
                                 <tr>
                                     <td>강의명</td>
                                     <td>학점</td>
@@ -72,25 +71,13 @@
                             </table>
                         </div>
                     </div>
-                    <div class=" col-md-4
-                            ">
-                            챗봇
-                            <br><br>
-                            <div class="container-fluid">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <PageFooter/>
         </div>
+        <PageFooter/>
+    </div>
 </template>
 
 <script>
-import PageFooter from "@/components/common/PageFooter.vue";
-
-
 export default {
     data() {
         return {
@@ -115,12 +102,7 @@ export default {
     },
     created() {
         this.getSession();
-    },
-    components: {
-        // HelloWorld
-        PageFooter,
-
-    },
+    }
 }
 </script>
 <style scoped>

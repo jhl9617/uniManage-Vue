@@ -55,7 +55,6 @@ export default {
         this.fnGetView()
 
     },
-
     methods: {
         fnGetView() {
             this.$axios.get(this.$serverUrl + '/admin/manage/student/scholarship/' + this.member_id, {

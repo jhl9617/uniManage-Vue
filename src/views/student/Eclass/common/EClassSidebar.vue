@@ -3,7 +3,7 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
         <li>&nbsp;</li>
         <li>&nbsp;</li>
-        <li>&nbsp;</li>
+        <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
@@ -12,7 +12,7 @@
             </router-link>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnEclass">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
                 <span>E-Class</span>
             </a>
         </li>
@@ -21,12 +21,7 @@
 
 
 
-        <!-- 과제 현황 -->
-        <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/eclass/totalhomework/list">
-                <span>과제현황</span>
-            </router-link>
-        </li>
+
 
 
     </ul>
@@ -43,8 +38,6 @@ export default {
     this.getSession();
   },
   methods: {
-
-
     fnEclass() {
       if (this.loginMember) {
         const member_id = this.loginMember.member_id;
@@ -68,6 +61,20 @@ export default {
         console.error("Error fetching session data:", error);
       }
     },
+    logout() {
+      this.$axios.post('/logout')
+          .then(response => {
+            console.log(response)
+            this.$router.push({
+              path: '/'
+
+            })
+          })
+          .catch(error => {
+            // 로그아웃 실패 시 처리할 로직 작성
+            console.error(error);
+          });
+    }
 
   }
 }

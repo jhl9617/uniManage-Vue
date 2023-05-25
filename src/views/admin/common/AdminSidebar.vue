@@ -5,7 +5,7 @@
         <li>&nbsp;</li>
         <li>&nbsp;</li>
         <li>&nbsp;</li>
-        <li>&nbsp;</li>
+        <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <router-link class="nav-link" to="/admin/">
@@ -37,16 +37,32 @@
 
         <!-- 학생 관리 -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/admin/manage/student">
-                <span>학생 관리</span>
-            </router-link>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#student-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>학생관리</span>
+            </a>
+            <div id="student-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/admin/manage/student"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">학생 명단
+                    </router-link>
+                </div>
+            </div>
         </li>
 
         <!-- 교수 관리 -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/admin/manage/professor">
-                <span>교수 관리</span>
-            </router-link>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#prof-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>교수관리</span>
+            </a>
+            <div id="prof-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/admin/manage/professor"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">교수 명단
+                    </router-link>
+                </div>
+            </div>
         </li>
 
         <!-- 강의 관리 -->
@@ -70,22 +86,42 @@
 
         <!-- 강의실 관리 -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/admin/manage/classroom">
-                <span>강의실 관리</span>
-            </router-link>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#classroom-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>강의실관리</span>
+            </a>
+            <div id="classroom-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/admin/manage/classroom"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의실 리스트
+                    </router-link>
+                </div>
+            </div>
         </li>
 
         <!-- 장학금 관리 -->
         <li class="nav-item">
-            <router-link class="nav-link collapsed" to="/admin/manage/scholarship">
-                <span>장학금 관리</span>
-            </router-link>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#scho-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>장학금관리</span>
+            </a>
+            <div id="scho-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/admin/manage/scholarship"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">장학금 리스트
+                    </router-link>
+                </div>
+            </div>
         </li>
+
     </ul>
 </template>
 
 <script>
-
+export default {
+  methods: {
+  }
+}
 </script>
 
 <style scoped>

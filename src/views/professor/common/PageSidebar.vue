@@ -1,12 +1,13 @@
 <!-- LectureSidebar.vue -->
 <template>
+
   <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
     <li>&nbsp;</li>
     <li>&nbsp;</li>
     <li>&nbsp;</li>
-    <li>&nbsp;</li>
-    <li>&nbsp;</li>
-    <!-- Nav Item - Dashboard -->
+    <li></li>
+    <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
+  <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
       <router-link class="nav-link" to="/prof/main">
         <span>Home</span>
@@ -34,19 +35,15 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#create-collapse"
          aria-expanded="true" aria-controls="collapseUtilities">
-        <span>개설강좌</span>
+        <span>강좌개설</span>
       </a>
       <div id="create-collapse" class="collapse" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <router-link to="/prof/create"
+          <router-link to="/prof/create/write"
                        class="link-body-emphasis d-inline-flex text-decoration-none rounded">신규강좌 개설
           </router-link>
           <router-link to="/prof/create/list"
                        class="link-body-emphasis d-inline-flex text-decoration-none rounded">신규강의 신청내역
-          </router-link>
-          <br>
-          <router-link to="/prof/create/room"
-                       class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의실 조회
           </router-link>
         </div>
       </div>
@@ -147,7 +144,25 @@
 </template>
 
 <script>
+export default {
+  methods: {
+    logout() {
+      this.$axios.post('/logout')
+          .then(response => {
+            console.log(response)
+            alert('로그아웃 되었습니다.')
+            this.$router.push({
+              path: '/'
 
+            })
+          })
+          .catch(error => {
+            alert('로그아웃에 실패했습니다.')
+            console.error(error);
+          });
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -21,26 +21,24 @@ import StudentApplyReturn from "@/views/student/studentInfoSystem/status/Student
 import StudentTimelineByDepart from "@/views/student/studentInfoSystem/course/TimelineByDepart.vue";
 import StudentTimetable from "@/views/student/studentInfoSystem/course/StudentTimetable.vue";
 import StudentCheckCourse from "@/views/student/studentInfoSystem/course/CheckCourse.vue";
-import StudentPayReceipt from "@/views/student/studentInfoSystem/receipt/PayReceipt.vue";
-import StudentPrintReceipt from "@/views/student/studentInfoSystem/receipt/PrintReceipt.vue";
 import StudentSurveyCourse from "@/views/student/studentInfoSystem/survey/SurveyCourse.vue";
 import StudentCheckCredit from "@/views/student/studentInfoSystem/score/CheckCredit.vue";
-import StudentCheckGrade from "@/views/student/studentInfoSystem/score/StudentCheckGrade.vue";
+import StudentCheckScore from "@/views/student/studentInfoSystem/score/StudentCheckScore.vue";
 import StudentCheckScholarship from "@/views/student/studentInfoSystem/scholarship/StudentCheckScholarship.vue";
-import StudentCourseList from "@/views/student/studentInfoSystem/StudentCourseList.vue";
+import StudentCourseList from "@/views/student/studentInfoSystem/sugang/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/common/StudentInfoMain.vue";
-import StudentMain from "@/views/student/studentInfoSystem/StudentSugang.vue";
+import StudentMain from "@/views/student/studentInfoSystem/sugang/StudentSugang.vue";
 import StudentNoticeList from "@/views/student/studentInfoSystem/notice/NoticeList.vue";
+import StudentScheduleList from "@/views/student/studentInfoSystem/notice/ScheduleList.vue";
 import StudentNoticeDetail from "@/views/student/studentInfoSystem/notice/NoticeDetail.vue";
+import StudentTakeoffAppliedView from "@/views/student/studentInfoSystem/status/TakeoffAppliedView.vue";
+import StudentReturnAppliedView from "@/views/student/studentInfoSystem/status/ReturnAppliedView.vue";
 
 const routesStudent = [
 
     {
         path: '/about',
         name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '@/views/student/Eclass/common/PageAbout.vue')
     },
     {
@@ -154,30 +152,14 @@ const routesStudent = [
         component: StudentCheckCourse
     },
     {
-        path: '/student/payreceipt',
-        name: 'StudentPayReceipt',
-        component: StudentPayReceipt
-    },
-    {
-        path: '/student/printreceipt',
-        name: 'StudentPrintReceipt',
-        component: StudentPrintReceipt
-    },
-    {
-        path: '/student/printreceipt',
-        name: 'StudentPrintReceipt',
-        component: StudentPrintReceipt
-
-    },
-    {
         path: '/student/checkcredit',
         name: 'StudentCheckCredit',
         component: StudentCheckCredit
     },
     {
-        path: '/student/checkgrade',
-        name: 'StudentCheckGrade',
-        component: StudentCheckGrade
+        path: '/student/score',
+        name: 'StudentCheckScore',
+        component: StudentCheckScore
     },
     {
         path: '/student/surveycourse',
@@ -185,7 +167,7 @@ const routesStudent = [
         component: StudentSurveyCourse
     },
     {
-        path: '/student/checkscholarship',
+        path: '/student/scholarship',
         name: 'StudentCheckScholarship',
         component: StudentCheckScholarship
     },
@@ -208,6 +190,21 @@ const routesStudent = [
         path: '/student/notice/detail',
         name: 'StudentNoticeDetail',
         component: StudentNoticeDetail
+    },
+    {
+        path: '/student/schedule',
+        name: 'StudentScheduleList',
+        component: StudentScheduleList
+    },
+    {
+        path: '/student/takeoff/detail',
+        name: 'StudentTakeoffAppliedView',
+        component: StudentTakeoffAppliedView
+    },
+    {
+        path: '/student/return/detail',
+        name: 'StudentReturnAppliedView',
+        component: StudentReturnAppliedView
     },
 ]
 
