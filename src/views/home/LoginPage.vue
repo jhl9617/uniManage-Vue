@@ -53,12 +53,12 @@ export default {
     emits: ['sign-in'],
     setup(props, context) {
 
+        let accessToken;
 
         const userId = ref('')
         const password = ref('')
 
-
-        const fireSignin = async () =>{
+        const fireSignin = async () => {
             // Emit the 'sign-in' event with the user's data
             context.emit('sign-in', {
                 userId: userId.value,
@@ -71,32 +71,22 @@ export default {
                 password: password.value
             })
                 .then(response => {
-                    console.log(JSON.stringify(response.headers))
+                    // After successful login, extract the access token
+                    const { authorization } = response.headers;
+                    accessToken = authorization.substring(7);
 
-                    const { authorization } = response.headers
-                    //엑세스토큰을 추출하여
-                    const accessToken = authorization.substring(7)
-
-                    axios.post('http://localhost:9090/getProfile', {
-
+                    // Then send a POST request to getProfile endpoint
+                    return axios.post('http://localhost:9090/getProfile', {
                         memberId: userId.value.toString(),
-                    })
-                        .then(response => {
-                            console.log("유저 정보 : " + response)
-                            // handle your response here
-                        })
-                        .catch(error => {
-                            console.error(error)
-                            // handle your error here
-
-                        })
-
+                    });
+                })
+                .then(response => {
+                    console.log("유저 정보 : " + response);
 
                     // Decode the token and extract the roles
                     const decoded = decodeToken(accessToken);
                     let pagePath = '';
                     if (decoded && decoded.rol && decoded.rol.length > 0) {
-                        // Extract the roles and store it in a variable (or in the state)
                         const roles = decoded.rol;
                         if (roles.includes('1')) {
                             pagePath = '/prof/main';
@@ -105,14 +95,12 @@ export default {
                         } else if (roles.includes('3') || roles.includes('4') || roles.includes('5')) {
                             pagePath = '/student';
                         } else {
-                            // Default path in case roles do not match any condition
                             pagePath = '';
                         }
                     }
 
-
-                    //스토어 상태에 저장하는 함수를 호출한다.
-                    SET_ACCESS_TOKEN(accessToken)
+                    // Save the access token in the store state
+                    SET_ACCESS_TOKEN(accessToken);
 
                     // Redirect to another page
                     router.push({
@@ -120,10 +108,9 @@ export default {
                     });
                 })
                 .catch(error => {
-                    console.error(error)
-                    // handle your error here
-                })
-        }
+                    console.error(error);
+                });
+        };
         const inse = () => {
             axios.post('http://localhost:9090/insert', {
 
