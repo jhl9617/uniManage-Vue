@@ -38,7 +38,7 @@
       </a>
       <div id="create-collapse" class="collapse" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <router-link to="/prof/create"
+          <router-link to="/prof/create/write"
                        class="link-body-emphasis d-inline-flex text-decoration-none rounded">신규강좌 개설
           </router-link>
           <router-link to="/prof/create/list"

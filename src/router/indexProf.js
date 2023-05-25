@@ -45,7 +45,7 @@ const routesProf = [
         component: ProfessorInfo
     },
     {   //개설강좌_신규강좌 개설
-        path: '/prof/create',
+        path: '/prof/create/write',
         name: 'ProfessorCreateNewLecture',
         component: ProfessorCreateNewLecture
     },
