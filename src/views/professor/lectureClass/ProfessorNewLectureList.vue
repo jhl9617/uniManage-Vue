@@ -19,9 +19,11 @@
       </thead>
       <tbody>
       <tr v-for="(row, lecture_id) in list" :key="lecture_id">
-<!--        <td><a v-on:click="fnView(`${row.lecture_id}`)">{{ row.lecture_title }}</a></td>-->
-        <td>{{ row.lecture_title }}</td>
-        <td>{{ row.classification }}</td>
+        <td><a v-on:click="fnView(`${row.lecture_id}`)">{{ row.lecture_title }}</a></td>
+        <td>
+          <span v-if="row.classification === '1'">교양</span>
+          <span v-else-if="row.classification === '2'">전공</span>
+        </td>
         <td>{{ row.semester }}</td>
         <td>{{ row.roomcode1 }}</td>
         <td>{{ row.timecode1 }}</td>
@@ -30,7 +32,11 @@
         <td>{{ row.roomcode3 }}</td>
         <td>{{ row.timecode3 }}</td>
         <td>{{ row.number_of_student }}명</td>
-        <td>{{ row.lecture_apply_status }}</td>
+        <td>
+          <span v-if="row.lecture_apply_status === '1'">승인대기</span>
+          <span v-else-if="row.lecture_apply_status === '2'" style="color: blue;">승인완료</span>
+          <span v-else-if="row.lecture_apply_status === '3'" style="color: red;">승인거부</span>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -55,10 +61,8 @@
     <div>
       <select v-model="search_key">
         <option value="">- 선택 -</option>
-        <option value="lecture_title">제목</option>
-        <option value="classification">구분</option>
+        <option value="lecture_title">강의명</option>
         <option value="semester">학기</option>
-        <option value="lecture_apply_status">승인여부</option>
       </select>
       &nbsp;
       <input type="text" v-model="search_value" @keyup.enter="fnPage()">
@@ -112,7 +116,6 @@ export default {
       this.requestBody = { // 데이터 전송
         sk: this.search_key,
         sv: this.search_value,
-        // keyword: this.keyword,
         page: this.page,
         size: this.size
       }
@@ -152,3 +155,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+table tr td {
+  text-align: center;
+}
+</style>

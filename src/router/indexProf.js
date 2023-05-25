@@ -9,7 +9,6 @@ import ProfessorStudentAttendance from "@/views/professor/attendance/ProfesscorS
 import ProfessorHomeworkCheck from "@/views/professor/homework/ProfesscorHomeworkCheck.vue"
 import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluation.vue"
 import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue"
-import ProfessorDepartmentNotice from "@/views/professor/notice/ProfessorDepartmentNotice.vue"
 import ProfessorPayslip from "@/views/professor/payslip/ProfessorPayslip.vue"
 import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue"
 import ProfessorLectureNoticeWrite from "@/views/professor/notice/ProfessorLectureNoticeWrite.vue"
@@ -22,7 +21,6 @@ import ProfessorLectureNotice from "@/views/professor/lectureNotice/ProfessorLec
 import ProfessorLectureNoticeDetail from "@/views/professor/lectureNotice/ProfessorLectureNoticeDetail.vue"
 import ProfessorStudentAtList from "@/views/professor/attendance/ProfessorStudentAtList.vue"
 import ProfessorUniversityNoticeDetail from "@/views/professor/notice/ProfessorUniversityNoticeDetail.vue"
-import ProfessorDepartmentNoticeDetail from "@/views/professor/notice/ProfessorDepartmentNoticeDetail.vue"
 import ProfessorStudentAtDetail from "@/views/professor/attendance/ProfessorStudentAtDetail.vue"
 import ProfessorHomeworkList from "@/views/professor/homework/ProfessorHomeworkList.vue"
 import ProfessorHomeworkDetail from "@/views/professor/homework/ProfessorHomeworkDetail.vue"
@@ -31,6 +29,7 @@ import ProfessorCancelledLectureList from "@/views/professor/cancelledLecture/Pr
 import ProfessorCancelledLectureWrite from "@/views/professor/cancelledLecture/ProfessorCancelledLectureWrite.vue";
 import ProfessorCancelledLecture from "@/views/professor/cancelledLecture/ProfessorCancelledLecture.vue";
 import NewLectureDetail from "@/views/professor/lectureClass/NewLectureDetail.vue";
+import ProfessorScheduleList from "@/views/professor/notice/ProfessorScheduleList.vue";
 
 
 const routesProf = [
@@ -109,10 +108,10 @@ const routesProf = [
         name: 'ProfessorUniversityNotice',
         component: ProfessorUniversityNotice
     },
-    {   //공지사항_학과공지
-        path: '/prof/dnotice/list',
-        name: 'ProfessorDepartmentNotice',
-        component: ProfessorDepartmentNotice
+    {   //공지사항_학사일정
+        path: '/prof/schedule/list',
+        name: 'ProfessorScheduleList',
+        component: ProfessorScheduleList
     },
     {   //급여_급여명세서
         path: '/prof/salary',
@@ -135,14 +134,9 @@ const routesProf = [
         component: ProfessorLectureNoticeDetail
     },
     {   //공지사항_전체공지_상세보기
-        path: '/prof/notice/universityNoticeDetail',
+        path: '/prof/notice/detail',
         name: 'ProfessorUniversityNoticeDetail',
         component: ProfessorUniversityNoticeDetail
-    },
-    {   //공지사항_학과공지_상세보기
-        path: '/prof/notice/DepartmentNoticeDetail',
-        name: 'ProfessorDepartmentNoticeDetail',
-        component: ProfessorDepartmentNoticeDetail
     },
     {//강의공지 작성하기
         path: '/prof/lecture/notice/write',
