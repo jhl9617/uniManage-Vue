@@ -28,7 +28,7 @@ export default {
     data() { //변수생성
         return {
             requestBody: this.$route.query,
-            notice_id: this.$route.query. notice_id,
+            notice_id: this.$route.query.notice_id,
 
             notice_title: '',
             notice_content: '',
@@ -41,6 +41,7 @@ export default {
     },
     mounted() { // document.ready, window.onload와 같은 형태
         this.fnGetView();
+        console.log(this.requestBody)
     },
     methods: {
         fnGetView() {

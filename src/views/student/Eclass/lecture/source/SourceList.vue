@@ -16,7 +16,7 @@
             <tr v-for="(row, idx) in list" :key="idx">
                 <td>{{ row.lecture_room_id }}</td>
                 <td><a v-on:click="fnView(`${row.lecture_room_id}`)">{{ row.lecture_room_title }}</a></td>
-                <td>{{ row.member_id }}</td>
+                <td>{{ row.name }}</td>
                 <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
@@ -112,9 +112,11 @@ export default {
 
                 // this.list = res.data  //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
                 if (res.data.result_code === "OK") {
+
                     this.list = res.data.data
                     this.paging = res.data.pagination
                     this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
+                  console.log(this.list)
                 }
 
             }).catch((err) => {

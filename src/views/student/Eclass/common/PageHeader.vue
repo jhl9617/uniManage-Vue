@@ -9,16 +9,15 @@
   </div>
       <div class="container-fluid">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-              <h4>{{loginMember.name}} 학생</h4>
+
 
             <div class="col-md-12 text-end">
-              강의명 : {{ lecture_title }} //&nbsp;  &nbsp;&nbsp;&nbsp; 강의시간 : {{ timecode1 }} {{ timecode2 }} {{ timecode3 }} // {{ roomcode1 }} // 학점 : {{ credit }} 학점 // 수강생 :
+              <h4>{{loginMember.name}} 학생</h4>  강의명 : {{ lecture_title }} &nbsp; &nbsp; // &nbsp; &nbsp; 강의시간 : {{ timecode1 }} {{ timecode2 }} {{ timecode3 }} &nbsp; &nbsp; // &nbsp; &nbsp; 강의실 : {{ roomcode1 }} 호 &nbsp; &nbsp; // &nbsp; &nbsp; 학점 : {{ credit }} 학점 &nbsp; &nbsp; // &nbsp; &nbsp; 수강생 :
               {{ number_of_student }} 명
             </div>
         </header>
     </div>
 
-    
   </template>
   
   <script>

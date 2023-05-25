@@ -3,7 +3,7 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
         <li>&nbsp;</li>
         <li>&nbsp;</li>
-        <li>&nbsp;</li>
+        <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
@@ -107,7 +107,7 @@
             </div>
         </li>
 
-        <!-- 자유게시판 -->
+        <!-- 강의평가 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#rating-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -115,9 +115,9 @@
             </a>
             <div id="rating-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/student/surveycourse"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의평가 작성
-                    </router-link>
+                    <a v-on:click="fnSurvey"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">강의평가 작성
+                    </a>
                 </div>
             </div>
         </li>
@@ -196,8 +196,24 @@ export default {
       this.requestBody = { // 데이터 전송
         member_id : this.member_id
       }
-    }
-  }
+    },
+    logout() {
+          this.$axios.post('/logout')
+              .then(response => {
+                console.log(response)
+                alert('로그아웃 되었습니다.')
+                this.$router.push({
+                  path: '/'
+
+                })
+              })
+              .catch(error => {
+                alert('로그아웃에 실패했습니다.')
+                console.error(error);
+              });
+        }
+      }
+
 }
 
 
