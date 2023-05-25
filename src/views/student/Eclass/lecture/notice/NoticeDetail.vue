@@ -6,11 +6,11 @@
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
       </div> -->
       <div class="board-contents">
-        <h3>{{ lecture_notice_title }}</h3>
+        <h3> 제목 : {{ lecture_notice_title }}</h3>
         <div>
-          <strong class="w3-large">{{ created_date }}</strong>
+          <strong class="w3-large"> 작성일자 : {{ created_date }}</strong>
           <br>
-          <span>{{ readcount }}</span>
+          <span> 조회수 : {{ readcount }}</span>
         </div>
       </div>
       <div class="board-contents">

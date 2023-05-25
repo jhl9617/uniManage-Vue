@@ -3,7 +3,7 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
         <li>&nbsp;</li>
         <li>&nbsp;</li>
-        <li>&nbsp;</li>
+        <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
@@ -12,7 +12,7 @@
             </router-link>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" v-on:click="fnEclass">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
                 <span>E-Class</span>
             </a>
         </li>
@@ -64,12 +64,12 @@
                     <router-link to="/student/timelinebydepart"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">학과별강의시간표
                     </router-link>
-                    <router-link to="/student/studenttimetable"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강과목시간표
-                    </router-link>
-                    <router-link to="/student/checkcourse"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회
-                    </router-link>
+                    <a v-on:click="fnTimetable"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">수강과목시간표
+                    </a>
+                    <a v-on:click="fnCheckCourse"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">수강신청내역조회
+                    </a>
                 </div>
             </div>
         </li>
@@ -114,7 +114,7 @@
             </div>
         </li>
 
-        <!-- 자유게시판 -->
+        <!-- 강의평가 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#rating-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -122,9 +122,9 @@
             </a>
             <div id="rating-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/student/surveycourse"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">강의평가 작성
-                    </router-link>
+                    <a v-on:click="fnSurvey"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">강의평가 작성
+                    </a>
                 </div>
             </div>
         </li>
@@ -154,6 +154,39 @@ export default {
         });
       }
     },
+    fnSurvey() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/student/surveycourse',
+          query: this.requestBody
+        });
+      }
+    },
+    fnCheckCourse() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/student/checkcourse',
+          query: this.requestBody
+        });
+      }
+    },
+    fnTimetable() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/student/studenttimetable',
+          query: this.requestBody
+        });
+      }
+    },
     async getSession() {
       try {
         const response = await fetch("/sessionCheck");
@@ -170,8 +203,24 @@ export default {
       this.requestBody = { // 데이터 전송
         member_id : this.member_id
       }
-    }
-  }
+    },
+    logout() {
+          this.$axios.post('/logout')
+              .then(response => {
+                console.log(response)
+                alert('로그아웃 되었습니다.')
+                this.$router.push({
+                  path: '/'
+
+                })
+              })
+              .catch(error => {
+                alert('로그아웃에 실패했습니다.')
+                console.error(error);
+              });
+        }
+      }
+
 }
 
 

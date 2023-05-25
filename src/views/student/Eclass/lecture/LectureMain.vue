@@ -17,7 +17,7 @@
                           </tr>
                           <tr v-for="lectureNotice in sortedLectureNotice" :key="lectureNotice.lecture_notice_id">
                             <td>{{lectureNotice.lecture_notice_id}}</td>
-                            <td><a v-on:click="fnNotice(`${lectureNotice.lecture_notice_id}`)">{{ lectureNotice.lecture_notice_title }}</a></td>
+                            <td><a v-on:click="fnNotice(`${lectureNotice.lecture_notice_id}`)" style="cursor: pointer;">{{ lectureNotice.lecture_notice_title }}</a></td>
                             <td>{{ lectureNotice.created_date }}</td>
                           </tr>
                         </table>
@@ -27,7 +27,7 @@
                 <div class="col-md-6">
                     <fieldset>
                         <legend>강의자료실 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button v-on:click="fnLectureRoomList(lecture_id)" class="btn btn-outline-dark" type="button">전체보기</button>
+                          <button v-on:click="fnLectureRoomList(lecture_id)" class="btn btn-outline-dark" type="button" style="cursor: pointer;">전체보기</button>
                         </legend>
 
                         <table class="w3-table-all">
@@ -38,7 +38,7 @@
                           </tr>
                           <tr v-for="lectureRoom in sortedLectureRoom" :key="lectureRoom.lecture_room_id">
                             <td>{{lectureRoom.lecture_room_id}}</td>
-                            <td><a v-on:click="fnLectureRoom(`${lectureRoom.lecture_room_id}`)">{{ lectureRoom.lecture_room_title }}</a></td>
+                            <td><a v-on:click="fnLectureRoom(`${lectureRoom.lecture_room_id}`)" style="cursor: pointer;">{{ lectureRoom.lecture_room_title }}</a></td>
                             <td>{{ lectureRoom.created_date }}</td>
                           </tr>
                         </table>
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <fieldset>
-                        <legend>과제제출 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <legend>과제관리 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                            <button v-on:click="fnHomeworkList(lecture_id)" class="btn btn-outline-dark" type="button">전체보기</button>
                         </legend>
 
@@ -61,7 +61,7 @@
                           </tr>
                           <tr v-for="homework in sortedHomework" :key="homework.lecture_notice_id">
                             <td>{{homework.homework_id}}</td>
-                            <td><a v-on:click="fnHomework(`${homework.homework_id}`)">{{ homework.homework_name }}</a></td>
+                            <td><a v-on:click="fnHomework(`${homework.homework_id}`)" style="cursor: pointer;">{{ homework.homework_name }}</a></td>
                             <td>{{ homework.deadline }}</td>
                           </tr>
                         </table>
@@ -84,7 +84,7 @@
                             </tr>
                           <tr v-for="freeboard in sortedFreeboard" :key="freeboard.free_id">
                             <td>{{freeboard.free_id}}</td>
-                            <td><a v-on:click="fnFreeboard(`${freeboard.free_id}`)">{{ freeboard.free_title }}</a></td>
+                            <td><a v-on:click="fnFreeboard(`${freeboard.free_id}`)" style="cursor: pointer;">{{ freeboard.free_title }}</a></td>
                             <td>{{ freeboard.name }}</td>
                             <td>{{ freeboard.created_date }}</td>
                           </tr>

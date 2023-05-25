@@ -17,11 +17,9 @@
         <span>{{ lecture_room_content }}</span>
       </div>
       <div class="board-contents">
-        <span>파일명 : {{ file_name }}</span>
+        <span>첨부파일명 : {{ file_name }}</span>
       </div>
-      <div class="board-contents">
-        <span>바뀐 파일명 : {{ file_rename }}</span>
-      </div>
+
       <div class="common-buttons">
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
       </div>

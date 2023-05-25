@@ -64,96 +64,22 @@ export default {
                 userId: userId.value,
                 password: password.value
             });
+            /*const data = await response.json();
+            const path = await response.text();
+            if (data.member_id) {
+                console.log("Logged in with ID:", data.member_id);
+                this.$router.push(path);
+            } else {
+                console.error("Error logging in");
+            }*/
+            const path = await response.text();
 
-            // Send a POST request to your login endpoint with the user's data
-            axios.post('http://localhost:9090/login', {
-                username: userId.value,
-                password: password.value
-            })
-                .then(response => {
-                    console.log(JSON.stringify(response.headers))
-
-                    const { authorization } = response.headers
-                    //엑세스토큰을 추출하여
-                    const accessToken = authorization.substring(7)
-
-                    axios.post('http://localhost:9090/getProfile', {
-
-                        memberId: userId.value.toString(),
-                    })
-                        .then(response => {
-                            console.log("유저 정보 : " + response)
-                            // handle your response here
-                        })
-                        .catch(error => {
-                            console.error(error)
-                            // handle your error here
-
-                        })
-
-
-                    // Decode the token and extract the roles
-                    const decoded = decodeToken(accessToken);
-                    let pagePath = '';
-                    if (decoded && decoded.rol && decoded.rol.length > 0) {
-                        // Extract the roles and store it in a variable (or in the state)
-                        const roles = decoded.rol;
-                        if (roles.includes('1')) {
-                            pagePath = '/prof/main';
-                        } else if (roles.includes('2')) {
-                            pagePath = '/admin';
-                        } else if (roles.includes('3') || roles.includes('4') || roles.includes('5')) {
-                            pagePath = '/student';
-                        } else {
-                            // Default path in case roles do not match any condition
-                            pagePath = '';
-                        }
-                    }
-
-
-                    //스토어 상태에 저장하는 함수를 호출한다.
-                    SET_ACCESS_TOKEN(accessToken)
-
-                    // Redirect to another page
-                    router.push({
-                        path: pagePath,
-                    });
-                })
-                .catch(error => {
-                    console.error(error)
-                    // handle your error here
-                })
-        }
-        const inse = () => {
-                    axios.post('http://localhost:9090/insert', {
-
-                    })
-                        .then(response => {
-                            console.log(response + "회원등록")
-                            // handle your response here
-                        })
-                        .catch(error => {
-                            console.error(error)
-                            // handle your error here
-
-                        })
-        }
-        //애플리케이션 데이터를 정의한다.
-        const state = reactive({
-            accessToken: '',
-            //로그인된 사용자 정보
-            myinfo: null,
-        })
-
-        const SET_ACCESS_TOKEN = (accessToken) => {
-            if (accessToken) {
-                state.accessToken = accessToken
-
-                //HTTP 해더에 토큰을 설정
-                client.defaults.headers.common.Authorization = `Bearer ${accessToken}`
-
-                //쿠키에 엑세스 토큰을 저장
-                Cookies.set('accessToken', accessToken, { expires: 1 })
+            if (response.ok) {
+                console.log("Logged in with ID:", this.member_id);
+                this.$router.push(path);
+            } else {
+                alert('ID 또는 비밀번호가 일치하지 않습니다.')
+                console.error("Error logging in");
             }
         }
 
@@ -191,8 +117,6 @@ export default {
             inse
         }
     },
-
-
 }
 </script>
 
