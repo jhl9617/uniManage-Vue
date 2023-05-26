@@ -1,10 +1,6 @@
 <template>
     <div class="board-detail">
-      <!-- <div class="common-buttons">
-        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
-        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-        <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-      </div> -->
+
       <div class="board-contents">
         <h3>{{ free_title }}</h3>
         <div>
@@ -57,14 +53,13 @@
         free_id: this.$route.query.free_id,
         list : [],
         loginMember : null,
+        member_id : '',
 
 
       }
     },
     mounted() { // document.ready, window.onload와 같은 형태
-
       this.fnGetView();
-
     },
     created() {
       this.getSession();
@@ -74,7 +69,7 @@
         this.$axios.get(this.$serverUrl + '/eclass/lecture/board/' + this.free_id, {
           params: this.requestBody
         }).then((res) => { //success
-          console.log(this.requestBody)
+
           this.free_title = res.data.freeboard.free_title
           this.member_id = res.data.freeboard.member_id
           this.name = res.data.freeboard.name
@@ -82,6 +77,7 @@
           this.created_date = res.data.freeboard.created_date
           this.list = res.data.freeboard_reps
           this.free_rep_id = res.data.freeboard_reps.free_rep_id
+          console.log(this.list)
         }).catch((err) => { // error
           if (err.message.indexOf('Network Error') > -1) {
             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')

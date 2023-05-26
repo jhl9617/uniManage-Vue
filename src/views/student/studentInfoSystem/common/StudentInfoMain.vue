@@ -55,26 +55,8 @@
                 </fieldset>
             </div>
             <div class="col-md-6">
-                <fieldset>
-                    <legend>학사일정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button v-on:click="fnScheList(sche_id)" class="btn btn-outline-dark" type="button">전체보기</button>
-                    </legend>
-
-                    <table class="w3-table-all">
-                        <tr>
-                            <td>No</td>
-                            <td>글제목</td>
-                            <td>시작일</td>
-                            <td>끝일</td>
-                        </tr>
-                        <tr v-for="sche in sortedSche" :key="sche.sche_id">
-                            <td>{{ sche.sche_id }}</td>
-                            <td><a v-on:click="fnSche(`${sche.sche_id}`)">{{ sche.sche_title }}</a></td>
-                            <td>{{ sche.start_date }}</td>
-                            <td>{{ sche.end_date }}</td>
-                        </tr>
-                    </table>
-                </fieldset>
+              <h4>학사일정</h4>
+              <FullCalendar defaultView="dayGridMonth" :options="calendarOptions" />
             </div>
         </div>
     </div>
@@ -83,12 +65,33 @@
 </template>
 
 <script>
+import FullCalendar from '@fullcalendar/vue3';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import koLocale from '@fullcalendar/core/locales/ko';
 export default {
+  components: {
+    FullCalendar // make the <FullCalendar> tag available
+  },
     data() {
         return {
             loginMember: null,
             notice: [],
             sche: [],
+            id : '',
+            title : '',
+            start : '',
+            end : '',
+            calendarOptions: {
+              plugins : [ dayGridPlugin ],
+              initialView: 'dayGridMonth',
+              weekends: false,
+              events : [],
+              locales: [koLocale], // 로케일 추가
+              locale: 'ko',
+
+
+
+            }
         };
     },
     mounted() { // document.ready, window.onload와 같은 형태
@@ -96,23 +99,33 @@ export default {
     },
     methods: {
         fnGetView() {
-
             this.$axios.get(this.$serverUrl + '/student', {
                 params: this.requestBody
             }).then((res) => { //success
-                console.log(res.data);
+
                 this.notice = res.data.notice_dto
                 this.sche = res.data.schedule_dto
-
+                console.log("this.sche : " , this.sche);
+                this.setCalendarEvents();
             }).catch((err) => { // error
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                 }
             })
+
             this.requestBody = { // 데이터 전송
                 member_id : this.member_id
             }
+
         },
+        setCalendarEvents() {
+        this.calendarOptions.events = this.sche.map(item => ({
+          id : item.sche_id,
+          title: item.sche_title,
+          start: item.start_date,
+          end: item.end_date
+        }));
+      },
         async getSession() {
             try {
                 const response = await fetch("/sessionCheck");
@@ -141,13 +154,6 @@ export default {
                 query: this.requestBody
             })
         },
-        fnScheList(sche_id){
-            this.sche_id = sche_id
-            this.$router.push({
-                path: '/student/schedule',
-                query: this.requestBody
-            })
-        },
         fnMypage() {
             delete this.requestBody.member_id
             this.$router.push({
@@ -163,12 +169,6 @@ export default {
                 .sort((a, b) => b.notice_id - a.notice_id) // id를 내림차순으로 정렬
                 .slice(0, 5) // 최대 4개의 항목 추출
         },
-        sortedSche(){
-            return this.sche
-                .slice() // 원본 배열을 변경하지 않기 위해 복사
-                .sort((a, b) => b.sche_id - a.sche_id) // id를 내림차순으로 정렬
-                .slice(0, 5) // 최대 4개의 항목 추출
-        }
     },
     created() {
         this.getSession();

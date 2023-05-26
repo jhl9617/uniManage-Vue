@@ -61,7 +61,7 @@ export default {
     return {
       member_id: this.$route.query.member_id ? this.$route.query.member_id : '',
       loginMember: null,
-      times: ['01', '02', '03', '04', '05', '06', '07', '08'],
+      times: ['01', '02', '03', '04', '05', '06', '07', '08', '09'],
       requestBody: '',
       list: [],
       lecture_id: '',
