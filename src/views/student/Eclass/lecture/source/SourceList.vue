@@ -3,7 +3,7 @@
         강의자료실
         <br><br>
 
-        <table class="w3-table-all">
+        <table class="w3-table-all table-bordered">
             <thead>
             <tr>
                 <th>No</th>
@@ -15,13 +15,13 @@
             <tbody>
             <tr v-for="(row, idx) in list" :key="idx">
                 <td>{{ row.lecture_room_id }}</td>
-                <td><a v-on:click="fnView(`${row.lecture_room_id}`)">{{ row.lecture_room_title }}</a></td>
+                <td><a v-on:click="fnView(`${row.lecture_room_id}`)" style="cursor: pointer;">{{ row.lecture_room_title }}</a></td>
                 <td>{{ row.name }}</td>
                 <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
         </table>
-        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+        <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
       <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
       <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"

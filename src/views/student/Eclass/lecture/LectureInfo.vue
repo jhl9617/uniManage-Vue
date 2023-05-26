@@ -1,7 +1,7 @@
   <template>
       강의정보
 
-      <table class="w3-table-all">
+      <table class="w3-table-all table-bordered">
           <tr>
               <td>강의명</td>
               <td>{{ lecture_title }}</td>

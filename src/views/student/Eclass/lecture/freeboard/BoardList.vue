@@ -4,7 +4,7 @@
         <div class="common-buttons">
             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
         </div>
-        <table class="w3-table-all">
+        <table class="w3-table-all table-bordered">
             <thead>
             <tr>
                 <th>No</th>
@@ -16,13 +16,13 @@
             <tbody>
             <tr v-for="(row, free_id) in list" :key="free_id">
                 <td>{{ row.free_id }}</td>
-                <td><a v-on:click="fnView(`${row.free_id}`)">{{ row.free_title }}</a></td>
+                <td><a v-on:click="fnView(`${row.free_id}`)" style="cursor: pointer;">{{ row.free_title }}</a></td>
                 <td>{{ row.name }}</td>
                 <td>{{ row.created_date }}</td>
             </tr>
             </tbody>
         </table>
-        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+        <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
       <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
       <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
@@ -143,34 +143,6 @@ export default {
             this.fnGetList()
         }
     }
-    // fnGetList() {
 
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]a
-    // }
-    // }a
 }
 </script>

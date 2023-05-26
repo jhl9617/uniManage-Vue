@@ -54,8 +54,10 @@
                 </td>
             </tr>
         </table>
-        <button type="button" class="" v-on:click="fnSave">개인정보 수정하기</button>&nbsp; &nbsp;
-        <button type="button" class="" v-on:click="fnMain">메인페이지로 이동하기</button>
+        <div class="common-buttons">
+            <button type="button" class="" v-on:click="fnSave">개인정보 수정하기</button>&nbsp; &nbsp;
+            <button type="button" class="" v-on:click="fnMain">메인페이지로 이동하기</button>
+        </div>
     </div>
 </template>
 

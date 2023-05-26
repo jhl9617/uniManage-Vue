@@ -181,17 +181,17 @@ export default {
               });
           }
       },
-      fnSurvey() {
-          if (this.loginMember) {
-              this.requestBody = {
-                  member_id: this.loginMember.member_id
-              };
-              this.$router.push({
-                  path: '/student/surveycourse',
-                  query: this.requestBody
-              });
-          }
-      },
+    fnSurvey() {
+      if (this.loginMember) {
+        this.requestBody = {
+          member_id: this.loginMember.member_id
+        };
+        this.$router.push({
+          path: '/student/surveycourse',
+          query: this.requestBody
+        });
+      }
+    },
     async getSession() {
       try {
         const response = await fetch("/sessionCheck");
