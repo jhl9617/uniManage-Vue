@@ -100,7 +100,7 @@ const routesProf = [
     },
     {   //강의평가_강의 평가내역
         path: '/prof/lecture/rating',
-        name : 'ProfessorLectureEvaluation',
+        name: 'ProfessorLectureEvaluation',
         component: ProfessorLectureEvaluation
     },
     {   //공지사항_전체공지
