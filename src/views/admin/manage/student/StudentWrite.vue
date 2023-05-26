@@ -4,22 +4,6 @@
         <div class="col-md-8">
             <div class="container">
                 <div class="row">
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="d-flex flex-column align-items-center text-center">-->
-<!--                            <fieldset>-->
-<!--                                <table>-->
-<!--                                    <td>-->
-<!--                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">-->
-<!--                                    </td>-->
-<!--                                    <tr>-->
-<!--                                        <td>-->
-<!--                                            <button class="btn btn-primary">이미지 업로드</button>-->
-<!--                                        </td>-->
-<!--                                    </tr>-->
-<!--                                </table>-->
-<!--                            </fieldset>-->
-<!--                        </div>-->
-<!--                    </div>-->
                     <div class="col-md-8">
                         <fieldset>
                             <table class="w3-table-all">
@@ -82,7 +66,7 @@
                                             <option value="34">34:환경조경학과</option>
                                             <option value="35">35:생명공학원</option>
                                             <option value="36">36:우주과학과</option>
-                                            <option value="37">37한방재료가공학과:</option>
+                                            <option value="37">37:한방재료가공학과</option>
                                             <option value="38">38:생태시스템공학과</option>
                                             <option value="39">39:식품생명공학과</option>
                                             <option value="40">40:원예학과</option>
@@ -169,7 +153,6 @@
                     </div>
                 </div>
                 <br>
-
             </div>
         </div>
     </div>
@@ -207,7 +190,6 @@ export default {
         script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
         script.async = true;
         document.body.appendChild(script);
-
     },
     methods: {
         fnGetView() {
