@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        공업미적분
+        <h3><b>{{ lecture_title }}</b></h3>
         <div class="d-flex justify-content-around">
             <div>
-                공지사항
+                <h6>공지사항</h6>
                 <router-link to="/prof/lecture/notice/list">
                     <input type="button" value="전체보기">
                 </router-link>
