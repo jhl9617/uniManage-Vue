@@ -18,10 +18,6 @@
                 <th>E-Mail</th>
                 <td>{{ this.email }}</td>
             </tr>
-            <tr>
-                <th>학년</th>
-                <td>{{ this.grade }}</td>
-            </tr>
         </table>
         <br><br><br>
         <h5>개인정보 수정</h5>
@@ -86,7 +82,7 @@ export default {
     },
     methods: {
         async fnGetView() {
-            const response = await fetch("/student/mypage");
+            const response = await fetch("/admin/mypage");
             if (response.ok) {
                 const data = await response.json();
                 this.member_idx = data.member_idx;
@@ -101,14 +97,6 @@ export default {
                 this.department_id = data.department_id;
                 this.departmentName = data.department_name;
 
-                if (data.auth === 3) {
-                    this.grade = data.grade + '학년';
-                } else if (data.auth === 4) {
-                    this.grade = '졸업생';
-                } else if (data.auth === 5) {
-                    this.grade = '휴학생';
-                }
-
                 console.log(data);
             } else {
                 console.log("HTTP-Error: " + response.status);
@@ -116,7 +104,7 @@ export default {
         },
 
         fnSave() {
-            const apiUrl = '/student/mypage';
+            const apiUrl = '/admin/mypage';
             const form = {
                 phone: this.phone,
                 postcode: this.postcode,
@@ -179,9 +167,9 @@ export default {
         },
 
     }
-    }
+}
 </script>
 
-
 <style scoped>
+
 </style>

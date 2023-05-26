@@ -3,6 +3,7 @@ import AdminNoticeDetailView from '@/views/admin/notice/NoticeDetailView.vue'
 import AdminNoticewrite from '@/views/admin/notice/NoticeWrite.vue'
 import AdminManageStudent from '@/views/admin/manage/student/StudentList.vue'
 import AdminMain from "@/views/admin/AdminMain.vue";
+import AdminMyPage from "@/views/admin/AdminMyPage.vue";
 
 import AdminManageScholarship from "@/views/admin/manage/scholarship/ScholarshipList.vue";
 import AdminWriteScholarship from "@/views/admin/manage/scholarship/ScholarshipWrite.vue";
@@ -32,6 +33,11 @@ const routesAdmin = [
     path: '/admin',
     name: 'AdminMain',
     component: AdminMain
+  },
+  {
+    path: '/admin/mypage',
+    name: 'AdminMyPage',
+    component: AdminMyPage
   },
   {
     path: '/admin/notice/list',

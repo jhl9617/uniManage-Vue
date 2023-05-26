@@ -19,7 +19,7 @@
                     </td>
                     <tr>
                         <td>
-                            <button class="btn btn-primary">비밀번호변경</button>
+                            <button class="btn btn-primary" v-on:click="fnMypage">마이페이지</button>
                         </td>
                     </tr>
                 </table>
@@ -55,6 +55,12 @@ export default {
             } catch (error) {
                 console.error("Error fetching session data:", error);
             }
+        },
+        fnMypage() {
+            this.$router.push({
+                path: '/admin/mypage',
+                query: this.requestBody
+            })
         },
     },
     created() {

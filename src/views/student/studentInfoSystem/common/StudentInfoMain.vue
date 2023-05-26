@@ -149,7 +149,6 @@ export default {
             })
         },
         fnMypage() {
-            delete this.requestBody.member_id
             this.$router.push({
                 path: '/student/mypage',
                 query: this.requestBody
