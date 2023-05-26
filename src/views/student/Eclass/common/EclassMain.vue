@@ -1,5 +1,4 @@
 <template>
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
@@ -29,18 +28,21 @@
               <td>강의시간</td>
               <td>바로가기</td>
             </tr>
-            
+
             <tr v-for="(row, index) in list" :key="index">
               <td>{{ row.course_regi_id }}</td>
               <td>{{ row.lecture_title }}</td>
               <td>{{ row.timecode1 }} {{ row.timecode2 }} {{ row.timecode3 }}</td>
               <td>
-                <a v-on:click="fnView(`${row.lecture_id}`)"><button class="btn btn-outline-info" type="button">바로가기</button>
+                <a v-on:click="fnView(`${row.lecture_id}`)">
+                  <button class="btn btn-outline-info" type="button">바로가기</button>
                 </a>
               </td>
             </tr>
-       </table><br><br>
-        </div>강의 시간표
+          </table>
+          <br><br>
+        </div>
+        강의 시간표
         <br>
         <table class="w3-table-all table-bordered table-fixed">
 

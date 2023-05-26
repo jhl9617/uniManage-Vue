@@ -4,17 +4,17 @@ import routesAdmin from './indexAdmin.js'
 import routesProf from './indexProf.js'
 import routesStudent from './indexStudent.js'
 // import PageHome from "@/views/home/PageHome.vue";
-import Login from "@/views/home/LoginPage.vue";
+import Login from "@/views/home/MemberLoginPage.vue";
 import FindID from "@/views/home/FindID.vue";
-import FindPassword from "@/views/home/FindPassword.vue";
-import ResetPassword from "@/views/home/ResetPassword.vue";
+import FindPassword from "@/views/home/MemberFindPassword.vue";
+import ResetPassword from "@/views/home/MemberResetPassword.vue";
 
 
 
 const routes = [
   {
     path: '/',
-    name: 'Login',
+    name: 'MemberLogin',
     component: Login
   },
   {

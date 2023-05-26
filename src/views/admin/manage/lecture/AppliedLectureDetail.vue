@@ -1,3 +1,4 @@
+
 <template>
   강의개설 요청 상세
     <div class="board-detail">

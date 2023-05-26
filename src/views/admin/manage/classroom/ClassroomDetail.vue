@@ -60,6 +60,7 @@ export default {
             this.$axios.get(this.$serverUrl + '/admin/manage/classroom/' + this.lecture_class_idx, {
                 params: this.requestBody
             }).then((res) => {  //성공 -> res에 정보를 저장함
+                console.log(res.data)
                 this.lecture_room_code = res.data.lecture_room_code
                 this.building_code = res.data.building_code
                 this.building_name = res.data.building_name
