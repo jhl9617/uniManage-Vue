@@ -70,6 +70,7 @@ export default {
                 this.$axios.get(this.$serverUrl + '/admin/manage/classroom/' + this.lecture_class_idx, {
                     params: this.requestBody
                 }).then((res) => {
+                    this.lecture_class_idx = res.data.lecture_class_idx
                     this.lecture_room_code = res.data.lecture_room_code
                     this.building_code = res.data.building_code
                     this.building_name = res.data.building_name
@@ -121,9 +122,9 @@ export default {
             } else {
                 //UPDATE
                 this.$axios.patch(apiUrl, this.form)
-                    .then((res) => {
+                    .then(() => {
                         alert('강의실 정보가 수정되었습니다.')
-                        this.fnView(res.data.lecture_class_idx)
+                        this.fnView(this.lecture_class_idx)
                     }).catch((err) => {
                     if (err.message.indexOf('Network Error') > -1) {
                         alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
