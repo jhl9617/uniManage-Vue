@@ -59,9 +59,7 @@
       <div class="row">
         <div class="col-md-6">
           <fieldset>
-            <legend>시간표
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </legend>
+            <legend>시간표</legend>
             <table class="w3-table-all">
               <tr>
                 <td></td>
@@ -259,5 +257,11 @@ export default {
 };
 
 </script>
-<style>
+<style scoped>
+table tr th {
+  text-align: center;
+}
+table tr td {
+  text-align: center;
+}
 </style>
