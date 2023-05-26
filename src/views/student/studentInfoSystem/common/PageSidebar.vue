@@ -31,9 +31,6 @@
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청
                     </router-link>
                     <br>
-<!--                    <router-link to="/student/courselist"-->
-<!--                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역-->
-<!--                    </router-link>-->
                 </div>
             </div>
         </li>
@@ -65,6 +62,26 @@
             </div>
         </li>
 
+        <!-- 성적/졸업 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#student-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>성적/졸업</span>
+            </a>
+            <div id="student-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/student/checkcredit"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                        <span>졸업학점조회</span>
+                    </router-link>
+                    <br>
+                    <a v-on:click="fnScore" style="cursor: pointer;">
+                        <span>수강성적조회</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+
         <!-- 교과/수강 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#create-collapse"
@@ -84,26 +101,6 @@
                     <router-link to="/student/checkcourse"
                                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">수강신청내역조회
                     </router-link>
-                </div>
-            </div>
-        </li>
-
-        <!-- 성적/졸업 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#student-collapse"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <span>성적/졸업</span>
-            </a>
-            <div id="student-collapse" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/student/checkcredit"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                        <span>졸업학점조회</span>
-                    </router-link>
-                    <br>
-                    <a v-on:click="fnScore" style="cursor: pointer;">
-                        <span>수강성적조회</span>
-                    </a>
                 </div>
             </div>
         </li>
