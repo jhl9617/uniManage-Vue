@@ -48,7 +48,7 @@
                                             <option value="34">34:환경조경학과</option>
                                             <option value="35">35:생명공학원</option>
                                             <option value="36">36:우주과학과</option>
-                                            <option value="37">37한방재료가공학과:</option>
+                                            <option value="37">37:한방재료가공학과</option>
                                             <option value="38">38:생태시스템공학과</option>
                                             <option value="39">39:식품생명공학과</option>
                                             <option value="40">40:원예학과</option>
@@ -88,7 +88,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <button v-on:click="fnPage()">조회</button>
+                            <button class="w3-button w3-round w3-blue-gray" v-on:click="fnPage()">조회</button>
                             <br><br>
                             <table class="w3-table-all" id="lecturelist">
                                 <thead>
@@ -104,7 +104,7 @@
                                     <td>{{ row.lecture_title}}</td>
                                     <td><a v-on:click="fnView(`${row.lecture_id}`)" style="cursor: pointer;">{{ row.credit }}</a></td>
                                     <td>{{ row.timecode1 }} {{ row.timecode2 }} {{ row.timecode3 }}</td>
-                                    <td><button type="button" class="btn btn-outline-dark" v-on:click="fnSave">수강신청</button></td>
+                                    <td><button type="button" class="btn btn-outline-dark" v-on:click="fnSave(row.lecture_id, row.semester)">수강신청</button></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -134,7 +134,6 @@
 </template>
 
 <script>
-
 
 export default {
     data() {
@@ -219,40 +218,27 @@ export default {
             }
             this.fnGetList()
         },
-        fnSave() {
+        fnSave(n, m) {
             let apiUrl = this.$serverUrl + '/student/sugang'  //let = var
             this.form = {
                 "course_regi_id": this.course_regi_id,
-                "member_id": this.member_id,
-                "lecture_id": this.lecture_id,
-                "course_regi_term": this.semester,
+                "course_regi_term": m,
+                "member_id": this.loginMember.member_id,
+                "lecture_id": n,
             }
 
             if (this.course_regi_id === undefined) {
                 //INSERT
                 this.$axios.post(apiUrl, this.form)
-                    .then((res) => {
+                    .then(() => {
                         alert('수강신청이 성공하였습니다.')
-                        this.fnView(res.data.course_regi_id)
+                        // this.fnView(res.data.course_regi_id)
                     }).catch((err) => {
                     if (err.message.indexOf('Network Error') > -1) {
                         alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
                     }
                 })
             }
-            // else {
-            //     //UPDATE
-            //     this.$axios.patch(apiUrl, this.form)
-            //         .then((res) => {
-            //             alert('글이 저장되었습니다.')
-            //             this.scho_id = res.data.scho_id;
-            //             this.fnView(res.data.scho_id)
-            //         }).catch((err) => {
-            //         if (err.message.indexOf('Network Error') > -1) {
-            //             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-            //         }
-            //     })
-            // }
         },
         async getSession() {
             try {
