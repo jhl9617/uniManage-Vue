@@ -1,19 +1,21 @@
 <template>
-  <div class="board-list">
-    <h5><b>공지사항</b></h5><br>
-    <table class="w3-table-all table-hover">
+  <div class="board-list" style="text-align: center">
+    <h5><b>학사일정</b></h5><br>
+    <table class="w3-table-all">
       <thead>
       <tr>
         <th>No</th>
         <th>제목</th>
-        <th>등록일시</th>
+        <th>시작일</th>
+        <th>끝일</th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(row, notice_id) in list" :key="notice_id">
-        <td>{{ row.notice_id }}</td>
-        <td><a v-on:click="fnView(`${row.notice_id}`)">{{ row.notice_title }}</a></td>
-        <td>{{ row.created_date }}</td>
+      <tr v-for="(row, sche_id) in list" :key="sche_id">
+        <td>{{ row.sche_id }}</td>
+        <td>{{ row.sche_title }}</td>
+        <td>{{ row.start_date }}</td>
+        <td>{{ row.end_date }}</td>
       </tr>
       </tbody>
     </table>
@@ -38,8 +40,8 @@
     <div>
       <select v-model="search_key">
         <option value="">- 선택 -</option>
-        <option value="notice_title">제목</option>
-        <option value="notice_content">내용</option>
+        <option value="sche_title">제목</option>
+        <option value="sche_content">내용</option>
       </select>
       &nbsp;
       <input type="text" v-model="search_value" @keyup.enter="fnPage()">
@@ -87,7 +89,6 @@ export default {
     this.fnGetList()
   },
   methods: {
-
     fnGetList() {
       //스프링 부트에서 전송받은 데이터 출력 처리
       this.requestBody = { // 데이터 전송
@@ -98,7 +99,7 @@ export default {
         size: this.size
       }
 
-      this.$axios.get(this.$serverUrl + "/prof/notice/list", {
+      this.$axios.get(this.$serverUrl + "/admin/schedule", {
         params: this.requestBody,
         headers: {}
       }).then((res) => {
@@ -114,13 +115,6 @@ export default {
         if (err.message.indexOf('Network Error') > -1) {
           alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
         }
-      })
-    },
-    fnView(notice_id) {
-      this.requestBody.notice_id = notice_id
-      this.$router.push({
-        path: '/prof/notice/detail',
-        query: this.requestBody
       })
     },
     fnPage(n) {
