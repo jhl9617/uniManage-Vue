@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <th>학년</th>
-                <td>{{ this.grade }}학년</td>
+                <td>{{ this.grade }}</td>
             </tr>
         </table>
         <br><br><br>
@@ -51,7 +51,8 @@
                 </td>
             </tr>
         </table>
-        <button type="button" class="" v-on:click="fnSave">개인정보 수정하기</button>&nbsp; &nbsp;
+        <br>
+        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">개인정보 수정하기</button>
     </div>
 </template>
 
@@ -75,12 +76,12 @@ export default {
         }
     },
     mounted() {
-        this.fnView()
+        this.fnGetView()
     },
     methods: {
-        async fnView() {
+        async fnGetView() {
             const response = await fetch("/student/mypage");
-            if(response.ok) {
+            if (response.ok) {
                 const data = await response.json();
                 this.member_idx = data.member_idx;
                 this.memberId = data.memberId;
@@ -88,52 +89,53 @@ export default {
                 this.name = data.name;
                 this.email = data.email;
                 this.phone = data.phone;
-                this.grade = data.grade;
                 this.postcode = data.postcode;
                 this.address1 = data.address1;
                 this.address2 = data.address2;
                 this.department_id = data.department_id;
                 this.departmentName = data.department_name;
+
+                if (data.auth === 3) {
+                    this.grade = data.grade + '학년';
+                } else if (data.auth === 4) {
+                    this.grade = '졸업생';
+                } else if (data.auth === 5) {
+                    this.grade = '휴학생';
+                }
+
                 console.log(data);
             } else {
                 console.log("HTTP-Error: " + response.status);
             }
         },
 
-        //개인정보(우편번호, 기본주소, 상세주소, 전화번호) 수정하기
         fnSave() {
-            let apiUrl = '/student/mypage'
-            this.form = {
-                "phone": this.phone,
-                "postcode": this.postcode,
-                "address1": this.address1,
-                "address2": this.address2,
-            }
-            if (this.member_id === undefined) {
-                this.$axios.post(apiUrl, this.form)
-                    .then((res) => {
-                        alert('개인정보가 수정되었습니다.')
-                        this.fnView(res.data.member_id)
-                    }).catch((err) => {
-                    if (err.message.indexOf('Network Error') > -1) {
-                        alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-                    }
-                })
-            } else {
-                this.$axios.patch(apiUrl, this.form)
-                    .then((res) => {
-                        alert('개인정보가 수정되었습니다.')
-                        this.fnView(res.data.member_id)
-                    }).catch((err) => {
-                    if (err.message.indexOf('Network Error') > -1) {
-                        alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-                    }
-                })
+            const apiUrl = '/student/mypage';
+            const form = {
+                phone: this.phone,
+                postcode: this.postcode,
+                address1: this.address1,
+                address2: this.address2,
+            };
+
+            if (this.member_idx !== null) {
+                this.$axios.patch(apiUrl, form)
+                    .then(() => {
+                        alert('개인정보가 수정되었습니다.');
+                        this.fnGetView();
+                    })
+                    .catch((err) => {
+                        if (err.message.indexOf('Network Error') > -1) {
+                            alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
+                        }
+                    });
             }
         }
+
     }
-}
+    }
 </script>
+
 
 <style scoped>
 </style>
