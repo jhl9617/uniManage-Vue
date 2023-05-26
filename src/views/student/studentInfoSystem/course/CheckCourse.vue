@@ -4,24 +4,24 @@
         <tr align="left">
             <th width="100">년도</th>
             <td width="200">
-                <select>
+                <select v-model="search_value1">
                     <option value="">- 선택 -</option>
-                    <option value="year">2023</option>
-                    <option value="year">2022</option>
-                    <option value="year">2021</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
                 </select>
             </td>
             <th width="100">학기</th>
             <td width="200">
-                <select>
+                <select v-model="search_value2">
                     <option value="">- 선택 -</option>
-                    <option value="semester">1학기</option>
-                    <option value="semester">2학기</option>
+                    <option value="01">1학기</option>
+                    <option value="02">2학기</option>
                 </select>
             </td>
         </tr>
     </table>
-    <button>조회</button>
+    <button v-on:click="fnGetView">조회</button>
     <br><br>
     <div align="left">
 
@@ -57,13 +57,13 @@ export default {
       requestBody: {},
       list: [],
       lecture_id: '',
-      year: '',
-      semester: ''
+      search_value1: this.$route.query.sv1 ? this.$route.query.sv1 : '',
+      search_value2: this.$route.query.sv2 ? this.$route.query.sv2 : '',
 
     }
   },
   mounted() { // document.ready, window.onload와 같은 형태
-    this.fnGetView()
+
   },
 
   created() {
@@ -71,13 +71,19 @@ export default {
   },
   methods: {
     fnGetView() {
-      this.$axios.get(this.$serverUrl + '/student/checkcourse/' + this.member_id, {
+      this.requestBody = { // 데이터 전송
+        sv1: this.loginMember.member_id,
+        sv2: this.search_value1,
+        sv3: this.search_value2
+      }
+
+      this.$axios.get(this.$serverUrl + '/student/checkcourse/', {
         params: this.requestBody
       })
           .then((res) => {
             this.list = res.data;
-            this.lecture_id = res.data.lecture_id;
-            console.log(this.list);
+
+
           })
           .catch((err) => {
             if (err.message.indexOf('Network Error') > -1) {
@@ -85,16 +91,6 @@ export default {
             }
           });
     },
-
-
-    fnView(course_regi_term) {
-      this.requestBody.course_regi_term = course_regi_term
-      this.$router.push({
-        path: '/student/studenttimetable',
-        query: this.requestBody
-      })
-    },
-
 
     async getSession() {
       try {

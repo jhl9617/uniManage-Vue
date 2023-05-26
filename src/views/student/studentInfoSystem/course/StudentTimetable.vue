@@ -4,7 +4,7 @@
     <tr align="left">
         <th width="100">년도</th>
         <td width="200">
-            <select v-model="year" >
+            <select v-model="search_value1" >
                 <option value="">- 선택 -</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
@@ -13,7 +13,7 @@
         </td>
         <th width="100">학기</th>
         <td width="200">
-            <select v-model="semester">
+            <select v-model="search_value2">
                 <option value="">- 선택 -</option>
                 <option value="01">1학기</option>
                 <option value="02">2학기</option>
@@ -23,13 +23,13 @@
     </table>
     <button v-on:click="fnGetView">조회</button>
     <br><br>
-  강의 시간표
+
   <br>
   <table class="w3-table-all table-bordered table-fixed">
 
     <thead>
     <tr>
-      <th>시간</th>
+      <th>시간 / 요일</th>
       <th>월</th>
       <th>화</th>
       <th>수</th>
@@ -62,16 +62,18 @@ export default {
       member_id: this.$route.query.member_id ? this.$route.query.member_id : '',
       loginMember: null,
       times: ['01', '02', '03', '04', '05', '06', '07', '08'],
-      requestBody: {},
+      requestBody: '',
       list: [],
       lecture_id: '',
-      year: '',
-      semester: ''
+      search_value1: this.$route.query.sv1 ? this.$route.query.sv1 : '',
+      search_value2: this.$route.query.sv2 ? this.$route.query.sv2 : '',
+
 
     }
+
   },
   mounted() { // document.ready, window.onload와 같은 형태
-  this.fnGetView()
+
   },
 
   created() {
@@ -79,13 +81,18 @@ export default {
   },
   methods: {
     fnGetView() {
-            this.$axios.get(this.$serverUrl + '/student/studenttimetable/' + this.member_id, {
+      this.requestBody = { // 데이터 전송
+        sv1: this.loginMember.member_id,
+        sv2: this.search_value1,
+        sv3: this.search_value2
+      }
+            this.$axios.get(this.$serverUrl + '/student/studenttimetable' , {
             params: this.requestBody
           })
           .then((res) => {
             this.list = res.data;
             this.lecture_id = res.data.lecture_id;
-            console.log(this.list);
+
           })
           .catch((err) => {
             if (err.message.indexOf('Network Error') > -1) {
@@ -93,22 +100,12 @@ export default {
             }
           });
     },
-
-
-    fnView(course_regi_term) {
-      this.requestBody.course_regi_term = course_regi_term
-      this.$router.push({
-        path: '/student/studenttimetable',
-        query: this.requestBody
-      })
-    },
-
-    // Check if a course exists at a specific time and day
+    // 시간대에 맞는 강의가 존재하는지 확인
     hasCourse(time, day) {
       return this.list.some(row => row.timecode1 === `${day}${time}` || row.timecode2 === `${day}${time}` || row.timecode3 === `${day}${time}`);
     },
 
-    // Get the course title for a specific time and day
+    // 존재하는 강의 정보 찾기
     getCourse(time, day) {
       const course = this.list.find(row => row.timecode1 === `${day}${time}` || row.timecode2 === `${day}${time}` || row.timecode3 === `${day}${time}`);
       if (course) {
