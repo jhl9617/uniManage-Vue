@@ -19,18 +19,18 @@
         <div class="col-md-8">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <fieldset>
-                                <table>
-                                    <td>
-                                        <img src="@/assets/images/cha.jpg" class="rounded-circle" width="150">
-                                    </td>
-                                </table>
-                            </fieldset>
-                        </div>
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="d-flex flex-column align-items-center text-center">-->
+<!--                            <fieldset>-->
+<!--                                <table>-->
+<!--                                    <td>-->
+<!--                                        <img src="@/assets/images/cha.jpg" class="rounded-circle" width="150">-->
+<!--                                    </td>-->
+<!--                                </table>-->
+<!--                            </fieldset>-->
+<!--                        </div>-->
 
-                    </div>
+<!--                    </div>-->
                     <div class="col-md-8">
                         <fieldset>
                             <table class="w3-table-all">
@@ -130,6 +130,7 @@ export default {
                 this.address2 = res.data.address2
                 this.auth = res.data.auth
                 this.department_name = res.data.department_name
+                console.log(res.data)
             }).catch((err) => { //실패 -> err에 정보를 저장함
                 if (err.message.indexOf('Network Error') > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')

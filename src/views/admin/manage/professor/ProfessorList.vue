@@ -24,8 +24,8 @@
             </tr>
             </tbody>
         </table>
-        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
-            <span class="pg">
+        <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
+      <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
       <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
          class="prev w3-button w3-border">&lt;</a>
@@ -57,8 +57,6 @@
         &nbsp;
         <PrimeButton @click="fnPage()">검색</PrimeButton>
     </div>
-    <root>
-    </root>
 </template>
 
 <script>

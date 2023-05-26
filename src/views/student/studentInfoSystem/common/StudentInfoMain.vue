@@ -23,7 +23,7 @@
                             </td>
                             <tr>
                                 <td>
-                                    <button class="btn btn-primary">비밀번호변경</button>
+                                    <button class="btn btn-primary" v-on:click="fnMypage">마이페이지</button>
                                 </td>
                             </tr>
                         </table>
@@ -48,7 +48,7 @@
                         </tr>
                         <tr v-for="notice in sortedNotice" :key="notice.notice_id">
                             <td>{{ notice.notice_id }}</td>
-                            <td><a v-on:click="fnNotice(`${notice.notice_id}`)">{{ notice.notice_title }}</a></td>
+                            <td><a v-on:click="fnNotice(`${notice.notice_id}`)" style="cursor: pointer;">{{ notice.notice_title }}</a></td>
                             <td>{{ notice.created_date }}</td>
                         </tr>
                     </table>
@@ -145,6 +145,13 @@ export default {
             this.sche_id = sche_id
             this.$router.push({
                 path: '/student/schedule',
+                query: this.requestBody
+            })
+        },
+        fnMypage() {
+            delete this.requestBody.member_id
+            this.$router.push({
+                path: '/student/mypage',
                 query: this.requestBody
             })
         },

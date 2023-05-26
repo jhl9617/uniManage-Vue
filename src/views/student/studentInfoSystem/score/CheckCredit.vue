@@ -16,25 +16,25 @@
             </td>
         </tr>
         <tr align="left">
-            <th width="100">학적상태</th>
-            <td width="200">
-
+            <th width="100">학부(과)</th>
+            <td width="200" v-if="loginMember">
+                {{ loginMember.department_name }}
             </td>
             <th width="100">학년</th>
             <td width="200" v-if="loginMember">
                 {{ loginMember.grade }}학년
             </td>
         </tr>
-        <tr align="left">
-            <th width="100">학부(과)</th>
-            <td width="200" v-if="loginMember">
-                {{ loginMember.department_name }}
-            </td>
-            <th width="100">이수학기</th>
-            <td width="200">
+<!--        <tr align="left">-->
+<!--            <th width="100">학부(과)</th>-->
+<!--            <td width="200" v-if="loginMember">-->
+<!--                {{ loginMember.department_name }}-->
+<!--            </td>-->
+<!--            <th width="100">이수학기</th>-->
+<!--            <td width="200">-->
 
-            </td>
-        </tr>
+<!--            </td>-->
+<!--        </tr>-->
     </table>
     </div>
     <div>
