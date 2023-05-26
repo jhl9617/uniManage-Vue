@@ -205,13 +205,6 @@ export default {
                 }
             })
         },
-        // fnView(lecture_id) {
-        //     this.requestBody.lecture_id = lecture_id
-        //     this.$router.push({
-        //         path: '/',
-        //         query: this.requestBody
-        //     })
-        // },
         fnPage(n) {
             if (this.page !== n) {
                 this.page = n
@@ -240,6 +233,49 @@ export default {
                 })
             }
         },
+        // fnSave(n, m) {
+        //     let apiUrl = this.$serverUrl + '/student/sugang';
+        //     this.form = {
+        //         "course_regi_id": this.course_regi_id,
+        //         "course_regi_term": m,
+        //         "member_id": this.loginMember.member_id,
+        //         "lecture_id": n,
+        //     };
+        //
+        //     // Check if the member already enrolled in the selected lecture
+        //     const isEnrolled = this.list.some((row) => row.lecture_id === n);
+        //     if (isEnrolled) {
+        //         alert('이미 수강하고 있는 강의입니다.');
+        //         return;
+        //     }
+        //
+        //     // Check for overlapping lecture times
+        //     const lectureTimes = this.list.map((row) => [row.timecode1, row.timecode2, row.timecode3]);
+        //     const selectedLecture = [this.list.find((row) => row.lecture_id === n).timecode1, this.list.find((row) => row.lecture_id === n).timecode2, this.list.find((row) => row.lecture_id === n).timecode3];
+        //     const isTimeConflict = lectureTimes.some((time) =>
+        //         time.some((value) => selectedLecture.includes(value))
+        //     );
+        //     if (isTimeConflict) {
+        //         alert('같은 시간대에 수강하고 있는 강의가 있습니다.');
+        //         return;
+        //     }
+        //
+        //     // Perform the enrollment if no conflicts found
+        //     if (this.course_regi_id === undefined) {
+        //         // INSERT
+        //         this.$axios
+        //             .post(apiUrl, this.form)
+        //             .then(() => {
+        //                 alert('수강신청이 성공하였습니다.');
+        //             })
+        //             .catch((err) => {
+        //                 if (err.message.indexOf('Network Error') > -1) {
+        //                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
+        //                 }
+        //             });
+        //     }
+        // },
+
         async getSession() {
             try {
                 const response = await fetch("/sessionCheck");

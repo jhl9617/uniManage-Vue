@@ -62,19 +62,14 @@
             </div>
         </li>
 
-        <!-- 성적/졸업 -->
+        <!-- 성적 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#student-collapse"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <span>성적/졸업</span>
+                <span>성적</span>
             </a>
             <div id="student-collapse" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <router-link to="/student/checkcredit"
-                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                        <span>졸업학점조회</span>
-                    </router-link>
-                    <br>
                     <a v-on:click="fnScore" style="cursor: pointer;">
                         <span>수강성적조회</span>
                     </a>

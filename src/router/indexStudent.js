@@ -22,14 +22,12 @@ import StudentTimelineByDepart from "@/views/student/studentInfoSystem/course/Ti
 import StudentTimetable from "@/views/student/studentInfoSystem/course/StudentTimetable.vue";
 import StudentCheckCourse from "@/views/student/studentInfoSystem/course/CheckCourse.vue";
 import StudentSurveyCourse from "@/views/student/studentInfoSystem/survey/SurveyCourse.vue";
-import StudentCheckCredit from "@/views/student/studentInfoSystem/score/CheckCredit.vue";
 import StudentCheckScore from "@/views/student/studentInfoSystem/score/StudentCheckScore.vue";
 import StudentCheckScholarship from "@/views/student/studentInfoSystem/scholarship/StudentCheckScholarship.vue";
 import StudentCourseList from "@/views/student/studentInfoSystem/sugang/StudentCourseList.vue";
 import StudentInfoMain from "@/views/student/studentInfoSystem/common/StudentInfoMain.vue";
 import StudentMain from "@/views/student/studentInfoSystem/sugang/StudentSugang.vue";
 import StudentNoticeList from "@/views/student/studentInfoSystem/notice/NoticeList.vue";
-import StudentScheduleList from "@/views/student/studentInfoSystem/notice/ScheduleList.vue";
 import StudentNoticeDetail from "@/views/student/studentInfoSystem/notice/NoticeDetail.vue";
 import StudentTakeoffAppliedView from "@/views/student/studentInfoSystem/status/TakeoffAppliedView.vue";
 import StudentReturnAppliedView from "@/views/student/studentInfoSystem/status/ReturnAppliedView.vue";
@@ -153,11 +151,6 @@ const routesStudent = [
         component: StudentCheckCourse
     },
     {
-        path: '/student/checkcredit',
-        name: 'StudentCheckCredit',
-        component: StudentCheckCredit
-    },
-    {
         path: '/student/score',
         name: 'StudentCheckScore',
         component: StudentCheckScore
@@ -191,11 +184,6 @@ const routesStudent = [
         path: '/student/notice/detail',
         name: 'StudentNoticeDetail',
         component: StudentNoticeDetail
-    },
-    {
-        path: '/student/schedule',
-        name: 'StudentScheduleList',
-        component: StudentScheduleList
     },
     {
         path: '/student/takeoff/detail',

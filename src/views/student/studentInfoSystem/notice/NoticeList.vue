@@ -44,7 +44,7 @@
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
             &nbsp;
-            <button @click="fnPage()">검색</button>
+            <PrimeButton @click="fnPage()" style="cursor: pointer;">검색</PrimeButton>
         </div>
     </div>
 </template>
