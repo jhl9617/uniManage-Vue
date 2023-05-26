@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div class="myheader">
-        <PageHeader/>
-        </div>
         <EclassHeader v-if="$route.name && $route.name.startsWith('Lecture')"/>
         <div class="container-fluid">
             <div class="row">
@@ -25,7 +22,6 @@
 </template>
 
 <script>
-import PageHeader from './components/common/PageHeader.vue';
 import PageFooter from './components/common/PageFooter.vue';
 import StudentSidebar from "@/views/student/studentInfoSystem/common/PageSidebar.vue";
 import LectureSidebar from "@/views/student/Eclass/lecture/LectureSidebar.vue";
@@ -38,7 +34,6 @@ export default {
     name: 'App',
     components: {
         AdminSidebar,
-        PageHeader,
         EclassHeader,
         PageFooter,
         StudentSidebar,

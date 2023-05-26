@@ -1,12 +1,5 @@
 <!-- PageHeader.vue -->
 <template>
-<!--    <header>
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> |
-        <router-link to="/board/list">게시판</router-link>
-      </div>
-    </header>-->
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <div class="col-md-3 mb-2 mb-md-0">
