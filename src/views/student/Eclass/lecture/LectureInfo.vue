@@ -1,38 +1,45 @@
   <template>
-      강의정보
+    <div class="board-list">
+    <h4>강의정보</h4>
+
+    <div class="common-buttons">
+
+    </div>
 
       <table class="w3-table-all table-bordered">
+        <tbody>
           <tr>
-              <td>강의명</td>
+              <th>강의명</th>
               <td>{{ lecture_title }}</td>
           </tr>
           <tr>
-              <td>학과명</td>
+              <th>학과명</th>
               <td>{{ department_name}}</td>
           </tr>
           <tr>
-            <td>구분</td>
+            <th>구분</th>
             <td><span v-if="classification === '1'">전공</span>
               <span v-else-if="classification === '2'">교양</span></td>
           </tr>
           <tr>
-              <td>학점</td>
+              <th>학점</th>
               <td>{{ credit }} 학점</td>
           </tr>
           <tr>
-              <td>강의시간</td>
+              <th>강의시간</th>
               <td>{{ timecode1 }} {{ timecode2 }} {{ timecode3 }}</td>
           </tr>
           <tr>
-              <td>강의실</td>
+              <th>강의실</th>
               <td>{{ roomcode1 }} {{ roomcode2 }} {{ roomcode3 }} 호</td>
           </tr>
           <tr>
-              <td>수강생</td>
+              <th>수강생</th>
               <td> {{ number_of_student }} 명 </td>
           </tr>
-
+        </tbody>
       </table>
+    </div>
   </template>
 
   <script>

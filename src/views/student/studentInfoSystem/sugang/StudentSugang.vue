@@ -3,7 +3,7 @@
         <div class="row">
                 <div class="row">
                     <div>
-                        수강신청
+                      <h4>수강신청</h4>
                         <br><br>
                         <div class="container-fluid">
                             <table align="center" class="w3-table-all table-bordered" width="505">

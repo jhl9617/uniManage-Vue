@@ -1,6 +1,7 @@
 <template>
     <div class="board-list">
-        자유게시판
+      <h4>자유게시판</h4>
+
         <div class="common-buttons">
             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
         </div>

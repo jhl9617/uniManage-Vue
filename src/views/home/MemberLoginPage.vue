@@ -1,4 +1,5 @@
 <template>
+    <div class="position-absolute top-50 start-50 translate-middle">
     <body className="text-center">
     <main className="form-signin w-100 m-auto">
         <form @submit.prevent="fireSignin">
@@ -34,10 +35,9 @@
             <button className="w-100 btn btn-lg btn-primary" type="submit">로 그 인</button>
 
         </form>
-        <button @click="inse">임시</button>
     </main>
     </body>
-
+    </div>
 </template>
 
 <script>

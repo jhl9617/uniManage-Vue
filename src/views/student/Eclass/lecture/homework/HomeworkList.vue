@@ -1,6 +1,7 @@
 <template>
     <div class="board-list">
-        과제게시판
+        <h4> 과제게시판 </h4>
+
         <div class="common-buttons">
 
         </div>

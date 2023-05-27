@@ -1,6 +1,10 @@
 <template>
     <div class="board-list">
-        공지사항
+        <h4>공지사항</h4>
+
+      <div class="common-buttons">
+
+      </div>
 
         <table class="w3-table-all table-bordered">
             <thead>

@@ -1,4 +1,5 @@
 <template>
+  <div class="position-absolute top-50 start-50 translate-middle">
     <body class="text-center">
 
 
@@ -24,7 +25,7 @@
         </form>
     </main>
     </body>
-
+  </div>
 </template>
 
 <script>

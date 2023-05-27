@@ -167,7 +167,7 @@ export default {
             return this.notice
                 .slice() // 원본 배열을 변경하지 않기 위해 복사
                 .sort((a, b) => b.notice_id - a.notice_id) // id를 내림차순으로 정렬
-                .slice(0, 5) // 최대 4개의 항목 추출
+                .slice(0, 10) // 최대 4개의 항목 추출
         },
     },
     created() {

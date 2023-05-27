@@ -5,7 +5,7 @@ import routesProf from './indexProf.js'
 import routesStudent from './indexStudent.js'
 // import PageHome from "@/views/home/PageHome.vue";
 import Login from "@/views/home/MemberLoginPage.vue";
-import FindID from "@/views/home/FindID.vue";
+import FindID from "@/views/home/MemberFindID.vue";
 import FindPassword from "@/views/home/MemberFindPassword.vue";
 import ResetPassword from "@/views/home/MemberResetPassword.vue";
 
@@ -19,17 +19,17 @@ const routes = [
   },
   {
     path: '/findid',
-    name: 'FindID',
+    name: 'MemberFindID',
     component: FindID
   },
   {
     path: '/findpassword',
-    name: 'FindPassword',
+    name: 'MemberFindPassword',
     component: FindPassword
   },
   {
     path: '/resetpassword',
-    name: 'ResetPassword',
+    name: 'MemberResetPassword',
     component: ResetPassword
   },
   {

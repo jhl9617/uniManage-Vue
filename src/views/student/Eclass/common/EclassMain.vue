@@ -18,10 +18,10 @@
 
       </div>
       <div class="col-md-9">
-        내 강의실
+        <h4>내 강의실</h4>
         <br><br>
         <div class="container-fluid">
-          <table class="w3-table-all table-bordered">
+          <table class="w3-table-all table-bordered table-fixed">
             <tr>
               <td>번호</td>
               <td>강의명</td>
@@ -42,7 +42,7 @@
           </table>
           <br><br>
         </div>
-        강의 시간표
+        <h4>강의 시간표</h4>
         <br>
         <table class="w3-table-all table-bordered table-fixed">
 

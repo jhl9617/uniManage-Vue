@@ -1,6 +1,6 @@
 <template>
     <div class="board-list">
-        수강신청내역
+      <h4>수강신청내역</h4>
         <br><br>
         <table class="w3-table-all table-hover">
             <thead>

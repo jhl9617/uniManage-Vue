@@ -1,6 +1,6 @@
 <template>
     <div class="board-list">
-        강의자료실
+        <h4>강의자료실</h4>
         <br><br>
 
         <table class="w3-table-all table-bordered">
