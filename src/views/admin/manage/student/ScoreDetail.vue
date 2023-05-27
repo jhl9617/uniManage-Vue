@@ -1,7 +1,7 @@
 <template>
   학생 정보 상세
-    <br>
-    <div align="left">
+    <br><br>
+    <div>
         <a v-on:click="fnView(`${member_id}`)">
             <button type="button" class="w3-button w3-round w3-gray">기본정보</button>
         </a>

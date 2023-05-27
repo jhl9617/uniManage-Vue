@@ -1,7 +1,7 @@
 <template>
     학생 정보 상세
-    <br>
-    <div align="left">
+    <br><br>
+    <div>
         <a v-on:click="fnView(`${member_id}`)">
             <button type="button" class="w3-button w3-round w3-gray">기본정보</button>
         </a>
@@ -15,25 +15,8 @@
         </a>
     </div>
     <br>
-    <div style="border:2px solid black; padding:100px;">
-        <div class="col-md-8">
             <div class="container">
-                <div class="row">
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="d-flex flex-column align-items-center text-center">-->
-<!--                            <fieldset>-->
-<!--                                <table>-->
-<!--                                    <td>-->
-<!--                                        <img src="@/assets/images/cha.jpg" class="rounded-circle" width="150">-->
-<!--                                    </td>-->
-<!--                                </table>-->
-<!--                            </fieldset>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-                    <div class="col-md-8">
-                        <fieldset>
-                            <table class="w3-table-all">
+                            <table class="w3-table-all half-width">
                                 <tr>
                                     <td>이름</td>
                                     <td>{{ name }}</td>
@@ -67,15 +50,9 @@
                                     <td>{{ email }}</td>
                                 </tr>
                             </table>
-                        </fieldset>
                     </div>
-                </div>
                 <br>
-
-            </div>
-        </div>
-    </div>
-    <div class="common-buttons">
+    <div>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>
         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
@@ -188,5 +165,13 @@ export default {
 </script>
 
 <style scoped>
-
+.half-width {
+    width: 50%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 </style>
