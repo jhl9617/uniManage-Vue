@@ -1,20 +1,25 @@
 <template>
-    <h6>공지사항 작성</h6>
-    <table class="table table-bordered" align="center">
-        <tr style="border: solid 1px ;">
-            <th style="border: solid 1px ;">제목</th>
-            <td style="border: 1px solid;">
-                <input type="text" name="text" v-model="notice_title" size="20" style="width:100%;">
-            </td>
-        </tr>
-        <tr style="border: solid 1px ;">
-            <th style="border: solid 1px ;">내용</th>
-            <td style="border: 1px solid;">
-                <textarea name="content" v-model="notice_content" rows="10" style="width:100%;"></textarea>
-            </td>
-        </tr>
-        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
-    </table>
+    공지사항 작성
+    <br><br>
+    <div class="container">
+        <table class="table table-bordered half-width">
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">제목</th>
+                <td style="border: 1px solid;">
+                    <input type="text" name="text" v-model="notice_title" size="20" style="width:100%;">
+                </td>
+            </tr>
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">내용</th>
+                <td style="border: 1px solid;">
+                    <textarea name="content" v-model="notice_content" rows="10" style="width:100%;"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+        <br>
+        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>
+
 </template>
 
 <script>
@@ -123,5 +128,13 @@ export default {
 }
 </script>
 <style scoped>
-
+.half-width {
+    width: 70%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 </style>
