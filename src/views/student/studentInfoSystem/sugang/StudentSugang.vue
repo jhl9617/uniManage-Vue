@@ -88,6 +88,7 @@
                                     </td>
                                 </tr>
                             </table>
+                            <br>
                             <button class="w3-button w3-round w3-blue-gray" v-on:click="fnPage()">조회</button>
                             <br><br>
                             <table class="w3-table-all" id="lecturelist">
