@@ -7,7 +7,7 @@
         <li>&nbsp;</li>
         <li>&nbsp;</li>
         <li>&nbsp;</li>
-        <li><button class="btn btn-primary" v-on:click="logout" type="button">로그아웃</button></li>
+        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="logout" type="button">로그아웃</button></li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <router-link class="nav-link" to="/admin/">

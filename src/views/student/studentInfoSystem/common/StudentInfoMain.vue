@@ -21,9 +21,10 @@
                                     </div>
                                 </div>
                             </td>
+                            &nbsp;&nbsp;&nbsp;
                             <tr>
                                 <td>
-                                    <button class="btn btn-primary" v-on:click="fnMypage">마이페이지</button>
+                                    <button class="w3-button w3-round w3-blue-gray" v-on:click="fnMypage">마이페이지</button>
                                 </td>
                             </tr>
                         </table>

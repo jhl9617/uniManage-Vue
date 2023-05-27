@@ -1,7 +1,7 @@
 <template>
     <div class="board-list">
         공지사항
-        <table class="w3-table-all table-hover">
+        <table class="w3-table-all table-hover" style="cursor: pointer;">
             <thead>
             <tr>
                 <th>No</th>
