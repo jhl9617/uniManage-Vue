@@ -1,8 +1,9 @@
 <!-- PageSidebar.vue -->
 <template>
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
-        <li>&nbsp;</li>
-        <li>&nbsp;</li>
+        <br>
+        <li><ClockComponent/></li>
+        <br>
         <li><button class="w3-button w3-round w3-blue-gray" v-on:click="logout" type="button">로그아웃</button></li>
 
         <!-- Nav Item - Dashboard -->
@@ -28,7 +29,10 @@
 </template>
 
 <script>
+import ClockComponent from "@/components/common/ClockComponent.vue";
+
 export default {
+    components: {ClockComponent},
   data() { //변수생성
     return {
       loginMember: null,

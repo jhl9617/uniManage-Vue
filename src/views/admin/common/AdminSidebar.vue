@@ -1,17 +1,17 @@
-<!-- LectureSidebar.vue -->
 <template>
 
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
-        <li><router-link to="/"> Home </router-link></li>
-        <li>&nbsp;</li>
-        <li>&nbsp;</li>
-        <li>&nbsp;</li>
-        <li>&nbsp;</li>
-        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="logout" type="button">로그아웃</button></li>
+<!--        <li><router-link to="/"> Home </router-link></li>-->
+        <br>
+        <li><ClockComponent/></li>
+        <br>
+<!--        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="logout" type="button">로그아웃</button></li>-->
+        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="fnHome" type="button">Home</button></li>
+        <br>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <router-link class="nav-link" to="/admin/">
-                <span>Home</span>
+                <span>Main</span>
             </router-link>
         </li>
         <!-- Divider -->
@@ -120,9 +120,18 @@
 </template>
 
 <script>
+import ClockComponent from "@/components/common/ClockComponent.vue";
+
 export default {
+    components: {ClockComponent},
   methods: {
-  }
+      fnHome() {
+              this.$router.push({
+                  path: '/',
+                  query: this.requestBody
+              });
+          }
+      },
 }
 </script>
 
