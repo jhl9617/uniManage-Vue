@@ -1,7 +1,8 @@
 <template>
     <div>
         <h5>개인정보 조회</h5>
-        <table class="w3-table-all">
+        <div class="container">
+        <table class="w3-table-all half-width">
             <tr>
                 <th>학과</th>
                 <td>{{ this.departmentName}}</td>
@@ -15,17 +16,15 @@
                 <td>{{ this.name }}</td>
             </tr>
             <tr>
-                <th>E-Mail</th>
-                <td>{{ this.email }}</td>
-            </tr>
-            <tr>
                 <th>학년</th>
                 <td>{{ this.grade }}</td>
             </tr>
         </table>
+            </div>
         <br><br><br>
         <h5>개인정보 수정</h5>
-        <table class="w3-table-all">
+        <div class="container">
+        <table class="w3-table-all half-width">
             <tr>
                 <th>전화번호</th>
                 <td>
@@ -33,25 +32,23 @@
                 </td>
             </tr>
             <tr>
-                <th>우편번호</th>
+                <th>e-mail</th>
+                <td>
+                    <input type="text" v-model="email">
+                </td>
+            </tr>
+            <tr>
+                <th>주소</th>
                 <td >
                     <input type="text" v-model="postcode" readonly />
-                    <input type="button" @click="execDaumPostcode()" value="우편번호 찾기"/>
-                </td>
-            </tr>
-            <tr>
-                <th>기본주소</th>
-                <td>
-                    <input type="text" v-model="address1" readonly/>
-                </td>
-            </tr>
-            <tr>
-                <th>상세주소</th>
-                <td>
+                    <input type="button" @click="execDaumPostcode()" value="우편번호 찾기"/><br>
+                    <input type="text" v-model="address1" readonly/><br>
                     <input type="text" v-model="address2" />
+
                 </td>
             </tr>
         </table>
+            </div>
         <br>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">개인정보 수정하기</button>
     </div>
@@ -63,7 +60,7 @@ export default {
         return {
             requestBody: null,
             member_idx: '',
-            memberId: null,
+            memberId: '',
             birthday: '',
             name: '',
             grade:'',
@@ -119,6 +116,7 @@ export default {
             const apiUrl = '/student/mypage';
             const form = {
                 phone: this.phone,
+                email: this.email,
                 postcode: this.postcode,
                 address1: this.address1,
                 address2: this.address2,
@@ -181,7 +179,14 @@ export default {
     }
     }
 </script>
-
-
 <style scoped>
+.half-width {
+    width: 50%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 </style>
