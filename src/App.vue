@@ -17,29 +17,26 @@
                 </div>
             </div>
         </div>
-        <PageFooter/>
     </div>
 </template>
 
 <script>
-import PageFooter from './components/common/PageFooter.vue';
 import StudentSidebar from "@/views/student/studentInfoSystem/common/PageSidebar.vue";
 import LectureSidebar from "@/views/student/Eclass/lecture/LectureSidebar.vue";
 import EclassSidebar from "@/views/student/Eclass/common/EClassSidebar.vue";
 import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
 import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
-import EclassHeader from "@/views/student/Eclass/common/PageHeader.vue"
+import EclassHeader from "@/views/student/Eclass/common/PageHeader.vue";
 
 export default {
     name: 'App',
     components: {
         AdminSidebar,
         EclassHeader,
-        PageFooter,
         StudentSidebar,
         ProfessorSidebar,
         EclassSidebar,
-        LectureSidebar
+        LectureSidebar,
     }
 }
 

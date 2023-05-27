@@ -4,9 +4,6 @@
             <div class="col-md-6">
                 <div class="d-flex flex-column align-items-center text-center">
                     <fieldset>
-                        <legend>개인정보
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </legend>
                         <table>
                             <td>
                                 <img alt="Admin" class="rounded-circle"
@@ -41,7 +38,7 @@
                         <button v-on:click="fnNoticeList(notice_id)" class="btn btn-outline-dark" type="button">전체보기</button>
                     </legend>
 
-                    <table class="w3-table-all">
+                    <table class="w3-table-all table-hover">
                         <tr>
                             <td>No</td>
                             <td>글제목</td>
