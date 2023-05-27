@@ -1,12 +1,8 @@
 <template>
     교수 추가
-    <div style="border:2px solid black; padding:100px;">
-        <div class="col-md-8">
+    <br><br>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <fieldset>
-                            <table class="w3-table-all">
+                            <table>
                                 <tr>
                                     <td>이름</td>
                                     <td>
@@ -143,20 +139,15 @@
                                     <td>주소</td>
                                     <td>
                                         <input type="text" placeholder="우편번호" v-model="postcode" readonly />
-                                        <input type="button" @click="execDaumPostcode()" value="우편번호 찾기"/>
-                                        <input type="text" v-model="address1" placeholder="주소" readonly/>
+                                        <input type="button" @click="execDaumPostcode()" value="우편번호 찾기"/><br>
+                                        <input type="text" v-model="address1" placeholder="주소" readonly/><br>
                                         <input type="text" v-model="address2" placeholder="상세주소" />
                                     </td>
                                 </tr>
                             </table>
-                        </fieldset>
                     </div>
-                </div>
                 <br>
 
-            </div>
-        </div>
-    </div>
     <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
     <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
 </template>
@@ -317,10 +308,17 @@ export default {
                 },
             }).open();
         },
+
+
     }
 }
 </script>
 
 <style scoped>
-
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 </style>
