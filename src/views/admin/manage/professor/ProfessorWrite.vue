@@ -4,22 +4,6 @@
         <div class="col-md-8">
             <div class="container">
                 <div class="row">
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="d-flex flex-column align-items-center text-center">-->
-<!--                            <fieldset>-->
-<!--                                <table>-->
-<!--                                    <td>-->
-<!--                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">-->
-<!--                                    </td>-->
-<!--                                    <tr>-->
-<!--                                        <td>-->
-<!--                                            <button class="btn btn-primary">이미지 업로드</button>-->
-<!--                                        </td>-->
-<!--                                    </tr>-->
-<!--                                </table>-->
-<!--                            </fieldset>-->
-<!--                        </div>-->
-<!--                    </div>-->
                     <div class="col-md-8">
                         <fieldset>
                             <table class="w3-table-all">
@@ -32,7 +16,7 @@
                                 <tr>
                                     <td>교수 번호(ID)</td>
                                     <td>
-                                        <input type="text" v-model="member_id" class="w3-input w3-border" placeholder="학생 번호를 입력해주세요.">
+                                        <input type="text" v-model="member_id" class="w3-input w3-border" placeholder="교수 번호를 입력해주세요.">
                                     </td>
                                 </tr>
                                 <tr>
@@ -146,7 +130,7 @@
                                 <tr>
                                     <td>휴대전화번호</td>
                                     <td>
-                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="000-0000-0000">
+                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="'-'빼고 적어주세요.">
                                     </td>
                                 </tr>
                                 <tr>

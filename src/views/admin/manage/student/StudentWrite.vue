@@ -130,7 +130,7 @@
                                 <tr>
                                     <td>휴대전화번호</td>
                                     <td>
-                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="000-0000-0000">
+                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="'-'빼고 적어주세요.">
                                     </td>
                                 </tr>
                                 <tr>

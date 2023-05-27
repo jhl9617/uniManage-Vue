@@ -43,8 +43,7 @@
         <div>
             <select v-model="search_key">
                 <option value="">- 선택 -</option>
-                <option value="sche_title">제목</option>
-                <option value="sche_content">내용</option>
+                <option value="sche_title">제목</option>ndssdd
             </select>
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
