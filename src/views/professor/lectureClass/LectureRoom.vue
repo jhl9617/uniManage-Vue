@@ -26,6 +26,7 @@
                 <option value="목">목요일</option>
                 <option value="금">금요일</option>
             </select>
+            &nbsp;
             <button class="w3-button w3-round w3-blue-gray" @click="fnPage()">검색</button>
         </div>
         <br>
@@ -174,5 +175,6 @@ select {
 
 #lectureroomlist tr td {
     text-align: center !important;
+    vertical-align: middle;
 }
 </style>

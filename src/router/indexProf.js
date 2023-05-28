@@ -11,8 +11,7 @@ import ProfessorLectureEvaluation from "@/views/professor/lectureEvaluation/Prof
 import ProfessorUniversityNotice from "@/views/professor/notice/ProfessorUniversityNotice.vue"
 import ProfessorPayslip from "@/views/professor/payslip/ProfessorPayslip.vue"
 import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDetail.vue"
-import ProfessorLectureNoticeWrite from "@/views/professor/notice/ProfessorLectureNoticeWrite.vue"
-import ProfessorLectureNoticeUpdate from "@/views/professor/notice/ProfessorLectureNoticeUpdate.vue"
+import ProfessorLectureNoticeWrite from "@/views/professor/lectureNotice/ProfessorLectureNoticeWrite.vue"
 import ProfessorReferenceList from "@/views/professor/lectureRoom/ProfessorReferenceList.vue"
 import ProfessorReferenceDetail from "@/views/professor/lectureRoom/ProfessorReferenceDetail.vue"
 import ProfessorReferenceUpdate from "@/views/professor/lectureRoom/ProfessorReferenceUpdate.vue"
@@ -129,7 +128,7 @@ const routesProf = [
         component: ProfessorLectureNotice
     },
     {   //강의_강의정보 확인_공지사항_강의공지 상세보기
-        path: '/prof/lecture/notice/deatil',
+        path: '/prof/lecture/notice/detail',
         name: 'ProfessorLectureNoticeDetail',
         component: ProfessorLectureNoticeDetail
     },
@@ -142,12 +141,6 @@ const routesProf = [
         path: '/prof/lecture/notice/write',
         name: 'ProfessorLectureNoticeWrite',
         component: ProfessorLectureNoticeWrite
-    },
-    {
-        //강의공지 수정하기
-        path: '/prof/lecture/notice/update',
-        name: 'ProfessorLectureNoticeUpdate',
-        component: ProfessorLectureNoticeUpdate
     },
     {
         //강의자료실 리스트
@@ -191,12 +184,12 @@ const routesProf = [
         component: ProfessorStudentAtDetail
     },
     {   //학생관리_과제 제출현황
-        path: '/prof/student/homework/list',
+        path: '/prof/lecture/homework/list',
         name: 'ProfessorHomeworkList',
         component: ProfessorHomeworkList
     },
     {   //학생관리_과제 제출상세
-        path: '/prof/student/homework/detail',
+        path: '/prof/lecture/homework/detail',
         name: 'ProfessorHomeworkDetail',
         component: ProfessorHomeworkDetail
     }
