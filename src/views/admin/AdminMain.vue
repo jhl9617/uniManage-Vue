@@ -1,14 +1,10 @@
 <template>
 
         <div class="d-flex flex-column align-items-center text-center">
-            <fieldset>
-                <legend>개인정보
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </legend>
                 <table>
-                    <td>
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                    </td>
+<!--                    <td>-->
+<!--                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">-->
+<!--                    </td>-->
                     <td>
                         <div class="mt-3">
                             <h4 v-if="loginMember">{{ loginMember.name}} 님</h4>
@@ -19,12 +15,10 @@
                     </td>
                     <tr>
                         <td>
-                            <button class="btn btn-primary">비밀번호변경</button>
+                            <button class="w3-button w3-round w3-blue-gray" v-on:click="fnMypage">마이페이지</button>
                         </td>
                     </tr>
                 </table>
-
-            </fieldset>
         </div>
 
 
@@ -55,6 +49,12 @@ export default {
             } catch (error) {
                 console.error("Error fetching session data:", error);
             }
+        },
+        fnMypage() {
+            this.$router.push({
+                path: '/admin/mypage',
+                query: this.requestBody
+            })
         },
     },
     created() {

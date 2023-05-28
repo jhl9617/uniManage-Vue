@@ -1,28 +1,8 @@
 <template>
     교수 추가
-    <div style="border:2px solid black; padding:100px;">
-        <div class="col-md-8">
+    <br><br>
             <div class="container">
-                <div class="row">
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="d-flex flex-column align-items-center text-center">-->
-<!--                            <fieldset>-->
-<!--                                <table>-->
-<!--                                    <td>-->
-<!--                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">-->
-<!--                                    </td>-->
-<!--                                    <tr>-->
-<!--                                        <td>-->
-<!--                                            <button class="btn btn-primary">이미지 업로드</button>-->
-<!--                                        </td>-->
-<!--                                    </tr>-->
-<!--                                </table>-->
-<!--                            </fieldset>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <div class="col-md-8">
-                        <fieldset>
-                            <table class="w3-table-all">
+                            <table>
                                 <tr>
                                     <td>이름</td>
                                     <td>
@@ -32,7 +12,7 @@
                                 <tr>
                                     <td>교수 번호(ID)</td>
                                     <td>
-                                        <input type="text" v-model="member_id" class="w3-input w3-border" placeholder="학생 번호를 입력해주세요.">
+                                        <input type="text" v-model="member_id" class="w3-input w3-border" placeholder="교수 번호를 입력해주세요.">
                                     </td>
                                 </tr>
                                 <tr>
@@ -146,7 +126,7 @@
                                 <tr>
                                     <td>휴대전화번호</td>
                                     <td>
-                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="000-0000-0000">
+                                        <input type="text" v-model="phone" class="w3-input w3-border" placeholder="'-'빼고 적어주세요.">
                                     </td>
                                 </tr>
                                 <tr>
@@ -159,20 +139,15 @@
                                     <td>주소</td>
                                     <td>
                                         <input type="text" placeholder="우편번호" v-model="postcode" readonly />
-                                        <input type="button" @click="execDaumPostcode()" value="우편번호 찾기"/>
-                                        <input type="text" v-model="address1" placeholder="주소" readonly/>
+                                        <input type="button" @click="execDaumPostcode()" value="우편번호 찾기"/><br>
+                                        <input type="text" v-model="address1" placeholder="주소" readonly/><br>
                                         <input type="text" v-model="address2" placeholder="상세주소" />
                                     </td>
                                 </tr>
                             </table>
-                        </fieldset>
                     </div>
-                </div>
                 <br>
 
-            </div>
-        </div>
-    </div>
     <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
     <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
 </template>
@@ -333,10 +308,17 @@ export default {
                 },
             }).open();
         },
+
+
     }
 }
 </script>
 
 <style scoped>
-
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 </style>

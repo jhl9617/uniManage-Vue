@@ -1,34 +1,38 @@
 <!-- PageSidebar.vue -->
 <template>
-  <ul id="accordionSidebar" class="navbar-nav sidebar sidebar-dark accordion">
-    <li>&nbsp;</li>
-    <li>
-      <router-link to="/">
-        <button class="btn btn-success" type="button">로그아웃</button>
-      </router-link>
-    </li>
-    <li>&nbsp;</li>
-    <li>&nbsp;</li>
+    <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+        <br>
+        <li><ClockComponent/></li>
+        <br>
+        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="logout" type="button">로그아웃</button></li>
 
-    <li class="nav-item active">
-      <router-link class="nav-link" to="/student">
-        <span><h4>학생정보시스템</h4></span>
-      </router-link>
-    </li>
-    <li class="nav-item active">
-      <a class="nav-link" style="cursor: pointer;" v-on:click="fnEclass">
-        <span><h4>E-Class</h4></span>
-      </a>
-    </li>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <router-link class="nav-link" to="/student">
+                <span>학생정보시스템</span>
+            </router-link>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
+                <span>E-Class</span>
+            </a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
 
-  </ul>
+
+
+
+
+    </ul>
 </template>
 
 <script>
+import ClockComponent from "@/components/common/ClockComponent.vue";
+
 export default {
+    components: {ClockComponent},
   data() { //변수생성
     return {
       loginMember: null,
@@ -43,7 +47,7 @@ export default {
         const member_id = this.loginMember.member_id;
         this.$router.push({
           path: '/eclass',
-          query: {member_id}
+          query: { member_id }
         });
       }
     },
@@ -61,20 +65,20 @@ export default {
         console.error("Error fetching session data:", error);
       }
     },
-    // logout() {
-    //   this.$axios.post('/logout')
-    //       .then(response => {
-    //         console.log(response)
-    //         this.$router.push({
-    //           path: '/'
-    //
-    //         })
-    //       })
-    //       .catch(error => {
-    //         // 로그아웃 실패 시 처리할 로직 작성
-    //         console.error(error);
-    //       });
-    // }
+    logout() {
+      this.$axios.post('/logout')
+          .then(response => {
+            console.log(response)
+            this.$router.push({
+              path: '/'
+
+            })
+          })
+          .catch(error => {
+            // 로그아웃 실패 시 처리할 로직 작성
+            console.error(error);
+          });
+    }
 
   }
 }
@@ -86,11 +90,11 @@ export default {
 @import "https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i";
 
 #accordionSidebar {
-  background-color: #c6dddc;
+    background-color: #c6dddc;
 }
 
 ul li a span {
-  color: black;
+    color: black;
 }
 </style>
 

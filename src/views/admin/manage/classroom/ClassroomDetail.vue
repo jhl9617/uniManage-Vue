@@ -1,7 +1,8 @@
 <template>
-    <div class="board-detail">
-        <div style="border:2px solid black; padding:100px;" class="board-contents">
-            <table align="center" class="table table-bordered">
+    강의실 상세
+    <br><br>
+    <div class="container">
+        <table class="w3-table-all half-width">
                 <tr>
                     <th width="100">강의실 코드</th>
                     <td>{{ lecture_room_code }}</td>
@@ -26,15 +27,14 @@
                     <th width="100">강의실 수용인원</th>
                     <td>{{ class_capacity }}명</td>
                 </tr>
-            </table>
-        </div>
-
-        <div class="common-buttons">
+        </table>
+    </div>
+        <br>
+        <div>
             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>
             <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
             <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
         </div>
-    </div>
 </template>
 
 <script>
@@ -102,5 +102,21 @@ export default {
 </script>
 
 <style scoped>
+.half-width {
+    width: 50%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
+table {
+    margin: 0 auto;
+}
+
+th, td {
+    text-align: center;
+}
 
 </style>

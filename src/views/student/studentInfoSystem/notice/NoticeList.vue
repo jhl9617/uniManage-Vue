@@ -1,9 +1,10 @@
 <template>
     <div class="board-list">
         공지사항
-        <table class="w3-table-all table-hover">
+        <br><br>
+        <table class="w3-table-all table-hover" style="cursor: pointer;">
             <thead>
-            <tr>
+            <tr class="center-align">
                 <th>No</th>
                 <th>제목</th>
                 <th>등록일시</th>
@@ -17,7 +18,7 @@
             </tr>
             </tbody>
         </table>
-        <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
+        <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
       <span class="pg">
       <a href="javascript:;" @click="fnPage(1)" class="first w3-button w3-border">&lt;&lt;</a>
       <a href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
@@ -44,7 +45,7 @@
             &nbsp;
             <input type="text" v-model="search_value" @keyup.enter="fnPage()">
             &nbsp;
-            <button @click="fnPage()">검색</button>
+            <PrimeButton @click="fnPage()" style="cursor: pointer;">검색</PrimeButton>
         </div>
     </div>
 </template>
@@ -135,5 +136,7 @@ export default {
 </script>
 
 <style scoped>
-
+.center-align {
+    text-align: center;
+}
 </style>

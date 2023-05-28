@@ -1,8 +1,8 @@
 <template>
     장학금 상세
-    <div class="board-detail">
-        <div style="border:2px solid black; padding:100px;" class="board-contents">
-            <table align="center" class="table table-bordered">
+    <br><br>
+    <div class="container">
+        <table class="w3-table-all half-width">
                 <tr>
                     <th width="100">장학금명</th>
                     <td>{{ scho_name }}</td>
@@ -21,13 +21,12 @@
                 </tr>
             </table>
         </div>
-
-        <div class="common-buttons">
+    <br>
+        <div>
             <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>
             <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
             <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
         </div>
-    </div>
 </template>
 
 <script>
@@ -92,5 +91,22 @@ export default {
 </script>
 
 <style scoped>
+
+.half-width {
+    width: 50%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
+table {
+    margin: 0 auto;
+}
+
+th, td {
+    text-align: center;
+}
 
 </style>
