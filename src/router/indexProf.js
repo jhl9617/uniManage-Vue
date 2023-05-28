@@ -29,7 +29,7 @@ import ProfessorHomeworkDetail from "@/views/professor/homework/ProfessorHomewor
 import ProfessorLectureEvaluationAnswer from "@/views/professor/lectureEvaluation/ProfessorLectureEvaluationAnswer.vue";
 import ProfessorCancelledLectureList from "@/views/professor/cancelledLecture/ProfessorCancelledLectureList.vue";
 import ProfessorCancelledLectureWrite from "@/views/professor/cancelledLecture/ProfessorCancelledLectureWrite.vue";
-import ProfessorCancelledLecture from "@/views/professor/cancelledLecture/ProfessorCancelledLecture.vue";
+import ProfessorCancelledLectureDetail from "@/views/professor/cancelledLecture/ProfessorCancelledLectureDetail.vue";
 import NewLectureDetail from "@/views/professor/lectureClass/NewLectureDetail.vue";
 
 
@@ -85,9 +85,9 @@ const routesProf = [
         component: ProfessorCancelledLectureWrite
     },
     {   // 휴강 게시글 상세보기
-        path: '/prof/lecture/cancelled',
-        name: 'ProfessorCancelledLecture',
-        component: ProfessorCancelledLecture
+        path: '/prof/lecture/cancelled/detail',
+        name: 'ProfessorCancelledLectureDetail',
+        component: ProfessorCancelledLectureDetail
     },
     {   //학생관리_학생 출석관리
         path: '/prof/student/attendance',
