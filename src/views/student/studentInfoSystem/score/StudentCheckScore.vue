@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <h6>수강 성적 조회</h6>
+    수강 성적 조회
         <br><br>
         <table class="w3-table-all">
             <tr align="left">
@@ -29,7 +28,6 @@
                 <td>{{ getGrade(row.total_score) }}</td>
             </tr>
         </table>
-    </div>
 </template>
 
 <script>

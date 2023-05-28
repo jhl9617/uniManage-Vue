@@ -1,5 +1,5 @@
 <template>
-    <h6>장학수혜내역조회</h6>
+    장학수혜내역조회
     <br><br>
     <table class="w3-table-all">
         <tr align="left">
