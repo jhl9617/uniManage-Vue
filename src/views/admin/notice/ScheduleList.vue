@@ -14,8 +14,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, sche_id) in list" :key="sche_id">
-                <td>{{ row.sche_id }}</td>
+            <tr v-for="(row, index) in list" :key="row.sche_id">
+                <td>{{ no - index }}</td>
                 <td>{{ row.sche_title }}</td>
                 <td>{{ row.start_date }}</td>
                 <td>{{ row.end_date }}</td>

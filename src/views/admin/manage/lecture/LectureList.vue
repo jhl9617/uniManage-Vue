@@ -12,8 +12,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, lecture_id) in list" :key="lecture_id">
-                <td>{{ row.lecture_id }}</td>
+            <tr v-for="(row, index) in list" :key="row.lecture_id">
+                <td>{{ no - index }}</td>
                 <td><a v-on:click="fnView(`${row.lecture_id}`)" style="cursor: pointer;">{{ row.lecture_title }}</a></td>
                 <td>{{ row.department_name }}</td>
                 <td>{{ row.name }}</td>
