@@ -18,35 +18,35 @@
             <div class="container">
                             <table class="w3-table-all half-width">
                                 <tr>
-                                    <td>이름</td>
+                                    <th width="100">이름</th>
                                     <td>{{ name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>ID</td>
+                                    <th width="100">ID</th>
                                     <td>{{ member_id }}</td>
                                 </tr>
                                 <tr>
-                                    <td>생년월일</td>
+                                    <th width="100">생년월일</th>
                                     <td>{{ birthday }}</td>
                                 </tr>
                                 <tr>
-                                    <td>학과</td>
+                                    <th width="100">학과</th>
                                     <td>{{ department_name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>우편번호</td>
+                                    <th width="100">우편번호</th>
                                     <td>{{ postcode }}</td>
                                 </tr>
                                 <tr>
-                                    <td>주소</td>
+                                    <th width="100">주소</th>
                                     <td>{{ address1 }}<br> {{ address2 }}</td>
                                 </tr>
                                 <tr>
-                                    <td>휴대전화번호</td>
+                                    <th width="100">전화번호</th>
                                     <td>{{ phone }}</td>
                                 </tr>
                                 <tr>
-                                    <td>e-mail</td>
+                                    <th width="100">e-mail</th>
                                     <td>{{ email }}</td>
                                 </tr>
                             </table>
@@ -173,5 +173,13 @@ export default {
     justify-content: center;
     align-items: center;
     /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
+
+table {
+    margin: 0 auto;
+}
+
+th {
+    text-align: center;
 }
 </style>

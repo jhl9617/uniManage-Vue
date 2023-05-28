@@ -6,7 +6,7 @@
                         수강신청
                         <br><br>
                         <div class="container-fluid">
-                            <table align="center" class="w3-table-all table-bordered" width="505">
+                            <table class="w3-table-all">
                                 <tr align="left">
                                     <th>학과</th>
                                     <td>
@@ -91,7 +91,7 @@
                             <br>
                             <button class="w3-button w3-round w3-blue-gray" v-on:click="fnPage()">조회</button>
                             <br><br>
-                            <table class="w3-table-all" id="lecturelist">
+                            <table class="w3-table-all">
                                 <thead>
                                 <tr>
                                     <th>강의명</th>

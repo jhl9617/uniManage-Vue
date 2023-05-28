@@ -1,9 +1,10 @@
 <template>
     <div class="board-list">
         공지사항
+        <br><br>
         <table class="w3-table-all table-hover" style="cursor: pointer;">
             <thead>
-            <tr>
+            <tr class="center-align">
                 <th>No</th>
                 <th>제목</th>
                 <th>등록일시</th>
@@ -135,5 +136,7 @@ export default {
 </script>
 
 <style scoped>
-
+.center-align {
+    text-align: center;
+}
 </style>

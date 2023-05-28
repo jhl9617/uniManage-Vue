@@ -2,10 +2,6 @@
     <div class="container">
         <div class="row">
                 <div class="d-flex flex-column align-items-center text-center">
-<!--                            <td>-->
-<!--                                <img alt="Admin" class="rounded-circle"-->
-<!--                                     src="https://bootdey.com/img/Content/avatar/avatar7.png" width="150">-->
-<!--                            </td>-->
                                 <div class="mt-3">
                                     <h4 v-if="loginMember">{{ loginMember.name}} 학생</h4>
                                     <div align="left" class="text-secondary mb-1">
@@ -27,10 +23,10 @@
                     </legend>
 
                     <table class="w3-table-all table-hover">
-                        <tr>
-                            <td>No</td>
-                            <td>글제목</td>
-                            <td>작성일</td>
+                        <tr class="center-align">
+                            <th>No</th>
+                            <th>글제목</th>
+                            <th>작성일</th>
                         </tr>
                         <tr v-for="notice in sortedNotice" :key="notice.notice_id">
                             <td>{{ notice.notice_id }}</td>
@@ -163,5 +159,7 @@ export default {
 </script>
 
 <style scoped>
-
+.center-align {
+    text-align: center;
+}
 </style>

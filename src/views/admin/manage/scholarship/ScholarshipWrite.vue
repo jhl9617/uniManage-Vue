@@ -1,37 +1,37 @@
 <template>
 장학금 등록
-    <div style="border:2px solid black; padding:100px;">
-        <table align="center" class="table table-bordered">
-            <tr>
-             <th width="100">장학금명</th>
-             <td>
+    <br><br>
+    <div class="container">
+        <table class="table table-bordered half-width">
+            <tr style="border: solid 1px ;">
+             <th style="border: solid 1px ;">장학금명</th>
+             <td style="border: solid 1px ;">
                  <input type="text" v-model="scho_name" class="w3-input w3-border" placeholder="장학금명을 입력해주세요.">
              </td>
             </tr>
-            <tr>
-                <th width="100">학생 번호</th>
-                <td>
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">학생 번호</th>
+                <td style="border: solid 1px ;">
                     <input type="text" v-model="member_id" class="w3-input w3-border" placeholder="학생번호를 입력해주세요.">
                 </td>
             </tr>
-            <tr>
-                <th width="100">학기</th>
-                <td>
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">학기</th>
+                <td style="border: solid 1px ;">
                     <input type="number" v-model="scho_term" class="w3-input w3-border" placeholder="학기를 입력해주세요.">
                 </td>
             </tr>
-            <tr>
-                <th width="100">장학금액</th>
-                <td>
+            <tr style="border: solid 1px ;">
+                <th  style="border: solid 1px ;">장학금액</th>
+                <td style="border: solid 1px ;">
                     <input type="number" v-model="amount" class="w3-input w3-border" placeholder="금액을 입력해주세요.">
                 </td>
             </tr>
-
         </table>
+    </div>
         <br>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-    </div>
 </template>
 
 <script>
@@ -119,5 +119,14 @@ export default {
 </script>
 
 <style scoped>
+.half-width {
+    width: 70%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 
 </style>

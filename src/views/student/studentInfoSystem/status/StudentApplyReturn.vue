@@ -1,6 +1,7 @@
 <template>
-    <h6>복학신청</h6>
-                <table class="table table-bordered" align="center" width="505">
+    복학신청
+    <br><br>
+                <table class="w3-table-all">
                     <tr align="left">
                         <th width="100">학번</th>
                         <td v-if="loginMember">{{loginMember.member_id}}</td>
@@ -14,7 +15,7 @@
                 </table>
                 <br><br>
     <div class="orderInfo">
-        <table align="center" class="table table-bordered">
+        <table class="w3-table-all half-width">
             <tr>
                 <th width="100">복학날짜</th>
                 <td>
@@ -22,6 +23,7 @@
                 </td>
             </tr>
         </table>
+        <br>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
     </div>
 </template>
@@ -119,5 +121,14 @@ export default {
 </script>
 
 <style scoped>
+.half-width {
+    width: 50%;
+}
+table {
+    margin: 0 auto;
+}
 
+th, td {
+    text-align: center;
+}
 </style>

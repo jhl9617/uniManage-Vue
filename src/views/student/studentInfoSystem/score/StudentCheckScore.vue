@@ -1,7 +1,8 @@
 <template>
     <div>
         <h6>수강 성적 조회</h6>
-        <table className="table table-bordered" align="center" width="505">
+        <br><br>
+        <table class="w3-table-all">
             <tr align="left">
                 <th width="100">학번</th>
                 <td v-if="loginMember">{{ loginMember.member_id }}</td>
@@ -13,8 +14,8 @@
                 <td v-if="loginMember">{{ loginMember.department_name }}</td>
             </tr>
         </table>
-        <br>
-        <table className="table table-bordered" align="center" width="505">
+        <br><br>
+        <table class="w3-table-all">
             <tr>
                 <th>강좌번호</th>
                 <th>교과목명</th>
@@ -96,5 +97,11 @@ export default {
 </script>
 
 <style scoped>
+table {
+    margin: 0 auto;
+}
 
+th, td {
+    text-align: center;
+}
 </style>

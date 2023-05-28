@@ -8,7 +8,7 @@
                 <td>{{ this.departmentName}}</td>
             </tr>
             <tr>
-                <th>생년원일</th>
+                <th>생년월일</th>
                 <td>{{this.birthday}}</td>
             </tr>
             <tr>
@@ -16,7 +16,7 @@
                 <td>{{ this.name }}</td>
             </tr>
             <tr>
-                <th>학번</th>
+                <th>직원번호</th>
                 <td>{{ this.member_id }}</td>
             </tr>
         </table>
