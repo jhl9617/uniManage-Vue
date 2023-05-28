@@ -8,7 +8,7 @@
       <div class="board-contents">
         <h3>{{ lecture_room_title }}</h3>
         <div>
-          <strong class="w3-large">{{ member_id }}</strong>
+          <strong class="w3-large">{{ name }}</strong>
           <br>
           <span>{{ created_date }}</span>
         </div>

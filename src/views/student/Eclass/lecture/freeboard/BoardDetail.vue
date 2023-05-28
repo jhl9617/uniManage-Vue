@@ -98,7 +98,7 @@ export default {
       list: [],
       loginMember: null,
       member_id: '',
-
+      free_rep_content :'',
 
     }
   },

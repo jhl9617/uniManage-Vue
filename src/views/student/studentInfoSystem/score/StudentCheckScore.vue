@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h6>수강 성적 조회</h6>
+        <h4>수강 성적 조회</h4>
         <table className="table table-bordered" align="center" width="505">
             <tr align="left">
                 <th width="100">학번</th>

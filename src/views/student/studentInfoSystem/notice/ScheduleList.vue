@@ -1,6 +1,6 @@
 <template>
     <div class="board-list">
-        학사일정
+        <h4>학사일정</h4>
         <table class="w3-table-all">
             <thead>
             <tr>

@@ -1,5 +1,5 @@
 <template>
-  복학 신청 확인
+  <h4>복학 신청 확인</h4>
     <br><br><br>
     <table class="table table-bordered" align="center" width="505">
         <tr align="left">

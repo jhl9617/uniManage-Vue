@@ -1,5 +1,5 @@
 <template>
-    <h6>휴학신청</h6>
+    <h4>휴학신청</h4>
     <table class="table table-bordered" align="center" width="505">
         <tr align="left">
             <th width="100">학번</th>

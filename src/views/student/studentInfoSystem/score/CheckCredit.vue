@@ -1,5 +1,5 @@
 <template>
-    <h6>졸업 학점 조회</h6>
+    <h4>졸업 학점 조회</h4>
     <div>
         <div style="text-align:left;">
         -기본인적사항

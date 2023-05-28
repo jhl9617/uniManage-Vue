@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h6>학적변동내역</h6>
+        <h4>학적변동내역</h4>
         <table className="table table-bordered" align="center" width="505">
             <tr align="left">
                 <th width="100">학번</th>

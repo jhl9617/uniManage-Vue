@@ -1,5 +1,5 @@
 <template>
-    <h6>학과별 강의시간표</h6>
+    <h4>학과별 강의시간표</h4>
     <table class="table table-bordered" align="center" width="505">
         <tr align="left">
             <th width="100">년도</th>
