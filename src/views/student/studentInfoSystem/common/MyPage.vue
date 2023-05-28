@@ -19,6 +19,10 @@
                 <th>학년</th>
                 <td>{{ this.grade }}</td>
             </tr>
+            <tr>
+                <th>학번</th>
+                <td>{{ this.member_id }}</td>
+            </tr>
         </table>
             </div>
         <br><br><br>
@@ -60,7 +64,8 @@ export default {
         return {
             requestBody: null,
             member_idx: '',
-            memberId: '',
+            member_id: '',
+            member_pwd:'',
             birthday: '',
             name: '',
             grade:'',
@@ -87,7 +92,7 @@ export default {
             if (response.ok) {
                 const data = await response.json();
                 this.member_idx = data.member_idx;
-                this.memberId = data.memberId;
+                this.member_id = data.member_id;
                 this.birthday = data.birthday;
                 this.name = data.name;
                 this.email = data.email;
