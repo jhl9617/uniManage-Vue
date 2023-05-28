@@ -1,6 +1,8 @@
 <template>
-    <h6>학사일정 작성</h6>
-    <table class="table table-bordered" align="center">
+    학사일정 작성
+    <br><br>
+    <div class="container">
+    <table class="table table-bordered half-width">
         <tr style="border: solid 1px ;">
             <th style="border: solid 1px ;">제목</th>
             <td style="border: 1px solid;">
@@ -25,8 +27,11 @@
                 <input type="date" v-model="end_date" class="w3-input w3-border" placeholder="yyyy-MM-dd">
             </td>
         </tr>
-        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
     </table>
+    </div>
+    <br>
+        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
+
 </template>
 
 <script>
@@ -115,5 +120,13 @@ export default {
 </script>
 
 <style scoped>
-
+.half-width {
+    width: 70%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 </style>

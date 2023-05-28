@@ -1,19 +1,18 @@
 <template>
-    <h4>장학수혜내역조회</h4>
-    <table class="table table-bordered" align="center" width="505">
+    장학수혜내역조회
+    <br><br>
+    <table class="w3-table-all">
         <tr align="left">
             <th width="100">학부(과)</th>
-            <td colspan="3" v-if="loginMember">{{ loginMember.department_name }}</td>
-        </tr>
-        <tr align="left">
+            <td v-if="loginMember">{{ loginMember.department_name }}</td>
             <th width="100">학년</th>
-            <td width="300" v-if="loginMember">{{ loginMember.grade}}학년</td>
+            <td v-if="loginMember">{{ loginMember.grade}}학년</td>
             <th width="100">성명</th>
             <td v-if="loginMember"> {{ loginMember.name }}</td>
         </tr>
     </table>
     <br><br>
-    <table class="table table-bordered" align="center" width="505">
+    <table class="w3-table-all">
         <tr>
             <th>년도</th>
             <th>장학금명</th>
@@ -79,7 +78,12 @@ export default {
     },
 }
 </script>
-
 <style scoped>
+table {
+    margin: 0 auto;
+}
 
+th, td {
+    text-align: center;
+}
 </style>

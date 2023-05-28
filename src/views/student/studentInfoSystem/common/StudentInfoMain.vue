@@ -1,18 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
                 <div class="d-flex flex-column align-items-center text-center">
-                    <fieldset>
-                        <legend>개인정보
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </legend>
-                        <table>
-                            <td>
-                                <img alt="Admin" class="rounded-circle"
-                                     src="https://bootdey.com/img/Content/avatar/avatar7.png" width="150">
-                            </td>
-                            <td>
                                 <div class="mt-3">
                                     <h4 v-if="loginMember">{{ loginMember.name}} 학생</h4>
                                     <div align="left" class="text-secondary mb-1">
@@ -20,18 +9,11 @@
                                         <h6 v-if="loginMember">학년 : {{ loginMember.grade}}학년</h6>
                                     </div>
                                 </div>
-                            </td>
-                            <tr>
-                                <td>
-                                    <button class="btn btn-primary" v-on:click="fnMypage">마이페이지</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </fieldset>
+                            &nbsp;&nbsp;&nbsp;
+                                    <button class="w3-button w3-round w3-blue-gray" v-on:click="fnMypage">마이페이지</button>
+                    &nbsp;&nbsp;&nbsp;
                 </div>
-
             </div>
-        </div>
         <br>
         <div class="row">
             <div class="col-md-6">
@@ -40,11 +22,11 @@
                         <button v-on:click="fnNoticeList(notice_id)" class="btn btn-outline-dark" type="button">전체보기</button>
                     </legend>
 
-                    <table class="w3-table-all">
-                        <tr>
-                            <td>No</td>
-                            <td>글제목</td>
-                            <td>작성일</td>
+                    <table class="w3-table-all table-hover">
+                        <tr class="center-align">
+                            <th>No</th>
+                            <th>글제목</th>
+                            <th>작성일</th>
                         </tr>
                         <tr v-for="notice in sortedNotice" :key="notice.notice_id">
                             <td>{{ notice.notice_id }}</td>
@@ -155,7 +137,6 @@ export default {
             })
         },
         fnMypage() {
-            delete this.requestBody.member_id
             this.$router.push({
                 path: '/student/mypage',
                 query: this.requestBody
@@ -178,5 +159,7 @@ export default {
 </script>
 
 <style scoped>
-
+.center-align {
+    text-align: center;
+}
 </style>

@@ -16,15 +16,11 @@
                 <td>{{ this.name }}</td>
             </tr>
             <tr>
-                <th>학년</th>
-                <td>{{ this.grade }}</td>
-            </tr>
-            <tr>
-                <th>학번</th>
+                <th>직원번호</th>
                 <td>{{ this.member_id }}</td>
             </tr>
         </table>
-            </div>
+        </div>
         <br><br><br>
         <h5>개인정보 수정</h5>
         <div class="container">
@@ -52,7 +48,7 @@
                 </td>
             </tr>
         </table>
-            </div>
+        </div>
         <br>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">개인정보 수정하기</button>
     </div>
@@ -65,7 +61,6 @@ export default {
             requestBody: null,
             member_idx: '',
             member_id: '',
-            member_pwd:'',
             birthday: '',
             name: '',
             grade:'',
@@ -88,7 +83,7 @@ export default {
     },
     methods: {
         async fnGetView() {
-            const response = await fetch("/student/mypage");
+            const response = await fetch("/admin/mypage");
             if (response.ok) {
                 const data = await response.json();
                 this.member_idx = data.member_idx;
@@ -103,14 +98,6 @@ export default {
                 this.department_id = data.department_id;
                 this.departmentName = data.department_name;
 
-                if (data.auth === 3) {
-                    this.grade = data.grade + '학년';
-                } else if (data.auth === 4) {
-                    this.grade = '졸업생';
-                } else if (data.auth === 5) {
-                    this.grade = '휴학생';
-                }
-
                 console.log(data);
             } else {
                 console.log("HTTP-Error: " + response.status);
@@ -118,10 +105,10 @@ export default {
         },
 
         fnSave() {
-            const apiUrl = '/student/mypage';
+            const apiUrl = '/admin/mypage';
             const form = {
-                phone: this.phone,
                 email: this.email,
+                phone: this.phone,
                 postcode: this.postcode,
                 address1: this.address1,
                 address2: this.address2,
@@ -182,8 +169,9 @@ export default {
         },
 
     }
-    }
+}
 </script>
+
 <style scoped>
 .half-width {
     width: 50%;

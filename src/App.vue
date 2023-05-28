@@ -1,9 +1,6 @@
 <template>
-    <div v-if="$route.name && !$route.name.startsWith('Member')">
-      <div>
-        <CommonHeader/>
+    <div>
         <EclassHeader v-if="$route.name && $route.name.startsWith('Lecture')"/>
-      </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2">
@@ -13,15 +10,14 @@
                     <LectureSidebar v-if="$route.name && $route.name.startsWith('Lecture')"/>
                     <EclassSidebar v-if="$route.name && $route.name.startsWith('Eclass')"/>
                 </div>
-                <div class="col-md-10" >
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8 position-absolute top-50 start-50 translate-middle">
                     <router-view/>
                 </div>
             </div>
         </div>
     </div>
-  <div v-if="$route.name && $route.name.startsWith('Member')">
-  <router-view/>
-  </div>
 </template>
 
 <script>
@@ -31,18 +27,16 @@ import EclassSidebar from "@/views/student/Eclass/common/EClassSidebar.vue";
 import AdminSidebar from "@/views/admin/common/AdminSidebar.vue";
 import ProfessorSidebar from "@/views/professor/common/PageSidebar.vue";
 import EclassHeader from "@/views/student/Eclass/common/PageHeader.vue";
-import CommonHeader from "@/components/common/CommonHeader.vue"
 
 export default {
     name: 'App',
     components: {
         AdminSidebar,
         EclassHeader,
-        CommonHeader,
         StudentSidebar,
         ProfessorSidebar,
         EclassSidebar,
-        LectureSidebar
+        LectureSidebar,
     }
 }
 
@@ -54,5 +48,13 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    color: #2c3e50;
+}
+.myheader {
+    position: absolute;
+
+    left: 200px; /* 왼쪽으로 250px 이동 */
+    width: calc(100% - 250px); /* 페이지 전체 폭에서 250px를 빼서 너비를 설정 */
+    /* 다른 요소보다 위에 표시 */
 }
 </style>

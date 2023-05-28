@@ -50,7 +50,7 @@
         &nbsp;
         <input type="text" v-model="search_value" @keyup.enter="fnPage()">
         &nbsp;
-        <PrimeButton @click="fnPage()">검색</PrimeButton>
+        <PrimeButton @click="fnPage()" style="cursor: pointer;">검색</PrimeButton>
     </div>
     <root>
     </root>

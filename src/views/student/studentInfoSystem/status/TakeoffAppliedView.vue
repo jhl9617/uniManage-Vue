@@ -1,7 +1,7 @@
 <template>
-  <h4>휴학 신청 확인</h4>
-    <br><br><br>
-        <table class="table table-bordered" align="center" width="505">
+    휴학 신청 확인
+    <br><br>
+        <table class="w3-table-all">
             <tr align="left">
                 <th width="100">학번</th>
                 <td v-if="loginMember">{{loginMember.member_id}}</td>
@@ -14,7 +14,7 @@
             </tr>
         </table>
         <br><br>
-            <table align="center" class="table table-bordered">
+            <table class="w3-table-all half-width">
                 <tr>
                     <th width="100">휴학 시작일</th>
                     <td>{{ start_date }}</td>
@@ -91,5 +91,14 @@ export default {
 </script>
 
 <style scoped>
+.half-width {
+    width: 50%;
+}
+table {
+    margin: 0 auto;
+}
 
+th, td {
+    text-align: center;
+}
 </style>

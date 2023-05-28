@@ -1,64 +1,44 @@
 <template>
     교수 정보 상세
-    <div style="border:2px solid black; padding:100px;">
-        <div class="col-md-8">
+    <br><br>
             <div class="container">
-<!--                <div class="row">-->
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="d-flex flex-column align-items-center text-center">-->
-<!--                            <fieldset>-->
-<!--                                <table>-->
-<!--                                    <td>-->
-<!--                                        <img src="@/assets/images/chacha.jpg" class="rounded-circle" width="150">-->
-<!--                                    </td>-->
-<!--                                </table>-->
-<!--                            </fieldset>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <div class="col-md-8">
-                        <fieldset>
-                            <table class="w3-table-all">
+                            <table class="w3-table-all half-width">
                                 <tr>
-                                    <td>이름</td>
+                                    <th width="100">이름</th>
                                     <td>{{ name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>ID</td>
+                                    <th width="100">ID</th>
                                     <td>{{ member_id }}</td>
                                 </tr>
                                 <tr>
-                                    <td>생년월일</td>
+                                    <th width="100">생년월일</th>
                                     <td>{{ birthday }}</td>
                                 </tr>
                                 <tr>
-                                    <td>학과</td>
+                                    <th width="100">학과</th>
                                     <td>{{ department_name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>우편번호</td>
+                                    <th width="100">우편번호</th>
                                     <td>{{ postcode }}</td>
                                 </tr>
                                 <tr>
-                                    <td>주소</td>
+                                    <th width="100">주소</th>
                                     <td>{{ address1 }}<br> {{ address2 }}</td>
                                 </tr>
                                 <tr>
-                                    <td>휴대전화번호</td>
+                                    <th width="100">전화번호</th>
                                     <td>{{ phone }}</td>
                                 </tr>
                                 <tr>
-                                    <td>e-mail</td>
+                                    <th width="100">e-mail</th>
                                     <td>{{ email }}</td>
                                 </tr>
                             </table>
-                        </fieldset>
                     </div>
-                </div>
                 <br>
-            </div>
-        </div>
-
-    <div class="common-buttons">
+    <div>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>
         <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
@@ -149,5 +129,20 @@ export default {
 </script>
 
 <style scoped>
+.half-width {
+    width: 50%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
+table {
+    margin: 0 auto;
+}
 
+th {
+    text-align: center;
+}
 </style>

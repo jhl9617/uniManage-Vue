@@ -1,49 +1,49 @@
 <template>
     강의실 등록
-    <div style="border:2px solid black; padding:100px;">
-        <table align="center" class="table table-bordered">
-            <tr>
-                <th width="100">강의실 코드</th>
-                <td>
+    <br><br>
+    <div class="container">
+        <table class="table table-bordered half-width">
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">강의실 코드</th>
+                <td style="border: solid 1px ;">
                     <input type="text" v-model="lecture_room_code" class="w3-input w3-border" placeholder="강의실 코드를 입력해주세요.">
                 </td>
             </tr>
-            <tr>
-                <th width="100">건물 코드</th>
-                <td>
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">건물 코드</th>
+                <td style="border: solid 1px ;">
                     <input type="text" v-model="building_code" class="w3-input w3-border" placeholder="건물 코드를 입력해주세요.">
                 </td>
             </tr>
-            <tr>
-                <th width="100">건물명</th>
-                <td>
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">건물명</th>
+                <td style="border: solid 1px ;">
                     <input type="text" v-model="building_name" class="w3-input w3-border" placeholder="건물명을 입력해주세요.">
                 </td>
             </tr>
-            <tr>
-                <th width="100">층수</th>
-                <td>
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">층수</th>
+                <td style="border: solid 1px ;">
                     <input type="number" v-model="number_floor" class="w3-input w3-border" placeholder="층수를 입력해주세요.">
                 </td>
             </tr>
-            <tr>
-                <th width="100">강의실 호수</th>
-                <td>
-                    <input type="text" v-model="lecture_room_num" class="w3-input w3-border" placeholder="000호 형식으로 입력해 주세요.">
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">강의실 호수</th>
+                <td style="border: solid 1px ;">
+                    <input type="text" v-model="lecture_room_num" class="w3-input w3-border" placeholder="'000호' 형식으로 입력해 주세요.">
                 </td>
             </tr>
-            <tr>
-                <th width="100">강의실 수용인원</th>
-                <td>
+            <tr style="border: solid 1px ;">
+                <th style="border: solid 1px ;">강의실 수용인원</th>
+                <td style="border: solid 1px ;">
                     <input type="number" v-model="class_capacity" class="w3-input w3-border" placeholder="강의실 호수를 입력해주세요.">
                 </td>
             </tr>
-
         </table>
+    </div>
         <br>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-    </div>
 </template>
 
 <script>
@@ -70,7 +70,7 @@ export default {
                 this.$axios.get(this.$serverUrl + '/admin/manage/classroom/' + this.lecture_class_idx, {
                     params: this.requestBody
                 }).then((res) => {
-                    console.log(res.data);
+                    this.lecture_class_idx = res.data.lecture_class_idx
                     this.lecture_room_code = res.data.lecture_room_code
                     this.building_code = res.data.building_code
                     this.building_name = res.data.building_name
@@ -137,5 +137,13 @@ export default {
 </script>
 
 <style scoped>
-
+.half-width {
+    width: 70%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; !* 페이지 높이에 맞게 조절 *!*/
+}
 </style>

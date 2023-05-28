@@ -1,143 +1,136 @@
 <!-- LectureSidebar.vue -->
 <template>
-  <ul id="accordionSidebar" class="navbar-nav sidebar sidebar-dark accordion">
-    <li>&nbsp;</li>
-    <li>
-      <router-link to="/">
-        <button class="btn btn-success" type="button">로그아웃</button>
-      </router-link>
-    </li>
-    <li>&nbsp;</li>
-    <li>&nbsp;</li>
+    <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+        <br>
+        <li><ClockComponent/></li>
+        <br>
+        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="logout" type="button">로그아웃</button></li>
+        <li class="nav-item active">
+            <router-link class="nav-link" to="/student">
+                <span>학생정보시스템</span>
+            </router-link>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" v-on:click="fnEclass" style="cursor: pointer;">
+                <span>E-Class</span>
+            </a>
+        </li>
+        <li>&nbsp;</li>
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" v-on:click="fnMain(`${lecture_id}`)" style="cursor: pointer;">
+                <span>Home</span>
+            </a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-    <li class="nav-item active">
-      <router-link class="nav-link" to="/student">
-        <span><h4>학생정보시스템</h4></span>
-      </router-link>
-    </li>
-    <li class="nav-item active">
-      <a class="nav-link" style="cursor: pointer;" v-on:click="fnEclass">
-        <span><h4>E-Class</h4></span>
-      </a>
-    </li>
-    <li>&nbsp;</li>
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-      <a class="nav-link" style="cursor: pointer;" v-on:click="fnMain(`${lecture_id}`)">
-        <span><h5>Home</h5></span>
-      </a>
-    </li>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+        <!-- 강의정보 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#lectureinfo-collapse"
+               aria-expanded="true" aria-controls="info-collapse">
+                <span>강의 정보</span>
+            </a>
+            <div id="lectureinfo-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                  <a v-on:click="fnLectureInfo(lecture_id)" style="cursor: pointer;">
+                        강의정보 조회
+                  </a>
+                </div>
+            </div>
+        </li>
 
-    <!-- 강의정보 -->
-    <li class="nav-item">
-      <a aria-controls="info-collapse" aria-expanded="true" class="nav-link collapsed"
-         data-bs-target="#lectureinfo-collapse"
-         data-bs-toggle="collapse" href="#">
-        <span><h6>강의 정보</h6></span>
-      </a>
-      <div id="lectureinfo-collapse" class="collapse" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a style="cursor: pointer;" v-on:click="fnLectureInfo(lecture_id)">
-            강의정보 조회
-          </a>
-        </div>
-      </div>
-    </li>
+        <!-- 과제관리 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#homework-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>과제 관리</span>
+            </a>
+            <div id="homework-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a v-on:click="fnHomework(lecture_id)"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">과제 목록
+                    </a>
+                </div>
+            </div>
+        </li>
 
-    <!-- 과제관리 -->
-    <li class="nav-item">
-      <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
-         data-bs-target="#homework-collapse"
-         data-bs-toggle="collapse" href="#">
-        <span><h6>과제 관리</h6></span>
-      </a>
-      <div id="homework-collapse" class="collapse" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-             style="cursor: pointer;" v-on:click="fnHomework(lecture_id)">과제 목록
-          </a>
-        </div>
-      </div>
-    </li>
+        <!-- 공지사항 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#notice-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>공지사항</span>
+            </a>
+            <div id="notice-collapse" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a v-on:click="fnNotice(lecture_id)"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">강의 공지사항 조회
+                    </a>
+                </div>
+            </div>
+        </li>
 
-    <!-- 공지사항 -->
-    <li class="nav-item">
-      <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
-         data-bs-target="#notice-collapse"
-         data-bs-toggle="collapse" href="#">
-        <span><h6>공지사항</h6></span>
-      </a>
-      <div id="notice-collapse" aria-labelledby="headingUtilities" class="collapse"
-           data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-             style="cursor: pointer;" v-on:click="fnNotice(lecture_id)"> 강의 공지사항
-          </a>
-        </div>
-      </div>
-    </li>
+        <!-- 강의 자료실 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#source-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>강의 자료실</span>
+            </a>
+            <div id="source-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a v-on:click="fnSource(lecture_id)"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded" style="cursor: pointer;">강의자료 조회
+                    </a>
+                </div>
+            </div>
+        </li>
 
-    <!-- 강의 자료실 -->
-    <li class="nav-item">
-      <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
-         data-bs-target="#source-collapse"
-         data-bs-toggle="collapse" href="#">
-        <span><h6>강의 자료실</h6></span>
-      </a>
-      <div id="source-collapse" class="collapse" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-             style="cursor: pointer;" v-on:click="fnSource(lecture_id)">강의자료 조회
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <!-- 자유게시판 -->
-    <li class="nav-item">
-      <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
-         data-bs-target="#board-collapse"
-         data-bs-toggle="collapse" href="#">
-        <span><h6>게시판</h6></span>
-      </a>
-      <div id="board-collapse" class="collapse" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <router-link class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                       to="/eclass/lecture/board/list">자유게시판
-          </router-link>
-        </div>
-      </div>
-    </li>
-  </ul>
+        <!-- 자유게시판 -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#board-collapse"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <span>게시판</span>
+            </a>
+            <div id="board-collapse" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link to="/eclass/lecture/board/list"
+                                 class="link-body-emphasis d-inline-flex text-decoration-none rounded">자유게시판
+                    </router-link>
+                </div>
+            </div>
+        </li>
+    </ul>
 </template>
 
 <script>
+import ClockComponent from "@/components/common/ClockComponent.vue";
+
 export default {
+    components: {ClockComponent},
   data() { //변수생성
     return {
       loginMember: null,
       requestBody: this.$route.query,
-      lecture_id: this.$route.query.lecture_id,
-      member_id: '',
-      classification: '',
-      semester: '',
-      department_id: '',
-      lecture_title: '',
-      number_of_student: '',
-      credit: '',
-      roomcode1: '',
-      roomcode2: '',
-      roomcode3: '',
-      timecode1: '',
-      timecode2: '',
-      timecode3: '',
-      syllabus_title: '',
-      syllabus_rename: '',
-      lecture_apply_status: '',
-      name: '',
-      department_name: ''
+      lecture_id : this.$route.query.lecture_id,
+      member_id : '',
+      classification : '',
+      semester : '',
+      department_id : '',
+      lecture_title : '',
+      number_of_student : '',
+      credit : '',
+      roomcode1 : '',
+      roomcode2 : '',
+      roomcode3 : '',
+      timecode1 : '',
+      timecode2 : '',
+      timecode3 : '',
+      syllabus_title : '',
+      syllabus_rename : '',
+      lecture_apply_status : '',
+      name : '',
+      department_name : ''
     }
   },
   mounted() { // document.ready, window.onload와 같은 형태
@@ -149,7 +142,7 @@ export default {
   methods: {
     fnGetView() {
 
-      this.$axios.get(this.$serverUrl + '/eclass/lecture/' + this.lecture_id, {
+      this.$axios.get(this.$serverUrl + '/eclass/lecture/' + this.lecture_id , {
         params: this.requestBody
       }).then((res) => { //success
         console.log(this.requestBody);
@@ -180,7 +173,7 @@ export default {
         }
       })
       this.requestBody = { // 데이터 전송
-        lecture_id: this.lecture_id
+        lecture_id : this.lecture_id
       }
     },
     fnMain(lecture_id) {
@@ -269,11 +262,11 @@ export default {
 @import "https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i";
 
 #accordionSidebar {
-  background-color: #c6dddc;
+    background-color: #c6dddc;
 }
 
 ul li a span {
-  color: black;
+    color: black;
 }
 </style>
 

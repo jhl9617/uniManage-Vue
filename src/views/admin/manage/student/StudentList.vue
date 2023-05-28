@@ -6,7 +6,7 @@
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnWrite">등록</button>
       </router-link>
     </div>
-    <table class="w3-table-all">
+    <table class="w3-table-all table-hover">
       <thead>
       <tr>
         <th>No</th>
@@ -55,7 +55,7 @@
     &nbsp;
     <input type="text" v-model="search_value" @keyup.enter="fnPage()">
     &nbsp;
-    <PrimeButton @click="fnPage()">검색</PrimeButton>
+    <PrimeButton @click="fnPage()" style="cursor: pointer;">검색</PrimeButton>
   </div>
   <root>
   </root>

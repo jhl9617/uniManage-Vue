@@ -1,6 +1,7 @@
 <template>
-    <h4>휴학신청</h4>
-    <table class="table table-bordered" align="center" width="505">
+    휴학신청
+    <br><br>
+    <table class="w3-table-all">
         <tr align="left">
             <th width="100">학번</th>
             <td v-if="loginMember">{{loginMember.member_id}}</td>
@@ -14,15 +15,15 @@
     </table>
     <br><br>
     <div class="orderInfo">
-        <table align="center" class="table table-bordered">
+        <table class="w3-table-all half-width">
             <tr>
-                <th width="100">휴학신청날짜</th>
+                <th width="100">휴학시작일</th>
                 <td>
                     <input type="date" v-model="start_date" class="w3-input w3-border">
                 </td>
             </tr>
             <tr>
-                <th width="100">휴학끝날짜</th>
+                <th width="100">휴학끝일</th>
                 <td>
                     <input type="date" v-model="end_date" class="w3-input w3-border">
                 </td>
@@ -34,6 +35,7 @@
                 </td>
             </tr>
         </table>
+        <br>
         <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnSave">저장</button>&nbsp;
     </div>
 </template>
@@ -116,18 +118,6 @@ export default {
                     }
                 })
             }
-            // else {
-            //     //UPDATE
-            //     this.$axios.patch(apiUrl, this.form)
-            //         .then((res) => {
-            //             alert('글이 저장되었습니다.')
-            //             this.fnView(res.data.status_id)
-            //         }).catch((err) => {
-            //         if (err.message.indexOf('Network Error') > -1) {
-            //             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-            //         }
-            //     })
-            // }
         },
     },
     created() {
@@ -137,5 +127,14 @@ export default {
 </script>
 
 <style scoped>
+.half-width {
+    width: 50%;
+}
+table {
+    margin: 0 auto;
+}
 
+th, td {
+    text-align: center;
+}
 </style>
