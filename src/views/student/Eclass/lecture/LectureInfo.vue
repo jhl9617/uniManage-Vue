@@ -97,7 +97,6 @@
           this.lecture_apply_status = res.data.lecture_apply_status
           this.name = res.data.name
           this.department_name = res.data.department_name
-
         }).catch((err) => { // error
           if (err.message.indexOf('Network Error') > -1) {
             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
@@ -107,8 +106,6 @@
           lecture_id : this.lecture_id
         }
       },
-
-
     }
   }
   </script>

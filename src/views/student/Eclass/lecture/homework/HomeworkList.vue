@@ -84,7 +84,6 @@ export default {
         this.fnGetList()
     },
     methods: {
-
         fnGetList() {
             //스프링 부트에서 전송받은 데이터 출력 처리
             this.requestBody = { // 데이터 전송
@@ -134,34 +133,6 @@ export default {
             this.fnGetList()
         }
     }
-    // fnGetList() {
 
-
-
-
-
-    //임시 데이터 출력 처리용
-    // this.list = [
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   },
-    //   {
-    //       "idx":1,
-    //       "title": "제목1",
-    //       "author": "작성자1",
-    //       "created_at": "작성일시1"
-    //   }
-    // ]
-    // }
-    // }
 }
 </script>

@@ -1,11 +1,8 @@
 <template>
     <div class="board-list">
         <h4>공지사항</h4>
-
       <div class="common-buttons">
-
       </div>
-
         <table class="w3-table-all table-bordered">
             <thead>
             <tr>
@@ -94,11 +91,9 @@ export default {
         }
     },
     mounted() { //연결 되면 == window.onload()
-
         this.fnGetList()
     },
     methods: {
-
         fnGetList() {
             //스프링 부트에서 전송받은 데이터 출력 처리
             this.requestBody = { // 데이터 전송

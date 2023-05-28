@@ -1,10 +1,5 @@
 <template>
     <div class="board-detail">
-      <!-- <div class="common-buttons">
-        <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
-        <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
-        <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
-      </div> -->
       <div class="board-contents">
         <h3>{{ lecture_room_title }}</h3>
         <div>
@@ -19,7 +14,6 @@
       <div class="board-contents">
         <span>첨부파일명 : {{ file_name }}</span>
       </div>
-
       <div class="common-buttons">
         <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
       </div>
@@ -32,12 +26,10 @@
       return {
         requestBody: this.$route.query,
         lecture_room_id: this.$route.query.lecture_room_id,
-
         lecture_room_title: '',
         member_id: '',
         lecture_room_content: '',
         created_date: '',
-
         file_name : '',
         file_rename : ''
       }
@@ -71,7 +63,6 @@
           query: this.requestBody
         })
       }
-
     }
   }
   </script>

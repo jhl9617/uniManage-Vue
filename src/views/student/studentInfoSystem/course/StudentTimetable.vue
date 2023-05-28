@@ -67,15 +67,8 @@ export default {
       lecture_id: '',
       search_value1: this.$route.query.sv1 ? this.$route.query.sv1 : '',
       search_value2: this.$route.query.sv2 ? this.$route.query.sv2 : '',
-
-
     }
-
   },
-  mounted() { // document.ready, window.onload와 같은 형태
-
-  },
-
   created() {
     this.getSession();
   },
@@ -92,7 +85,6 @@ export default {
           .then((res) => {
             this.list = res.data;
             this.lecture_id = res.data.lecture_id;
-
           })
           .catch((err) => {
             if (err.message.indexOf('Network Error') > -1) {
@@ -104,7 +96,6 @@ export default {
     hasCourse(time, day) {
       return this.list.some(row => row.timecode1 === `${day}${time}` || row.timecode2 === `${day}${time}` || row.timecode3 === `${day}${time}`);
     },
-
     // 존재하는 강의 정보 찾기
     getCourse(time, day) {
       const course = this.list.find(row => row.timecode1 === `${day}${time}` || row.timecode2 === `${day}${time}` || row.timecode3 === `${day}${time}`);

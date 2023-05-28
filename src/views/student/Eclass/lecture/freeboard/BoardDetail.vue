@@ -13,24 +13,16 @@
           </thead>
           <tbody>
           <tr>
-            <td>작성일
-            </td>
-            <td>
-              {{ created_date }}
+            <td>작성일</td>
+            <td>{{ created_date }}</td>
+          </tr>
+          <tr>
+            <td>글쓴이</td>
+            <td>{{ name }} <span style='float:right'>조회 : 1</span>
             </td>
           </tr>
           <tr>
-            <td>글쓴이
-            </td>
-            <td>
-              {{ name }} <span style='float:right'>조회 : 1</span>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <p>{{ free_content }}</p>
-
-            </td>
+            <td colspan="2"><p>{{ free_content }}</p></td>
           </tr>
           </tbody>
         </table>
@@ -44,7 +36,6 @@
               <br><br>
               <form class="mb-4"><textarea v-model="free_rep_content" class="form-control" placeholder="댓글을 입력하세요."
                                            rows="3"></textarea></form>
-
               <div v-for="(row, index) in list" :key="index" class="d-flex mb-4">
                 <div class="flex-shrink-0"></div>
                 <div class="ms-3">
@@ -52,9 +43,7 @@
                   {{ row.free_rep_content }}
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
                 </div>
-
                 {{ row.created_date }}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button v-if="checkPermissions2(row.member_id)" class="w3-button w3-round w3-blue-gray"
@@ -65,8 +54,7 @@
             </div>
           </div>
         </section>
-
-        <table class="table table-condensed">
+Z        <table class="table table-condensed">
           <thead>
           <tr>
             <td>
@@ -98,8 +86,7 @@ export default {
       list: [],
       loginMember: null,
       member_id: '',
-      free_rep_content :'',
-
+      free_rep_content: '',
     }
   },
   mounted() { // document.ready, window.onload와 같은 형태
@@ -113,10 +100,8 @@ export default {
       this.$axios.get(this.$serverUrl + '/eclass/lecture/board/' + this.free_id, {
         params: this.requestBody
       }).then((res) => { //success
-
         this.free_title = res.data.freeboard.free_title
         this.member_id = res.data.freeboard.member_id
-
         this.name = res.data.freeboard.name
         this.free_content = res.data.freeboard.free_content
         this.created_date = res.data.freeboard.created_date
@@ -144,7 +129,6 @@ export default {
         "free_id": this.free_id,
         "member_id": this.loginMember.member_id
       }
-
       if (this.free_id !== undefined) {
         //insert
         this.$axios.post(apiUrl, this.form)

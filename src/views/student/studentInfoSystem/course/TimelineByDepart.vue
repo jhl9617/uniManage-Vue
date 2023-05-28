@@ -193,8 +193,6 @@ export default {
         sv4: this.search_value4,
         page: this.page,
         size: this.size,
-
-
       }
 
       this.$axios.get(this.$serverUrl + '/student/timelinebydepart/', {
@@ -206,7 +204,6 @@ export default {
             this.paging = res.data.pagination
             this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
             console.log(this.list)
-
           })
           .catch((err) => {
             if (err.message.indexOf('Network Error') > -1) {
@@ -231,7 +228,6 @@ export default {
     fnPage(n) {
       if (this.page !== n) {
         this.page = n
-
       }
       this.fnGetList()
     }

@@ -59,13 +59,8 @@ export default {
       lecture_id: '',
       search_value1: this.$route.query.sv1 ? this.$route.query.sv1 : '',
       search_value2: this.$route.query.sv2 ? this.$route.query.sv2 : '',
-
     }
   },
-  mounted() { // document.ready, window.onload와 같은 형태
-
-  },
-
   created() {
     this.getSession();
   },
@@ -76,14 +71,11 @@ export default {
         sv2: this.search_value1,
         sv3: this.search_value2
       }
-
       this.$axios.get(this.$serverUrl + '/student/checkcourse/', {
         params: this.requestBody
       })
           .then((res) => {
             this.list = res.data;
-
-
           })
           .catch((err) => {
             if (err.message.indexOf('Network Error') > -1) {
@@ -91,7 +83,6 @@ export default {
             }
           });
     },
-
     async getSession() {
       try {
         const response = await fetch("/sessionCheck");
