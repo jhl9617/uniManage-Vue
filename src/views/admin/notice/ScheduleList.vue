@@ -11,6 +11,8 @@
                 <th>제목</th>
                 <th>시작일</th>
                 <th>끝일</th>
+                <th>수정</th>
+                <th>삭제</th>
             </tr>
             </thead>
             <tbody>
@@ -19,6 +21,8 @@
                 <td>{{ row.sche_title }}</td>
                 <td>{{ row.start_date }}</td>
                 <td>{{ row.end_date }}</td>
+                <td><button type="button" class="btn btn-outline-dark" v-on:click="fnUpdate(row.sche_id, row.sche_title, row.start_date, row.end_date)">수정</button></td>
+                <td><button type="button" class="btn btn-outline-dark" v-on:click="fnDelete()">삭제</button></td>
             </tr>
             </tbody>
         </table>
@@ -131,7 +135,28 @@ export default {
 
             }
             this.fnGetList()
+        },
+        fnUpdate(sche_id, sche_title, start_date, end_date) {
+            // this.$router.push({
+            //     path: '/admin/schedule/write',
+            //     query: {
+            //         sche_id: sche_id,
+            //         sche_title: '',
+            //         start_date: '',
+            //         end_date: ''
+            //     }
+            // });
+            this.$router.push({
+                path: '/admin/schedule/write',
+                query: {
+                    sche_id: sche_id,
+                    sche_title: sche_title,
+                    start_date: start_date,
+                    end_date: end_date
+                }
+            });
         }
+
     }
 }
 </script>
