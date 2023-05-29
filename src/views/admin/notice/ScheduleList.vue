@@ -22,7 +22,7 @@
                 <td>{{ row.start_date }}</td>
                 <td>{{ row.end_date }}</td>
                 <td><button type="button" class="btn btn-outline-dark" v-on:click="fnUpdate(row.sche_id, row.sche_title, row.start_date, row.end_date)">수정</button></td>
-                <td><button type="button" class="btn btn-outline-dark" v-on:click="fnDelete()">삭제</button></td>
+                <td><button type="button" class="btn btn-outline-dark" v-on:click="fnDelete(row.sche_id)">삭제</button></td>
             </tr>
             </tbody>
         </table>
@@ -137,15 +137,6 @@ export default {
             this.fnGetList()
         },
         fnUpdate(sche_id, sche_title, start_date, end_date) {
-            // this.$router.push({
-            //     path: '/admin/schedule/write',
-            //     query: {
-            //         sche_id: sche_id,
-            //         sche_title: '',
-            //         start_date: '',
-            //         end_date: ''
-            //     }
-            // });
             this.$router.push({
                 path: '/admin/schedule/write',
                 query: {
@@ -155,7 +146,21 @@ export default {
                     end_date: end_date
                 }
             });
-        }
+        },
+        fnDelete(sche_id) {
+            if (confirm('정말로 삭제하시겠습니까?')) {
+                this.$axios.delete(this.$serverUrl + "/admin/schedule/" + sche_id)
+                    .then(() => {
+                        alert('삭제되었습니다.');
+                        this.fnGetList(); // 리스트 갱신
+                    })
+                    .catch((err) => {
+                        if (err.message.indexOf('Network Error') > -1) {
+                            alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                        }
+                    });
+            }
+        },
 
     }
 }
