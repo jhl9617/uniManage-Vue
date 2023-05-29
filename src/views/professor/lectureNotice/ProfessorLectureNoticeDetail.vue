@@ -1,42 +1,91 @@
 <template>
-    <div class="container">
-        3번 공지 상세보기
-        <table class="table table-bordered" id="noticedetail">
-            <tr>
-                <th style="width: 25%">제목</th>
-                <td style="width: 25%">3번 공지</td>
-                <th style="width: 25%">작성일</th>
-                <td style="width: 25%">2023-04-25</td>
-            </tr>
-            <tr>
-                <th>작성자</th>
-                <td>홍길동</td>
-                <th>조회수</th>
-                <td>11</td>
-            </tr>
-            <tr>
-                <th>파일첨부</th>
-                <td colspan="3">파일 파일</td>
-            </tr>
-            <tr>
-                <th>공지내용</th>
-                <td colspan="3">
-                    3번 공지 입니다.
-                </td>
-            </tr>
-        </table>
-        <router-link to="/prof/lecture/notice/update">
-            <input type="button" value="수정하기">
-        </router-link>
-        &nbsp; &nbsp;
-        <input type="button" value="목록으로 돌아가기"> &nbsp; &nbsp;
-        <input type="button" value="강의로 돌아가기">
+    <div class="board-detail">
+        <div class="board-contents" style="text-align: center;">
+            <h3> 제목 : {{ lecture_notice_title }}</h3>
+            <div style="text-align: left">
+                <strong class="w3-large"> 작성일자 : {{ created_date }}</strong>
+                <br>
+                <span> 조회수 : {{ readcount }}</span>
+            </div>
+        </div>
+        <div class="board-contents">
+            <span>{{ lecture_notice_content }}</span>
+        </div>
+        <div class="common-buttons">
+            <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
+            <button type="button" class="w3-button w3-round w3-red" v-on:click="fnDelete">삭제</button>&nbsp;
+            <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
+        </div>
     </div>
 </template>
+
 <script>
-</script>
-<style>
-#noticedetail tr td {
-    text-align: left;
+export default {
+    data() { //변수생성
+        return {
+            requestBody: this.$route.query,
+            lecture_notice_id: this.$route.query.lecture_notice_id,
+            lecture_id : this.$route.query.lecture_id,
+
+            lecture_notice_title: '',
+            lecture_notice_content: '',
+            readcount: '',
+            created_date: ''
+        }
+    },
+    mounted() { // document.ready, window.onload와 같은 형태
+
+        this.fnGetView()
+    },
+    methods: {
+        fnGetView() {
+            this.$axios.get(this.$serverUrl + '/prof/lecture/notice/detail', {
+                params: this.requestBody
+            }).then((res) => { //success
+                this.lecture_notice_id = res.data.lecture_notice_id
+                this.lecture_id = res.data.lecture_id
+                this.lecture_notice_title = res.data.lecture_notice_title
+                this.lecture_notice_content = res.data.lecture_notice_content
+                this.readcount = res.data.readcount
+                this.created_date = res.data.created_date
+            }).catch((err) => { // error
+                if (err.message.indexOf('Network Error') > -1) {
+                    alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                }
+            })
+        },
+        fnList() {
+            delete this.requestBody.lecture_notice_id
+            this.$router.push({
+                path: './list',
+                query: this.requestBody
+            })
+        },
+        fnUpdate() {
+            this.$router.push({
+                path: './write',
+                query: {
+                    ...this.requestBody,
+                    lecture_notice_title: this.lecture_notice_title,
+                    lecture_notice_content: this.lecture_notice_content
+                }
+            })
+        },
+        fnDelete() {
+            if (!confirm("삭제하시겠습니까?")) return
+
+            this.$axios.delete(this.$serverUrl + '/prof/lecture/notice/' + this.lecture_notice_id, {})
+                .then(() => {
+                    alert('삭제되었습니다.')
+                    this.fnList();
+                }).catch((err) => {
+                console.log(err);
+            })
+        }
+    }
 }
+</script>
+<style scoped>
+
+
 </style>
