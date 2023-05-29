@@ -6,12 +6,12 @@
         <li><ClockComponent/></li>
         <br>
 <!--        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="logout" type="button">로그아웃</button></li>-->
-        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="fnHome" type="button">Home</button></li>
+        <li><button class="w3-button w3-round w3-blue-gray" v-on:click="fnHome" type="button">로그아웃</button></li>
         <br>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <router-link class="nav-link" to="/admin/">
-                <span>Main</span>
+                <span>Home</span>
             </router-link>
         </li>
         <!-- Divider -->
