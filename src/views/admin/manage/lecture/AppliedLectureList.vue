@@ -8,15 +8,30 @@
                 <th>과목명</th>
                 <th>학과명</th>
                 <th>교수명</th>
+                <th>허용여부</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(row, lecture_id) in list" :key="lecture_id">
-                <td>{{ row.lecture_id }}</td>
-                <td><a v-on:click="fnView(`${row.lecture_id}`)" style="cursor: pointer;">{{ row.lecture_title }}</a></td>
-                <td>{{ row.department_name }}</td>
-                <td>{{ row.name }}</td>
-            </tr>
+                <tr v-for="(row, index) in list" :key="row.lecture_id">
+                    <td>{{ no - index }}</td>
+                    <td>
+                        <a @click="fnView(row.lecture_id)" style="cursor: pointer;">
+                            {{ row.lecture_title }}
+                        </a>
+                    </td>
+                    <td>{{ row.department_name }}</td>
+                    <td>{{ row.name }}</td>
+                    <td>
+                        <button
+                                type="button"
+                                class="btn btn-outline-dark"
+                                @click="approveLecture(row)"
+                                :disabled="row.lecture_apply_status === '2'"
+                        >
+                            {{ row.lecture_apply_status === '2' ? '허용됨' : '허용' }}
+                        </button>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="pagination w3-bar w3-padding-16 w3-small justify-content-center" v-if="paging.total_list_cnt > 0">
@@ -57,6 +72,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     data() { //변수생성
         return {
@@ -106,7 +123,7 @@ export default {
                 size: this.size
             }
 
-            this.$axios.get( "/admin/manage/appliedlecture", {
+            this.$axios.get("/admin/manage/appliedlecture", {
                 params: this.requestBody,
                 headers: {}
             }).then((res) => {
@@ -136,7 +153,49 @@ export default {
 
             }
             this.fnGetList()
-        }
+        },
+        // fnSave(lectureId, lectureApplyStatus) {
+        //     console.log(typeof lectureId);
+        //     console.log('lectureId:', lectureId); // 콘솔 로그로 lectureId 값 확인
+        //     // eslint-disable-next-line no-undef
+        //     const convertedLectureId = BigInt(lectureId); // number를 Long 타입으로 변환
+        //     console.log(typeof lectureId)
+        //     const requestBody = {
+        //         lectureId: convertedLectureId,
+        //         lectureApplyStatus: lectureApplyStatus,
+        //     };
+        //     this.$axios
+        //         .put('/admin/manage/appliedlecture/update', requestBody)
+        //         .then(() => {
+        //             alert('강의 개설이 허용되었습니다.');
+        //             this.updateList(convertedLectureId, '2');
+        //             console.log('DB 컬럼 값이 성공적으로 업데이트되었습니다.');
+        //         })
+        //         .catch((err) => {
+        //             if (err.message.indexOf('Network Error') > -1) {
+        //                 alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.');
+        //             } else {
+        //                 console.error('DB 컬럼 값 업데이트 중 오류가 발생했습니다:', err);
+        //             }
+        //         });
+        //     console.log('lectureApplyStatus:', lectureApplyStatus);
+        // }
+
+        async approveLecture(lecture) {
+            if (lecture.lecture_apply_status !== '2') {
+                // lecture_id와 lecture_apply_status를 백엔드 API에 전달하여 수정 요청
+                try {
+                    await axios.put(`/admin/manage/appliedlecture/${lecture.lecture_id}`, {
+                        lecture_apply_status: '2',
+                    });
+                    // 수정 성공 시, 해당 강의의 lecture_apply_status를 '2'로 변경
+                    lecture.lecture_apply_status = '2';
+                } catch (error) {
+                    console.error('Failed to approve lecture:', error);
+                    // 에러 처리
+                }
+            }
+        },
     }
 }
 </script>

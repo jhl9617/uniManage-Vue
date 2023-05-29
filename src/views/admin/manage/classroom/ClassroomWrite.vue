@@ -36,7 +36,7 @@
             <tr style="border: solid 1px ;">
                 <th style="border: solid 1px ;">강의실 수용인원</th>
                 <td style="border: solid 1px ;">
-                    <input type="number" v-model="class_capacity" class="w3-input w3-border" placeholder="강의실 호수를 입력해주세요.">
+                    <input type="number" v-model="class_capacity" class="w3-input w3-border" placeholder="수용인원을 입력해주세요.">
                 </td>
             </tr>
         </table>

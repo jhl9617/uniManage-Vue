@@ -1,158 +1,87 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <h3>공업미적분 강ㅇㅇ 학생 과제 제출현황</h3>
-            <br>
+    <div class="board-detail">
+        <div class="board-contents">
+            <h3>{{ homework_name }}</h3>
             <div>
-                학생명 &nbsp;
-                <select name="" id="">
-                    <option value="">선택</option>
-                    <option value="">강ㅇㅇ</option>
-                    <option value="">김ㅇㅇ</option>
-                    <option value="">김ㅇㅇ</option>
-                    <option value="">유ㅇㅇ</option>
-                    <option value="">이ㅇㅇ</option>
-                    <option value="">이ㅇㅇ</option>
-                    <option value="">이ㅇㅇ</option>
-                    <option value="">최ㅇㅇ</option>
-                    <option value="">최ㅇㅇ</option>
-                </select>
+                <strong class="w3-large">{{ homework_content }}</strong>
+                <br>
+                <span>마감 기한 : {{ deadline }}</span>
             </div>
-            <br>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>주차</th>
-                    <th>학과명</th>
-                    <th>과제명</th>
-                    <th>제출일</th>
-                    <th>제출여부</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.03</td>
-                    <td>
-                        <input type="radio" name="att1" checked> 제출 &nbsp;
-                        <input type="radio" name="att1"> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>1주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.06</td>
-                    <td>
-                        <input type="radio" name="att2" checked> 제출 &nbsp;
-                        <input type="radio" name="att2"> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>2주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.10</td>
-                    <td>
-                        <input type="radio" name="att3" checked> 제출 &nbsp;
-                        <input type="radio" name="att3"> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>2주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.13</td>
-                    <td>
-                        <input type="radio" name="att4"> 제출 &nbsp;
-                        <input type="radio" name="att4" checked> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>3주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.17</td>
-                    <td>
-                        <input type="radio" name="att5" checked> 제출 &nbsp;
-                        <input type="radio" name="att5"> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>3주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.20</td>
-                    <td>
-                        <input type="radio" name="att6" checked> 제출 &nbsp;
-                        <input type="radio" name="att6"> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>4주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.24</td>
-                    <td>
-                        <input type="radio" name="att7" checked> 제출 &nbsp;
-                        <input type="radio" name="att7"> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>4주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.04.27</td>
-                    <td>
-                        <input type="radio" name="att8" checked> 제출 &nbsp;
-                        <input type="radio" name="att8"> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>5주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.05.01</td>
-                    <td>
-                        <input type="radio" name="att9"> 제출 &nbsp;
-                        <input type="radio" name="att9" checked> 미제출
-                    </td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>5주차</td>
-                    <td>수학과</td>
-                    <td>공업미적1</td>
-                    <td>2023.05.04</td>
-                    <td>
-                        <input type="radio" name="att10" checked> 제출 &nbsp;
-                        <input type="radio" name="att10"> 미제출
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <br>
-            <div>
-                1 2 3 4 5 > >>
-            </div>
+        </div>
+
+        <div class="board-contents">
+            <span>첨부파일명 : {{ file_name }}</span>
+        </div>
+
+        <div class="common-buttons">
+
+            <button type="button" class="w3-button w3-round w3-gray" v-on:click="fnList">목록</button>
         </div>
     </div>
 </template>
-<script>
 
+<script>
+export default {
+    data() { //변수생성
+        return {
+            requestBody: this.$route.query,
+            homework_id: this.$route.query.homework_id,
+
+            homework_name: '',
+            deadline: '',
+            homework_content: '',
+
+            file_name: '',
+            file_rename: ''
+        }
+    },
+    mounted() { // document.ready, window.onload와 같은 형태
+        this.fnGetView()
+    },
+    methods: {
+        fnGetView() {
+            this.$axios.get(this.$serverUrl + '/prof/lecture/homework/detail', {
+                params: this.requestBody
+            }).then((res) => { //success
+                this.homework_title = res.data.homework.homework_name
+                this.deadline = res.data.homework.deadline
+                this.homework_content = res.data.homework.homework_content
+                this.file_name = res.data.homework_file.file_name
+                this.file_rename = res.data.homework_file.file_rename
+            }).catch((err) => { // error
+                if (err.message.indexOf('Network Error') > -1) {
+                    alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+                }
+            })
+        },
+        fnList() {
+            delete this.requestBody.homework_id
+            this.$router.push({
+                path: './list',
+                query: this.requestBody
+            })
+        },
+        fnWrite() {
+            this.$router.push({
+                path: './write',
+                query: this.requestBody
+            })
+        },
+        fnDelete() {
+            if (!confirm("삭제하시겠습니까?")) return
+
+            this.$axios.delete(this.$serverUrl + '/board/' + this.idx, {})
+                .then(() => {
+                    alert('삭제되었습니다.')
+                    this.fnList();
+                }).catch((err) => {
+                console.log(err);
+            })
+        }
+    }
+}
 </script>
-<style>
+<style scoped>
+
 
 </style>
