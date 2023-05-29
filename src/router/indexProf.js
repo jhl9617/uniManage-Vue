@@ -14,7 +14,6 @@ import ProfessorLectureDetail from "@/views/professor/lecture/ProfessorLectureDe
 import ProfessorLectureNoticeWrite from "@/views/professor/lectureNotice/ProfessorLectureNoticeWrite.vue"
 import ProfessorReferenceList from "@/views/professor/lectureRoom/ProfessorReferenceList.vue"
 import ProfessorReferenceDetail from "@/views/professor/lectureRoom/ProfessorReferenceDetail.vue"
-import ProfessorReferenceUpdate from "@/views/professor/lectureRoom/ProfessorReferenceUpdate.vue"
 import ProfessorReferenceWrite from "@/views/professor/lectureRoom/ProfessorReferenceWrite.vue"
 import ProfessorLectureNotice from "@/views/professor/lectureNotice/ProfessorLectureNotice.vue"
 import ProfessorLectureNoticeDetail from "@/views/professor/lectureNotice/ProfessorLectureNoticeDetail.vue"
@@ -153,12 +152,6 @@ const routesProf = [
         path: '/prof/lecture/reference/detail',
         name: 'ProfessorReferenceDetail',
         component: ProfessorReferenceDetail
-    },
-    {
-        //강의자료실 수정
-        path: '/prof/lecture/reference/update',
-        name: 'ProfessorReferenceUpdate',
-        component: ProfessorReferenceUpdate
     },
     {
         //강의자료실 작성

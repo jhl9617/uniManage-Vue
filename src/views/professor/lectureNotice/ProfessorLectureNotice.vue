@@ -132,3 +132,11 @@ export default {
     }
 }
 </script>
+<style scoped>
+table tr th {
+    text-align: center;
+}
+table tr td {
+    text-align: center;
+}
+</style>
